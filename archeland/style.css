@@ -1,0 +1,121 @@
+*{
+    font-size:12px;
+    margin:0px;
+    padding:0px;
+}
+.table1 img {
+    height:40px;
+    width:40px;
+    /*border:1px solid #444444;*/
+}
+.table2 img {
+    border:1px solid #444444;
+}
+.table1{
+    width:1550px;
+    border-collapse: collapse;
+    margin-top:5px;
+    background-image: url("./img/bg2.png");
+    font-weight: bold;
+    color: #ffffff;
+
+}
+.table1 tr{
+    
+}
+.table1 th, .table1 td{
+    text-align:center;
+}
+.table2 {
+    width:1550px;
+    margin-top:5px;
+    border-left:1px solid #444444;
+    border-collapse: collapse;
+    overflow:auto;
+    background-image: url("./img/bg.png");
+    font-weight: bold;
+    color: #ffffff;
+}
+.table2 thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-color: #f8f8ff;
+}
+.table2 td:hover{
+    background-color: #6699ff;
+}
+.table2 td{
+    text-align:center;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+.div1{
+    width:1567px;
+}
+.div2{
+    width:1567px;
+    height:600px;
+    overflow:auto;
+}
+input[type="text"]{
+    width:40px;
+    height:20px;
+    text-align:right;
+    border:1px solid #000000;
+    margin-bottom:4px;
+    padding:1px;
+}
+input[type="checkbox"]{
+    width:30px;
+    height:30px;
+    cursor: pointer;
+}
+span{
+    cursor: pointer;
+}
+.div2 input[type="checkbox"]{
+    width:10px;
+    height:10px;
+}
+.div1 input[type="button"]{
+    width:50px;
+    height:30px;
+    margin:5px;
+}
+.main {
+    min-width: 320px;
+    max-width: 1350px;
+    padding: 10px;    
+    border-radius: 7px;;        
+    background: #ffffff;}
+
+section {
+    display: none;
+    padding: 10px 0 0;
+    border-top: 1px solid #ddd;}
+
+input[type="radio"] {
+    display: none;}
+
+label {
+    display: inline-block;
+    padding: 15px 25px;
+    font-weight: 600;
+    color: #bbb;
+    border: 1px solid transparent;}
+
+label:hover {
+    color: #2e9cdf;
+    cursor: pointer;}
+
+/*input Ŭ����, label ��Ÿ��*/
+input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #2e9cdf;
+    border-bottom: 1px solid #ffffff;}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2{
+    display: block;}
