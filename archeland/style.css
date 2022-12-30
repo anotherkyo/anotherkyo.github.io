@@ -31,7 +31,7 @@ section {
 
 .div3{
     width:1567px;
-    height:800px;
+    height:775px;
     overflow:auto;
 }
 
@@ -182,7 +182,7 @@ input:checked + label {
 
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
-#tab2:checked ~ #content3{
+#tab3:checked ~ #content3{
     display: block;
 }
     
