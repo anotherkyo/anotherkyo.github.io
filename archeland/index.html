@@ -78,6 +78,14 @@
 						}
 					} 
 				});
+
+				$("#content2 tr > td:first-child > div > img").each(function(){
+					$(this).attr("id", $(this).attr("src").substring($(this).attr("src").lastIndexOf("/")+1).replace(".webp",""))
+				});
+
+				$("#content2 img").each(function(){
+					$(this).wrap("<a href='#" + $(this).attr("src").substring($(this).attr("src").lastIndexOf("/")+1).replace(".webp","") + "'></a>")
+				});
 				
 				// 특성 초기화
 				$("#resetBtn1").on('click',function(){
@@ -94,8 +102,14 @@
 		<div class="main" style="text-align:left">
 			<input id="tab1" type="radio" name="tabs" checked> 
 			<label for="tab1">영웅-특성</label>
-	
-			<section id="content1" style="margin-bottom:20px;">
+			
+			<input id="tab2" type="radio" name="tabs" checked> 
+			<label for="tab2">영웅-유대</label>
+
+			<input id="tab3" type="radio" name="tabs"> 
+			<label for="tab3">변경내역</label>
+
+			<section id="content1">
 				<div class="div1">
 					<table class="table1">
 						<colgroup>
@@ -225,8 +239,7 @@
 							<!-- 주인공 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Hero.webp">
-									<!-- <br>주인공<br>N</td> -->
+									<img src="./img/Hero.webp" alt="주인공">
 								</td>
 								<td></td>
 								<td></td>
@@ -401,8 +414,7 @@
 							<!-- 아비아 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Abia.webp">
-									<!-- <br>아비아<br>N</td> -->
+									<img src="./img/Abia.webp" alt="아비아">
 								</td>
 								<td></td>
 								<td></td>
@@ -578,8 +590,7 @@
 							<!-- 벨렛 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Bellet.webp">
-									<!-- <br>벨렛<br>N</td> -->
+									<img src="./img/Bellet.webp" alt="벨렛">
 								</td>
 								<td></td>
 								<td></td>
@@ -754,8 +765,7 @@
 							<!-- 엘리시아4세 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Elysia.webp">
-									<!-- <br>엘리시아4세<br>N</td> -->
+									<img src="./img/Elysia.webp" alt="엘리시아4세">
 								</td>
 								<td></td>
 								<td></td>
@@ -930,8 +940,7 @@
 							<!-- 놀라 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Nolra.webp">
-									<!-- <br>놀라<br>N</td> -->
+									<img src="./img/Nolra.webp" alt="놀라">
 								</td>
 								<td></td>
 								<td></td>
@@ -1106,8 +1115,7 @@
 							<!-- 클라리스 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Clarice.webp">
-									<!-- <br>클라리스<br>N</td> -->
+									<img src="./img/Clarice.webp" alt="클라리스">
 								</td>
 								<td></td>
 								<td></td>
@@ -1282,8 +1290,7 @@
 							<!-- 피콕 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Pikok.webp">
-									<!-- <br>피콕<br>N</td> -->
+									<img src="./img/Pikok.webp" alt="피콕">
 								</td>
 								<td></td>
 								<td></td>
@@ -1458,8 +1465,7 @@
 							<!-- 캐서린 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Katharine.webp">
-									<!-- <br>캐서린<br>N</td> -->
+									<img src="./img/Katharine.webp" alt="캐서린">
 								</td>
 								<td></td>
 								<td></td>
@@ -1634,7 +1640,7 @@
 							<!-- 샬롯 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Charlotte.webp">
+									<img src="./img/Charlotte.webp" alt="샬롯">
 								</td>
 								<td></td>
 								<td></td>
@@ -1808,8 +1814,7 @@
 							<!-- 리나 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Lina.webp">
-									<!-- <br>리나<br>N</td> -->
+									<img src="./img/Lina.webp" alt="리나">
 								</td>
 								<td></td>
 								<td></td>
@@ -1984,8 +1989,7 @@
 							<!-- 리차드 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Richard.webp">
-									<!-- <br>리차드<br>N</td> -->
+									<img src="./img/Richard.webp" alt="리차드">
 								</td>
 								<td></td>
 								<td></td>
@@ -2160,8 +2164,7 @@
 							<!-- 지크하트 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Jicheart.webp">
-									<!-- <br>지크하트<br>N</td> -->
+									<img src="./img/Jicheart.webp" alt="지크하트">
 								</td>
 								<td></td>
 								<td></td>
@@ -2336,8 +2339,7 @@
 							<!-- 캐시 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Cache.webp">
-									<!-- <br>캐시<br>N</td> -->
+									<img src="./img/Cache.webp" alt="캐시">
 								</td>
 								<td></td>
 								<td></td>
@@ -2512,8 +2514,7 @@
 							<!-- 카펫 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Kapet.webp">
-									<!-- <br>카펫<br>N</td> -->
+									<img src="./img/Kapet.webp" alt="카펫">
 								</td>
 								<td></td>
 								<td></td>
@@ -2688,7 +2689,7 @@
 							<!-- 에리카 -->
 							<tr>
 								<td rowspan="3">
-									<img src="./img/Erica.webp">
+									<img src="./img/Erica.webp" alt="에리카">
 								</td>
 								<td></td>
 								<td></td>
@@ -2864,7 +2865,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Kavir.webp" alt="카비르">
-									<!-- <br>카비르<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3040,7 +3040,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Even.webp" alt="이븐">
-									<!-- <br>이븐<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3216,7 +3215,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Sylva.webp" alt="실바">
-									<!-- <br>실바<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3392,7 +3390,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/atum.webp" alt="아툼">
-									<!-- <br>아툼<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3568,7 +3565,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Michael.webp" alt="미카엘">
-									<!-- <br>미카엘<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3744,7 +3740,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Krappael.webp" alt="크라파엘">
-									<!-- <br>크라파엘<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -3920,7 +3915,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Melissa.webp" alt="멜리사">
-									<!-- <br>멜리사<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4096,7 +4090,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Searsha.webp" alt="시얼샤">
-									<!-- <br>시얼샤<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4272,7 +4265,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Armand.webp" alt="아르망">
-									<!-- <br>아르망<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4448,7 +4440,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Brown.webp" alt="브라운">
-									<!-- <br>브라운<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4624,7 +4615,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Hellsen.webp" alt="헬센">
-									<!-- <br>헬센<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4800,7 +4790,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Lohannes.webp" alt="로하네스">
-									<!-- <br>로하네스<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -4976,7 +4965,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/William.webp" alt="윌리엄">
-									<!-- <br>윌리엄<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -5152,7 +5140,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Enhardt.webp" alt="엔하르트">
-									<!-- <br>엔하르트<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -5328,7 +5315,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Leila.webp" alt="레일라">
-									<!-- <br>레일라<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -5504,7 +5490,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Hotsan.webp" alt="핫산">
-									<!-- <br>핫산<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -5680,7 +5665,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Nicholas.webp" alt="니콜라스">
-									<!-- <br>니콜라스<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -5856,7 +5840,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Hellga.webp" alt="헬가">
-									<!-- <br>헬가<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6032,7 +6015,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Sarisa.webp" alt="사리사">
-									<!-- <br>사리사<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6208,7 +6190,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Boseman.webp" alt="보스만">
-									<!-- <br>보스만<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6384,7 +6365,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Hayate.webp" alt="하야테">
-									<!-- <br>하야테<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6560,7 +6540,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Caroline.webp" alt="캐롤라인">
-									<!-- <br>캐롤라인<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6736,7 +6715,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Zil.webp" alt="질">
-									<!-- <br>질<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -6912,7 +6890,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Yohan.webp" alt="요한">
-									<!-- <br>요한<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -7088,7 +7065,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Sawyer.webp" alt="소이어">
-									<!-- <br>소이어<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -7264,7 +7240,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Futureking.webp" alt="미래왕">
-									<!-- <br>미래왕<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -7440,7 +7415,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Irene.webp" alt="아이린">
-									<!-- <br>아이린<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -7616,7 +7590,6 @@
 							<tr>
 								<td rowspan="3">
 									<img src="./img/Calder.webp" alt="칼더">
-									<!-- <br>칼더<br>N</td> -->
 								</td>
 								<td></td>
 								<td></td>
@@ -8143,7 +8116,482 @@
 					</table>
 				</div>
 			</section>
+
+			<section id="content2">
+				<div class="div3">
+					<table class="table3">
+						<colgroup>
+							<col style="width:150px">
+							<col style="width:5px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:5px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+							<col style="width:150px">
+						</colgroup>
+						<thead>
+							<th>영웅</th>
+							<th></th>
+							<th>유대1 - 레벨 조건: 30</th>
+							<th>유대2 - 레벨 조건: 50</th>
+							<th></th>
+							<th>관련영웅1</th>
+							<th>관련영웅2</th>
+							<th>관련영웅3</th>
+							<th>관련영웅4</th>
+							<th>관련영웅5</th>
+							<th>관련영웅6</th>
+							<th>관련영웅7</th>
+							<th>관련영웅8</th>
+						</thead>
+						<tbody>
+							<!-- 주인공 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Hero.webp" alt="주인공"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td><div class="div3-img"><img src="./img/Michael.webp" alt="미카엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+							</tr>
+								
+							</tr>
+							<!-- 아비아 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Abia.webp" alt="아비아"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+							</tr>
+							</tr>
+							<!-- 벨렛 -->
+							<tr>					
+								<td><div class="div3-img"><img src="./img/Bellet.webp" alt="벨렛"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Leila.webp" alt="레일라"></div></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Melissa.webp" alt="멜리사"></div></td>
+								<td><div class="div3-img"><img src="./img/Leila.webp" alt="레일라"></div></td>
+							</tr>
+							<!-- 엘리시아4세 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Searsha.webp" alt="시얼샤"></div></td>
+								<td><div class="div3-img"><img src="./img/Nolra.webp" alt="놀라"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Nolra.webp" alt="놀라"></div></td>
+								<td><div class="div3-img"><img src="./img/Kapet.webp" alt="카펫"></div></td>
+								<td><div class="div3-img"><img src="./img/Searsha.webp" alt="시얼샤"></div></td>
+							</tr>
+							<!-- 놀라 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Nolra.webp" alt="놀라"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+								<td><div class="div3-img"><img src="./img/Searsha.webp" alt="시얼샤"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+							</tr>
+							<!-- 클라리스 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Clarice.webp" alt="클라리스"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Kapet.webp" alt="카펫"></div></td>
+								<td><div class="div3-img"><img src="./img/Erica.webp" alt="에리카"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+							</tr>
+							<!-- 피콕 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Pikok.webp" alt="피콕"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Katharine.webp" alt="캐서린"></div></td>
+								<td><div class="div3-img"><img src="./img/Armand.webp" alt="아르망"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Charlotte.webp" alt="샬롯"></div></td>
+								<td><div class="div3-img"><img src="./img/Armand.webp" alt="아르망"></div></td>
+							</tr>
+							<!-- 캐서린 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Katharine.webp" alt="캐서린"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Charlotte.webp" alt="샬롯"></div></td>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Pikok.webp" alt="피콕"></div></td>
+							</tr>
+							<!-- 샬롯 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Charlotte.webp" alt="샬롯"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Pikok.webp" alt="피콕"></div></td>
+								<td><div class="div3-img"><img src="./img/Kapet.webp" alt="카펫"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Katharine.webp" alt="캐서린"></div></td>
+								<td><div class="div3-img"><img src="./img/Semi.webp" alt="세미"></div></td>
+							</tr>
+							<!-- 리나 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Lina.webp" alt="리나"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Kavir.webp" alt="카비르"></div></td>
+								<td><div class="div3-img"><img src="./img/Sylva.webp" alt="실바"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Sylva.webp" alt="실바"></div></td>
+								<td><div class="div3-img"><img src="./img/Boseman.webp" alt="보스만"></div></td>
+							</tr>
+							<!-- 리차드 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Cache.webp" alt="캐시"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Abia.webp" alt="아비아"></div></td>
+								<td><div class="div3-img"><img src="./img/Kapet.webp" alt="카펫"></div></td>
+								<td><div class="div3-img"><img src="./img/Erica.webp" alt="에리카"></div></td>
+								<td><div class="div3-img"><img src="./img/Yohan.webp" alt="요한"></div></td>
+							</tr>
+							<!-- 지크하트 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td><div class="div3-img"><img src="./img/Erica.webp" alt="에리카"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Cache.webp" alt="캐시"></div></td>
+								<td><div class="div3-img"><img src="./img/Erica.webp" alt="에리카"></div></td>
+								<td><div class="div3-img"><img src="./img/Hellsen.webp" alt="헬센"></div></td>
+								<td><div class="div3-img"><img src="./img/Semi.webp" alt="세미"></div></td>
+							</tr>
+							<!-- 캐시 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Cache.webp" alt="캐시"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+							</tr>
+							<!-- 카펫 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Kapet.webp" alt="카펫"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Clarice.webp" alt="클라리스"></div></td>
+								<td><div class="div3-img"><img src="./img/Charlotte.webp" alt="샬롯"></div></td>
+							</tr>
+							<!-- 에리카 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Erica.webp" alt="에리카"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Clarice.webp" alt="클라리스"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+							</tr>
+							<!-- 카비르 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Kavir.webp" alt="카비르"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Nicholas.webp" alt="니콜라스"></div></td>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Lina.webp" alt="리나"></div></td>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+							</tr>
+							<!-- 이븐 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Bellet.webp" alt="벨렛"></div></td>
+								<td><div class="div3-img"><img src="./img/Sylva.webp" alt="실바"></div></td>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td><div class="div3-img"><img src="./img/Leila.webp" alt="레일라"></div></td>
+								<td><div class="div3-img"><img src="./img/Gabriel.webp" alt="가브리엘"></div></td>
+							</tr>
+							<!-- 실바 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Sylva.webp" alt="실바"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td><div class="div3-img"><img src="./img/Lina.webp" alt="리나"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Lina.webp" alt="리나"></div></td>
+							</tr>
+							<!-- 아툼 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Katharine.webp" alt="캐서린"></div></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+							</tr>
+							<!-- 미카엘 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Michael.webp" alt="미카엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hero.webp" alt="주인공"></div></td>
+								<td><div class="div3-img"><img src="./img/Gabriel.webp" alt="가브리엘"></div></td>
+							</tr>
+							<!-- 크라파엘 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+								<td><div class="div3-img"><img src="./img/Kavir.webp" alt="카비르"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Kavir.webp" alt="카비르"></div></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+							</tr>
+							<!-- 멜리사 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Melissa.webp" alt="멜리사"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Bellet.webp" alt="벨렛"></div></td>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+							</tr>
+							<!-- 시얼샤 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Searsha.webp" alt="시얼샤"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+								<td><div class="div3-img"><img src="./img/Caroline.webp" alt="캐롤라인"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Elysia.webp" alt="엘리시아4세"></div></td>
+								<td><div class="div3-img"><img src="./img/Nolra.webp" alt="놀라"></div></td>
+							</tr>
+							<!-- 아르망 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Armand.webp" alt="아르망"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hayate.webp" alt="하야테"></div></td>
+								<td><div class="div3-img"><img src="./img/Pikok.webp" alt="피콕"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Pikok.webp" alt="피콕"></div></td>
+								<td><div class="div3-img"><img src="./img/Hayate.webp" alt="하야테"></div></td>
+							</tr>
+							<!-- 브라운 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Brown.webp" alt="브라운"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Yohan.webp" alt="요한"></div></td>
+								<td><div class="div3-img"><img src="./img/Hellsen.webp" alt="헬센"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellsen.webp" alt="헬센"></div></td>
+							</tr>
+							<!-- 헬센 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Hellsen.webp" alt="헬센"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Brown.webp" alt="브라운"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Brown.webp" alt="브라운"></div></td>
+								<td><div class="div3-img"><img src="./img/Sawyer.webp" alt="소이어"></div></td>
+							</tr>
+							<!-- 로하네스 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Lohannes.webp" alt="로하네스"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/William.webp" alt="윌리엄"></div></td>
+								<td><div class="div3-img"><img src="./img/Leila.webp" alt="레일라"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/William.webp" alt="윌리엄"></div></td>
+							</tr>
+							<!-- 윌리엄 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/William.webp" alt="윌리엄"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Lohannes.webp" alt="로하네스"></div></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Lohannes.webp" alt="로하네스"></div></td>
+							</tr>
+							<!-- 엔하르트 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Enhardt.webp" alt="엔하르트"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Melissa.webp" alt="멜리사"></div></td>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Abia.webp" alt="아비아"></div></td>
+								<td><div class="div3-img"><img src="./img/Krappael.webp" alt="크라파엘"></div></td>
+								<td><div class="div3-img"><img src="./img/Melissa.webp" alt="멜리사"></div></td>
+							</tr>
+							<!-- 레일라 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Leila.webp" alt="레일라"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td><div class="div3-img"><img src="./img/Bellet.webp" alt="벨렛"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Bellet.webp" alt="벨렛"></div></td>
+								<td><div class="div3-img"><img src="./img/Lohannes.webp" alt="로하네스"></div></td>
+							</tr>
+							<!-- 핫산 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td><div class="div3-img"><img src="./img/Hero.webp" alt="주인공"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hero.webp" alt="주인공"></div></td>
+								<td><div class="div3-img"><img src="./img/atum.webp" alt="아툼"></div></td>
+								<td><div class="div3-img"><img src="./img/Futureking.webp" alt="미래왕"></div></td>
+								<td><div class="div3-img"><img src="./img/Irene.webp" alt="아이린"></div></td>
+							</tr>
+							<!-- 니콜라스 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Nicholas.webp" alt="니콜라스"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Boseman.webp" alt="보스만"></div></td>
+								<td><div class="div3-img"><img src="./img/Sarisa.webp" alt="사리사"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Kavir.webp" alt="카비르"></div></td>
+								<td><div class="div3-img"><img src="./img/Sarisa.webp" alt="사리사"></div></td>
+							</tr>
+							<!-- 헬가 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Hellga.webp" alt="헬가"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Abia.webp" alt="아비아"></div></td>
+								<td><div class="div3-img"><img src="./img/Clarice.webp" alt="클라리스"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hero.webp" alt="주인공"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+								<td><div class="div3-img"><img src="./img/Michael.webp" alt="미카엘"></div></td>
+								<td><div class="div3-img"><img src="./img/William.webp" alt="윌리엄"></div></td>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+							</tr>
+							<!-- 사리사 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Sarisa.webp" alt="사리사"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Nicholas.webp" alt="니콜라스"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Nicholas.webp" alt="니콜라스"></div></td>
+							</tr>
+							<!-- 보스만 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Boseman.webp" alt="보스만"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Lina.webp" alt="리나"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Nicholas.webp" alt="니콜라스"></div></td>
+							</tr>
+							<!-- 하야테 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Hayate.webp" alt="하야테"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Armand.webp" alt="아르망"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Armand.webp" alt="아르망"></div></td>
+							</tr>
+							<!-- 캐롤라인 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Caroline.webp" alt="캐롤라인"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Zil.webp" alt="질"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Searsha.webp" alt="시얼샤"></div></td>
+							</tr>
+							<!-- 질 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Zil.webp" alt="질"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Boseman.webp" alt="보스만"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Caroline.webp" alt="캐롤라인"></div></td>
+							</tr>
+							<!-- 요한 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Yohan.webp" alt="요한"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Richard.webp" alt="리차드"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Brown.webp" alt="브라운"></div></td>
+							</tr>
+							<!-- 소이어 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Sawyer.webp" alt="소이어"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hellsen.webp" alt="헬센"></div></td>
+								<td></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Sawyer.webp" alt="소이어"></div></td>
+							</tr>
+							<!-- 미래왕 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Futureking.webp" alt="미래왕"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+							</tr>
+							<!-- 아이린 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Irene.webp" alt="아이린"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Hotsan.webp" alt="핫산"></div></td>
+							</tr>
+							<!-- 칼더 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Calder.webp" alt="칼더"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Sawyer.webp" alt="소이어"></div></td>
+							</tr>
+							<!-- 가브리엘 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Gabriel.webp" alt="가브리엘"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Even.webp" alt="이븐"></div></td>
+								<td><div class="div3-img"><img src="./img/Michael.webp" alt="미카엘"></div></td>
+							</tr>
+							<!-- 세미 -->
+							<tr>
+								<td><div class="div3-img"><img src="./img/Semi.webp" alt="세미"></div></td>
+								<td></td>
+								<td><div class="div3-img"><img src="./img/Charlotte.webp" alt="샬롯"></div></td>
+								<td><div class="div3-img"><img src="./img/Jicheart.webp" alt="지크하트"></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section id="content3">
+				2022-12-31 영웅-유대 추가
+			</section>
 		</div>
 	</BODY>
 </HTML>
-<!-- 202212170459 -->
+<!-- 20221231 -->
