@@ -23,10 +23,35 @@ section {
     width:1567px;
 }
 
+input[type="button"]{
+    margin:5px;
+    padding:2px 4px;
+    background-color: #c73c3c;
+    border-radius: 5px;
+}
+
+input[type="button"]{
+    margin:5px;
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 .div2{
     width:1567px;
     height:600px;
     overflow:auto;
+}
+
+.div2 input[type="checkbox"]{
+    width:10px;
+    height:10px;
+}
+
+.selectColor{
+    color:#ffff00;
 }
 
 .div3{
@@ -35,15 +60,68 @@ section {
     overflow:auto;
 }
 
-.div1 input[type="button"]{
-    width:50px;
-    height:30px;
-    margin:5px;
+.div3-img{
+    max-width: 150px;
+    overflow: hidden;
 }
 
-.div2 input[type="checkbox"]{
-    width:10px;
-    height:10px;
+.div3-img img{
+    max-width: initial;
+    margin-left: -160px;
+    border:1px solid #444444;
+}
+
+/*
+.div4{
+    
+}
+*/
+
+.div5{
+    float:left;
+    width:417px;
+    height:710px;
+    overflow:auto;
+}
+
+
+.div5 img{
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.div5 img:hover{
+    opacity: 1;
+}
+
+.icon{
+    opacity: 1 !important;
+    cursor: default !important;
+    width: 20px !important;
+}
+
+.div6{
+    float:left;
+    width:618px;
+    height:710px;
+    overflow:auto;
+}
+
+.div6-img{
+    max-width: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.div6-img img{
+    margin-left: -160px;
+    border:1px solid #444444;
+    opacity: 0.2;
+}
+
+.div6-img img:hover{
+    opacity: 1;
 }
 
 .table1{
@@ -96,6 +174,10 @@ section {
     border:1px solid #444444;
 }
 
+.table2 span{
+    cursor: pointer;
+}
+
 .table3 {
     width:1550px;
     margin-top:5px;
@@ -116,29 +198,59 @@ section {
 
 .table3 td{
     text-align:center;
-    /*border-top: 1px solid #000000;*/
-    /*border-bottom: 1px solid #000000;*/
-    /*border-right: 1px solid #000000;*/
-    /*border-left: 1px solid #000000;*/
-}
-
-.div3-img{
-    max-width: 150px;
-    overflow: hidden;
-}
-
-.div3-img img{
-    max-width: initial;
-    margin-left: -160px;
-    border:1px solid #444444;
 }
 
 .table3 img {
     border:1px solid #444444;
 }
 
-span{
-    cursor: pointer;
+.table4{
+    width:1018px;
+    border-collapse: collapse;
+    margin-top:5px;
+    background-color: #161626;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.storeColor{
+    color:#54DEAA;
+}
+
+.table4 th, .table4 td{
+    text-align:center;
+}
+
+.table5 {
+    width:400px;
+    border-left:1px solid #444444;
+    border-collapse: collapse;
+    overflow:auto;
+    background-color: #161626;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.table5 td{
+    text-align:center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.table6 {
+    width:600px;
+    border-left:1px solid #444444;
+    border-collapse: collapse;
+    overflow:auto;
+    background-color: #161626;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.table6 td{
+    text-align:center;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 input[type="text"]{
@@ -151,8 +263,6 @@ input[type="text"]{
 }
 
 input[type="checkbox"]{
-    width:30px;
-    height:30px;
     cursor: pointer;
 }
 
@@ -182,7 +292,8 @@ input:checked + label {
 
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
-#tab3:checked ~ #content3{
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4{
     display: block;
 }
     
