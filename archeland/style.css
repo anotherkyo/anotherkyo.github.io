@@ -93,6 +93,12 @@ input[type="button"]{
     opacity: 1;
 }
 
+.div5 img:active{
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+    position: relative;
+    top:5px;
+}
+
 .icon{
     opacity: 1 !important;
     cursor: default !important;
@@ -121,6 +127,12 @@ input[type="button"]{
 
 .div6-img img:hover{
     opacity: 1;
+}
+
+.div6-img img:active{
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+    position: relative;
+    top:5px;
 }
 
 .table1{
