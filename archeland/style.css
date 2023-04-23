@@ -26,13 +26,6 @@ section {
 input[type="button"]{
     margin:5px;
     padding:2px 4px;
-    background-color: #c73c3c;
-    border-radius: 5px;
-}
-
-input[type="button"]{
-    margin:5px;
-    padding:2px 4px;
     border-radius: 5px;
     background-color: #d42323;
     color: #ffffff;
