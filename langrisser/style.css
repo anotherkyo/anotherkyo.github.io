@@ -267,7 +267,7 @@
     margin:5px;
 }
 .table_pattern1{
-    width:230px;
+    width:1200px;
     margin-top:10px;
     margin:5px;
     font-weight: bold;
@@ -283,8 +283,8 @@
     width:50px;
 }
 .div_pattern2{
-    width:600px;
-    height:780px;
+    width:1030px;
+    height:600px;
     overflow:auto;
     float:left;
 }
@@ -295,9 +295,9 @@
 }
 
 .table_pattern2 {
-    width:450px;
+    width:1000px;
     margin-top: 10px;
-    border:1px solid #444444;
+    /*border:1px solid #444444;*/
     border-collapse: collapse;
     margin:5px;
     overflow:auto;
@@ -309,8 +309,8 @@
     background-color: #f8f8ff;
     border:1px solid #444444;
 }
-.table_pattern2 .top{
-    height: 50px;
+.table_pattern2 td.top{
+    height: 50px !important;
     border-top: solid 1px #444444;
     background-color: #1C253B;
     color: #ffffff;
@@ -320,7 +320,9 @@
     width:20px;
 }
 .table_pattern2 .right{
+    border-left: solid 1px #444444;
     border-right: solid 1px #444444;
+    border-bottom: solid 1px #444444;
     background-color: #ffffff;
 }
 .table_pattern2 .right img {
@@ -330,12 +332,27 @@
 .table_pattern2 td{
     padding:5px;
     text-align:center;
-    height: 100px;
+    /*height: 100px;*/
     background-color: #F2E8D1;
+    /*border:1px solid #444444;*/
 }
 .table_pattern2 td img {
     height:50px;
     width:50px;
+}
+.table_pattern2 td.none1, .table_pattern2 th.none1{
+    background-color: #ffffff;
+    border-left: solid 1px #444444;
+    border-right: solid 1px #444444;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+.table_pattern2 td.none2, .table_pattern2 th.none2{
+    background-color: #ffffff;
+    border-left: solid 1px #444444;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
 }
 .plus{
     border-radius: 5px;
@@ -346,6 +363,15 @@
 .minus[type="button"]{
     border-radius: 5px;
     background-color: #d42323;
+    color: #ffffff;
+    cursor: pointer;
+}
+.resetPattern[type="button"]{
+    margin:5px;
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    width: 100px !important; 
     color: #ffffff;
     cursor: pointer;
 }

@@ -3,474 +3,7 @@
 	<HEAD>
 		<meta charset="utf-8">
 		<TITLE>랑그릿사 몽환모의전 전직/각성/유대/훈련장 재료 계산</TITLE>
-		<style>
-			*{
-				font-size:12px;
-				margin:0px;
-				padding:0px;
-			}
-			.table1 img {
-				height:40px;
-				width:40px;
-				border:1px solid #444444;
-			}
-			.table2 img {
-				height:100px;
-				width:100px;
-			}
-			.table3 img {
-				height:40px;
-				width:40px;
-				border:1px solid #444444;
-			}
-			.table4 img {
-				height:60px;
-				width:60px;
-			}
-			.table5 img {
-				height:40px;
-				width:40px;
-				border:1px solid #444444;
-			}
-			.table6 img {
-				height:70px;
-				width:70px;
-			}
-			
-			.table9 img {
-				height:80px;
-				width:80px;
-			}
-			
-			.table1{
-				width:550px;
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				margin-top:5px;
-			}
-			.table1 th, .table1 td{
-				padding:1px;
-				text-align:center;
-			}
-			.table2 {
-				width:550px;
-				margin-top: 10px;
-				border-left:1px solid #444444;
-				border-collapse: collapse;
-				margin:5px;
-				overflow:auto;
-			}
-			.table2 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-			}
-			.table2 td:hover{
-				background-color: #6699ff;
-			}
-			.table2 td{
-				padding:5px;
-				text-align:center;
-				border-top: 1px solid #444444;
-				border-right: 1px solid #444444;
-				border-bottom: 1px solid #444444;
-			}
-			.table3{
-				width:500px;
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				margin-top:5px;
-			}
-			.table3 th, td{
-				padding:1px;
-				text-align:center;
-			}
-			.table4 {
-				width:500px;
-				border-collapse: collapse;
-				border-left:1px solid #444444;
-				margin:5px;
-			}
-			.table4 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-			}
-			.table4 td:hover{
-				background-color: #6699ff;
-			}
-			.table4 td{
-				padding:5px;
-				text-align:center;
-				border-top: 1px solid #444444;
-				border-right: 1px solid #444444;
-				border-bottom: 1px solid #444444;
-			}
-			.table5{
-				width:550px;
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				margin-top:5px;
-			}
-			.table5 th, .table5 td{
-				padding:4px;
-				text-align:center;
-			}
-			.table6 {
-				width:600px;
-				border-collapse: collapse;
-				border-left:1px solid #444444;
-				margin:5px;
-			}
-			.table6 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-			}
-			.table6 td:hover{
-				background-color: #6699ff;
-			}
-			.table6 td{
-				padding:5px;
-				text-align:center;
-				border-top: 1px solid #444444;
-				border-right: 1px solid #444444;
-				border-bottom: 1px solid #444444;
-			}
-
-			/* 훈련장 css start */
-
-			.div_health1{
-				float:left;
-				margin-bottom:10px;
-				margin-right:10px;
-			}
-			.div_health1 input[type="checkbox"]{
-				width:20px;
-				height:20px;
-				margin-top:5px;
-			}
-			.div_health1 input[type="button"]{
-				width:50px;
-				height:30px;
-				margin:5px;
-			}
-			.table_health1{
-				width:550px;
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				margin-top:5px;
-			}
-			.table_health1 th, .table_health1 td{
-				padding:1px;
-				margin:0px;
-				text-align:center;
-			}
-			.table_health1 img {
-				height:40px;
-				width:40px;
-				border:1px solid #444444;
-			}
-			.div_health2{
-				width:747px;
-				height:692px;
-				overflow:auto;
-			}
-			.div_health2 input[type="text"]{
-				width:20px;
-				text-align:center;
-				border:0px;
-				margin-bottom:0px;
-			}
-			.div_health2 input[type="checkbox"]{
-				width:10px;
-				height:10px;
-				cursor: pointer;
-			}
-			.div_health2 input[type="button"]{
-				width:40px;
-				height:20px;
-				font-size:16px;
-			}
-			
-			.table_health2 {
-				width:720px;
-				border-left:1px solid #444444;
-				border-collapse: collapse;
-				margin:5px;
-			}
-			.table_health2 td:hover{
-				background-color: #6699ff;
-			}
-			.table_health2 tr, .table_health2 td{
-				padding:5px;
-				text-align:center;
-				border-top: 1px solid #444444;
-				border-right: 1px solid #444444;
-				border-bottom: 1px solid #444444;
-			}
-			.table_health2 img {
-				height:80px;
-				width:80px;
-			}
-
-			/* 훈련장 css end */
-
-			.table9 {
-				width:1050px;
-				border-collapse: collapse;
-				border-left:1px solid #444444;
-				margin:5px;
-			}
-			.table9 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-			}
-			.table9 td:hover{
-				background-color: #6699ff;
-			}
-			.table9 td{
-				padding-top:5px;
-				padding-bottom:5px;
-				text-align:center;
-				border-top: 1px solid #444444;
-				border-bottom: 1px solid #444444;
-				vertical-align:top;
-			}
-			.table9 .rightBorder{
-				border-right: 2px solid #444444;
-			}
-			.table10{
-				width:550px;
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				margin-top:5px;
-			}
-			.table10 th, .table1 td{
-				padding:1px;
-				text-align:center;
-			}
-
-			/* 문양 style start */
-
-			.div_pattern1{
-				float:left;
-				margin-right:10px;
-			}
-			.div_pattern1 input[type="checkbox"]{
-				width:20px;
-				height:20px;
-				margin-top:5px;
-			}
-			.div_pattern1 input[type="button"]{
-				width:50px;
-				height:30px;
-				margin:5px;
-			}
-			.table_pattern1{
-				width:230px;
-				border-collapse: collapse;
-				margin-top:10px;
-				margin:5px;
-				border:1px solid;
-			}
-			.table_pattern1 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-				border:1px solid #444444;
-			}
-			.table_pattern1 tbody td{
-				text-align:center;
-				border:1px solid #444444;
-			}
-			.table_pattern1 img {
-				height:50px;
-				width:50px;
-			}
-
-			.div_pattern2{
-				width:800px;
-				height:780px;
-				overflow:auto;
-				float:left;
-			}
-			.div_pattern2 input[type="button"]{
-				width:25px;
-				height:20px;
-				font-size:13px;
-			}
-
-			.table_pattern2 {
-				width:450px;
-				margin-top: 10px;
-				border:1px solid #444444;
-				border-collapse: collapse;
-				margin:5px;
-				overflow:auto;
-			}
-			.table_pattern2 thead th{
-				padding:10px;
-				position: sticky;
-				top: 0;
-				background-color: #f8f8ff;
-				border:1px solid #444444;
-			}
-			.table_pattern2 .top{
-				height: 50px;
-				border-top: solid 1px #444444;
-				background-color: #ffffff;
-			}
-			.table_pattern2 .top img {
-				height:20px;
-				width:20px;
-			}
-			.table_pattern2 .right{
-				border-right: solid 1px #444444;
-				background-color: #ffffff;
-			}
-			.table_pattern2 .right img {
-				height:100px;
-				width:100px;
-			}
-			.table_pattern2 td{
-				padding:5px;
-				text-align:center;
-				height: 100px;
-				background-color: #F2E8D1;
-			}
-			.table_pattern2 td img {
-				height:50px;
-				width:50px;
-			}
-			.plus{
-				border-radius: 5px;
-				background-color: #19B053;
-				color: #ffffff;
-				cursor: pointer;
-			}
-			.minus[type="button"]{
-				border-radius: 5px;
-				background-color: #d42323;
-				color: #ffffff;
-				cursor: pointer;
-			}
-
-			/* 문양 style end */
-
-			.div1{
-				float:left;
-				margin-bottom:10px;
-				margin-right:10px;
-			}
-			.div2{
-				width:580px;
-				height:780px;
-				overflow:auto;
-				float:left;
-			}
-			.div3{
-				margin-bottom:20px;
-				float:left;
-			}
-			.div4{
-				width:528px;
-				height:738px;
-				overflow:auto;
-				float:left;
-			}
-			.div5{
-				float:left;
-				margin-bottom:10px;
-				margin-right:10px;
-			}
-			.div6{
-				width:628px;
-				height:780px;
-				overflow:auto;
-				float:left;
-			}
-			
-			.div9{
-				width:1080px;
-				height:800px;
-				overflow:auto;
-				float:left;
-			}		
-			
-			input[type="text"]{
-				width:40px;
-				height:20px;
-				text-align:right;
-				border:1px solid #000000;
-				margin-bottom:4px;
-				padding:1px;
-			}
-			input[type="checkbox"]{
-				width:30px;
-				height:30px;
-				cursor: pointer;
-			}
-			.div2 input[type="checkbox"]{
-				width:10px;
-				height:10px;
-			}
-
-			.div1 input[type="button"], .div3 input[type="button"], .div5 input[type="button"]{
-				width:50px;
-				height:30px;
-				margin:5px;
-			}
-			
-			.main {
-				min-width: 320px;
-				max-width: 1350px;
-				padding: 10px;    
-				border-radius: 7px;;        
-				background: #ffffff;}
-	 
-			section {
-				display: none;
-				padding: 10px 0 0;
-				border-top: 1px solid #ddd;}
-	 
-			input[type="radio"] {
-				display: none;}
-	 
-			label {
-				display: inline-block;
-				padding: 15px 25px;
-				font-weight: 600;
-				color: #bbb;
-				border: 1px solid transparent;}
-	 
-			label:hover {
-				color: #2e9cdf;
-				cursor: pointer;}
-	 
-			/*input 클릭시, label 스타일*/
-			input:checked + label {
-				color: #555;
-				border: 1px solid #ddd;
-				border-top: 2px solid #2e9cdf;
-				border-bottom: 1px solid #ffffff;}
-	 
-			#tab1:checked ~ #content1,
-			#tab2:checked ~ #content2,
-			#tab3:checked ~ #content3,
-			#tab4:checked ~ #content4,
-			#tab5:checked ~ #content5,
-			#tab6:checked ~ #content6,
-			#tab7:checked ~ #content7{
-				display: block;}
-		</style>
-
+		<link rel="stylesheet" href="style.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script>
 			$( document ).ready( function() {
@@ -639,7 +172,51 @@
 						}
 					}
 					btn.parent().find('input:text').val(result);
-					
+				});
+
+				// 문양 버튼 클릭 이벤트
+				$(".table_pattern2 input:button").on('click',function(){
+					var btn = $(this);
+					var value1 = btn.parent().find('span').text();
+					var value2 = $(this).val();
+					var value3 = btn.parent().find('input:hidden').val();
+					var array = value3.split('/');
+					var result = value1;
+
+					if(value2 == '+'){
+						if(value1 < 5){
+							result++;
+							var array2 = array[result-1];
+							var array3 = array2.split(',');
+							for(var i=0;i<array3.length;i++){
+								var temp = array3[i].split('-');
+								var result2 = Number($("#"+temp[0]).text()) + Number(temp[1]) ;
+								if($("#noCountChk").is(":checked") == false){
+									$("#"+temp[0]).text(result2);
+									$("#"+temp[0]).css('color','#19B053');
+								}
+							} 
+						}
+					} else if (value2 == '-') {
+						if(value1 > 0){
+							result--;
+							var array2 = array[result];
+							var array3 = array2.split(',');
+							for(var i=0;i<array3.length;i++){
+								var temp = array3[i].split('-');
+								var result2 = Number($("#"+temp[0]).text()) - Number(temp[1]) ;
+								if($("#noCountChk").is(":checked") == false){
+									$("#"+temp[0]).text(result2);
+									if($("#"+temp[0]).text() == 0){
+										$("#"+temp[0]).css('color','#ffffff');
+									} else {
+										$("#"+temp[0]).css('color','#19B053');
+									}
+								}
+							} 
+						}
+					}
+					btn.parent().find('span').text(result);
 				});
 
 				// 전직 초기화
@@ -668,6 +245,15 @@
 					$(".table_health1 input:text").val('0');
 					$(".table_health1 input:text").css('background','#ffffff');
 					$(".table_health2 input:text").val('0');
+				});
+
+				$("#resetPatternBtn").on('click',function(){
+					debugger;
+					$(".table_pattern1 span").text('0');
+					$(".table_pattern1 span").css('color','#ffffff');
+					$(".table_pattern2 span").text('0');
+					$(".table_pattern2 span").css('color','#000000');
+					$(".table_pattern2 .top span").css('color','#ffffff');
 				});
 
 				//유대인질 영웅클릭 이벤트
@@ -15161,22 +14747,24 @@
 						</colgroup>
 						<tbody>
 							<tr>
-								<td><img src="./img/pattern/patternW1.png"></td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/R/보병.webp" title="초급 보병 교재"><br>
+									<img src="./img/pattern/patternW1.png" title="창"><br>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/R/보병.webp"><br>
 									<span id="p011" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/SR/보병.webp" title="초급 보병 교재"><br>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/SR/보병.webp"><br>
 									<span id="p012" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/SSR/보병.webp" title="초급 보병 교재"><br>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/train_item/SSR/보병.webp"><br>
 									<span id="p013" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>도끼</td>
+								<td>
+									<img src="./img/pattern/patternW2.png" title="도끼"><br>
+								</td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p021" value="0">0</span>
@@ -15189,9 +14777,9 @@
 									<img src="" title=""><br>
 									<span id="p023" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>검</td>
+								<td>
+									<img src="./img/pattern/patternW3.png" title="검">
+								</td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p031" value="0">0</span>
@@ -15204,9 +14792,7 @@
 									<img src="" title=""><br>
 									<span id="p033" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>단검</td>
+								<td><img src="./img/pattern/patternW4.png" title="비수"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p041" value="0">0</span>
@@ -15219,9 +14805,7 @@
 									<img src="" title=""><br>
 									<span id="p043" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>둔기</td>
+								<td><img src="./img/pattern/patternW5.png" title="망치"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p051" value="0">0</span>
@@ -15234,9 +14818,7 @@
 									<img src="" title=""><br>
 									<span id="p053" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>활</td>
+								<td><img src="./img/pattern/patternW6.png" title="활"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p061" value="0">0</span>
@@ -15251,7 +14833,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>지팡이</td>
+								<td><img src="./img/pattern/patternW7.png" title="지팡이"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p071" value="0">0</span>
@@ -15264,9 +14846,7 @@
 									<img src="" title=""><br>
 									<span id="p073" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>중갑</td>
+								<td><img src="./img/pattern/patternA1.png" title="중갑"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p081" value="0">0</span>
@@ -15279,9 +14859,7 @@
 									<img src="" title=""><br>
 									<span id="p083" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>경갑</td>
+								<td><img src="./img/pattern/patternA2.png" title="경갑"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p091" value="0">0</span>
@@ -15294,9 +14872,7 @@
 									<img src="" title=""><br>
 									<span id="p093" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>면갑</td>
+								<td><img src="./img/pattern/patternA3.png" title="면갑"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p101" value="0">0</span>
@@ -15309,9 +14885,7 @@
 									<img src="" title=""><br>
 									<span id="p103" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>중갑 투구</td>
+								<td><img src="./img/pattern/patternH1.png" title="중갑 투구"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p111" value="0">0</span>
@@ -15324,9 +14898,7 @@
 									<img src="" title=""><br>
 									<span id="p113" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>경갑 투구</td>
+								<td><img src="./img/pattern/patternH2.png" title="경갑 투구"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p121" value="0">0</span>
@@ -15341,7 +14913,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>면 투구</td>
+								<td><img src="./img/pattern/patternH3.png" title="면 투구"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p131" value="0">0</span>
@@ -15354,9 +14926,7 @@
 									<img src="" title=""><br>
 									<span id="p133" value="0">0</span>
 								</td>
-							</tr>
-							<tr>
-								<td>장신구</td>
+								<td><img src="./img/pattern/patternAc.png" title="장신구"></td>
 								<td>
 									<img src="" title=""><br>
 									<span id="p141" value="0">0</span>
@@ -15369,6 +14939,16 @@
 									<img src="" title=""><br>
 									<span id="p143" value="0">0</span>
 								</td>
+								<td></td>
+								<td>
+									<img src="./img/item/Gold.webp" title="골드">
+									<span id="pGold" value="0">0</span>
+								</td>
+								<td></td>
+								<td></td>
+								<td colspan="4">
+									<input type="button" id="resetPatternBtn" class="resetPattern" value="문양 초기화">
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -15376,71 +14956,610 @@
 				<div class="div_pattern2">
 					<table class="table_pattern2">
 						<colgroup>
-							<col style="width:25%">
-							<col style="width:25%">
-							<col style="width:25%">
-							<col style="width:25%">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:10px">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:100px">
+							<col style="width:10px">
 						</colgroup>
 						<thead>
 							<tr>
 								<th>영웅</th>
 								<th colspan="3">문양</th>
+								<th class="none1"></th>
+								<th>영웅</th>
+								<th colspan="3">문양</th>
+								<th class="none2"></th>
 							</tr>
 						</thead>
 						<tbody>
+							<!-- 매튜, 아멜다-->
 							<tr>
 								<td class="right" rowspan="4">
 									<img src="https://storage.googleapis.com/langmosheet-data/img/card/매튜.webp"><br>
 									매튜
 								</td>
 								<td>
-									<img src="./img//pattern/patternW3.png"><br>
-									Lv. <span id="" name="p001_7">1</span>/5<br>
-									<input type="button" name="p001_7" class="plus" value="+">
-									<input type="button" name="p001_7" class="minus" value="-">
-									<input type="hidden" name="p001_7" value="">
+									<img src="./img/pattern/patternW3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p031-20,pGold-25000,pc001_s1-20,pc001_s4-4/p031-25,p032-18,pGold-35000,pc001_s1-20,pc001_s4-4/p031-30,p032-24,p033-15,pGold-60000,pc001_s1-20,pc001_s4-4/p031-40,p032-30,p033-20,pGold-100000,pc001_s1-20,pc001_s4-4/p031-50,p032-36,p033-25,pGold-150000,pc001_s1-20,pc001_s4-4">
 								</td>
 								<td>
-									<img src="./img//pattern/patternW4.png"><br>
-									Lv. <span id="" name="p001_8">1</span>/5<br>
-									<input type="button" name="p001_8" class="plus" value="+">
-									<input type="button" name="p001_8" class="minus" value="-">
+									<img src="./img/pattern/patternW4.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p041-20,pGold-25000,pc001_s1-20,pc001_s4-4/p041-25,p042-18,pGold-35000,pc001_s1-20,pc001_s4-4/p041-30,p042-24,p043-15,pGold-60000,pc001_s1-20,pc001_s4-4/p041-40,p042-30,p043-20,pGold-100000,pc001_s1-20,pc001_s4-4/p041-50,p042-36,p043-25,pGold-150000,pc001_s1-20,pc001_s4-4">
 								</td>
 								<td>
 									<img src="./img/pattern/patternA2.png"><br>
-									Lv. <span id="" name="p001_9">1</span>/5<br>
-									<input type="button" name="p001_9" class="plus" value="+">
-									<input type="button" name="p001_9" class="minus" value="-">
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p091-20,pGold-25000,pc001_s1-20,pc001_s2-7,pc001_s4-2/p091-25,p092-18,pGold-35000,pc001_s1-20,pc001_s2-7,pc001_s4-2/p091-30,p092-24,p093-15,pGold-60000,pc001_s1-20,pc001_s2-7,pc001_s4-2/p091-40,p092-30,p093-20,pGold-100000,pc001_s1-20,pc001_s2-7,pc001_s4-2/p091-50,p092-36,p093-25,pGold-150000,pc001_s1-20,pc001_s2-7,pc001_s4-2">
 								</td>
+								<td class="none1"></td>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/아멜다.webp"><br>
+									아멜다
+								</td>
+								<td>
+									<img src="./img/pattern/patternW5.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p051-20,pGold-25000,pc002_s1-20,pc002_s3-4/p051-25,p052-18,pGold-35000,pc002_s1-20,pc002_s3-4/p051-30,p052-24,p053-15,pGold-60000,pc002_s1-20,pc002_s3-4/p051-40,p052-30,p053-20,pGold-100000,pc002_s1-20,pc002_s3-4/p051-50,p052-36,p053-25,pGold-150000,pc002_s1-20,pc002_s3-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW7.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p071-20,pGold-25000,pc002_s1-20,pc002_s3-4/p071-25,p072-18,pGold-35000,pc002_s1-20,pc002_s3-4/p071-30,p072-24,p073-15,pGold-60000,pc002_s1-20,pc002_s3-4/p071-40,p072-30,p073-20,pGold-100000,pc002_s1-20,pc002_s3-4/p071-50,p072-36,p073-25,pGold-150000,pc002_s1-20,pc002_s3-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p101-20,pGold-25000,pc002_s1-20,pc002_s2-7,pc002_s3-2/p101-25,p102-18,pGold-35000,pc002_s1-20,pc002_s2-7,pc002_s3-2/p101-30,p102-24,p103-15,pGold-60000,pc002_s1-20,pc002_s2-7,pc002_s3-2/p101-40,p102-30,p103-20,pGold-100000,pc002_s1-20,pc002_s2-7,pc002_s3-2/p101-50,p102-36,p103-25,pGold-150000,pc002_s1-20,pc002_s2-7,pc002_s3-2">
+								</td>
+								<td class="none2"></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>
-									<img src="./img//pattern/Skill_CastMetal.webp"><br>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
 									미개방									
 								</td>
 								<td></td>
+								<td class="none1"></td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									2023.04.19 개방
+								</td>
+								<td></td>
+								<td class="none2"></td>
 							</tr>
 							<tr>
 								<td>
 									<img src="./img/pattern/patternH2.png"><br>
-									Lv. <span id="" name="p001_1">1</span>/5<br>
-									<input type="button" name="p001_1" class="plus" value="+">
-									<input type="button" name="p001_1" class="minus" value="-">
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p121-20,pGold-25000,pc001_s1-20,pc001_s5-7,pc001_s4-2/p121-25,p122-18,pGold-35000,pc001_s1-20,pc001_s5-7,pc001_s4-2/p121-30,p122-24,p123-15,pGold-60000,pc001_s1-20,pc001_s5-7,pc001_s4-2/p121-40,p122-30,p123-20,pGold-100000,pc001_s1-20,pc001_s5-7,pc001_s4-2/p121-50,p122-36,p123-25,pGold-150000,pc001_s1-20,pc001_s5-7,pc001_s4-2">
 								</td>
 								<td></td>
 								<td>
-									<img src="./img/pattern/patternAC.png"><br>
-									Lv. <span id="" name="p001_3">1</span>/5<br>
-									<input type="button" name="p001_3" class="plus" value="+">
-									<input type="button" name="p001_3" class="minus" value="-">
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc001_s1-20,pc001_s5-5/p141-25,p142-18,pGold-35000,pc001_s1-20,pc001_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc001_s1-20,pc001_s3-7,pc001_s4-7,pc001_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc001_s1-20,pc001_s2-5,pc001_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc001_s1-20,pc001_s3-8,pc001_s4-8,pc001_s5-5">
 								</td>
+								<td class="none1"></td>
+								<td>
+									<img src="./img/pattern/patternH3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p131-20,pGold-25000,pc002_s1-20,pc002_s5-7,pc002_s3-2/p131-25,p132-18,pGold-35000,pc002_s1-20,pc002_s5-7,pc002_s3-2/p131-30,p132-24,p133-15,pGold-60000,pc002_s1-20,pc002_s5-7,pc002_s3-2/p131-40,p132-30,p133-20,pGold-100000,pc002_s1-20,pc002_s5-7,pc002_s3-2/p131-50,p132-36,p133-25,pGold-150000,pc002_s1-20,pc002_s5-7,pc002_s3-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc002_s1-20,pc002_s5-5/p141-25,p142-18,pGold-35000,pc002_s1-20,pc002_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc002_s1-20,pc002_s3-7,pc002_s4-7,pc002_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc002_s1-20,pc002_s2-5,pc002_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc002_s1-20,pc002_s3-8,pc002_s4-8,pc002_s5-5">
+								</td>
+								<td class="none2"></td>
 							</tr>
 							<tr>
 								<td class="top" colspan="3">
-									생명 +0 방어 +0 지력 +0<br>
-									공격 +0 마방 +0 기술 +0
+									생명 +<span id="pc001_s1">0</span> 방어 +<span id="pc001_s2">0</span> 지력 +<span id="pc001_s3">0</span><br>
+									공격 +<span id="pc001_s4">0</span> 마방 +<span id="pc001_s5">0</span> 기술 +<span id="pc001_s6">0</span>
 								</td>
+								<td class="none1"></td>
+								<td class="top" colspan="3">
+									생명 +<span id="pc002_s1">0</span> 방어 +<span id="pc002_s2">0</span> 지력 +<span id="pc002_s3">0</span><br>
+									공격 +<span id="pc002_s4">0</span> 마방 +<span id="pc002_s5">0</span> 기술 +<span id="pc002_s6">0</span>
+								</td>
+								<td class="none2"></td>
+							</tr>
+
+							<!-- 그레니어, 아론-->
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/그레니어.webp"><br>
+									그레니어
+								</td>
+								<td>
+									<img src="./img/pattern/patternW2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p021-20,pGold-25000,pc003_s1-20,pc003_s4-4/p021-25,p022-18,pGold-35000,pc003_s1-20,pc003_s4-4/p021-30,p022-24,p023-15,pGold-60000,pc003_s1-20,pc003_s4-4/p021-40,p022-30,p023-20,pGold-100000,pc003_s1-20,pc003_s4-4/p021-50,p022-36,p023-25,pGold-150000,pc003_s1-20,pc003_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW6.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p061-20,pGold-25000,pc003_s1-20,pc003_s4-4/p061-25,p062-18,pGold-35000,pc003_s1-20,pc003_s4-4/p061-30,p062-24,p063-15,pGold-60000,pc003_s1-20,pc003_s4-4/p061-40,p062-30,p063-20,pGold-100000,pc003_s1-20,pc003_s4-4/p061-50,p062-36,p063-25,pGold-150000,pc003_s1-20,pc003_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p081-20,pGold-25000,pc003_s1-20,pc003_s2-7,pc003_s4-2/p081-25,p082-18,pGold-35000,pc003_s1-20,pc003_s2-7,pc003_s4-2/p081-30,p082-24,p083-15,pGold-60000,pc003_s1-20,pc003_s2-7,pc003_s4-2/p081-40,p082-30,p083-20,pGold-100000,pc003_s1-20,pc003_s2-7,pc003_s4-2/p081-50,p082-36,p083-25,pGold-150000,pc003_s1-20,pc003_s2-7,pc003_s4-2">
+								</td>
+								<td class="none1"></td>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/아론.webp"><br>
+									아론
+								</td>
+								<td>
+									<img src="./img/pattern/patternW1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p011-20,pGold-25000,pc004_s1-20,pc004_s4-4/p011-25,p012-18,pGold-35000,pc004_s1-20,pc004_s4-4/p011-30,p012-24,p013-15,pGold-60000,pc004_s1-20,pc004_s4-4/p011-40,p012-30,p013-20,pGold-100000,pc004_s1-20,pc004_s4-4/p011-50,p012-36,p013-25,pGold-150000,pc004_s1-20,pc004_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p021-20,pGold-25000,pc004_s1-20,pc004_s4-4/p021-25,p022-18,pGold-35000,pc004_s1-20,pc004_s4-4/p021-30,p022-24,p023-15,pGold-60000,pc004_s1-20,pc004_s4-4/p021-40,p022-30,p023-20,pGold-100000,pc004_s1-20,pc004_s4-4/p021-50,p022-36,p023-25,pGold-150000,pc004_s1-20,pc004_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p081-20,pGold-25000,pc004_s1-20,pc004_s2-7,pc004_s4-2/p081-25,p082-18,pGold-35000,pc004_s1-20,pc004_s2-7,pc004_s4-2/p081-30,p082-24,p083-15,pGold-60000,pc004_s1-20,pc004_s2-7,pc004_s4-2/p081-40,p082-30,p083-20,pGold-100000,pc004_s1-20,pc004_s2-7,pc004_s4-2/p081-50,p082-36,p083-25,pGold-150000,pc004_s1-20,pc004_s2-7,pc004_s4-2">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방									
+								</td>
+								<td></td>
+								<td class="none1"></td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방
+								</td>
+								<td></td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./img/pattern/patternH1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p111-20,pGold-25000,pc003_s1-20,pc003_s5-7,pc003_s4-2/p111-25,p112-18,pGold-35000,pc003_s1-20,pc003_s5-7,pc003_s4-2/p111-30,p112-24,p113-15,pGold-60000,pc003_s1-20,pc003_s5-7,pc003_s4-2/p111-40,p112-30,p113-20,pGold-100000,pc003_s1-20,pc003_s5-7,pc003_s4-2/p111-50,p112-36,p113-25,pGold-150000,pc003_s1-20,pc003_s5-7,pc003_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc003_s1-20,pc003_s5-5/p141-25,p142-18,pGold-35000,pc003_s1-20,pc003_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc003_s1-20,pc003_s3-7,pc003_s4-7,pc003_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc003_s1-20,pc003_s2-5,pc003_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc003_s1-20,pc003_s3-8,pc003_s4-8,pc003_s5-5">
+								</td>
+								<td class="none1"></td>
+								<td>
+									<img src="./img/pattern/patternH1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p111-20,pGold-25000,pc004_s1-20,pc004_s5-7,pc004_s4-2/p111-25,p112-18,pGold-35000,pc004_s1-20,pc004_s5-7,pc004_s4-2/p111-30,p112-24,p113-15,pGold-60000,pc004_s1-20,pc004_s5-7,pc004_s4-2/p111-40,p112-30,p113-20,pGold-100000,pc004_s1-20,pc004_s5-7,pc004_s4-2/p111-50,p112-36,p113-25,pGold-150000,pc004_s1-20,pc004_s5-7,pc004_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc004_s1-20,pc004_s5-5/p141-25,p142-18,pGold-35000,pc004_s1-20,pc004_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc004_s1-20,pc004_s3-7,pc004_s4-7,pc004_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc004_s1-20,pc004_s2-5,pc004_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc004_s1-20,pc004_s3-8,pc004_s4-8,pc004_s5-5">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc003_s1">0</span> 방어 +<span id="pc003_s2">0</span> 지력 +<span id="pc003_s3">0</span><br>
+									공격 +<span id="pc003_s4">0</span> 마방 +<span id="pc003_s5">0</span> 기술 +<span id="pc003_s6">0</span>
+								</td>
+								<td class="none1"></td>
+								<td class="top" colspan="3">
+									생명 +<span id="pc004_s1">0</span> 방어 +<span id="pc004_s2">0</span> 지력 +<span id="pc004_s3">0</span><br>
+									공격 +<span id="pc004_s4">0</span> 마방 +<span id="pc004_s5">0</span> 기술 +<span id="pc004_s6">0</span>
+								</td>
+								<td class="none2"></td>
+							</tr>
+
+							<!-- 안나, 디오스-->
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/안나.webp"><br>
+									안나
+								</td>
+								<td>
+									<img src="./img/pattern/patternW5.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p051-20,pGold-25000,pc005_s1-20,pc005_s3-4/p051-25,p052-18,pGold-35000,pc005_s1-20,pc005_s3-4/p051-30,p052-24,p053-15,pGold-60000,pc005_s1-20,pc005_s3-4/p051-40,p052-30,p053-20,pGold-100000,pc005_s1-20,pc005_s3-4/p051-50,p052-36,p053-25,pGold-150000,pc005_s1-20,pc005_s3-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW7.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p071-20,pGold-25000,pc005_s1-20,pc005_s3-4/p071-25,p072-18,pGold-35000,pc005_s1-20,pc005_s3-4/p071-30,p072-24,p073-15,pGold-60000,pc005_s1-20,pc005_s3-4/p071-40,p072-30,p073-20,pGold-100000,pc005_s1-20,pc005_s3-4/p071-50,p072-36,p073-25,pGold-150000,pc005_s1-20,pc005_s3-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p101-20,pGold-25000,pc005_s1-20,pc005_s2-7,pc005_s3-2/p101-25,p102-18,pGold-35000,pc005_s1-20,pc005_s2-7,pc005_s3-2/p101-30,p102-24,p103-15,pGold-60000,pc005_s1-20,pc005_s2-7,pc005_s3-2/p101-40,p102-30,p103-20,pGold-100000,pc005_s1-20,pc005_s2-7,pc005_s3-2/p101-50,p102-36,p103-25,pGold-150000,pc005_s1-20,pc005_s2-7,pc005_s3-2">
+								</td>
+								<td class="none1"></td>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/디오스.webp"><br>
+									디오스
+								</td>
+								<td>
+									<img src="./img/pattern/patternW4.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p041-20,pGold-25000,pc006_s1-20,pc006_s4-4/p041-25,p042-18,pGold-35000,pc006_s1-20,pc006_s4-4/p041-30,p042-24,p043-15,pGold-60000,pc006_s1-20,pc006_s4-4/p041-40,p042-30,p043-20,pGold-100000,pc006_s1-20,pc006_s4-4/p041-50,p042-36,p043-25,pGold-150000,pc006_s1-20,pc006_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW6.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p061-20,pGold-25000,pc006_s1-20,pc006_s4-4/p061-25,p062-18,pGold-35000,pc006_s1-20,pc006_s4-4/p061-30,p062-24,p063-15,pGold-60000,pc006_s1-20,pc006_s4-4/p061-40,p062-30,p063-20,pGold-100000,pc006_s1-20,pc006_s4-4/p061-50,p062-36,p063-25,pGold-150000,pc006_s1-20,pc006_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p091-20,pGold-25000,pc006_s1-20,pc006_s2-7,pc006_s4-2/p091-25,p092-18,pGold-35000,pc006_s1-20,pc006_s2-7,pc006_s4-2/p091-30,p092-24,p093-15,pGold-60000,pc006_s1-20,pc006_s2-7,pc006_s4-2/p091-40,p092-30,p093-20,pGold-100000,pc006_s1-20,pc006_s2-7,pc006_s4-2/p091-50,p092-36,p093-25,pGold-150000,pc006_s1-20,pc006_s2-7,pc006_s4-2">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방									
+								</td>
+								<td></td>
+								<td class="none1"></td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방
+								</td>
+								<td></td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./img/pattern/patternH3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p131-20,pGold-25000,pc005_s1-20,pc005_s5-7,pc005_s3-2/p131-25,p132-18,pGold-35000,pc005_s1-20,pc005_s5-7,pc005_s3-2/p131-30,p132-24,p133-15,pGold-60000,pc005_s1-20,pc005_s5-7,pc005_s3-2/p131-40,p132-30,p133-20,pGold-100000,pc005_s1-20,pc005_s5-7,pc005_s3-2/p131-50,p132-36,p133-25,pGold-150000,pc005_s1-20,pc005_s5-7,pc005_s3-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc005_s1-20,pc005_s5-5/p141-25,p142-18,pGold-35000,pc005_s1-20,pc005_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc005_s1-20,pc005_s3-7,pc005_s4-7,pc005_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc005_s1-20,pc005_s2-5,pc005_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc005_s1-20,pc005_s3-8,pc005_s4-8,pc005_s5-5">
+								</td>
+								<td class="none1"></td>
+								<td>
+									<img src="./img/pattern/patternH2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p121-20,pGold-25000,pc006_s1-20,pc006_s5-7,pc006_s4-2/p121-25,p122-18,pGold-35000,pc006_s1-20,pc006_s5-7,pc006_s4-2/p121-30,p122-24,p123-15,pGold-60000,pc006_s1-20,pc006_s5-7,pc006_s4-2/p121-40,p122-30,p123-20,pGold-100000,pc006_s1-20,pc006_s5-7,pc006_s4-2/p121-50,p122-36,p123-25,pGold-150000,pc006_s1-20,pc006_s5-7,pc006_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc006_s1-20,pc006_s5-5/p141-25,p142-18,pGold-35000,pc006_s1-20,pc006_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc006_s1-20,pc006_s3-7,pc006_s4-7,pc006_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc006_s1-20,pc006_s2-5,pc006_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc006_s1-20,pc006_s3-8,pc006_s4-8,pc006_s5-5">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc005_s1">0</span> 방어 +<span id="pc005_s2">0</span> 지력 +<span id="pc005_s3">0</span><br>
+									공격 +<span id="pc005_s4">0</span> 마방 +<span id="pc005_s5">0</span> 기술 +<span id="pc005_s6">0</span>
+								</td>
+								<td class="none1"></td>
+								<td class="top" colspan="3">
+									생명 +<span id="pc006_s1">0</span> 방어 +<span id="pc006_s2">0</span> 지력 +<span id="pc006_s3">0</span><br>
+									공격 +<span id="pc006_s4">0</span> 마방 +<span id="pc006_s5">0</span> 기술 +<span id="pc006_s6">0</span>
+								</td>
+								<td class="none2"></td>
+							</tr>
+
+							<!-- 키스, 제시카-->
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/키스.webp"><br>
+									키스
+								</td>
+								<td>
+									<img src="./img/pattern/patternW1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p011-20,pGold-25000,pc007_s1-20,pc007_s4-4/p011-25,p012-18,pGold-35000,pc007_s1-20,pc007_s4-4/p011-30,p012-24,p013-15,pGold-60000,pc007_s1-20,pc007_s4-4/p011-40,p012-30,p013-20,pGold-100000,pc007_s1-20,pc007_s4-4/p011-50,p012-36,p013-25,pGold-150000,pc007_s1-20,pc007_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p021-20,pGold-25000,pc007_s1-20,pc007_s4-4/p021-25,p022-18,pGold-35000,pc007_s1-20,pc007_s4-4/p021-30,p022-24,p023-15,pGold-60000,pc007_s1-20,pc007_s4-4/p021-40,p022-30,p023-20,pGold-100000,pc007_s1-20,pc007_s4-4/p021-50,p022-36,p023-25,pGold-150000,pc007_s1-20,pc007_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p091-20,pGold-25000,pc007_s1-20,pc007_s2-7,pc007_s4-2/p091-25,p092-18,pGold-35000,pc007_s1-20,pc007_s2-7,pc007_s4-2/p091-30,p092-24,p093-15,pGold-60000,pc007_s1-20,pc007_s2-7,pc007_s4-2/p091-40,p092-30,p093-20,pGold-100000,pc007_s1-20,pc007_s2-7,pc007_s4-2/p091-50,p092-36,p093-25,pGold-150000,pc007_s1-20,pc007_s2-7,pc007_s4-2">
+								</td>
+								<td class="none1"></td>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/제시카.webp"><br>
+									제시카
+								</td>
+								<td>
+									<img src="./img/pattern/patternW7.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p071-40,pGold-50000,pc008_s1-40,pc008_s3-8/p071-50,p072-36,pGold-70000,pc008_s1-40,pc008_s3-8/p071-60,p072-48,p073-30,pGold-120000,pc008_s1-40,pc008_s3-8/p071-80,p072-60,p073-40,pGold-200000,pc008_s1-40,pc008_s3-8/p071-100,p072-72,p073-50,pGold-300000,pc008_s1-40,pc008_s3-8">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternA3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p101-20,pGold-25000,pc008_s1-20,pc008_s2-7,pc008_s3-2/p101-25,p102-18,pGold-35000,pc008_s1-20,pc008_s2-7,pc008_s3-2/p101-30,p102-24,p103-15,pGold-60000,pc008_s1-20,pc008_s2-7,pc008_s3-2/p101-40,p102-30,p103-20,pGold-100000,pc008_s1-20,pc008_s2-7,pc008_s3-2/p101-50,p102-36,p103-25,pGold-150000,pc008_s1-20,pc008_s2-7,pc008_s3-2">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방									
+								</td>
+								<td></td>
+								<td class="none1"></td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방
+								</td>
+								<td></td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./img/pattern/patternH2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p121-20,pGold-25000,pc007_s1-20,pc007_s5-7,pc007_s4-2/p121-25,p122-18,pGold-35000,pc007_s1-20,pc007_s5-7,pc007_s4-2/p121-30,p122-24,p123-15,pGold-60000,pc007_s1-20,pc007_s5-7,pc007_s4-2/p121-40,p122-30,p123-20,pGold-100000,pc007_s1-20,pc007_s5-7,pc007_s4-2/p121-50,p122-36,p123-25,pGold-150000,pc007_s1-20,pc007_s5-7,pc007_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc007_s1-20,pc007_s5-5/p141-25,p142-18,pGold-35000,pc007_s1-20,pc007_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc007_s1-20,pc007_s3-7,pc007_s4-7,pc007_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc007_s1-20,pc007_s2-5,pc007_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc007_s1-20,pc007_s3-8,pc007_s4-8,pc007_s5-5">
+								</td>
+								<td class="none1"></td>
+								<td>
+									<img src="./img/pattern/patternH3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p131-20,pGold-25000,pc008_s1-20,pc008_s5-7,pc008_s3-2/p131-25,p132-18,pGold-35000,pc008_s1-20,pc008_s5-7,pc008_s3-2/p131-30,p132-24,p133-15,pGold-60000,pc008_s1-20,pc008_s5-7,pc008_s3-2/p131-40,p132-30,p133-20,pGold-100000,pc008_s1-20,pc008_s5-7,pc008_s3-2/p131-50,p132-36,p133-25,pGold-150000,pc008_s1-20,pc008_s5-7,pc008_s3-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc008_s1-20,pc008_s5-5/p141-25,p142-18,pGold-35000,pc008_s1-20,pc008_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc008_s1-20,pc008_s3-7,pc008_s4-7,pc008_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc008_s1-20,pc008_s2-5,pc008_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc008_s1-20,pc008_s3-8,pc008_s4-8,pc008_s5-5">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc007_s1">0</span> 방어 +<span id="pc007_s2">0</span> 지력 +<span id="pc007_s3">0</span><br>
+									공격 +<span id="pc007_s4">0</span> 마방 +<span id="pc007_s5">0</span> 기술 +<span id="pc007_s6">0</span>
+								</td>
+								<td class="none1"></td>
+								<td class="top" colspan="3">
+									생명 +<span id="pc008_s1">0</span> 방어 +<span id="pc008_s2">0</span> 지력 +<span id="pc008_s3">0</span><br>
+									공격 +<span id="pc008_s4">0</span> 마방 +<span id="pc008_s5">0</span> 기술 +<span id="pc008_s6">0</span>
+								</td>
+								<td class="none2"></td>
+							</tr>
+
+							<!-- 스코트, 로우가 -->
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/스코트.webp"><br>
+									스코트
+								</td>
+								<td>
+									<img src="./img/pattern/patternW1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p011-20,pGold-25000,pc009_s1-20,pc009_s4-4/p011-25,p012-18,pGold-35000,pc009_s1-20,pc009_s4-4/p011-30,p012-24,p013-15,pGold-60000,pc009_s1-20,pc009_s4-4/p011-40,p012-30,p013-20,pGold-100000,pc009_s1-20,pc009_s4-4/p011-50,p012-36,p013-25,pGold-150000,pc009_s1-20,pc009_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW3.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p031-20,pGold-25000,pc009_s1-20,pc009_s4-4/p031-25,p032-18,pGold-35000,pc009_s1-20,pc009_s4-4/p031-30,p032-24,p033-15,pGold-60000,pc009_s1-20,pc009_s4-4/p031-40,p032-30,p033-20,pGold-100000,pc009_s1-20,pc009_s4-4/p031-50,p032-36,p033-25,pGold-150000,pc009_s1-20,pc009_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p081-20,pGold-25000,pc009_s1-20,pc009_s2-7,pc009_s4-2/p081-25,p082-18,pGold-35000,pc009_s1-20,pc009_s2-7,pc009_s4-2/p081-30,p082-24,p083-15,pGold-60000,pc009_s1-20,pc009_s2-7,pc009_s4-2/p081-40,p082-30,p083-20,pGold-100000,pc009_s1-20,pc009_s2-7,pc009_s4-2/p081-50,p082-36,p083-25,pGold-150000,pc009_s1-20,pc009_s2-7,pc009_s4-2">
+								</td>
+								<td class="none1"></td>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/로우가.webp"><br>
+									로우가
+								</td>
+								<td>
+									<img src="./img/pattern/patternW4.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p041-20,pGold-25000,pc010_s1-20,pc010_s4-4/p041-25,p042-18,pGold-35000,pc010_s1-20,pc010_s4-4/p041-30,p042-24,p043-15,pGold-60000,pc010_s1-20,pc010_s4-4/p041-40,p042-30,p043-20,pGold-100000,pc010_s1-20,pc010_s4-4/p041-50,p042-36,p043-25,pGold-150000,pc010_s1-20,pc010_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternW6.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p061-20,pGold-25000,pc010_s1-20,pc010_s4-4/p061-25,p062-18,pGold-35000,pc010_s1-20,pc010_s4-4/p061-30,p062-24,p063-15,pGold-60000,pc010_s1-20,pc010_s4-4/p061-40,p062-30,p063-20,pGold-100000,pc010_s1-20,pc010_s4-4/p061-50,p062-36,p063-25,pGold-150000,pc010_s1-20,pc010_s4-4">
+								</td>
+								<td>
+									<img src="./img/pattern/patternA2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p091-20,pGold-25000,pc010_s1-20,pc010_s2-7,pc010_s4-2/p091-25,p092-18,pGold-35000,pc010_s1-20,pc010_s2-7,pc010_s4-2/p091-30,p092-24,p093-15,pGold-60000,pc010_s1-20,pc010_s2-7,pc010_s4-2/p091-40,p092-30,p093-20,pGold-100000,pc010_s1-20,pc010_s2-7,pc010_s4-2/p091-50,p092-36,p093-25,pGold-150000,pc010_s1-20,pc010_s2-7,pc010_s4-2">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방									
+								</td>
+								<td></td>
+								<td class="none1"></td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/Skill_CastMetal.webp"><br>
+									미개방
+								</td>
+								<td></td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="./img/pattern/patternH1.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p111-20,pGold-25000,pc009_s1-20,pc009_s5-7,pc009_s4-2/p111-25,p112-18,pGold-35000,pc009_s1-20,pc009_s5-7,pc009_s4-2/p111-30,p112-24,p113-15,pGold-60000,pc009_s1-20,pc009_s5-7,pc009_s4-2/p111-40,p112-30,p113-20,pGold-100000,pc009_s1-20,pc009_s5-7,pc009_s4-2/p111-50,p112-36,p113-25,pGold-150000,pc009_s1-20,pc009_s5-7,pc009_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc009_s1-20,pc009_s5-5/p141-25,p142-18,pGold-35000,pc009_s1-20,pc009_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc009_s1-20,pc009_s3-7,pc009_s4-7,pc009_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc009_s1-20,pc009_s2-5,pc009_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc009_s1-20,pc009_s3-8,pc009_s4-8,pc009_s5-5">
+								</td>
+								<td class="none1"></td>
+								<td>
+									<img src="./img/pattern/patternH2.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p121-20,pGold-25000,pc010_s1-20,pc010_s5-7,pc010_s4-2/p121-25,p122-18,pGold-35000,pc010_s1-20,pc010_s5-7,pc010_s4-2/p121-30,p122-24,p123-15,pGold-60000,pc010_s1-20,pc010_s5-7,pc010_s4-2/p121-40,p122-30,p123-20,pGold-100000,pc010_s1-20,pc010_s5-7,pc010_s4-2/p121-50,p122-36,p123-25,pGold-150000,pc010_s1-20,pc010_s5-7,pc010_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="./img/pattern/patternAc.png"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc010_s1-20,pc010_s5-5/p141-25,p142-18,pGold-35000,pc010_s1-20,pc010_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc010_s1-20,pc010_s3-7,pc010_s4-7,pc010_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc010_s1-20,pc010_s2-5,pc010_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc010_s1-20,pc010_s3-8,pc010_s4-8,pc010_s5-5">
+								</td>
+								<td class="none2"></td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc009_s1">0</span> 방어 +<span id="pc009_s2">0</span> 지력 +<span id="pc009_s3">0</span><br>
+									공격 +<span id="pc009_s4">0</span> 마방 +<span id="pc009_s5">0</span> 기술 +<span id="pc009_s6">0</span>
+								</td>
+								<td class="none1"></td>
+								<td class="top" colspan="3">
+									생명 +<span id="pc010_s1">0</span> 방어 +<span id="pc010_s2">0</span> 지력 +<span id="pc010_s3">0</span><br>
+									공격 +<span id="pc010_s4">0</span> 마방 +<span id="pc010_s5">0</span> 기술 +<span id="pc010_s6">0</span>
+								</td>
+								<td class="none2"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -15455,7 +15574,7 @@
 						<td>
 							오타 및 수정사항 제보 : <a href="https://arca.live/b/langrisser/10630350">랑그릿사 아카라이브</a> / <a href="https://tgd.kr/s/anotherkyo">트게더</a><br>
 							<br>작업자 : 레이갈드 제국-어쿄<br>
-							<br>최종 수정일자 : 2022-09-28<br>
+							<br>최종 수정일자 : 2023-04-23<br>
 						</td>
 					</tr>
 				</table>
