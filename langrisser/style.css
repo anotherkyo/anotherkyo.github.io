@@ -31,10 +31,7 @@
     width:70px;
 }
 
-.table9 img {
-    height:80px;
-    width:80px;
-}
+
 
 .table1{
     width:550px;
@@ -213,32 +210,54 @@
 
 /* 훈련장 css end */
 
-.table9 {
-    width:1050px;
-    border-collapse: collapse;
+
+/* 영웅유대 css start */
+
+.div_bond{
+    width:1118px;
+    height:800px;
+    overflow:auto;
+    float:left;
+}		
+
+.table_bond {
+    width:1100px;
+    margin-top:5px;
     border-left:1px solid #444444;
-    margin:5px;
+    border-collapse: collapse;
+    overflow:auto;
+    background-image: url("./img/bg/bg.png");
+    font-weight: bold;
+    color: #ffffff;
+
 }
-.table9 thead th{
+.table_bond thead th{
     padding:10px;
     position: sticky;
     top: 0;
-    background-color: #f8f8ff;
+    background-image: url("./img/bg/bg.png");
 }
-.table9 td:hover{
-    background-color: #6699ff;
-}
-.table9 td{
+.table_bond td{
     padding-top:5px;
     padding-bottom:5px;
     text-align:center;
     border-top: 1px solid #444444;
     border-bottom: 1px solid #444444;
     vertical-align:top;
+    height: 130px;
 }
-.table9 .rightBorder{
-    border-right: 2px solid #444444;
+.table_bond img {
+    height:80px;
+    width:80px;
 }
+
+.table_bond img.icon{
+    height:20px !important;
+    width:20px !important;
+}
+
+/* 영웅유대 css end */
+
 .table10{
     width:550px;
     border-bottom: 1px solid #444444;
@@ -249,6 +268,9 @@
     padding:1px;
     text-align:center;
 }
+
+
+
 
 /* 문양 style start */
 
@@ -267,7 +289,7 @@
     margin:5px;
 }
 .table_pattern1{
-    width:1200px;
+    width:1100px;
     margin-top:10px;
     margin:5px;
     font-weight: bold;
@@ -283,8 +305,8 @@
     width:50px;
 }
 .div_pattern2{
-    width:1030px;
-    height:600px;
+    width:1105px;
+    height:650px;
     overflow:auto;
     float:left;
 }
@@ -305,7 +327,7 @@
 .table_pattern2 thead th{
     padding:10px;
     position: sticky;
-    top: 0;
+    top: -5;
     background-color: #f8f8ff;
     border:1px solid #444444;
 }
@@ -367,11 +389,11 @@
     cursor: pointer;
 }
 .resetPattern[type="button"]{
-    margin:5px;
     padding:2px 4px;
     border-radius: 5px;
     background-color: #d42323;
-    width: 100px !important; 
+    height: 25px !important;
+    width: 80px !important; 
     color: #ffffff;
     cursor: pointer;
 }
@@ -410,13 +432,6 @@
     overflow:auto;
     float:left;
 }
-
-.div9{
-    width:1080px;
-    height:800px;
-    overflow:auto;
-    float:left;
-}		
 
 input[type="text"]{
     width:40px;
