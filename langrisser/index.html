@@ -229,8 +229,8 @@
 
 				// 각성 초기화
 				$("#resetBtn2").on('click',function(){
-					$(".table_arousal1 input:text").val('0');
-					$(".table_arousal1 input:text").css('background','#ffffff');
+					$(".table_arousal1 span").text('0');
+					$(".table_arousal1 span").css('color','#ffffff');
 					$(".table_arousal2 input:checkbox").prop("checked", false);
 				});
 
@@ -248,6 +248,7 @@
 					$(".table_health2 input:text").val('0');
 				});
 
+				// 문양 초기화
 				$("#resetPatternBtn").on('click',function(){
 					$(".table_pattern1 span").text('0');
 					$(".table_pattern1 span").css('color','#ffffff');
