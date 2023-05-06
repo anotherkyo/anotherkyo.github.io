@@ -1,0 +1,512 @@
+*{
+    font-size:12px;
+    margin:0px;
+    padding:0px;
+}
+
+.main {
+    min-width: 320px;
+    max-width: 1350px;
+    padding: 10px;    
+    border-radius: 7px;;        
+    background: #ffffff;
+}
+
+section {
+    display: none;
+    padding: 10px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    padding: 15px 25px;
+    font-weight: 600;
+    color: #bbb;
+    border: 1px solid transparent;
+}
+
+label:hover {
+    color: #2e9cdf;
+    cursor: pointer;
+}
+
+/*input 클릭시, label 스타일*/
+input:checked + label {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #2e9cdf;
+    border-bottom: 1px solid #ffffff;
+}
+
+input[type="text"]{
+    width:40px;
+    height:20px;
+    text-align:right;
+    border:1px solid #000000;
+    margin-bottom:4px;
+    padding:1px;
+}
+input[type="checkbox"]{
+    width:30px;
+    height:30px;
+    cursor: pointer;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5,
+#tab6:checked ~ #content6,
+#tab7:checked ~ #content7{
+    display: block;}
+
+
+/* 전직 css start */
+
+.div1{
+    float:left;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+.div1 input[type="button"]{
+    width:50px;
+    height:30px;
+    margin:5px;
+}
+.table1{
+    width:550px;
+    border-bottom: 1px solid #444444;
+    border-collapse: collapse;
+    margin-top:5px;
+}
+.table1 th, .table1 td{
+    padding:1px;
+    text-align:center;
+}
+.table1 img {
+    height:40px;
+    width:40px;
+    border:1px solid #444444;
+}
+.div2{
+    width:580px;
+    height:780px;
+    overflow:auto;
+    float:left;
+}
+.div2 input[type="checkbox"]{
+    width:10px;
+    height:10px;
+}
+.table2 {
+    width:550px;
+    margin-top: 10px;
+    border:1px solid #444444;
+    border-collapse: collapse;
+    margin:5px;
+    overflow:auto;
+}
+.table2 thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-color: #f8f8ff;
+}
+.table2 td:hover{
+    background-color: #6699ff;
+}
+.table2 td{
+    padding:5px;
+    text-align:center;
+    border-top: 1px solid #444444;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+}
+.table2 img {
+    height:100px;
+    width:100px;
+}
+
+/* 전직 css end */
+
+
+/* 각성 css start */
+.div_arousal1{
+    width: 1000px;
+    margin-bottom:20px;
+    float:left;
+}
+.div_arousal1 input[type="button"]{
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    height: 25px !important;
+    width: 80px !important; 
+    color: #ffffff;
+    cursor: pointer;
+}
+.table_arousal1{
+    width: 472px;
+    margin-top:5px;
+    border-collapse: collapse;
+    overflow:auto;
+    background-image: url("../img/bg/bg.png");
+    color: #ffffff;
+}
+
+.table_arousal1 thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-image: url("../img/bg/bg.png");
+}
+.table_arousal1 th, td{
+    padding:0;
+    text-align:center;
+}
+.table_arousal1 img {
+    height:40px;
+    width:40px;
+}
+.div_arousal2{
+    width:500px;
+    height:650px;
+    overflow:auto;
+    float:left;
+}
+.table_arousal2 {
+    width:472px;
+    border-collapse: collapse;
+    border:1px solid #444444;
+    margin:5px;
+}
+.table_arousal2 thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-color: #f8f8ff;
+}
+.table_arousal2 td:hover{
+    background-color: #6699ff;
+}
+.table_arousal2 td{
+    padding:5px;
+    text-align:center;
+    border-top: 1px solid #444444;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+}
+.table_arousal2 img {
+    height:60px;
+    width:60px;
+}
+
+/* 각성 css end */
+
+
+/* 훈련장 css start */
+
+.div_health1{
+    float:left;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+.div_health1 input[type="checkbox"]{
+    width:20px;
+    height:20px;
+    margin-top:5px;
+}
+.div_health1 input[type="button"]{
+    width:50px;
+    height:30px;
+    margin:5px;
+}
+.table_health1{
+    width:550px;
+    border-bottom: 1px solid #444444;
+    border-collapse: collapse;
+    margin-top:5px;
+}
+.table_health1 th, .table_health1 td{
+    padding:1px;
+    margin:0px;
+    text-align:center;
+}
+.table_health1 img {
+    height:40px;
+    width:40px;
+    border:1px solid #444444;
+}
+.div_health2{
+    width:747px;
+    height:692px;
+    overflow:auto;
+}
+.div_health2 input[type="text"]{
+    width:20px;
+    text-align:center;
+    border:0px;
+    margin-bottom:0px;
+}
+.div_health2 input[type="checkbox"]{
+    width:10px;
+    height:10px;
+    cursor: pointer;
+}
+.div_health2 input[type="button"]{
+    width:40px;
+    height:20px;
+    font-size:16px;
+}
+.table_health2 {
+    width:720px;
+    border:1px solid #444444;
+    border-collapse: collapse;
+    margin:5px;
+}
+.table_health2 td:hover{
+    background-color: #6699ff;
+}
+.table_health2 tr, .table_health2 td{
+    padding:5px;
+    text-align:center;
+    border-top: 1px solid #444444;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+}
+.table_health2 img {
+    height:80px;
+    width:80px;
+}
+
+/* 훈련장 css end */
+
+
+/* 영웅유대 css start */
+
+.div_bond{
+    width:1118px;
+    height:800px;
+    overflow:auto;
+    float:left;
+}		
+.table_bond {
+    width:1100px;
+    margin-top:5px;
+    border-collapse: collapse;
+    overflow:auto;
+    background-image: url("../img/bg/bg.png");
+    font-weight: bold;
+    color: #ffffff;
+
+}
+.table_bond thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-image: url("../img/bg/bg.png");
+}
+.table_bond td{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+    border-top: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+    vertical-align:top;
+    height: 130px;
+}
+.table_bond img {
+    height:80px;
+    width:80px;
+}
+.table_bond img.icon{
+    height:20px !important;
+    width:20px !important;
+}
+
+/* 영웅유대 css end */
+
+
+/* 문양 style start */
+
+.div_pattern1{
+    float:left;
+    margin-right:10px;
+}
+.div_pattern1 input[type="checkbox"]{
+    width:20px;
+    height:20px;
+    margin-top:5px;
+}
+.div_pattern1 input[type="button"]{
+    width:50px;
+    height:30px;
+    margin:5px;
+}
+.table_pattern1{
+    width:1100px;
+    margin-top:10px;
+    margin:5px;
+    font-weight: bold;
+    border-collapse: collapse;
+    background-color: #1C253B;
+    color: #ffffff;
+}
+.table_pattern1 tbody td{
+    text-align:center;
+}
+.table_pattern1 img {
+    height:50px;
+    width:50px;
+}
+.div_pattern2{
+    width:1124px;
+    height:650px;
+    overflow:auto;
+    float:left;
+}
+.div_pattern2 input[type="button"]{
+    width:25px;
+    height:20px;
+    font-size:13px;
+}
+
+.table_pattern2 {
+    margin: 8px;
+    border:1px solid #444444;
+    border-collapse: collapse;
+    overflow:auto;
+    float: left;
+    display: none;
+}
+.table_pattern2 thead th{
+    padding:5px;
+    background-color: #f8f8ff;
+    border-bottom:1px solid #444444;
+}
+.table_pattern2 td{
+    width: 70px;
+    height: 70px;
+}
+.table_pattern2 td.top{
+    height: 50px !important;
+    border-top: solid 1px #444444;
+    background-color: #1C253B;
+    color: #ffffff;
+}
+.table_pattern2 .top img {
+    height:20px;
+    width:20px;
+}
+.table_pattern2 .right{
+    /*border-left: solid 1px #444444;*/
+    border-right: solid 1px #444444;
+    /*border-bottom: solid 1px #444444;*/
+    background-color: #ffffff;
+}
+.table_pattern2 .right img {
+    height:100px;
+    width:100px;
+}
+.table_pattern2 td{
+    padding:5px;
+    text-align:center;
+    /*height: 100px;*/
+    background-color: #F2E8D1;
+    /*border:1px solid #444444;*/
+}
+.table_pattern2 td img {
+    height:50px;
+    width:50px;
+}
+.show{
+    display:block;
+}
+.plus{
+    border-radius: 5px;
+    background-color: #19B053;
+    color: #ffffff;
+    cursor: pointer;
+}
+.minus[type="button"]{
+    border-radius: 5px;
+    background-color: #d42323;
+    color: #ffffff;
+    cursor: pointer;
+}
+.resetPattern[type="button"]{
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    height: 25px !important;
+    width: 80px !important; 
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* 문양 style end */
+
+.div5{
+    float:left;
+    margin-bottom:10px;
+    margin-right:10px;
+}
+.div5 input[type="button"]{
+    width:50px;
+    height:30px;
+    margin:5px;
+}
+
+.table5{
+    width:550px;
+    border-bottom: 1px solid #444444;
+    border-collapse: collapse;
+    margin-top:5px;
+}
+.table5 th, .table5 td{
+    padding:4px;
+    text-align:center;
+}
+.table5 img {
+    height:40px;
+    width:40px;
+    border:1px solid #444444;
+}
+.div6{
+    width:628px;
+    height:780px;
+    overflow:auto;
+    float:left;
+}
+.table6 {
+    width:600px;
+    border-collapse: collapse;
+    border:1px solid #444444;
+    margin:5px;
+}
+.table6 thead th{
+    padding:10px;
+    position: sticky;
+    top: 0;
+    background-color: #f8f8ff;
+}
+.table6 td:hover{
+    background-color: #6699ff;
+}
+.table6 td{
+    padding:5px;
+    text-align:center;
+    border-top: 1px solid #444444;
+    border-right: 1px solid #444444;
+    border-bottom: 1px solid #444444;
+}
+.table6 img {
+    height:70px;
+    width:70px;
+}

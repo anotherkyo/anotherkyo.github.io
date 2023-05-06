@@ -3,8 +3,9 @@
 	<HEAD>
 		<meta charset="utf-8">
 		<TITLE>랑그릿사 몽환모의전 시뮬레이터</TITLE>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="./assets/style.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="assets/js/common.js"></script>
 		<script>
 			$( document ).ready( function() {
 				$(".table2 img").on('click',function(){
@@ -79,13 +80,13 @@
 								var temp2 = temp[0].substring(1,2);
 								var result = 0;
 								if(temp2 == 1){
-									result = Number($("#"+temp[0]).val()) + Number(resultCount1);	
+									result = Number($("#"+temp[0]).text()) + Number(resultCount1);	
 								} else if(temp2 == 2){
-									result = Number($("#"+temp[0]).val()) + Number(resultCount2);
+									result = Number($("#"+temp[0]).text()) + Number(resultCount2);
 								}
 
-								$("#"+temp[0]).val(result);
-								$("#"+temp[0]).css('background','#99ccff');
+								$("#"+temp[0]).text(result);
+								$("#"+temp[0]).css('color','#19D053');
 							} 
 						} else {
 							for(var i=0;i<array.length;i++){
@@ -93,16 +94,16 @@
 								var temp2 = temp[0].substring(1,2);
 								var result = 0;
 								if(temp2 == 1){
-									result = Number($("#"+temp[0]).val()) - Number(resultCount1);
+									result = Number($("#"+temp[0]).text()) - Number(resultCount1);
 								} else if(temp2 == 2){
-									result = Number($("#"+temp[0]).val()) - Number(resultCount2);
+									result = Number($("#"+temp[0]).text()) - Number(resultCount2);
 								}
 
-								$("#"+temp[0]).val(result);
-								if($("#"+temp[0]).val() == 0){
-									$("#"+temp[0]).css('background','#ffffff');
+								$("#"+temp[0]).text(result);
+								if($("#"+temp[0]).text() == 0){
+									$("#"+temp[0]).css('color','#ffffff');
 								} else {
-									$("#"+temp[0]).css('background','#99ccff');
+									$("#"+temp[0]).css('color','#19D053');
 								}
 							} 
 						}
@@ -228,9 +229,9 @@
 
 				// 각성 초기화
 				$("#resetBtn2").on('click',function(){
-					$(".table3 input:text").val('0');
-					$(".table3 input:text").css('background','#ffffff');
-					$(".table4 input:checkbox").prop("checked", false);
+					$(".table_arousal1 input:text").val('0');
+					$(".table_arousal1 input:text").css('background','#ffffff');
+					$(".table_arousal2 input:checkbox").prop("checked", false);
 				});
 
 				// 유대 초기화
@@ -263,6 +264,11 @@
 					$(this).wrap("<a href='#" + $(this).attr("src").substring($(this).attr("src").lastIndexOf("/")+1).replace(".webp","") + "'></a>")
 				});
 			});
+			
+			window.addEventListener('DOMContentLoaded', function(){
+				filterSelection('장신구');
+			});
+
 		</script>
 	</HEAD>
 
@@ -6976,7 +6982,7 @@
 							<!-- 방랑투사 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/방랑투사.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/방랑투사.webp">
 									<br>방랑투사
 								</td>
 								<td></td>
@@ -7016,7 +7022,7 @@
 							<!-- 줄리안 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/율리안.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/율리안.webp">
 									<br>줄리안
 								</td>
 								<td></td>
@@ -7056,7 +7062,7 @@
 							<!-- 리키 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/리키.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/리키.webp">
 									<br>리키
 								</td>
 								<td></td>
@@ -7100,7 +7106,7 @@
 							<!-- 마크렌 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/마크렌.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/마크렌.webp">
 									<br>마크렌
 								</td>
 								<td></td>
@@ -7144,7 +7150,7 @@
 							<!-- 긴토키 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/긴토키.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/긴토키.webp">
 									<br>긴토키
 								</td>
 								<td></td>
@@ -7184,7 +7190,7 @@
 							<!-- 카구라 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/카구라.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/카구라.webp">
 									<br>카구라
 								</td>
 								<td></td>
@@ -7224,7 +7230,7 @@
 							<!-- 신파치 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/신파치.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/신파치.webp">
 									<br>신파치
 								</td>
 								<td></td>
@@ -7264,7 +7270,7 @@
 							<!-- 빛의 수호사도 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp">
 									<br>빛의 수호사도
 								</td>
 								<td></td>
@@ -7304,7 +7310,7 @@
 							<!-- 아단켈모 -->
 							<tr>
 								<td rowspan="3">
-									<img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp">
 									<br>아단켈모
 								</td>
 								<td></td>
@@ -7501,6 +7507,306 @@
 									<input type="checkbox" value="m52-12,m51-12,m43-10,m41-10,m63-15,m61-15,m52-12,m51-12,m73-18,m72-18,m63-15,m61-15,m83-22,m85-22,m74-20,m73-20">
 								</td>
 							</tr>
+							<!-- 폴리알 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp">
+									<br>폴리알
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 루그너 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp">
+									<br>루그너
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 그렌실 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp">
+									<br>그렌실
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 요아 & 코니 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp">
+									<br>요아 & 코니
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 아니에스 클로델 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/아니에스.webp">
+									<br>아니에스 클로델
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 일레인 오클레르 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/일레인.webp">
+									<br>일레인 오클레르
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 반 아크라이드 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/반.webp">
+									<br>반 아크라이드
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 각성자 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp">
+									<br>각성자
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 사그니 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp">
+									<br>사그니
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 아마데우스 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp">
+									<br>아마데우스
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 키리카 토와 알마 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/키리카.webp">
+									<br>키리카
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 소니아 블랑쉬 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/소니아.webp">
+									<br>소니아
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 엑셀라 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/엑셀라.webp">
+									<br>엑셀라
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 님프 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp">
+									<br>님프
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<!-- 타탈리아 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp">
+									<br>타탈리아
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -7508,84 +7814,97 @@
 
 			<!-- 각성재료 start -->
 			<section id="content2" style="margin-bottom:20px;">
-				<div class="div3">
-					<table class="table3">
+				<div class="div_arousal1">
+					<table class="table_arousal1">
 						<colgroup>
-							<col style="width: 20%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
+							<col style="width: 40px">
 						</colgroup>
 						<thead>
 							<tr>
-								<th>수정</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka1.png" title="생령의 수정"><br>생령</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka2.png" title="창공의 수정"><br>창공</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka3.png" title="심연의 수정"><br>심연</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka4.png" title="결계의 수정"><br>결계</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka5.png" title="창생의 수정"><br>창생</th>
-								<th><img src="https://k88-ko.github.io/img/classup/ranka6.png" title="몽영의 수정"><br>몽영</th>
+								<th colspan="6">수정</th>
+								<th colspan="6">마음</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
-								<td><input type="text" id="a11" value="0" readonly /></td>
-								<td><input type="text" id="a12" value="0" readonly /></td>
-								<td><input type="text" id="a13" value="0" readonly /></td>
-								<td><input type="text" id="a14" value="0" readonly /></td>
-								<td><input type="text" id="a15" value="0" readonly /></td>
-								<td><input type="text" id="a16" value="0" readonly /></td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka1.png" title="생령의 수정">
+									<br>생령
+									<br><span id="a11">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka2.png" title="창공의 수정">
+									<br>창공
+									<br><span id="a12">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka3.png" title="심연의 수정">
+									<br>심연
+									<br><span id="a13">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka4.png" title="결계의 수정">
+									<br>결계
+									<br><span id="a14">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka5.png" title="창생의 수정">
+									<br>창생
+									<br><span id="a15">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/ranka6.png" title="몽영의 수정">
+									<br>몽영
+									<br><span id="a16">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka1-1.webp" title="계절풍의 마음">
+									<br>계절풍
+									<br><span id="a21">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka2-1.webp" title="파도의 마음"><br>파도
+									<br><span id="a22">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka3-1.webp" title="대륙의 마음"><br>대륙
+									<br><span id="a23">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka4-1.webp" title="불꽃의 마음"><br>불꽃
+									<br><span id="a24">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka5-1.webp" title="빛의 마음"><br>빛
+									<br><span id="a25">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka6-1.webp" title="달의 마음"><br>달
+									<br><span id="a26">0</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="12">
+									<input type="button" id="resetBtn2" value="초기화">
+								</td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table3">
-						<colgroup>
-							<col style="width: 20%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-							<col style="width: 12%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>마음</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka1-1.webp" title="계절풍의 마음"><br>계절풍</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka2-1.webp" title="파도의 마음"><br>파도</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka3-1.webp" title="대륙의 마음"><br>대륙</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka4-1.webp" title="불꽃의 마음"><br>불꽃</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka5-1.webp" title="빛의 마음"><br>빛</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/classup/ranka6-1.webp" title="달의 마음"><br>달</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td><input type="text" id="a21" value="0" readonly /></td>
-								<td><input type="text" id="a22" value="0" readonly /></td>
-								<td><input type="text" id="a23" value="0" readonly /></td>
-								<td><input type="text" id="a24" value="0" readonly /></td>
-								<td><input type="text" id="a25" value="0" readonly /></td>
-								<td><input type="text" id="a26" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table3">
-						<tr>
-							<td>
-								<input type="button" id="resetBtn2" value="초기화">
-							</td>
-						</tr>
 					</table>
 				</div>
 				
-				<div class="div4">
-					<table class="table4">
+				<div class="div_arousal2">
+					<table class="table_arousal2">
 						<colgroup>
 							<col style="width: 50%">
 							<col style="width: 25%">
@@ -8410,12 +8729,12 @@
 								<td><input type="checkbox" value="a22,a25"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
 								<td><input type="checkbox" value="a11,a13"></td>
 								<td><input type="checkbox" value="a21,a23"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td><input type="checkbox" value="a14,a15"></td>
 								<td><input type="checkbox" value="a24,a25"></td>
 							</tr>
@@ -8436,6 +8755,81 @@
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/지온.webp"><br>지온</td>
+								<td><input type="checkbox" value="a13,a16"></td>
+								<td><input type="checkbox" value="a23,a26"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp"><br>폴리알</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp"><br>루그너</td>
+								<td><input type="checkbox" value="a11,a13"></td>
+								<td><input type="checkbox" value="a23,a23"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp"><br>요아 & 코니</td>
+								<td><input type="checkbox" value="a13,a16"></td>
+								<td><input type="checkbox" value="a23,a26"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아니에스.webp"><br>아니에스 클로델</td>
+								<td><input type="checkbox" value="a14,a15"></td>
+								<td><input type="checkbox" value="a24,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/일레인.webp"><br>일레인 오클레르</td>
+								<td><input type="checkbox" value="a12,a15"></td>
+								<td><input type="checkbox" value="a22,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/반.webp"><br>반 아크라이드</td>
+								<td><input type="checkbox" value="a12,a15"></td>
+								<td><input type="checkbox" value="a22,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자</td>
+								<td><input type="checkbox" value="a14,a15"></td>
+								<td><input type="checkbox" value="a24,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp"><br>사그니</td>
+								<td><input type="checkbox" value="a13,a15"></td>
+								<td><input type="checkbox" value="a23,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스</td>
+								<td><input type="checkbox" value="a12,a16"></td>
+								<td><input type="checkbox" value="a22,a26"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/키리카.webp"><br>키리카 토와 알마</td>
+								<td><input type="checkbox" value="a13,a16"></td>
+								<td><input type="checkbox" value="a23,a26"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/블랑쉬.webp"><br>소니아 블랑쉬</td>
+								<td><input type="checkbox" value="a12,a15"></td>
+								<td><input type="checkbox" value="a22,a25"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/엑셀라.webp"><br>엑셀라</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp"><br>님프</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아</td>
 								<td><input type="checkbox" value="a13,a16"></td>
 								<td><input type="checkbox" value="a23,a26"></td>
 							</tr>
@@ -10243,7 +10637,7 @@
 								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
 								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
 								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
 								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
@@ -10252,7 +10646,7 @@
 								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
 								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
 								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
@@ -10295,6 +10689,141 @@
 								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
 								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
 								<td><input type="checkbox" value="y75-650000,y11-25,y21-25,y31-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp"><br>폴리알</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y62-28,y64-32,y61-40,y63-44,y66-8,y68-12,y65-16,y67-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp"><br>루그너</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td></td>
+								<td></td>
+								<td><!--<input type="checkbox" value="y75-650000,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12">--></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-650000,y16-25,y26-25,y36-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp"><br>요아 & 코니</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-650000,y11-25,y21-25,y31-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아니에스.webp"><br>아니에스 클로델</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-650000,y13-25,y23-25,y33-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/일레인.webp"><br>일레인 오클레르</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y62-28,y64-32,y61-40,y63-44,y66-8,y68-12,y65-16,y67-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/반.webp"><br>반 아크라이드</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y63-28,y61-32,y64-40,y62-44,y67-8,y65-12,y68-16,y66-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-650000,y13-25,y23-25,y33-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp"><br>사그니</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y13-10,y23-10,y33-10,y44-10,y53-6"></td>
+								<td><input type="checkbox" value="y75-650000,y13-25,y23-25,y33-10,y63-28,y61-32,y64-40,y62-44,y67-8,y65-12,y68-16,y66-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y15-10,y25-10,y35-10,y42-10,y55-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y15-10,y25-10,y35-10,y42-10,y55-6"></td>
+								<td><input type="checkbox" value="y75-650000,y15-25,y25-25,y35-10,y62-28,y64-32,y61-40,y63-44,y66-8,y68-12,y65-16,y67-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/키리카.webp"><br>키리카 토와 알마</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-650000,y11-25,y21-25,y31-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/블랑쉬.webp"><br>소니아 블랑쉬</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
+								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/엑셀라.webp"><br>엑셀라</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-650000,y16-25,y26-25,y36-10,y62-28,y64-32,y61-40,y63-44,y66-8,y68-12,y65-16,y67-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp"><br>님프</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-650000,y16-25,y26-25,y36-10,y63-28,y61-32,y64-40,y62-44,y67-8,y65-12,y68-16,y66-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y11-10,y21-10,y31-10,y46-10,y51-6"></td>
+								<td><input type="checkbox" value="y75-650000,y11-25,y21-25,y31-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -12988,8 +13517,8 @@
 							<tr>
 								<th>영웅</th>
 								<th></th>
-								<th><img class="icon" src="./img/icon/Spirit3.webp"></th>
-								<th><img class="icon" src="./img/icon/Spirit4.webp"></th>
+								<th><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></th>
+								<th><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></th>
 								<th></th>
 								<th>인질1</th>
 								<th>인질2</th>
@@ -13700,7 +14229,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/오토크라토4세.webp"><br>오토크라토4세<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/엘마.webp"><br>엘마<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/로비나대제.webp"><br>로비나 대제<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/루그너.webp"><br>루그너<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp"><br>루그너<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마이야.webp"><br>마이야</td>
@@ -13744,7 +14273,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/켈티스.webp"><br>켈티스<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/방주의성녀.webp"><br>방주의 성녀<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/구스타프.webp"><br>구스타프<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/폴리알.webp"><br>폴리알<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp"><br>폴리알<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/레나타.webp"><br>레나타</td>
@@ -13841,7 +14370,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마리엘.webp"><br>마리엘<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/수제트.webp"><br>수제트<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/엘마.webp"><br>엘마<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/루그너.webp"><br>루그너<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp"><br>루그너<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마리엘.webp"><br>마리엘</td>
@@ -13897,7 +14426,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리코리스.webp"><br>리코리스</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/켈티스.webp"><br>켈티스<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/폴리알.webp"><br>폴리알<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp"><br>폴리알<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/크림조의왕.webp"><br>크림조의 왕</td>
@@ -13997,7 +14526,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/오보로.webp"><br>오보로<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/방랑투사.webp"><br>방랑투사<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마크렌.webp"><br>마크렌<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아마데우스.webp"><br>아마데우스<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/웨탐.webp"><br>웨탐</td>
@@ -14029,8 +14558,8 @@
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/오보로.webp"><br>오보로<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/율리안.webp"><br>줄리안<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp"><br>빛의 수호사도<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/코니.webp"><br>요아 & 코니<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp"><br>요아 & 코니<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/방주의성녀.webp"><br>방주의 성녀</td>
@@ -14038,7 +14567,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리코리스.webp"><br>리코리스</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/플로렌티아.webp"><br>플로렌티아</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp"><br>빛의 수호사도(공)</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도(공)</td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/구스타프.webp"><br>구스타프</td>
@@ -14078,7 +14607,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/에길.webp"><br>베르너</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아즈사.webp"><br>아즈사<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아즈사.webp"><br>아즈사</td>
@@ -14087,7 +14616,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/오보로.webp"><br>오보로</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/카구야.webp"><br>카구야<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/그렌실.webp"><br>그렌실<br><img class="icon" src="./img/icon/Spirit4.webp"></td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실<br><img class="icon" src="./img/icon/Spirit4.webp"></td></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/오보로.webp"><br>오보로</td>
@@ -14125,7 +14654,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아샤메르.webp"><br>아사멜</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/철혈재상.webp"><br>아이언 챈슬러</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/방랑투사.webp"><br>방랑투사</td>
@@ -14158,21 +14687,21 @@
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/로비나대제.webp"><br>로비나 대제</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/방주의성녀.webp"><br>방주의 성녀</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/달의집정관.webp"><br>달의집정관</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/로스탐.webp"><br>로스탐</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/그렌실.webp"><br>그렌실<br><img class="icon" src="./img/icon/Spirit3.webp"></td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/각성자.webp"><br>각성자<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아마데우스.webp"><br>아마데우스<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실<br><img class="icon" src="./img/icon/Spirit3.webp"></td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛과그림자검의영혼.webp"><br>빛과그림자의 검의영혼</td>
@@ -14188,7 +14717,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/철혈재상.webp"><br>아이언 챈슬러</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리오벡.webp"><br>리오벡<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/코니.webp"><br>요아 & 코니<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp"><br>요아 & 코니<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리오벡.webp"><br>리오벡</td>
@@ -14201,79 +14730,79 @@
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/지온.webp"><br>지온</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/율리안.webp"><br>줄리안</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/율리안.webp"><br>줄리안</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리오벡.webp"><br>리오벡</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리오벡.webp"><br>리오벡<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/타탈리아.webp"><br>타탈리아<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/폴리알.webp"><br>폴리알</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/폴리알.webp"><br>폴리알</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리코리스.webp"><br>리코리스</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/팟시르.webp"><br>팟시르</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/루그너.webp"><br>루그너</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/루그너.webp"><br>루그너</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/탄생의빛.webp"><br>탄생의 빛</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아레스.webp"><br>아레스</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/그렌실.webp"><br>그렌실</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아즈사.webp"><br>아즈사</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/각성자.webp"><br>각성자<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/사그니.webp"><br>사그니<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp"><br>사그니<br><img class="icon" src="./img/icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/코니.webp"><br>요아 & 코니</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/코니.webp"><br>요아 & 코니</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/로비나대제.webp"><br>로비나 대제</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/껍질소녀.webp"><br>껍질소녀</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/각성자.webp"><br>각성자</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/그렌실.webp"><br>그렌실</td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
-								<td></td>
-							</tr>
-							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/사그니.webp"><br>사그니</td>
-								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/그렌실.webp"><br>그렌실</td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아마데우스.webp"><br>아마데우스</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아마데우스.webp"><br>아마데우스</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp"><br>사그니</td>
+								<td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스</td>
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마리안델.webp"><br>마리안델</td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/사그니.webp"><br>사그니<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/사그니.webp"><br>사그니<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/님프.webp"><br>님프</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp"><br>님프</td>
 								<td></td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/타탈리아.webp"><br>타탈리아</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/타탈리아.webp"><br>타탈리아<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/타탈리아.webp"><br>타탈리아</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/타탈리아.webp"><br>타탈리아</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/지온.webp"><br>지온</td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/님프.webp"><br>님프</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/지온.webp"><br>지온</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp"><br>님프</td>
 								<td></td>
-								<td><img src="https://redpanda7301.github.io/langrisser/img/card/님프.webp"><br>님프<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/님프.webp"><br>님프<br><img class="icon" src="./img/icon/Spirit4.webp"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -14310,7 +14839,7 @@
 						<tbody>
 							<tr>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Spear.webp" title="창"><br>창
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Spear.webp" title="창" onclick="filterSelection('창');"><br>창
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Spear_01.webp"><br>
@@ -14325,7 +14854,7 @@
 									<span id="p013" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Axe.webp" title="도끼"><br>도끼
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Axe.webp" title="도끼" onclick="filterSelection('도끼');"><br>도끼
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Axe_01.webp"><br>
@@ -14340,7 +14869,7 @@
 									<span id="p023" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Sword.webp" title="검"><br>검
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Sword.webp" title="검" onclick="filterSelection('검');"><br>검
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Sword_01.webp"><br>
@@ -14355,7 +14884,7 @@
 									<span id="p033" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Dagger.webp" title="비수"><br>비수
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Dagger.webp" title="비수" onclick="filterSelection('비수');"><br>비수
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Dagger_01.webp"><br>
@@ -14370,7 +14899,7 @@
 									<span id="p043" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer.webp" title="망치"><br>망치
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer.webp" title="망치" onclick="filterSelection('망치');"><br>망치
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer_01.webp"><br>
@@ -14387,7 +14916,7 @@
 							</tr>
 							<tr>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Bow.webp" title="활"><br>활
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Bow.webp" title="활" onclick="filterSelection('활');"><br>활
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Bow_01.webp"><br>
@@ -14402,7 +14931,7 @@
 									<span id="p063" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Wand.webp" title="지팡이"><br>지팡이
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Wand.webp" title="지팡이" onclick="filterSelection('지팡이');"><br>지팡이
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Wand_01.webp"><br>
@@ -14417,7 +14946,7 @@
 									<span id="p073" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalArmor.webp" title="중갑"><br>중갑
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalArmor.webp" title="중갑" onclick="filterSelection('중갑');"><br>중갑
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalArmor_01.webp"><br>
@@ -14432,7 +14961,7 @@
 									<span id="p083" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherArmor.webp" title="경갑"><br>경갑
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherArmor.webp" title="경갑" onclick="filterSelection('경갑');"><br>경갑
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherArmor_01.webp"><br>
@@ -14447,7 +14976,7 @@
 									<span id="p093" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Clothes.webp" title="면갑"><br>면갑
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Clothes.webp" title="면갑" onclick="filterSelection('면갑');"><br>면갑
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Clothes_01.webp"><br>
@@ -14464,7 +14993,7 @@
 							</tr>
 							<tr>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalHelmet.webp" title="중갑 투구"><br>중갑 투구
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalHelmet.webp" title="중갑 투구" onclick="filterSelection('중갑투구');"><br>중갑 투구
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalHelmet_01.webp"><br>
@@ -14479,7 +15008,7 @@
 									<span id="p113" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherHelmet.webp" title="경갑 투구"><br>경갑 투구
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherHelmet.webp" title="경갑 투구" onclick="filterSelection('경갑투구');"><br>경갑 투구
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherHelmet_01.webp">
@@ -14494,7 +15023,7 @@
 									<span id="p123" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hat.webp" title="면 투구"><br>면 투구
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hat.webp" title="면 투구" onclick="filterSelection('면투구');"><br>면 투구
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hat_01.webp"><br>
@@ -14509,7 +15038,7 @@
 									<span id="p133" value="0">0</span>
 								</td>
 								<td>
-									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp" title="장신구"><br>장신구
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp" title="장신구" onclick="filterSelection('장신구');"><br>장신구
 								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem_01.webp"><br>
@@ -14540,7 +15069,7 @@
 				</div>
 				<div class="div_pattern2">
 					<!-- 매튜(001) -->
-					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구">
+					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14609,7 +15138,7 @@
 						</tbody>
 					</table>
 					<!-- 아멜다(002) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14678,7 +15207,7 @@
 						</tbody>
 					</table>
 					<!-- 그레니어(003) -->
-					<table class="table_pattern2 @도끼 @활 @중갑 @중갑투구">
+					<table class="table_pattern2 @도끼 @활 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14747,7 +15276,7 @@
 						</tbody>
 					</table>
 					<!-- 아론(004) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14816,7 +15345,7 @@
 						</tbody>
 					</table>
 					<!-- 안나(005) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14885,7 +15414,7 @@
 						</tbody>
 					</table>
 					<!-- 디오스(006) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -14954,7 +15483,7 @@
 						</tbody>
 					</table>
 					<!-- 키스(007) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15023,7 +15552,7 @@
 						</tbody>
 					</table>
 					<!-- 제시카(008) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15086,7 +15615,7 @@
 						</tbody>
 					</table>
 					<!-- 스코트(009) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15155,7 +15684,7 @@
 						</tbody>
 					</table>
 					<!-- 로우가(010) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15224,7 +15753,7 @@
 						</tbody>
 					</table>
 					<!-- 루인(011) -->
-					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15293,7 +15822,7 @@
 						</tbody>
 					</table>
 					<!-- 레아드(012) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15362,7 +15891,7 @@
 						</tbody>
 					</table>
 					<!-- 피엘(013) -->
-					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구">
+					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15431,7 +15960,7 @@
 						</tbody>
 					</table>
 					<!-- 레티시아(014) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15500,7 +16029,7 @@
 						</tbody>
 					</table>
 					<!-- 레스터(015) -->
-					<table class="table_pattern2 @도끼 @망 @경갑 @경갑투구">
+					<table class="table_pattern2 @도끼 @망 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15569,7 +16098,7 @@
 						</tbody>
 					</table>
 					<!-- 소피아(016) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15638,7 +16167,7 @@
 						</tbody>
 					</table>
 					<!-- 페라키아(017) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15707,7 +16236,7 @@
 						</tbody>
 					</table>
 					<!-- 프레아(018) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15776,7 +16305,7 @@
 						</tbody>
 					</table>
 					<!-- 발가스(019) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15845,7 +16374,7 @@
 						</tbody>
 					</table>
 					<!-- 파나(020) -->
-					<table class="table_pattern2 @도끼 @비수 @경갑 @경갑투구">
+					<table class="table_pattern2 @도끼 @비수 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15914,7 +16443,7 @@
 						</tbody>
 					</table>
 					<!-- 나암(021) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -15983,7 +16512,7 @@
 						</tbody>
 					</table>
 					<!-- 크리스(022) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16052,7 +16581,7 @@
 						</tbody>
 					</table>
 					<!-- 키리카제(023) -->
-					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구">
+					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16121,7 +16650,7 @@
 						</tbody>
 					</table>
 					<!-- 실버울프(024) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16190,7 +16719,7 @@
 						</tbody>
 					</table>
 					<!-- 소니아(025) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16259,7 +16788,7 @@
 						</tbody>
 					</table>
 					<!-- 에마링크(026) -->
-					<table class="table_pattern2 @도끼 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @도끼 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16328,7 +16857,7 @@
 						</tbody>
 					</table>
 					<!-- 이멜다(027) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16397,7 +16926,7 @@
 						</tbody>
 					</table>
 					<!-- 리파니(028) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16460,7 +16989,7 @@
 						</tbody>
 					</table>
 					<!-- 에그베르트(029) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16523,7 +17052,7 @@
 						</tbody>
 					</table>
 					<!-- 헤인(030) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16592,7 +17121,7 @@
 						</tbody>
 					</table>
 					<!-- 란스(031) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16661,7 +17190,7 @@
 						</tbody>
 					</table>
 					<!-- 보젤(032) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16724,7 +17253,7 @@
 						</tbody>
 					</table>
 					<!-- 레딘(033) -->
-					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16793,7 +17322,7 @@
 						</tbody>
 					</table>
 					<!-- 레온(034) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16862,7 +17391,7 @@
 						</tbody>
 					</table>
 					<!-- 베른하르트(035) -->
-					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -16931,7 +17460,7 @@
 						</tbody>
 					</table>
 					<!-- 라나(036) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17000,7 +17529,7 @@
 						</tbody>
 					</table>
 					<!-- 엘윈(037) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17069,7 +17598,7 @@
 						</tbody>
 					</table>
 					<!-- 쉐리(038) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17138,7 +17667,7 @@
 						</tbody>
 					</table>
 					<!-- 리아나(039) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17207,7 +17736,7 @@
 						</tbody>
 					</table>
 					<!-- 알테뮬러(040) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17276,7 +17805,7 @@
 						</tbody>
 					</table>
 					<!-- 루나(041) -->
-					<table class="table_pattern2 @창 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17345,7 +17874,7 @@
 						</tbody>
 					</table>
 					<!-- 디하르트(042) -->
-					<table class="table_pattern2 @도끼 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @도끼 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17414,7 +17943,7 @@
 						</tbody>
 					</table>
 					<!-- 티아리스(043) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17483,7 +18012,7 @@
 						</tbody>
 					</table>
 					<!-- 쥬그라(044) -->
-					<table class="table_pattern2 @창 @망치 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @망치 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17552,7 +18081,7 @@
 						</tbody>
 					</table>
 					<!-- 젤다(045) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17621,7 +18150,7 @@
 						</tbody>
 					</table>
 					<!-- 제리올&레이라(046) -->
-					<table class="table_pattern2 @지팡이 @중갑 @중갑투구">
+					<table class="table_pattern2 @지팡이 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17684,7 +18213,7 @@
 						</tbody>
 					</table>
 					<!-- 셀파닐(047) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17753,7 +18282,7 @@
 						</tbody>
 					</table>
 					<!-- 안젤리나(048) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17822,7 +18351,7 @@
 						</tbody>
 					</table>
 					<!-- 란포드(049) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17891,7 +18420,7 @@
 						</tbody>
 					</table>
 					<!-- 리스틸(050) -->
-					<table class="table_pattern2 @망치 @지팡이 @경갑 @경갑투구">
+					<table class="table_pattern2 @망치 @지팡이 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -17960,7 +18489,7 @@
 						</tbody>
 					</table>
 					<!-- 에스텔(051) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18029,7 +18558,7 @@
 						</tbody>
 					</table>
 					<!-- 요슈아(052) -->
-					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구">
+					<table class="table_pattern2 @검 @비수 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18098,7 +18627,7 @@
 						</tbody>
 					</table>
 					<!-- 클로제(053) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18167,7 +18696,7 @@
 						</tbody>
 					</table>
 					<!-- 레온하르트(054) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18236,7 +18765,7 @@
 						</tbody>
 					</table>
 					<!-- 렌(055) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18299,7 +18828,7 @@
 						</tbody>
 					</table>
 					<!-- 올리비에(056) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18368,7 +18897,7 @@
 						</tbody>
 					</table>
 					<!-- 란디우스(057) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18437,7 +18966,7 @@
 						</tbody>
 					</table>
 					<!-- 레이첼(058) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18506,7 +19035,7 @@
 						</tbody>
 					</table>
 					<!-- 윌러(059) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18575,7 +19104,7 @@
 						</tbody>
 					</table>
 					<!-- 기자로프(060) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18638,7 +19167,7 @@
 						</tbody>
 					</table>
 					<!-- 세레나(061) -->
-					<table class="table_pattern2 @도끼 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @도끼 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18707,7 +19236,7 @@
 						</tbody>
 					</table>
 					<!-- 시그마(062) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18776,7 +19305,7 @@
 						</tbody>
 					</table>
 					<!-- 람다(063) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18845,7 +19374,7 @@
 						</tbody>
 					</table>
 					<!-- 사쿠라(064) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18914,7 +19443,7 @@
 						</tbody>
 					</table>
 					<!-- 스미레(065) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -18983,7 +19512,7 @@
 						</tbody>
 					</table>
 					<!-- 아이리스(066) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19052,7 +19581,7 @@
 						</tbody>
 					</table>
 					<!-- 안젤리카(067) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19121,7 +19650,7 @@
 						</tbody>
 					</table>
 					<!-- 클라렛(068) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19190,7 +19719,7 @@
 						</tbody>
 					</table>
 					<!-- 엘라스타(069) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19259,7 +19788,7 @@
 						</tbody>
 					</table>
 					<!-- 오메가(070) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19328,7 +19857,7 @@
 						</tbody>
 					</table>
 					<!-- 유리아(071) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19397,7 +19926,7 @@
 						</tbody>
 					</table>
 					<!-- 유스케(072) -->
-					<table class="table_pattern2 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19460,7 +19989,7 @@
 						</tbody>
 					</table>
 					<!-- 쿠라마(073) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19529,7 +20058,7 @@
 						</tbody>
 					</table>
 					<!-- 카즈마(074) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19598,7 +20127,7 @@
 						</tbody>
 					</table>
 					<!-- 히에이(075) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19667,7 +20196,7 @@
 						</tbody>
 					</table>
 					<!-- 도구로 형제(076) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19736,7 +20265,7 @@
 						</tbody>
 					</table>
 					<!-- 레인폴스(077) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19805,7 +20334,7 @@
 						</tbody>
 					</table>
 					<!-- 베티(078) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -19943,7 +20472,7 @@
 						</tbody>
 					</table>
 					<!-- 환생제시카(080) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20012,7 +20541,7 @@
 						</tbody>
 					</table>
 					<!-- 에밀리아(081) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20081,7 +20610,7 @@
 						</tbody>
 					</table>
 					<!-- 비라쥬(082) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20150,7 +20679,7 @@
 						</tbody>
 					</table>
 					<!-- 미지의 기사(083) -->
-					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구">
+					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20219,7 +20748,7 @@
 						</tbody>
 					</table>
 					<!-- 아카야(084) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20282,7 +20811,7 @@
 						</tbody>
 					</table>
 					<!-- 브렌다(085) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20351,7 +20880,7 @@
 						</tbody>
 					</table>
 					<!-- 올리버(086) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20420,7 +20949,7 @@
 						</tbody>
 					</table>
 					<!-- 디드리트(087) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20483,7 +21012,7 @@
 						</tbody>
 					</table>
 					<!-- 아슈람(088) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20552,7 +21081,7 @@
 						</tbody>
 					</table>
 					<!-- 판(089) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20621,7 +21150,7 @@
 						</tbody>
 					</table>
 					<!-- 필로테스(090) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20690,7 +21219,7 @@
 						</tbody>
 					</table>
 					<!-- 아레스(091) -->
-					<table class="table_pattern2 @창 @검 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @검 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20759,7 +21288,7 @@
 						</tbody>
 					</table>
 					<!-- 마이야(092) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20828,7 +21357,7 @@
 						</tbody>
 					</table>
 					<!-- 일루시아(093) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20897,7 +21426,7 @@
 						</tbody>
 					</table>
 					<!-- 실린카(094) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -20966,7 +21495,7 @@
 						</tbody>
 					</table>
 					<!-- 리코리스(095) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21035,7 +21564,7 @@
 						</tbody>
 					</table>
 					<!-- 레나타(096) -->
-					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구">
+					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21104,7 +21633,7 @@
 						</tbody>
 					</table>
 					<!-- 린(097) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21173,7 +21702,7 @@
 						</tbody>
 					</table>
 					<!-- 아리안로드(098) -->
-					<table class="table_pattern2 @창 @망치 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @망치 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21242,7 +21771,7 @@
 						</tbody>
 					</table>
 					<!-- 알티나(099) -->
-					<table class="table_pattern2 @지팡이 @경갑 @경갑투구">
+					<table class="table_pattern2 @지팡이 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21305,7 +21834,7 @@
 						</tbody>
 					</table>
 					<!-- 로지리아(100) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21374,7 +21903,7 @@
 						</tbody>
 					</table>
 					<!-- 노에미(101) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21437,7 +21966,7 @@
 						</tbody>
 					</table>
 					<!-- 헬레나(102) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21506,7 +22035,7 @@
 						</tbody>
 					</table>
 					<!-- 세계수의 현자(103) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21575,7 +22104,7 @@
 						</tbody>
 					</table>
 					<!-- 플로렌티아(104) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21644,7 +22173,7 @@
 						</tbody>
 					</table>
 					<!-- 츠바메(105) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21713,7 +22242,7 @@
 						</tbody>
 					</table>
 					<!-- 아인즈 울 고운(106) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21776,7 +22305,7 @@
 						</tbody>
 					</table>
 					<!-- 알베도(107) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21845,7 +22374,7 @@
 						</tbody>
 					</table>
 					<!-- 샤르티아(108) -->
-					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21914,7 +22443,7 @@
 						</tbody>
 					</table>
 					<!-- 멜파니(109) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -21983,7 +22512,7 @@
 						</tbody>
 					</table>
 					<!-- 로젠실(110) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22052,7 +22581,7 @@
 						</tbody>
 					</table>
 					<!-- 클로테르(111) -->
-					<table class="table_pattern2 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22115,7 +22644,7 @@
 						</tbody>
 					</table>
 					<!-- 탄생의 빛(112) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22184,7 +22713,7 @@
 						</tbody>
 					</table>
 					<!-- 마리엘(113) -->
-					<table class="table_pattern2 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22247,7 +22776,7 @@
 						</tbody>
 					</table>
 					<!-- 힐다(114) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22316,7 +22845,7 @@
 						</tbody>
 					</table>
 					<!-- 베르너(115) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22385,7 +22914,7 @@
 						</tbody>
 					</table>
 					<!-- 이쿠사베 와타루(116) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22454,7 +22983,7 @@
 						</tbody>
 					</table>
 					<!-- 히미코(117) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22523,7 +23052,7 @@
 						</tbody>
 					</table>
 					<!-- 츠루기베 시바라쿠(118) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22592,7 +23121,7 @@
 						</tbody>
 					</table>
 					<!-- 크루거(119) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22655,7 +23184,7 @@
 						</tbody>
 					</table>
 					<!-- 빈센트(120) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22724,7 +23253,7 @@
 						</tbody>
 					</table>
 					<!-- 토와(121) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22793,7 +23322,7 @@
 						</tbody>
 					</table>
 					<!-- 팟시르(122) -->
-					<table class="table_pattern2 @지팡이 @경갑 @경갑투구">
+					<table class="table_pattern2 @지팡이 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22856,7 +23385,7 @@
 						</tbody>
 					</table>
 					<!-- 크림조의 왕(123) -->
-					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구">
+					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22925,7 +23454,7 @@
 						</tbody>
 					</table>
 					<!-- 화이트 시시(124) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -22994,7 +23523,7 @@
 						</tbody>
 					</table>
 					<!-- 사나다 료(125) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23063,7 +23592,7 @@
 						</tbody>
 					</table>
 					<!-- 카유라(126) -->
-					<table class="table_pattern2 @망치 @지팡이 @경갑 @경갑투구">
+					<table class="table_pattern2 @망치 @지팡이 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23132,7 +23661,7 @@
 						</tbody>
 					</table>
 					<!-- 하시바 토마(127) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23201,7 +23730,7 @@
 						</tbody>
 					</table>
 					<!-- 오토크라트 4세(128) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23270,7 +23799,7 @@
 						</tbody>
 					</table>
 					<!-- 루크레치아(129) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23339,7 +23868,7 @@
 						</tbody>
 					</table>
 					<!-- 입실론(130) -->
-					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23408,7 +23937,7 @@
 						</tbody>
 					</table>
 					<!-- 뮤(131) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23477,7 +24006,7 @@
 						</tbody>
 					</table>
 					<!-- 크리스티아네(132) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23546,7 +24075,7 @@
 						</tbody>
 					</table>
 					<!-- 수제트(133) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23615,7 +24144,7 @@
 						</tbody>
 					</table>
 					<!-- 초월자(134) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23684,7 +24213,7 @@
 						</tbody>
 					</table>
 					<!-- 알파(135) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23753,7 +24282,7 @@
 						</tbody>
 					</table>
 					<!-- 베르너 폰 에길(136) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23822,7 +24351,7 @@
 						</tbody>
 					</table>
 					<!-- 마리안델(137) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23891,7 +24420,7 @@
 						</tbody>
 					</table>
 					<!-- 웨탐(138) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -23960,7 +24489,7 @@
 						</tbody>
 					</table>
 					<!-- 엘마(139) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24029,7 +24558,7 @@
 						</tbody>
 					</table>
 					<!-- 켈티스(140) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24098,7 +24627,7 @@
 						</tbody>
 					</table>
 					<!-- 로비나 대제(141) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24167,7 +24696,7 @@
 						</tbody>
 					</table>
 					<!-- 방주의 성녀(142) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24236,7 +24765,7 @@
 						</tbody>
 					</table>
 					<!-- 구스타프(143) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24305,7 +24834,7 @@
 						</tbody>
 					</table>
 					<!-- 미셸(144) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24374,7 +24903,7 @@
 						</tbody>
 					</table>
 					<!-- 리사(145) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24443,7 +24972,7 @@
 						</tbody>
 					</table>
 					<!-- 아이언 챈슬러(146) -->
-					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구">
+					<table class="table_pattern2 @망치 @지팡이 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24512,7 +25041,7 @@
 						</tbody>
 					</table>
 					<!-- 크림조의 집정관(147) -->
-					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구">
+					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24581,7 +25110,7 @@
 						</tbody>
 					</table>
 					<!-- 디오스(148) -->
-					<table class="table_pattern2 @비수 @활 @중갑 @중갑투구">
+					<table class="table_pattern2 @비수 @활 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24650,7 +25179,7 @@
 						</tbody>
 					</table>
 					<!-- 알리시아(149) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24719,7 +25248,7 @@
 						</tbody>
 					</table>
 					<!-- 이사라(150) -->
-					<table class="table_pattern2 @비수 @활 @중갑 @중갑투구">
+					<table class="table_pattern2 @비수 @활 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24788,7 +25317,7 @@
 						</tbody>
 					</table>
 					<!-- 오보로(151) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24857,7 +25386,7 @@
 						</tbody>
 					</table>
 					<!-- 카구야(152) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24926,7 +25455,7 @@
 						</tbody>
 					</table>
 					<!-- 캐롤리안(153) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -24995,7 +25524,7 @@
 						</tbody>
 					</table>
 					<!-- 아사멜(154) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25064,7 +25593,7 @@
 						</tbody>
 					</table>
 					<!-- 로스탐(155) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25133,7 +25662,7 @@
 						</tbody>
 					</table>
 					<!-- 방랑투사(156) -->
-					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구">
+					<table class="table_pattern2 @창 @도끼 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25202,7 +25731,7 @@
 						</tbody>
 					</table>
 					<!-- 줄리안(157) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25271,7 +25800,7 @@
 						</tbody>
 					</table>
 					<!-- 리키(158) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25340,7 +25869,7 @@
 						</tbody>
 					</table>
 					<!-- 마크렌(159) -->
-					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구">
+					<table class="table_pattern2 @비수 @활 @경갑 @경갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25409,7 +25938,7 @@
 						</tbody>
 					</table>
 					<!-- 사카타 긴토키(160) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25478,7 +26007,7 @@
 						</tbody>
 					</table>
 					<!-- 카구라(161) -->
-					<table class="table_pattern2 @창 @검 @중갑 @중갑투구">
+					<table class="table_pattern2 @창 @검 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25547,7 +26076,7 @@
 						</tbody>
 					</table>
 					<!-- 시무라 신파치(162) -->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25616,7 +26145,7 @@
 						</tbody>
 					</table>
 					<!-- 아단켈모(163) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25679,7 +26208,7 @@
 						</tbody>
 					</table>
 					<!-- 빛의 수호사도(164) -->
-					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25747,8 +26276,8 @@
 							</tr>
 						</tbody>
 					</table>
-					<!-- 빛과 그림자 검의영혼-->
-					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구">
+					<!-- 빛과 그림자 검의영혼(165) -->
+					<table class="table_pattern2 @검 @비수 @중갑 @중갑투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
@@ -25817,7 +26346,7 @@
 						</tbody>
 					</table>
 					<!-- 껍질소녀(166) -->
-					<table class="table_pattern2 @지팡이 @면갑 @면투구">
+					<table class="table_pattern2 @지팡이 @면갑 @면투구 @장신구">
 						<thead>
 							<tr>
 								<th>영웅</th>
