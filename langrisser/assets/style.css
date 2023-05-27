@@ -449,6 +449,10 @@ input[type="checkbox"]{
     color: #ffffff;
     cursor: pointer;
 }
+.table_pattern2 td img.mpn{
+    opacity: 0.2;
+}
+
 
 /* 문양 style end */
 
