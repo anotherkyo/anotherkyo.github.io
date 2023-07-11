@@ -8,7 +8,7 @@
 		<script src="assets/js/common.js"></script>
 		<script>
 			$( document ).ready( function() {
-				$(".table2 img").on('click',function(){
+				$(".table_class2 img").on('click',function(){
 					var img = $(this);
 					var checkbox = img.parent().find('input:checkbox');
 
@@ -26,19 +26,19 @@
 						if(checkbox.prop('checked')){
 							for(var i=0;i<array.length;i++){
 								var temp = array[i].split('-');
-								var result = Number($("#"+temp[0]).val()) + Number(temp[1]) ;
-								$("#"+temp[0]).val(result);
-								$("#"+temp[0]).css('background','#99ccff');
+								var result = Number($("#"+temp[0]).text()) + Number(temp[1]) ;
+								$("#"+temp[0]).text(result);
+								$("#"+temp[0]).css('color','#19D053');
 							} 
 						} else {
 							for(var i=0;i<array.length;i++){
 								var temp = array[i].split('-');
-								var result = Number($("#"+temp[0]).val()) - Number(temp[1]) ;
-								$("#"+temp[0]).val(result);
-								if($("#"+temp[0]).val() == 0){
-									$("#"+temp[0]).css('background','#ffffff');
+								var result = Number($("#"+temp[0]).text()) - Number(temp[1]) ;
+								$("#"+temp[0]).text(result);
+								if($("#"+temp[0]).text() == 0){
+									$("#"+temp[0]).css('color','#ffffff');
 								} else {
-									$("#"+temp[0]).css('background','#99ccff');
+									$("#"+temp[0]).css('color','#19D053');
 								}
 							} 
 						}
@@ -225,9 +225,9 @@
 
 				// 전직 초기화
 				$("#resetBtn1").on('click',function(){
-					$(".table1 input:text").val('0');
-					$(".table1 input:text").css('background','#ffffff');
-					$(".table2 input:checkbox").prop("checked", false);
+					$(".table_class1 span").text(0);
+					$(".table_class1 span").css('color','#ffffff');
+					$(".table_class2 input:checkbox").prop("checked", false);
 				});
 
 				// 각성 초기화
@@ -300,353 +300,356 @@
 			<label for="tab7">문의사항</label>
 
 			<section id="content1" style="margin-bottom:20px;">
-				<div class="div1">
-					<table class="table1">
+				<div class="div_class1">
+					<table class="table_class1">
 						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
 						</colgroup>
-						<thead>
-							<tr>
-								<th>기초1</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank1-1.png" title="전투 수행의 증서"><br>전투</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank1-2.png" title="생존 수행의 증서"><br>생존</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank1-3.png" title="기사 수행의 증서"><br>기사</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank1-4.png" title="사제 수행의 증서"><br>사제</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank1-5.png" title="마법 수행의 증서"><br>마법</th>
-							</tr>
-						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
+								<th colspan="9">기초1</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank1-1.png" title="전투 수행의 증서"><br>
+									전투<br>
+									<span id="m11">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank1-2.png" title="생존 수행의 증서"><br>
+									생존<br>
+									<span id="m12">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank1-3.png" title="기사 수행의 증서"><br>
+									기사<br>
+									<span id="m13">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank1-4.png" title="사제 수행의 증서"><br>
+									사제<br>
+									<span id="m14">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank1-5.png" title="마법 수행의 증서"><br>
+									마법<br>
+									<span id="m15">0</span>
+								</td>
 								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
-								<td><input type="text" id="m11" value="0" readonly /></td>
-								<td><input type="text" id="m12" value="0" readonly /></td>
-								<td><input type="text" id="m13" value="0" readonly /></td>
-								<td><input type="text" id="m14" value="0" readonly /></td>
-								<td><input type="text" id="m15" value="0" readonly /></td>
+							</tr>
+							<tr>
+								<th colspan="9">기초2</th>
+							</tr>
+							<tr>
+								
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-1.png" title="힘의 완장"><br>
+									힘<br>
+									<span id="m21">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-2.png" title="보호의 완장"><br>
+									보호<br>
+									<span id="m22">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-3.png" title="민첩의 완장"><br>
+									민첩<br>
+									<span id="m23">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-4.png" title="지혜의 완장"><br>
+									지혜<br>
+									<span id="m24">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-5.png" title="마음의 완장"><br>
+									마음<br>
+									<span id="m25">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank2-6.png" title="기억의 완장"><br>
+									기억<br>
+									<span id="m26">0</span>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">기초3</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-1.png" title="투기의 증서"><br>
+									투기<br>
+									<span id="m31">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-2.png" title="정찰의 증서"><br>
+									정찰<br>
+									<span id="m32">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-3.png" title="기마의 증서"><br>
+									기마<br>
+									<span id="m33">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-4.png" title="기도의 증서"><br>
+									기도<br>
+									<span id="m34">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-5.png" title="마법의 증서"><br>
+									마법<br>
+									<span id="m35">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank3-6.png" title="수호의 증서"><br>
+									수호<br>
+									<span id="m36">0</span>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">35</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-1.png" title="용맹의 엠블럼"><br>
+									용맹<br>
+									<span id="m41">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-2.png" title="불굴의 엠블렘"><br>
+									불굴<br>
+									<span id="m42">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-3.png" title="비밀의 엠블렘"><br>
+									비밀<br>
+									<span id="m43">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-4.png" title="예지의 엠블렘"><br>
+									예지<br>
+									<span id="m44">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-5.png" title="영혼의 엠블렘"><br>
+									영혼<br>
+									<span id="m45">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank4-6.png" title="충성의 엠블렘"><br>
+									충성<br>
+									<span id="m46">0</span>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">40</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-1.png" title="파이터의 증서"><br>
+									파이터<br>
+									<span id="m51">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-2.png" title="방랑언 증서"><br>
+									방랑<br>
+									<span id="m52">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-3.png" title="기사의 증서"><br>
+									기사<br>
+									<span id="m53">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-4.png" title="사제의 증서"><br>
+									사제<br>
+									<span id="m54">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-5.png" title="술사의 증서"><br>
+									술사<br>
+									<span id="m55">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank5-6.png" title="가디언의 증서"><br>
+									가디언<br>
+									<span id="m56">0</span>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">45</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-1.png" title="용기의 문장"><br>
+									용기<br>
+									<span id="m61">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-2.png" title="질서의 문징"><br>
+									질서<br>
+									<span id="m62">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-3.png" title="자유의 문장"><br>
+									자유<br>
+									<span id="m63">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-4.png" title="의지의 문장"><br>
+									의지<br>
+									<span id="m64">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-5.png" title="신앙의 문장"><br>
+									신앙<br>
+									<span id="m65">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-6.png" title="공정의 문장"><br>
+									공정<br>
+									<span id="m66">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-7.png" title="희망의 문장"><br>
+									희망<br>
+									<span id="m67">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank6-8.png" title="자애의 문장"><br>
+									자애<br>
+									<span id="m68">0</span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">50</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-1.png" title="히어로의 증서"><br>
+									히어로<br>
+									<span id="m71">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-2.png" title="용사의 증서"><br>
+									용사<br>
+									<span id="m72">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-3.png" title="레인저의 증서"><br>
+									레인저<br>
+									<span id="m73">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-4.png" title="패자의 증서"><br>
+									패자<br>
+									<span id="m74">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-5.png" title="세인트의 증서"><br>
+									세인트<br>
+									<span id="m75">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-6.png" title="은자의 증서"><br>
+									은자<br>
+									<span id="m76">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank7-7.png" title="통치의 증서"><br>
+									통치<br>
+									<span id="m77">0</span>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="9">50</th>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-1.png" title="정의의 인장"><br>
+									정의<br>
+									<span id="m81">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-2.png" title="운명의 인장"><br>
+									운명<br>
+									<span id="m82">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-3.png" title="세계의 인장"><br>
+									세계<br>
+									<span id="m83">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-4.png" title="오의의 인장"><br>
+									오의<br>
+									<span id="m84">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-5.png" title="기적의 인장"><br>
+									기적<br>
+									<span id="m85">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-6.png" title="심판의 인장"><br>
+									심판<br>
+									<span id="m86">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-7.png" title="영예의 인장"><br>
+									영예<br>
+									<span id="m87">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-8.png" title="혼돈의 인장"><br>
+									혼돈<br>
+									<span id="m88">0</span>
+								</td>
+								<td>
+									<img src="https://k88-ko.github.io/img/classup/rank8-9.png" title="시간의 인장"><br>
+									시간<br>
+									<span id="m89">0</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="9">
+									<input type="button" id="resetBtn1" value="초기화">
+								</td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>기초2</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-1.png" title="힘의 완장"><br>힘</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-2.png" title="보호의 완장"><br>보호</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-3.png" title="민첩의 완장"><br>민첩</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-4.png" title="지혜의 완장"><br>지혜</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-5.png" title="마음의 완장"><br>마음</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank2-6.png" title="기억의 완장"><br>기억</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="m21" value="0" readonly /></td>
-								<td><input type="text" id="m22" value="0" readonly /></td>
-								<td><input type="text" id="m23" value="0" readonly /></td>
-								<td><input type="text" id="m24" value="0" readonly /></td>
-								<td><input type="text" id="m25" value="0" readonly /></td>
-								<td><input type="text" id="m26" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>기초3</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-1.png" title="투기의 증서"><br>투기</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-2.png" title="정찰의 증서"><br>정찰</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-3.png" title="기마의 증서"><br>기마</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-4.png" title="기도의 증서"><br>기도</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-5.png" title="마법의 증서"><br>마법</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank3-6.png" title="수호의 증서"><br>수호</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="m31" value="0" readonly /></td>
-								<td><input type="text" id="m32" value="0" readonly /></td>
-								<td><input type="text" id="m33" value="0" readonly /></td>
-								<td><input type="text" id="m34" value="0" readonly /></td>
-								<td><input type="text" id="m35" value="0" readonly /></td>
-								<td><input type="text" id="m36" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>35</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-1.png" title="용맹의 엠블럼"><br>용맹</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-2.png" title="불굴의 엠블렘"><br>불굴</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-3.png" title="비밀의 엠블렘"><br>비밀</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-4.png" title="예지의 엠블렘"><br>예지</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-5.png" title="영혼의 엠블렘"><br>영혼</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank4-6.png" title="충성의 엠블렘"><br>충성</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="m41" value="0" readonly /></td>
-								<td><input type="text" id="m42" value="0" readonly /></td>
-								<td><input type="text" id="m43" value="0" readonly /></td>
-								<td><input type="text" id="m44" value="0" readonly /></td>
-								<td><input type="text" id="m45" value="0" readonly /></td>
-								<td><input type="text" id="m46" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>40</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-1.png" title="파이터의 증서"><br>파이터</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-2.png" title="방랑언 증서"><br>방랑</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-3.png" title="기사의 증서"><br>기사</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-4.png" title="사제의 증서"><br>사제</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-5.png" title="술사의 증서"><br>술사</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank5-6.png" title="가디언의 증서"><br>가디언</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="m51" value="0" readonly /></td>
-								<td><input type="text" id="m52" value="0" readonly /></td>
-								<td><input type="text" id="m53" value="0" readonly /></td>
-								<td><input type="text" id="m54" value="0" readonly /></td>
-								<td><input type="text" id="m55" value="0" readonly /></td>
-								<td><input type="text" id="m56" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>45</th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-1.png" title="용기의 문장"><br>용기</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-2.png" title="질서의 문징"><br>질서</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-3.png" title="자유의 문장"><br>자유</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-4.png" title="의지의 문장"><br>의지</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-5.png" title="신앙의 문장"><br>신앙</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-6.png" title="공정의 문장"><br>공정</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-7.png" title="희망의 문장"><br>희망</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank6-8.png" title="자애의 문장"><br>자애</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td><input type="text" id="m61" value="0" readonly /></td>
-								<td><input type="text" id="m62" value="0" readonly /></td>
-								<td><input type="text" id="m63" value="0" readonly /></td>
-								<td><input type="text" id="m64" value="0" readonly /></td>
-								<td><input type="text" id="m65" value="0" readonly /></td>
-								<td><input type="text" id="m66" value="0" readonly /></td>
-								<td><input type="text" id="m67" value="0" readonly /></td>
-								<td><input type="text" id="m68" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>50</th>
-								<th></th>
-								<th></th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-1.png" title="히어로의 증서"><br>히어로</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-2.png" title="용사의 증서"><br>용사</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-3.png" title="레인저의 증서"><br>레인저</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-4.png" title="패자의 증서"><br>패자</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-5.png" title="세인트의 증서"><br>세인트</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-6.png" title="은자의 증서"><br>은자</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank7-7.png" title="통치의 증서"><br>통치</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="m71" value="0" readonly /></td>
-								<td><input type="text" id="m72" value="0" readonly /></td>
-								<td><input type="text" id="m73" value="0" readonly /></td>
-								<td><input type="text" id="m74" value="0" readonly /></td>
-								<td><input type="text" id="m75" value="0" readonly /></td>
-								<td><input type="text" id="m76" value="0" readonly /></td>
-								<td><input type="text" id="m77" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<colgroup>
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-							<col style="width:10%">
-						</colgroup>
-						<thead>
-							<tr>
-								<th>55</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-1.png" title="정의의 인장"><br>정의</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-2.png" title="운명의 인장"><br>운명</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-3.png" title="세계의 인장"><br>세계</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-4.png" title="오의의 인장"><br>오의</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-5.png" title="기적의 인장"><br>기적</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-6.png" title="심판의 인장"><br>심판</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-7.png" title="영예의 인장"><br>영예</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-8.png" title="혼돈의 인장"><br>혼돈</th>
-								<th><img src="https://k88-ko.github.io/img/classup/rank8-9.png" title="시간의 인장"><br>시간</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>합계</td>
-								<td><input type="text" id="m81" value="0" readonly /></td>
-								<td><input type="text" id="m82" value="0" readonly /></td>
-								<td><input type="text" id="m83" value="0" readonly /></td>
-								<td><input type="text" id="m84" value="0" readonly /></td>
-								<td><input type="text" id="m85" value="0" readonly /></td>
-								<td><input type="text" id="m86" value="0" readonly /></td>
-								<td><input type="text" id="m87" value="0" readonly /></td>
-								<td><input type="text" id="m88" value="0" readonly /></td>
-								<td><input type="text" id="m89" value="0" readonly /></td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="table1">
-						<tr>
-							<td>
-								<input type="button" id="resetBtn1" value="초기화">
-							</td>
-						</tr>
 					</table>
 				</div>
-				<div class="div2">
-					<table class="table2">
+
+				<div class="div_class2">
+					<table class="table_class2">
 						<colgroup>
 							<col style="width:25%">
 							<col style="width:25%">
@@ -28139,6 +28142,142 @@
 								<td class="top" colspan="3">
 									생명 +<span id="pc185_s1">0</span> 방어 +<span id="pc185_s2">0</span> 지력 +<span id="pc185_s3">0</span><br>
 									공격 +<span id="pc185_s4">0</span> 마방 +<span id="pc185_s5">0</span> 기술 +<span id="pc185_s6">0</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 롤랑(187) -->
+					<table class="table_pattern2 @망치 @지팡이 @면갑 @면투구 @장신구 @패시브">
+						<thead>
+							<tr>
+								<th>영웅</th>
+								<th colspan="3">문양</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/롤랑.webp"><br>
+									롤랑
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p051-20,pGold-25000,pc187_s1-20,pc187_s3-4/p051-25,p052-18,pGold-35000,pc187_s1-20,pc187_s3-4/p051-30,p052-24,p053-15,pGold-60000,pc187_s1-20,pc187_s3-4/p051-40,p052-30,p053-20,pGold-100000,pc187_s1-20,pc187_s3-4/p051-50,p052-36,p053-25,pGold-150000,pc187_s1-20,pc187_s3-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Wand.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p071-20,pGold-25000,pc187_s1-20,pc187_s3-4/p071-25,p072-18,pGold-35000,pc187_s1-20,pc187_s3-4/p071-30,p072-24,p073-15,pGold-60000,pc187_s1-20,pc187_s3-4/p071-40,p072-30,p073-20,pGold-100000,pc187_s1-20,pc187_s3-4/p071-50,p072-36,p073-25,pGold-150000,pc187_s1-20,pc187_s3-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Clothes.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p101-20,pGold-25000,pc187_s1-20,pc187_s2-7,pc187_s3-2/p101-25,p102-18,pGold-35000,pc187_s1-20,pc187_s2-7,pc187_s3-2/p101-30,p102-24,p103-15,pGold-60000,pc187_s1-20,pc187_s2-7,pc187_s3-2/p101-40,p102-30,p103-20,pGold-100000,pc187_s1-20,pc187_s2-7,pc187_s3-2/p101-50,p102-36,p103-25,pGold-150000,pc187_s1-20,pc187_s2-7,pc187_s3-2">
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/skills/Skill_CastMetal.webp"><br>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hat.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p131-20,pGold-25000,pc187_s1-20,pc187_s5-7,pc187_s3-2/p131-25,p132-18,pGold-35000,pc187_s1-20,pc187_s5-7,pc187_s3-2/p131-30,p132-24,p133-15,pGold-60000,pc187_s1-20,pc187_s5-7,pc187_s3-2/p131-40,p132-30,p133-20,pGold-100000,pc187_s1-20,pc187_s5-7,pc187_s3-2/p131-50,p132-36,p133-25,pGold-150000,pc187_s1-20,pc187_s5-7,pc187_s3-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc187_s1-20,pc187_s5-5/p141-25,p142-18,pGold-35000,pc187_s1-20,pc187_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc187_s1-20,pc187_s3-7,pc187_s4-7,pc187_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc187_s1-20,pc187_s2-5,pc187_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc187_s1-20,pc187_s3-8,pc187_s4-8,pc187_s5-5">
+								</td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc187_s1">0</span> 방어 +<span id="pc187_s2">0</span> 지력 +<span id="pc187_s3">0</span><br>
+									공격 +<span id="pc187_s4">0</span> 마방 +<span id="pc187_s5">0</span> 기술 +<span id="pc187_s6">0</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 프레시아(188) -->
+					<table class="table_pattern2 @창 @도끼 @중갑 @중갑투구 @장신구">
+						<thead>
+							<tr>
+								<th>영웅</th>
+								<th colspan="3">문양</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/프레시아.webp"><br>
+									프레시아
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Spear.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p011-20,pGold-25000,pc188_s1-20,pc188_s4-4/p011-25,p012-18,pGold-35000,pc188_s1-20,pc188_s4-4/p011-30,p012-24,p013-15,pGold-60000,pc188_s1-20,pc188_s4-4/p011-40,p012-30,p013-20,pGold-100000,pc188_s1-20,pc188_s4-4/p011-50,p012-36,p013-25,pGold-150000,pc188_s1-20,pc188_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Axe.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p021-20,pGold-25000,pc188_s1-20,pc188_s4-4/p021-25,p022-18,pGold-35000,pc188_s1-20,pc188_s4-4/p021-30,p022-24,p023-15,pGold-60000,pc188_s1-20,pc188_s4-4/p021-40,p022-30,p023-20,pGold-100000,pc188_s1-20,pc188_s4-4/p021-50,p022-36,p023-25,pGold-150000,pc188_s1-20,pc188_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalArmor.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p081-20,pGold-25000,pc188_s1-20,pc188_s2-7,pc188_s4-2/p081-25,p082-18,pGold-35000,pc188_s1-20,pc188_s2-7,pc188_s4-2/p081-30,p082-24,p083-15,pGold-60000,pc188_s1-20,pc188_s2-7,pc188_s4-2/p081-40,p082-30,p083-20,pGold-100000,pc188_s1-20,pc188_s2-7,pc188_s4-2/p081-50,p082-36,p083-25,pGold-150000,pc188_s1-20,pc188_s2-7,pc188_s4-2">
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/skills/Skill_CastMetal.webp" class="mpn"><br>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalHelmet.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p111-20,pGold-25000,pc188_s1-20,pc188_s5-7,pc188_s4-2/p111-25,p112-18,pGold-35000,pc188_s1-20,pc188_s5-7,pc188_s4-2/p111-30,p112-24,p113-15,pGold-60000,pc188_s1-20,pc188_s5-7,pc188_s4-2/p111-40,p112-30,p113-20,pGold-100000,pc188_s1-20,pc188_s5-7,pc188_s4-2/p111-50,p112-36,p113-25,pGold-150000,pc188_s1-20,pc188_s5-7,pc188_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc188_s1-20,pc188_s5-5/p141-25,p142-18,pGold-35000,pc188_s1-20,pc188_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc188_s1-20,pc188_s3-7,pc188_s4-7,pc188_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc188_s1-20,pc188_s2-5,pc188_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc188_s1-20,pc188_s3-8,pc188_s4-8,pc188_s5-5">
+								</td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc188_s1">0</span> 방어 +<span id="pc188_s2">0</span> 지력 +<span id="pc188_s3">0</span><br>
+									공격 +<span id="pc188_s4">0</span> 마방 +<span id="pc188_s5">0</span> 기술 +<span id="pc188_s6">0</span>
 								</td>
 							</tr>
 						</tbody>
