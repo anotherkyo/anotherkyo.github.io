@@ -69,42 +69,51 @@ input[type="checkbox"]{
 
 /* 전직 css start */
 
-.div1{
+.div_class1{
     float:left;
     margin-bottom:10px;
     margin-right:10px;
 }
-.div1 input[type="button"]{
-    width:50px;
-    height:30px;
-    margin:5px;
+.div_class1 input[type="button"]{
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    height: 25px !important;
+    width: 80px !important; 
+    color: #ffffff;
+    cursor: pointer;
 }
-.table1{
-    width:550px;
-    border-bottom: 1px solid #444444;
+.table_class1{
+    width:360px;
+    background-image: url("../img/bg/bg.png");
     border-collapse: collapse;
     margin-top:5px;
+    overflow:auto;
+    color: #ffffff;
 }
-.table1 th, .table1 td{
-    padding:1px;
+.table_class1 th{
+    padding-bottom:1px;
     text-align:center;
 }
-.table1 img {
+.table_class1 td{
+    padding-bottom:3px;
+    text-align:center;
+}
+.table_class1 img {
     height:40px;
     width:40px;
-    border:1px solid #444444;
 }
-.div2{
+.div_class2{
     width:580px;
-    height:780px;
+    height:770px;
     overflow:auto;
     float:left;
 }
-.div2 input[type="checkbox"]{
+.div_class2 input[type="checkbox"]{
     width:10px;
     height:10px;
 }
-.table2 {
+.table_class2 {
     width:550px;
     margin-top: 10px;
     border:1px solid #444444;
@@ -112,23 +121,23 @@ input[type="checkbox"]{
     margin:5px;
     overflow:auto;
 }
-.table2 thead th{
+.table_class2 thead th{
     padding:10px;
     position: sticky;
     top: 0;
     background-color: #f8f8ff;
 }
-.table2 td:hover{
+.table_class2 td:hover{
     background-color: #6699ff;
 }
-.table2 td{
+.table_class2 td{
     padding:5px;
     text-align:center;
     border-top: 1px solid #444444;
     border-right: 1px solid #444444;
     border-bottom: 1px solid #444444;
 }
-.table2 img {
+.table_class2 img {
     height:100px;
     width:100px;
 }
