@@ -173,7 +173,6 @@ input[type="checkbox"]{
     padding:10px;
     position: sticky;
     top: 0;
-    background-image: url("../img/bg/bg.png");
 }
 .table_arousal1 th, td{
     padding:0;
@@ -227,20 +226,25 @@ input[type="checkbox"]{
     margin-right:10px;
 }
 .div_health1 input[type="checkbox"]{
-    width:20px;
-    height:20px;
-    margin-top:5px;
+    width:15px;
+    height:15px;
 }
 .div_health1 input[type="button"]{
-    width:50px;
-    height:30px;
-    margin:5px;
+    padding:2px 4px;
+    border-radius: 5px;
+    background-color: #d42323;
+    height: 25px !important;
+    width: 80px !important; 
+    color: #ffffff;
+    cursor: pointer;
 }
 .table_health1{
-    width:550px;
+    width:1000px;
     border-bottom: 1px solid #444444;
     border-collapse: collapse;
     margin-top:5px;
+    background-image: url("../img/bg/bg.png");
+    color: #ffffff;
 }
 .table_health1 th, .table_health1 td{
     padding:1px;
@@ -250,11 +254,10 @@ input[type="checkbox"]{
 .table_health1 img {
     height:40px;
     width:40px;
-    border:1px solid #444444;
 }
 .div_health2{
-    width:747px;
-    height:692px;
+    width:1000px;
+    height:600px;
     overflow:auto;
 }
 .div_health2 input[type="text"]{
@@ -269,12 +272,12 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 .div_health2 input[type="button"]{
-    width:40px;
+    width:25px;
     height:20px;
-    font-size:16px;
+    font-size:13px;
 }
 .table_health2 {
-    width:720px;
+    width:920px;
     border:1px solid #444444;
     border-collapse: collapse;
     margin:5px;
