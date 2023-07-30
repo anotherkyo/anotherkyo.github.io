@@ -57,9 +57,9 @@
 						if($(this).prop('checked')){
 							for(var i=0;i<array.length;i++){
 								var temp = array[i].split('-');
-								var result = Number($("#"+temp[0]).val()) + Number(temp[1]) ;
-								$("#"+temp[0]).val(result);
-								$("#"+temp[0]).css('background','#99ccff');
+								var result = Number($("#"+temp[0]).text()) + Number(temp[1]) ;
+								$("#"+temp[0]).text(result);
+								$("#"+temp[0]).css('color','#19D053');
 							} 
 						} else {
 							for(var i=0;i<array.length;i++){
@@ -67,9 +67,9 @@
 								var result = Number($("#"+temp[0]).val()) - Number(temp[1]) ;
 								$("#"+temp[0]).val(result);
 								if($("#"+temp[0]).val() == 0){
-									$("#"+temp[0]).css('background','#ffffff');
+									$("#"+temp[0]).css('color','#ffffff');
 								} else {
-									$("#"+temp[0]).css('background','#99ccff');
+									$("#"+temp[0]).css('color','#19D053');
 								}
 							} 
 						}
@@ -111,19 +111,19 @@
 						if($(this).prop('checked')){
 							for(var i=0;i<array.length;i++){
 								var temp = array[i].split('-');
-								var result = Number($("#"+temp[0]).val()) + Number(temp[1]) ;
-								$("#"+temp[0]).val(result);
-								$("#"+temp[0]).css('background','#99ccff');
+								var result = Number($("#"+temp[0]).text()) + Number(temp[1]) ;
+								$("#"+temp[0]).text(result);
+								$("#"+temp[0]).css('color','#19D053');
 							} 
 						} else {
 							for(var i=0;i<array.length;i++){
 								var temp = array[i].split('-');
-								var result = Number($("#"+temp[0]).val()) - Number(temp[1]) ;
-								$("#"+temp[0]).val(result);
-								if($("#"+temp[0]).val() == 0){
-									$("#"+temp[0]).css('background','#ffffff');
+								var result = Number($("#"+temp[0]).text()) - Number(temp[1]) ;
+								$("#"+temp[0]).text(result);
+								if($("#"+temp[0]).text() == 0){
+									$("#"+temp[0]).css('color','#ffffff');
 								} else {
-									$("#"+temp[0]).css('background','#99ccff');
+									$("#"+temp[0]).css('color','#19D053');
 								}
 							} 
 						}
@@ -239,9 +239,9 @@
 
 				// 유대 초기화
 				$("#resetBtn3").on('click',function(){
-					$(".table5 input:text").val('0');
-					$(".table5 input:text").css('background','#ffffff');
-					$(".table6 input:checkbox").prop("checked", false);
+					$(".table_bond1 span").text('0');
+					$(".table_bond1 span").css('color','#ffffff');
+					$(".table_bond2 input:checkbox").prop("checked", false);
 				});
 				
 				// 훈련장 초기화
@@ -2221,7 +2221,11 @@
 							</tr>
 							<tr>
 								<td rowspan="3"><img src="https://storage.googleapis.com/langmosheet-data/img/card/베른하르트.webp"><br>베른하르트</td>
-								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/SP/드래곤/EbonDragonEmperor_01.webp"><br>
+									어둠을 다스리는 황제<br>
+									<input type="checkbox" value="m62-50,m77-40,m82-30">
+								</td>
 								<td>
 									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/보병/파이터.webp"><br>
 									파이터<br>
@@ -8410,6 +8414,86 @@
 									<input type="checkbox" value="m81-22,m85-22,m72-38,m74-20,m71-18,m61-30,m62-30,m51-24,m56-24,m41-10,m42-10">
 								</td>
 							</tr>
+							<!-- 강신자 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp">
+									<br>강신자
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/마물/심연의그림자.webp"><br>
+									심연의 그림자<br>
+									<input type="checkbox" value="">
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/마물/어두운침식의근원.webp"><br>
+									어두운 침식의 근원<br>
+									<input type="checkbox" value="">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/비병/하늘을가리는찢어진날개.webp"><br>
+									하늘을 가리는 찢어진 날개<br>
+									<input type="checkbox" value="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/마물/종말의신.webp"><br>
+									종말의 신<br>
+									<input type="checkbox" value="">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/비병/강림한재앙.webp"><br>
+									강림한 재앙<br>
+									<input type="checkbox" value="">
+								</td>
+							</tr>
+							<!-- 잭 -->
+							<tr>
+								<td rowspan="3">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>
+									잭
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/보병/파이터.webp"><br>
+									파이터<br>
+									<input type="checkbox" value="m11-8">
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/보병/소드맨.webp"><br>
+									소드맨<br>
+									<input type="checkbox" value="m11-3,m12-3,m21-12,m22-6,m31-16,m36-16,m41-10,m42-10">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/수병/빛의항해냥.webp"><br>
+									빛의 항해냥<br>
+									<input type="checkbox" value="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/보병/검성.webp"><br>
+									검성<br>
+									<input type="checkbox" value="m51-12,m52-12,m41-10,m43-10,m61-15,m63-15,m51-12,m52-12,m72-18,m74-18,m61-15,m63-15,m81-22,m85-22,m72-20,m74-20">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/classlist/수병/바다를누비는왕.webp"><br>
+									바다를 누비는 왕<br>
+									<input type="checkbox" value="">
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -9466,6 +9550,16 @@
 								<td><input type="checkbox" value="a12,a15"></td>
 								<td><input type="checkbox" value="a22,a25"></td>
 							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp"><br>강신자</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>잭</td>
+								<td><input type="checkbox" value="a11,a14"></td>
+								<td><input type="checkbox" value="a21,a24"></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -9474,310 +9568,318 @@
 
 			<!-- 유대재료 start -->
 			<section id="content3" style="margin-bottom:20px;">
-				<div class="div5">
-					<table class="table5">
+				<div class="div_bond1">
+					<table class="table_bond1">
 						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
+							<col style="width:40px">
 						</colgroup>
 						<thead>
 							<tr>
-								<th>씨앗</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/6.webp" title="사랑의 씨앗"><br>사랑</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/5.webp" title="생기의 씨앗"><br>생기</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/4.webp" title="열정의 씨앗"><br>열정</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/3.webp" title="지식의 씨앗"><br>지식</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/2.webp" title="신중의 씨앗"><br>신중</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/1.webp" title="신념의 씨앗"><br>신념</th>
+								<th colspan="9">씨앗</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/6.webp" title="사랑의 씨앗"><br>
+									사랑<br>
+									<span id="y11">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/5.webp" title="생기의 씨앗"><br>
+									생기<br>
+									<span id="y12">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/4.webp" title="열정의 씨앗"><br>
+									열정<br>
+									<span id="y13">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/3.webp" title="지식의 씨앗"><br>
+									지식<br>
+									<span id="y14">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/2.webp" title="신중의 씨앗"><br>
+									신중<br>
+									<span id="y15">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/1.webp" title="신념의 씨앗"><br>
+									신념<br>
+									<span id="y16">0</span>
+								</td>
 								<td></td>
 								<td></td>
 								<td></td>
-								<td><input type="text" id="y11" value="0" readonly /></td>
-								<td><input type="text" id="y12" value="0" readonly /></td>
-								<td><input type="text" id="y13" value="0" readonly /></td>
-								<td><input type="text" id="y14" value="0" readonly /></td>
-								<td><input type="text" id="y15" value="0" readonly /></td>
-								<td><input type="text" id="y16" value="0" readonly /></td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>꽃</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-1.webp" title="봄의 꽃"><br>봄</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-1.webp" title="가을의 꽃"><br>가을</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-1.webp" title="여름의 꽃"><br>여름</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-1.webp" title="겨울의 꽃"><br>겨울</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-1.webp" title="달빛의 꽃"><br>달빛</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-1.webp" title="햇살의 꽃"><br>햇살</th>
+								<th colspan="9">꽃</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-1.webp" title="봄의 꽃"><br>
+									봄<br>
+									<span id="y21">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-1.webp" title="가을의 꽃"><br>
+									가을<br>
+									<span id="y22">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-1.webp" title="여름의 꽃"><br>
+									여름<br>
+									<span id="y23">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-1.webp" title="겨울의 꽃"><br>
+									겨울<br>
+									<span id="y24">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-1.webp" title="달빛의 꽃"><br>
+									달빛<br>
+									<span id="y25">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-1.webp" title="햇살의 꽃"><br>
+									햇살<br>
+									<span id="y26">0</span>
+								</td>
 								<td></td>
 								<td></td>
 								<td></td>
-								<td><input type="text" id="y21" value="0" readonly /></td>
-								<td><input type="text" id="y22" value="0" readonly /></td>
-								<td><input type="text" id="y23" value="0" readonly /></td>
-								<td><input type="text" id="y24" value="0" readonly /></td>
-								<td><input type="text" id="y25" value="0" readonly /></td>
-								<td><input type="text" id="y26" value="0" readonly /></td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>깃털</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-2.webp" title="햇살의 꽃"><br>연모</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-2.webp" title="달빛의 꽃"><br>활력</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-2.webp" title="겨울의 꽃"><br>열정</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-2.webp" title="여름의 꽃"><br>지식</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-2.webp" title="가을의 꽃"><br>명상</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-2.webp" title="봄의 꽃"><br>이상</th>
+								<th colspan="9">깃털</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-2.webp" title="햇살의 꽃"><br>
+									연모<br>
+									<span id="y31">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-2.webp" title="달빛의 꽃"><br>
+									활력<br>
+									<span id="y32">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-2.webp" title="겨울의 꽃"><br>
+									열정<br>
+									<span id="y33">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-2.webp" title="여름의 꽃"><br>
+									지식<br>
+									<span id="y34">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-2.webp" title="가을의 꽃"><br>
+									명상<br>
+									<span id="y35">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-2.webp" title="봄의 꽃"><br>
+									이상<br>
+									<span id="y36">0</span>
+								</td>
 								<td></td>
 								<td></td>
 								<td></td>
-								<td><input type="text" id="y31" value="0" readonly /></td>
-								<td><input type="text" id="y32" value="0" readonly /></td>
-								<td><input type="text" id="y33" value="0" readonly /></td>
-								<td><input type="text" id="y34" value="0" readonly /></td>
-								<td><input type="text" id="y35" value="0" readonly /></td>
-								<td><input type="text" id="y36" value="0" readonly /></td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>마음</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-3.webp" title="희망찬 마음"><br>희망</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-3.webp" title="기대하는 마음"><br>기대</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-3.webp" title="경건한 마음"><br>경건</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-3.webp" title="간절한 마음"><br>간절</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-3.webp" title="축복하는 마음"><br>축복</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-3.webp" title="소원비는 마음"><br>소원</th>
+								<th colspan="9">마음</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-3.webp" title="희망찬 마음"><br>
+									희망<br>
+									<span id="y41">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-3.webp" title="기대하는 마음"><br>
+									기대<br>
+									<span id="y42">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-3.webp" title="경건한 마음"><br>
+									경건<br>
+									<span id="y43">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-3.webp" title="간절한 마음"><br>
+									간절<br>
+									<span id="y44">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-3.webp" title="축복하는 마음"><br>
+									축복<br>
+									<span id="y45">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-3.webp" title="소원비는 마음"><br>
+									소원<br>
+									<span id="y46">0</span>
+								</td>
 								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="y41" value="0" readonly /></td>
-								<td><input type="text" id="y42" value="0" readonly /></td>
-								<td><input type="text" id="y43" value="0" readonly /></td>
-								<td><input type="text" id="y44" value="0" readonly /></td>
-								<td><input type="text" id="y45" value="0" readonly /></td>
-								<td><input type="text" id="y46" value="0" readonly /></td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>정령</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-4.webp" title="사랑의 정령"><br>사랑</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-4.webp" title="파도의 정령"><br>파도</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-4.webp" title="불타는 정령"><br>불타는</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-4.webp" title="아지랑이 정령"><br>아지랑</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-4.webp" title="환상의 정령"><br>환상</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-4.webp" title="빛나는 정령"><br>빛나는</th>
+								<th colspan="9">정령</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="y51" value="0" readonly /></td>
-								<td><input type="text" id="y52" value="0" readonly /></td>
-								<td><input type="text" id="y53" value="0" readonly /></td>
-								<td><input type="text" id="y54" value="0" readonly /></td>
-								<td><input type="text" id="y55" value="0" readonly /></td>
-								<td><input type="text" id="y56" value="0" readonly /></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/6-4.webp" title="사랑의 정령"><br>
+									사랑<br>
+									<span id="y51">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/5-4.webp" title="파도의 정령"><br>파도<br>
+									<span id="y52">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/4-4.webp" title="불타는 정령"><br>불타는<br>
+									<span id="y53">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/3-4.webp" title="아지랑이 정령"><br>아지랑<br>
+									<span id="y54">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/2-4.webp" title="환상의 정령"><br>환상<br>
+									<span id="y55">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/1-4.webp" title="빛나는 정령"><br>빛나는<br>
+									<span id="y56">0</span>
+								</td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>중앙</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h3.webp" title="원주의 모래"><br>모래</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h4.webp" title="원주의 날개"><br>날개</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h2.webp" title="원주의 정신"><br>정신</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h1.webp" title="원주의 불꽃"><br>불꽃</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h3-1.webp" title="영혼의 모래"><br>모래</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h4-1.webp" title="영혼의 날개"><br>날개</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h2-1.webp" title="영혼의 정신"><br>정신</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/h1-1.webp" title="영혼의 불꽃"><br>불꽃</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/heart/x.webp" title="초연의 마음"><br>마음</th>
+								<th colspan="9">중앙</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
-								<td><input type="text" id="y61" value="0" readonly /></td>
-								<td><input type="text" id="y62" value="0" readonly /></td>
-								<td><input type="text" id="y63" value="0" readonly /></td>
-								<td><input type="text" id="y64" value="0" readonly /></td>
-								<td><input type="text" id="y65" value="0" readonly /></td>
-								<td><input type="text" id="y66" value="0" readonly /></td>
-								<td><input type="text" id="y67" value="0" readonly /></td>
-								<td><input type="text" id="y68" value="0" readonly /></td>
-								<td><input type="text" id="y69" value="0" readonly /></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h3.webp" title="원주의 모래"><br>
+									모래<br>
+									<span id="y61">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h4.webp" title="원주의 날개"><br>
+									날개<br>
+									<span id="y62">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h2.webp" title="원주의 정신"><br>
+									정신<br>
+									<span id="y63">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h1.webp" title="원주의 불꽃"><br>
+									불꽃<br>
+									<span id="y64">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h3-1.webp" title="영혼의 모래"><br>
+									모래<br>
+									<span id="y65">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h4-1.webp" title="영혼의 날개"><br>
+									날개<br>
+									<span id="y66">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h2-1.webp" title="영혼의 정신"><br>
+									정신<br>
+									<span id="y67">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/h1-1.webp" title="영혼의 불꽃"><br>
+									불꽃<br>
+									<span id="y68">0</span>
+								</td>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/heart/x.webp" title="초연의 마음"><br>
+									마음<br>
+									<span id="y69">0</span>
+								</td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<colgroup>
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-							<col style="width: 10%">
-						</colgroup>
 						<thead>
 							<tr>
-								<th>열쇠<br>골드</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/item/엔열쇠.webp" title="순박한 마음의 열쇠"><br>순박한</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/item/알열쇠.webp" title="순수한 마음의 열쇠"><br>순수한</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/item/스알열쇠.webp" title="빛나는 마음의 열쇠"><br>빛나는</th>
-								<th><img src="https://storage.googleapis.com/langmosheet-data/img/item/쓰알열쇠.webp" title="화려한 마음의 열쇠"><br>화려한</th>
-								<th colspan="2"><img src="https://storage.googleapis.com/langmosheet-data/img/item/골드.webp" title="골드"><br>골드</th>
+								<th colspan="9">열쇠 / 골드</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>합계</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><input type="text" id="y71" value="0" readonly /></td>
-								<td><input type="text" id="y72" value="0" readonly /></td>
-								<td><input type="text" id="y73" value="0" readonly /></td>
-								<td><input type="text" id="y74" value="0" readonly /></td>
-								<td colspan="2"><input type="text" id="y75" value="0" style="width:80px;" readonly /></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/엔열쇠.webp" title="순박한 마음의 열쇠"><br>
+									순박한<br>
+									<span id="y71">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/알열쇠.webp" title="순수한 마음의 열쇠"><br>
+									순수한<br>
+									<span id="y72">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/스알열쇠.webp" title="빛나는 마음의 열쇠"><br>
+									빛나는<br>
+									<span id="y73">0</span>
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/쓰알열쇠.webp" title="화려한 마음의 열쇠"><br>
+									화려한<br>
+									<span id="y74">0</span>
+								</td>
+								<td colspan="2">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/골드.webp" title="골드"><br>
+									골드<br>
+									<span id="y75">0</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="9">
+									<input type="button" id="resetBtn3" value="초기화">
+								</td>
 							</tr>
 						</tbody>
-					</table>
-					<table class="table5">
-						<tr>
-							<td>
-								<input type="button" id="resetBtn3" value="초기화">
-							</td>
-						</tr>
 					</table>
 				</div>
 				
-				<div class="div6">
-					<table class="table6">
+				<div class="div_bond2">
+					<table class="table_bond2">
 						<colgroup>
 							<col style="width: 25%">
 							<col style="width: 12%">
@@ -11520,6 +11622,24 @@
 								<td><input type="checkbox" value="y75-1186000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
 								<td><input type="checkbox" value="y75-1523000,y74-46,y12-10,y22-10,y32-10,y45-10,y52-6"></td>
 								<td><input type="checkbox" value="y75-650000,y12-25,y22-25,y32-10,y63-28,y61-32,y64-40,y62-44,y67-8,y65-12,y68-16,y66-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp"><br>강신자</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-650000,y16-25,y26-25,y36-10,y61-28,y62-32,y63-40,y64-44,y65-8,y66-12,y67-16,y68-24,y69-12"></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>잭</td>
+								<td><input type="checkbox" value="y75-118600,y71-45,y72-15"></td>
+								<td><input type="checkbox" value="y75-383500,y71-26,y72-69,y73-16"></td>
+								<td><input type="checkbox" value="y75-736000,y72-50,y73-47,y74-10"></td>
+								<td><input type="checkbox" value="y75-1186000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-1523000,y74-46,y16-10,y26-10,y36-10,y41-10,y56-6"></td>
+								<td><input type="checkbox" value="y75-650000,y16-25,y26-25,y36-10,y64-28,y63-32,y62-40,y61-44,y68-8,y67-12,y66-16,y65-24,y69-12"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -14330,8 +14450,8 @@
 			
 			<!-- 영웅-유대 start -->
 			<section id="content5" style="margin-bottom:20px;">
-				<div class="div_bond">
-					<table class="table_bond">
+				<div class="div_heroBond">
+					<table class="table_heroBond">
 						<colgroup>
 							<col style="width: 80px">
 							<col style="width: 10px">
@@ -14444,7 +14564,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/여신의화신.webp"><br>환생 제시카<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/노에미.webp"><br>노에미<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/탄생의빛.webp"><br>탄생의 빛<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
-								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/이리스.webp"><br>이리스<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/투어밀크.webp"><br>투어밀크<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/스코트.webp"><br>스코트</td>
@@ -14713,6 +14833,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/리아나.webp"><br>리아나<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/라나.webp"><br>라나<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/레딘.webp"><br>레딘<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>잭<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/쉐리.webp"><br>쉐리</td>
@@ -15027,6 +15148,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/올리버.webp"><br>올리버<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/일루시아.webp"><br>일루시아<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/세계수의현자.webp"><br>세계수의 현자<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>잭<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아카야.webp"><br>아카야</td>
@@ -15525,6 +15647,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/에길.webp"><br>베르너 폰 에길</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마리안델.webp"><br>마리안델</td>
 								<td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp"><br>강신자<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛의수호사도.webp"><br>빛의 수호사도</td>
@@ -15542,7 +15665,7 @@
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/그렌실.webp"><br>그렌실<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/각성자.webp"><br>각성자<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아마데우스.webp"><br>아마데우스<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
-								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/투어밀크.webp"><br>투어밀크<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/이리스.webp"><br>이리스<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit3.webp"></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/빛과그림자검의영혼.webp"><br>빛과그림자의 검의영혼</td>
@@ -15648,18 +15771,18 @@
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/투어밀크.webp"><br>투어밀크</td>
 								<td></td>
-								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/제시카.webp"><br>제시카</td>
+								<td></td>
+								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/이리스.webp"><br>이리스</td>
-								<td></td>
-								<td></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/이리스.webp"><br>이리스</td>
 								<td></td>
-								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/제시카.webp"><br>제시카</td>
-								<td></td>
-								<td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/아단켈모.webp"><br>아단켈모</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/투어밀크.webp"><br>투어밀크<br><img class="icon" src="https://storage.googleapis.com/langmosheet-data/img/Icon/Spirit4.webp"></td>
+								<td></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/롤랑.webp"><br>롤랑</td>
@@ -15674,6 +15797,22 @@
 								<td></td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/라나.webp"><br>라나</td>
 								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/레온.webp"><br>레온</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp"><br>강신자</td>
+								<td></td>
+								<td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/마크렌.webp"><br>마크렌</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>잭</td>
+								<td></td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/미지의기사.webp"><br>미지의기사</td>
+								<td><img src="https://storage.googleapis.com/langmosheet-data/img/card/엘윈.webp"><br>엘윈</td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -28918,6 +29057,144 @@
 							</tr>
 						</tbody>
 					</table>
+					<!-- 강신자(192) -->
+					<table class="table_pattern2 @검 @망치 @중갑 @중갑투구 @장신구">
+						<thead>
+							<tr>
+								<th>영웅</th>
+								<th colspan="3">문양</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/강신자.webp"><br>
+									강신자
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Sword.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p031-20,pGold-25000,pc192_s1-20,pc192_s4-4/p031-25,p032-18,pGold-35000,pc192_s1-20,pc192_s4-4/p031-30,p032-24,p033-15,pGold-60000,pc192_s1-20,pc192_s4-4/p031-40,p032-30,p033-20,pGold-100000,pc192_s1-20,pc192_s4-4/p031-50,p032-36,p033-25,pGold-150000,pc192_s1-20,pc192_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p051-20,pGold-25000,pc192_s1-20,pc192_s4-4/p051-25,p052-18,pGold-35000,pc192_s1-20,pc192_s4-4/p051-30,p052-24,p053-15,pGold-60000,pc192_s1-20,pc192_s4-4/p051-40,p052-30,p053-20,pGold-100000,pc192_s1-20,pc192_s4-4/p051-50,p052-36,p053-25,pGold-150000,pc192_s1-20,pc192_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalArmor.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p081-20,pGold-25000,pc192_s1-20,pc192_s2-7,pc192_s4-2/p081-25,p082-18,pGold-35000,pc192_s1-20,pc192_s2-7,pc192_s4-2/p081-30,p082-24,p083-15,pGold-60000,pc192_s1-20,pc192_s2-7,pc192_s4-2/p081-40,p082-30,p083-20,pGold-100000,pc192_s1-20,pc192_s2-7,pc192_s4-2/p081-50,p082-36,p083-25,pGold-150000,pc192_s1-20,pc192_s2-7,pc192_s4-2">
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/skills/Skill_CastMetal.webp" class="mpn"><br>
+									
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_MetalHelmet.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p111-20,pGold-25000,pc192_s1-20,pc192_s5-7,pc192_s4-2/p111-25,p112-18,pGold-35000,pc192_s1-20,pc192_s5-7,pc192_s4-2/p111-30,p112-24,p113-15,pGold-60000,pc192_s1-20,pc192_s5-7,pc192_s4-2/p111-40,p112-30,p113-20,pGold-100000,pc192_s1-20,pc192_s5-7,pc192_s4-2/p111-50,p112-36,p113-25,pGold-150000,pc192_s1-20,pc192_s5-7,pc192_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc192_s1-20,pc192_s5-5/p141-25,p142-18,pGold-35000,pc192_s1-20,pc192_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc192_s1-20,pc192_s3-7,pc192_s4-7,pc192_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc192_s1-20,pc192_s2-5,pc192_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc192_s1-20,pc192_s3-8,pc192_s4-8,pc192_s5-5">
+								</td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc192_s1">0</span> 방어 +<span id="pc192_s2">0</span> 지력 +<span id="pc192_s3">0</span><br>
+									공격 +<span id="pc192_s4">0</span> 마방 +<span id="pc192_s5">0</span> 기술 +<span id="pc192_s6">0</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 잭(013) -->
+					<table class="table_pattern2 @도끼 @망치 @경갑 @경갑투구 @장신구">
+						<thead>
+							<tr>
+								<th>영웅</th>
+								<th colspan="3">문양</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="right" rowspan="4">
+									<img src="https://storage.googleapis.com/langmosheet-data/img/card/잭.webp"><br>
+									잭
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Axe.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p021-20,pGold-25000,pc193_s1-20,pc193_s4-4/p021-25,p022-18,pGold-35000,pc193_s1-20,pc193_s4-4/p021-30,p022-24,p023-15,pGold-60000,pc193_s1-20,pc193_s4-4/p021-40,p022-30,p023-20,pGold-100000,pc193_s1-20,pc193_s4-4/p021-50,p022-36,p023-25,pGold-150000,pc193_s1-20,pc193_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Hammer.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p051-20,pGold-25000,pc193_s1-20,pc193_s4-4/p051-25,p052-18,pGold-35000,pc193_s1-20,pc193_s4-4/p051-30,p052-24,p053-15,pGold-60000,pc193_s1-20,pc193_s4-4/p051-40,p052-30,p053-20,pGold-100000,pc193_s1-20,pc193_s4-4/p051-50,p052-36,p053-25,pGold-150000,pc193_s1-20,pc193_s4-4">
+								</td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherArmor.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p091-20,pGold-25000,pc193_s1-20,pc193_s2-7,pc193_s4-2/p091-25,p092-18,pGold-35000,pc193_s1-20,pc193_s2-7,pc193_s4-2/p091-30,p092-24,p093-15,pGold-60000,pc193_s1-20,pc193_s2-7,pc193_s4-2/p091-40,p092-30,p093-20,pGold-100000,pc193_s1-20,pc193_s2-7,pc193_s4-2/p091-50,p092-36,p093-25,pGold-150000,pc193_s1-20,pc193_s2-7,pc193_s4-2">
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/skills/Skill_CastMetal.webp" class="mpn"><br>
+									
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_LeatherHelmet.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p121-20,pGold-25000,pc193_s1-20,pc193_s5-7,pc193_s4-2/p121-25,p122-18,pGold-35000,pc193_s1-20,pc193_s5-7,pc193_s4-2/p121-30,p122-24,p123-15,pGold-60000,pc193_s1-20,pc193_s5-7,pc193_s4-2/p121-40,p122-30,p123-20,pGold-100000,pc193_s1-20,pc193_s5-7,pc193_s4-2/p121-50,p122-36,p123-25,pGold-150000,pc193_s1-20,pc193_s5-7,pc193_s4-2">
+								</td>
+								<td></td>
+								<td>
+									<img src="https://storage.googleapis.com/langmosheet-data/img/item/CastFigure/Icon_CastFigure_Attackgem.webp"><br>
+									Lv. <span>0</span><br>
+									<input type="button" class="plus" value="+">
+									<input type="button" class="minus" value="-">
+									<input type="hidden" value="p141-20,pGold-25000,pc193_s1-20,pc193_s5-5/p141-25,p142-18,pGold-35000,pc193_s1-20,pc193_s2-5/p141-30,p142-24,p143-15,pGold-60000,pc193_s1-20,pc193_s3-7,pc193_s4-7,pc193_s6-5/p141-40,p142-30,p143-20,pGold-100000,pc193_s1-20,pc193_s2-5,pc193_s6-5/p141-50,p142-36,p143-25,pGold-150000,pc193_s1-20,pc193_s3-8,pc193_s4-8,pc193_s5-5">
+								</td>
+							</tr>
+							<tr>
+								<td class="top" colspan="3">
+									생명 +<span id="pc193_s1">0</span> 방어 +<span id="pc193_s2">0</span> 지력 +<span id="pc193_s3">0</span><br>
+									공격 +<span id="pc193_s4">0</span> 마방 +<span id="pc193_s5">0</span> 기술 +<span id="pc193_s6">0</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</section>
 			<!-- 문양 end-->
@@ -28929,7 +29206,8 @@
 						<td>
 							오타 및 수정사항 제보 : <a href="https://arca.live/b/langrisser/10630350">랑그릿사 아카라이브</a> / <a href="https://tgd.kr/s/anotherkyo">트게더</a><br>
 							<br>작업자 : 레이갈드 제국-얽효<br>
-							<br>최종 수정일자 : 2023-07-29<br>
+							<br>최종 수정일자 : 2023-07-30<br>
+							<br>문양5→10 작업예정
 						</td>
 					</tr>
 				</table>
