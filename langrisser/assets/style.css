@@ -63,7 +63,8 @@ input[type="checkbox"]{
 #tab4:checked ~ #content4,
 #tab5:checked ~ #content5,
 #tab6:checked ~ #content6,
-#tab7:checked ~ #content7{
+#tab7:checked ~ #content7,
+#tab8:checked ~ #content8{
     display: block;}
 
 
@@ -401,8 +402,6 @@ input[type="checkbox"]{
     padding-top:5px;
     padding-bottom:5px;
     text-align:center;
-    border-top: 1px solid #444444;
-    border-bottom: 1px solid #444444;
     vertical-align:top;
     height: 130px;
 }
@@ -539,3 +538,47 @@ input[type="checkbox"]{
 }
 
 /* 문양 style end */
+
+/* 문양(2) css start */
+
+.div_patternList{
+    height:800px;
+    overflow:auto;
+    float:left;
+}		
+.table_patternList {
+    width: 1320px;
+    margin-top:5px;
+    border-collapse: collapse;
+    overflow:auto;
+    background-image: url("../img/bg/bg.png");
+    color: #ffffff;
+
+}
+.table_patternList thead th{
+    padding-top:10px;
+    padding-bottom:10px;
+    position: sticky;
+    top: 0;
+    background-image: url("../img/bg/bg.png");
+}
+.table_patternList td{
+    text-align:center;
+    vertical-align:top;
+}
+.table_patternList img.hero {
+    height:80px;
+    width:80px;
+    margin-top: 10px;
+}
+.table_patternList img.header {
+    height:20px;
+    width:20px;
+    margin-top: 10px;
+}
+.table_patternList img {
+    height:60px;
+    width:60px;
+}
+
+/* 문양(2) css end */
