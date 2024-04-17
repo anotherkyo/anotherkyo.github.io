@@ -547,7 +547,7 @@ input[type="checkbox"]{
     float:left;
 }		
 .table_patternList {
-    width: 1320px;
+    width: 1260px;
     margin-top:5px;
     border-collapse: collapse;
     overflow:auto;
@@ -564,7 +564,7 @@ input[type="checkbox"]{
 }
 .table_patternList td{
     text-align:center;
-    vertical-align:top;
+    /*vertical-align:top;*/
 }
 .table_patternList img.hero {
     height:80px;
