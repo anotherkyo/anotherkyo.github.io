@@ -572,9 +572,10 @@ input[type="checkbox"]{
     margin-top: 10px;
 }
 .table_patternList img.header {
-    height:20px;
-    width:20px;
+    height:16px;
+    width:16px;
     margin-top: 10px;
+    vertical-align: bottom;
 }
 .table_patternList img {
     height:60px;
