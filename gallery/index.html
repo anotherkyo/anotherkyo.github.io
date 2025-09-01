@@ -63,10 +63,18 @@
         </div>
         <div class="filters">
           <button class="btn" data-tag="all" aria-pressed="true">전체</button>
-          <button class="btn" data-tag="people">인물</button>
-          <button class="btn" data-tag="city">도시</button>
-          <button class="btn" data-tag="nature">자연</button>
-          <button class="btn" data-tag="food">음식</button>
+          <button class="btn" data-tag="h_hero">주인공</button>
+          <button class="btn" data-tag="l_army">빛의군단</button>
+          <button class="btn" data-tag="e_empire">제국</button>
+          <button class="btn" data-tag="l_origin">빛의기원</button>
+          <button class="btn" data-tag="d_force">어둠의세력</button>
+          <button class="btn" data-tag="p_princess">공주</button>
+          <button class="btn" data-tag="s_strategy">전략</button>
+          <button class="btn" data-tag="l_legend">전설</button>
+          <button class="btn" data-tag="m_meteor">유성</button>
+          <button class="btn" data-tag="st_time">시공</button>
+          <button class="btn" data-tag="n_nonHuman">인외</button>
+          <button class="btn" data-tag="r_reincarn">리인카</button>
         </div>
       </div>
     </div>
@@ -104,17 +112,8 @@
     
     // ===== 이미지 데이터 배열 =====
     const images = [
-      {src:"https://redpanda7301.github.io/langrisser/img/card/%EA%B0%81%EC%84%B1%EC%9E%90%EC%B4%88%EC%A0%88.webp", 
-      full:"https://drive.google.com/file/d/1NeIiMxrdzzBBgDcFEon2TLNpcjTckUao/view?usp=drive_link", 
-      title:"각성자", tags:["people","city"]},
-      {src:"https://picsum.photos/id/103/600/450", full:"https://picsum.photos/id/103/1600/1200", title:"초록 숲길", tags:["nature"]},
-      {src:"https://picsum.photos/id/1011/600/450", full:"https://picsum.photos/id/1011/1600/1200", title:"야경 스카이라인", tags:["city"]},
-      {src:"https://picsum.photos/id/1080/600/450", full:"https://picsum.photos/id/1080/1600/1200", title:"디저트", tags:["food"]},
-      {src:"https://picsum.photos/id/1018/600/450", full:"https://picsum.photos/id/1018/1600/1200", title:"해변", tags:["nature"]},
-      {src:"https://picsum.photos/id/1005/600/450", full:"https://picsum.photos/id/1005/1600/1200", title:"초상", tags:["people"]},
-      {src:"https://picsum.photos/id/1056/600/450", full:"https://picsum.photos/id/1056/1600/1200", title:"골목", tags:["city"]},
-      {src:"https://picsum.photos/id/1081/600/450", full:"https://picsum.photos/id/1081/1600/1200", title:"브런치", tags:["food"]},
-      {src:"https://picsum.photos/id/1002/600/450", full:"https://picsum.photos/id/1002/1600/1200", title:"산맥", tags:["nature"]},
+      {src:"https://redpanda7301.github.io/langrisser/img/card/%EA%B0%81%EC%84%B1%EC%9E%90%EC%B4%88%EC%A0%88.webp", full:"https://drive.google.com/file/d/1NeIiMxrdzzBBgDcFEon2TLNpcjTckUao/view?usp=drive_link", title:"각성자", tags:["d_force","st_time","n_nonHuman"]},
+      
     ];
 
     const gallery = document.getElementById('gallery');
