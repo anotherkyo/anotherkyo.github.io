@@ -59,8 +59,8 @@ const images = [
   { src: "https://i.imgur.com/UymvHgK.png", full: "https://i.imgur.com/UymvHgK.png", title: "유리아(빛의메아리)", tags: ["빛군","공주","인외"] },
   { src: "https://i.imgur.com/WUOD1BJ.png", full: "https://i.imgur.com/WUOD1BJ.png", title: "레인폴스", tags: ["전략","전설","인외"] },
   { src: "https://i.imgur.com/GlwLH4D.png", full: "https://i.imgur.com/GlwLH4D.png", title: "베티", tags: ["빛군","제국","어둠"] },
-  { src: "", full: "", title: "알프레드", tags: ["전설","유성"] },
-  { src: "", full: "", title: "환생 제시카", tags: ["빛군","기원","인외"] },
+  { src: "https://i.imgur.com/wN2MRfI.png", full: "https://i.imgur.com/wN2MRfI.png", title: "알프레드", tags: ["전설","유성"] },
+  { src: "https://i.imgur.com/8CvZkOh.png", full: "https://i.imgur.com/8CvZkOh.png", title: "환생 제시카", tags: ["빛군","기원","인외"] },
   { src: "https://i.imgur.com/AaMa161.png", full: "https://i.imgur.com/AaMa161.png", title: "에밀리아", tags: ["제국","공주"] },
   { src: "https://i.imgur.com/QWM5JJi.png", full: "https://i.imgur.com/QWM5JJi.png", title: "비라쥬", tags: ["전설","유성"] },
   { src: "https://i.imgur.com/sqx28wn.png", full: "https://i.imgur.com/sqx28wn.png", title: "미지의기사", tags: ["전략","전설"] },
@@ -78,14 +78,14 @@ const images = [
   { src: "https://i.imgur.com/jYArQnv.png", full: "https://i.imgur.com/jYArQnv.png", title: "헬레나", tags: ["빛군","제국"] },
   { src: "https://i.imgur.com/cqpzAqX.png", full: "https://i.imgur.com/cqpzAqX.png", title: "세계수의현자", tags: ["전설","인외"] },
   { src: "https://i.imgur.com/cn7Nm6d.png", full: "https://i.imgur.com/cn7Nm6d.png", title: "플로렌티아", tags: ["제국","전략","리인카"] },
-  { src: "", full: "", title: "츠바메", tags: ["리인카","유성"] },
+  { src: "https://i.imgur.com/xUGEiKz.png", full: "https://i.imgur.com/xUGEiKz.png", title: "츠바메(전학생)", tags: ["리인카","유성"] },
   { src: "https://i.imgur.com/2E1eye6.png", full: "https://i.imgur.com/2E1eye6.png", title: "멜파니", tags: ["빛군","공주","전설"] },
   { src: "https://i.imgur.com/U2aXqYj.png", full: "https://i.imgur.com/U2aXqYj.png", title: "로젠실", tags: ["제국","인외","공주"] },
   { src: "https://i.imgur.com/l2SOP5E.png", full: "https://i.imgur.com/l2SOP5E.png", title: "클로테르", tags: ["제국","전략"] },
   { src: "https://i.imgur.com/HY6cc7T.png", full: "https://i.imgur.com/HY6cc7T.png", title: "탄생의빛", tags: ["빛군","기원","리인카"] },
   { src: "https://i.imgur.com/ohPdbDX.png", full: "https://i.imgur.com/ohPdbDX.png", title: "마리엘(아레나)", tags: ["빛군","리인카"] },
   { src: "https://i.imgur.com/eeRMkcu.png", full: "https://i.imgur.com/eeRMkcu.png", title: "힐다", tags: ["제국","전략","리인카"] },
-  { src: "", full: "", title: "베르너", tags: ["제국","리인카"] },
+  { src: "https://i.imgur.com/otxJ7Ex.png", full: "https://i.imgur.com/otxJ7Ex.png", title: "베르너", tags: ["제국","리인카"] },
   { src: "", full: "", title: "크루거", tags: ["어둠","인외"] },
   { src: "https://i.imgur.com/jMm7i4r.png", full: "https://i.imgur.com/jMm7i4r.png", title: "빈센트", tags: ["제국","어둠","유성"] },
   { src: "", full: "", title: "토와", tags: ["리인카","기원","전략"] },
@@ -289,5 +289,4 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
-
 });
