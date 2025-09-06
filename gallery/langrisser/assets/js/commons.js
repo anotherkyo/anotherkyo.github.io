@@ -6,7 +6,7 @@ const images = [
   { src: "https://i.imgur.com/nC5SybY.png", full: "https://i.imgur.com/nC5SybY.png", title: "소피아", tags: ["기원","공주","인외"] },
   { src: "https://i.imgur.com/CumER4W.png", full: "https://i.imgur.com/CumER4W.png", title: "페라키아", tags: ["어둠","유성"] },
   { src: "https://i.imgur.com/yvzeToF.png", full: "https://i.imgur.com/yvzeToF.png", title: "프레아", tags: ["기원","공주"] },
-  { src: "", full: "", title: "발가스", tags: ["제국","전략"] },
+  { src: "https://i.imgur.com/kDzJwVB.png", full: "https://i.imgur.com/kDzJwVB.png", title: "발가스", tags: ["제국","전략"] },
   { src: "", full: "", title: "파나", tags: ["제국","어둠"] },
   { src: "", full: "", title: "나암", tags: ["빛군","공주","유성"] },
   { src: "", full: "", title: "크리스", tags: ["주인공","빛군","공주"] },
@@ -169,7 +169,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 4;
+const pageSize = 16;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
@@ -280,9 +280,4 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
-});
-
-// 버튼 클릭 시 추가 이미지 로드
-loadMoreBtn.addEventListener('click', () => {
-  renderMore();
 });
