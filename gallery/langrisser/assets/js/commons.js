@@ -102,7 +102,7 @@ const images = [
   { src: "", full: "", title: "알파", tags: ["제국","어둠"] },
   { src: "", full: "", title: "베르너", tags: ["빛군","전설","유성"] },
   { src: "", full: "", title: "마리안델", tags: ["공주","전설","인외"] },
-  { src: "", full: "", title: "웨탐 흑튜", tags: ["주인공","어둠","인외"] },
+  { src: "", full: "", title: "웨탐", tags: ["주인공","어둠","인외"] },
   { src: "", full: "", title: "엘마", tags: ["주인공","빛군","리인카"] },
   { src: "", full: "", title: "켈티스", tags: ["어둠","리인카"] },
   { src: "", full: "", title: "로비나대제", tags: ["주인공","전략","리인카"] },
@@ -289,4 +289,5 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
+
 });
