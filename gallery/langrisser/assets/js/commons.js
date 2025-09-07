@@ -129,6 +129,7 @@ const images = [
   { src: "", full: "", title: "마크렌", tags: ["전략","유성","전설"] },
   { src: "", full: "", title: "아단켈모", tags: ["전략","전설","인외"] },
   { src: "https://i.imgur.com/yj4DF1R.png", full: "https://i.imgur.com/yj4DF1R.png", title: "빛의수호사도", tags: ["주인공","빛군","인외"] },
+  { src: "https://i.imgur.com/KrCRwTK.png", full: "https://i.imgur.com/KrCRwTK.png", title: "빛의수호사도(푸른 바다의 영혼)", tags: ["주인공","빛군","인외"] },
   { src: "https://i.imgur.com/Jo8V7x9.png", full: "https://i.imgur.com/Jo8V7x9.png", title: "빛과그림자검의영혼", tags: ["주인공","인외","리인카"] },
   { src: "", full: "", title: "껍질소녀", tags: ["어둠","공주","리인카"] },
   { src: "", full: "", title: "리오벡", tags: ["제국","어둠","인외"] },
