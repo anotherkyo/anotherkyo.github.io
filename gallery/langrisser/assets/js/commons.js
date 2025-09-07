@@ -72,7 +72,7 @@ const images = [
   { src: "https://i.imgur.com/5nu0hNY.png", full: "https://i.imgur.com/5nu0hNY.png", title: "일루시아(빛의메아리)", tags: ["빛군","전략"] },
   { src: "https://i.imgur.com/1LiSN05.png", full: "https://i.imgur.com/1LiSN05.png", title: "실린카(빛의메아리)", tags: ["유성","인외"] },
   { src: "https://i.imgur.com/pfYLFDE.png", full: "https://i.imgur.com/pfYLFDE.png", title: "리코리스", tags: ["어둠","공주","리인카"] },
-  { src: "https://i.imgur.com/Nk421eW.png", full: "https://i.imgur.com/Nk421eW.png", title: "레나타", tags: ["어둠","리인카"] },
+  { src: "https://i.imgur.com/quti9N4.png", full: "https://i.imgur.com/quti9N4.png", title: "레나타", tags: ["어둠","리인카"] },
   { src: "https://i.imgur.com/lkJ9YCB.png", full: "https://i.imgur.com/lkJ9YCB.png", title: "로자리아", tags: ["빛군","공주","리인카"] },
   { src: "https://i.imgur.com/80hd8Zy.png", full: "https://i.imgur.com/80hd8Zy.png", title: "노에미", tags: ["빛군","리인카"] },
   { src: "https://i.imgur.com/jYArQnv.png", full: "https://i.imgur.com/jYArQnv.png", title: "헬레나", tags: ["빛군","제국"] },
