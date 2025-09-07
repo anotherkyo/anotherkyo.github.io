@@ -108,7 +108,7 @@ const images = [
   { src: "https://i.imgur.com/MsF83kP.png", full: "https://i.imgur.com/MsF83kP.png", title: "웨탐(냥)", tags: ["주인공","어둠","인외"] },
   { src: "https://i.imgur.com/7mkoFx4.png", full: "https://i.imgur.com/7mkoFx4.png", title: "엘마", tags: ["주인공","빛군","리인카"] },
   { src: "https://i.imgur.com/TJF4X19.png", full: "https://i.imgur.com/TJF4X19.png", title: "엘마(빛의메아리)", tags: ["주인공","빛군","리인카"] },
-  { src: "https://i.imgur.com/TJF4X19.png", full: "https://i.imgur.com/TJF4X19.png", title: "엘마(수제 디저트)", tags: ["주인공","빛군","리인카"] },
+  { src: "https://i.imgur.com/bV2NvGP.png", full: "https://i.imgur.com/bV2NvGP.png", title: "엘마(수제 디저트)", tags: ["주인공","빛군","리인카"] },
   { src: "", full: "", title: "켈티스", tags: ["어둠","리인카"] },
   { src: "", full: "", title: "로비나대제", tags: ["주인공","전략","리인카"] },
   { src: "", full: "", title: "방주의성녀", tags: ["주인공","공주","인외"] },
