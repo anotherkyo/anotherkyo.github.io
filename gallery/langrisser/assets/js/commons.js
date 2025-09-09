@@ -120,11 +120,13 @@ const images = [
   { src: "https://i.imgur.com/ISZj9jQ.png", full: "https://i.imgur.com/ISZj9jQ.png", title: "방주의성녀", tags: ["주인공","공주","인외"] },
   { src: "https://i.imgur.com/ZdlkdGL.png", full: "https://i.imgur.com/ZdlkdGL.png", title: "구스타프", tags: ["어둠","인외","리인카"] },
   { src: "https://i.imgur.com/4poFrAS.png", full: "https://i.imgur.com/4poFrAS.png", title: "미셸", tags: ["빛군","리인카"] },
-  { src: "", full: "", title: "리자", tags: ["주인공","유성","전설"] },
-  { src: "", full: "", title: "아이언 챈슬러", tags: ["제국","전략","전설"] },
-  { src: "", full: "", title: "달의집정관", tags: ["전략","전설","인외"] },
-  { src: "", full: "", title: "아즈사", tags: ["기원","전략","인외"] },
-  { src: "", full: "", title: "오보로", tags: ["기원","전설","인외"] },
+  { src: "https://i.imgur.com/wiFeLLM.png", full: "https://i.imgur.com/wiFeLLM.png", title: "리자", tags: ["주인공","유성","전설"] },
+  { src: "https://i.imgur.com/BOhOnPL.png", full: "https://i.imgur.com/BOhOnPL.png", title: "아이언 챈슬러", tags: ["제국","전략","전설"] },
+  { src: "https://i.imgur.com/VWI1ytZ.png", full: "https://i.imgur.com/VWI1ytZ.png", title: "달의집정관", tags: ["전략","전설","인외"] },
+  { src: "https://i.imgur.com/lVEVLBt.png", full: "https://i.imgur.com/lVEVLBt.png", title: "아즈사", tags: ["기원","전략","인외"] },
+  { src: "https://i.imgur.com/PkMBHCJ.png", full: "https://i.imgur.com/PkMBHCJ.png", title: "아즈사(빛의메아리)", tags: ["기원","전략","인외"] },
+  { src: "https://i.imgur.com/kWiOtQe.png", full: "https://i.imgur.com/kWiOtQe.png", title: "오보로", tags: ["기원","전설","인외"] },
+  { src: "https://i.imgur.com/OAryOMT.png", full: "https://i.imgur.com/OAryOMT.png", title: "오보로(빛의메아리)", tags: ["기원","전설","인외"] },
   { src: "", full: "", title: "카구야", tags: ["공주","전략","인외"] },
   { src: "https://i.imgur.com/1yPCkvG.png", full: "https://i.imgur.com/1yPCkvG.png", title: "캐롤리안", tags: ["빛군","제국","전략"] },
   { src: "", full: "", title: "아샤메르", tags: ["기원","공주","인외"] },
@@ -192,7 +194,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 60;
+const pageSize = 120;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
