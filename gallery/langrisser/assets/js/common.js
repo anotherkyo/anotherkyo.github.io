@@ -194,7 +194,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 120;
+const pageSize = 30;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
