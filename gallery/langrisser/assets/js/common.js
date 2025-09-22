@@ -181,13 +181,14 @@ const images = [
   { src: "https://i.imgur.com/vBw1wcU.png", full: "https://i.imgur.com/vBw1wcU.png", title: "빛의소환사", tags: ["빛군","공주","인외"] },
   { src: "https://i.imgur.com/wSk6avV.png", full: "https://i.imgur.com/wSk6avV.png", title: "시온", tags: ["주인공","빛군","전설"] },
   { src: "https://i.imgur.com/r9pQy9Q.png", full: "https://i.imgur.com/r9pQy9Q.png", title: "티아나", tags: ["빛군","유성","전설"] },
+  { src: "https://i.imgur.com/3LAw4aG.png", full: "https://i.imgur.com/3LAw4aG.png", title: "티아나(천사의 장난 - 빛의 메아리)", tags: ["빛군","유성","전설"] },
   { src: "https://i.imgur.com/xt81v5R.png", full: "https://i.imgur.com/xt81v5R.png", title: "엔야", tags: ["기원","전설","인외"] },
   { src: "https://i.imgur.com/uvLTboy.png", full: "https://i.imgur.com/uvLTboy.png", title: "아리아", tags: ["빛군","기원","공주"] },
   { src: "https://i.imgur.com/MFLaBHk.png", full: "https://i.imgur.com/MFLaBHk.png", title: "이리아", tags: ["빛군","기원","공주"] },
   { src: "https://i.imgur.com/fpc3mJk.png", full: "https://i.imgur.com/fpc3mJk.png", title: "노노린", tags: ["빛군","전략","유성"] },
   { src: "https://i.imgur.com/T3oMajX.png", full: "https://i.imgur.com/T3oMajX.png", title: "노노린(신비한 바다 탐정)", tags: ["빛군","전략","유성"] },
   { src: "https://i.imgur.com/UcFiTIZ.png", full: "https://i.imgur.com/UcFiTIZ.png", title: "사프린", tags: ["기원","인외","리인카"] },
-  { src: "", full: "", title: "염룡파멸자", tags: ["제국","어둠","전설"] },
+  { src: "", full: "", title: "염룡 파멸자", tags: ["제국","어둠","전설"] },
   { src: "https://i.imgur.com/Nk421eW.png", full: "https://i.imgur.com/Nk421eW.png", title: "란델", tags: ["어둠","전설","전략"] },
   { src: "https://i.imgur.com/7cmXsqF.png", full: "https://i.imgur.com/7cmXsqF.png", title: "날개 꺾인 새", tags: ["어둠","유성","인외"] },
   { src: "https://i.imgur.com/sfAjMFf.png", full: "https://i.imgur.com/sfAjMFf.png", title: "실나", tags: ["어둠","기원","전설"] },
@@ -309,5 +310,4 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
-
 });
