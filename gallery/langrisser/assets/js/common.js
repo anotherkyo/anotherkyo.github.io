@@ -180,7 +180,7 @@ const images = [
   { src: "https://i.imgur.com/qzc3fFH.png", full: "https://i.imgur.com/qzc3fFH.png", title: "세라피나", tags: ["제국","전략","유성"] },
   { src: "https://i.imgur.com/vBw1wcU.png", full: "https://i.imgur.com/vBw1wcU.png", title: "빛의소환사", tags: ["빛군","공주","인외"] },
   { src: "https://i.imgur.com/wSk6avV.png", full: "https://i.imgur.com/wSk6avV.png", title: "시온", tags: ["주인공","빛군","전설"] },
-  { src: "https://i.imgur.com/jzmRIqA.png", full: "https://i.imgur.com/jzmRIqA.png", title: "티아나", tags: ["빛군","유성","전설"] },
+  { src: "https://i.imgur.com/r9pQy9Q.png", full: "https://i.imgur.com/r9pQy9Q.png", title: "티아나", tags: ["빛군","유성","전설"] },
   { src: "https://i.imgur.com/xt81v5R.png", full: "https://i.imgur.com/xt81v5R.png", title: "엔야", tags: ["기원","전설","인외"] },
   { src: "https://i.imgur.com/uvLTboy.png", full: "https://i.imgur.com/uvLTboy.png", title: "아리아", tags: ["빛군","기원","공주"] },
   { src: "https://i.imgur.com/MFLaBHk.png", full: "https://i.imgur.com/MFLaBHk.png", title: "이리아", tags: ["빛군","기원","공주"] },
@@ -309,4 +309,5 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
+
 });
