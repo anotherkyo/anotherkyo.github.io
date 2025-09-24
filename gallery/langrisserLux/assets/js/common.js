@@ -9,7 +9,10 @@ const images = [
   { src: "https://i.imgur.com/OfxE0qa.png", full: "https://i.imgur.com/OfxE0qa.png", title: "붉은 달-노에미(카먼)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/mJma6kd.png", full: "https://i.imgur.com/mJma6kd.png", title: "초저녁의 별-연옥(카먼)", tags: ["장신구","바람"] },
   { src: "https://i.imgur.com/sI3HBqb.png", full: "https://i.imgur.com/sI3HBqb.png", title: "고독한 기사의 결의-어나더쿄(레이갈드)", tags: ["투구","바람","전용장비"] },
-  { src: "https://i.imgur.com/JsnVKdP.png", full: "https://i.imgur.com/JsnVKdP.png", title: "고대 성왕의 왕관-펭귄MIKII(이스카노)", tags: ["투구","시계","전용장비"] }
+  { src: "https://i.imgur.com/JsnVKdP.png", full: "https://i.imgur.com/JsnVKdP.png", title: "고대 성왕의 왕관-펭귄MIKII(이스카노)", tags: ["투구","시계","전용장비"] },
+  { src: "https://i.imgur.com/lfz58Rs.png", full: "https://i.imgur.com/lfz58Rs.png", title: "속세의 빛-아스카렛(레이갈드)", tags: ["투구","바람"] },
+  { src: "https://i.imgur.com/WgU0UtV.png", full: "https://i.imgur.com/WgU0UtV.png", title: "태초의 갑옷-초코보와모그리(레이갈드)", tags: ["갑옷","마술"] },
+  { src: "https://i.imgur.com/5RxX3cw.png", full: "https://i.imgur.com/5RxX3cw.png", title: "수호자의 갑옷-DOTGGABI(티스라오)", tags: ["갑옷","바위"] }  
 ];
 
 
@@ -127,4 +130,5 @@ dialog.addEventListener('touchend',e=>{
 window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
+
 });
