@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Imgur → JSON 변환기</title>
+</head>
+<body>
+  <h1>Imgur → Gallery JSON 변환기</h1>
+  <textarea id="input" rows="8" cols="80" placeholder="여기에 imgur 이미지 URL들을 줄바꿈해서 붙여넣으세요"></textarea>
+  <br>
+  <button onclick="convert()">변환하기</button>
+  <h2>결과 (commons.js → images 배열에 복붙)</h2>
+  <textarea id="output" rows="15" cols="80" readonly></textarea>
+
+  <script>
+    function convert() {
+      const urls = document.getElementById("input").value.trim().split("\n");
+      const result = urls.map((url, i) => {
+        return `  {
+    src: "${url.trim()}",
+    full: "${url.trim()}",
+    title: "이미지 ${i+1}",
+    tags: ["custom"]
+  }`;
+      }).join(",\n");
+
+      document.getElementById("output").value = `const images = [\n${result}\n];`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>랑그릿사 모바일 명품관</title>
+  <!-- 외부 CSS 연결 -->
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>랑그릿사 모바일 명품관</h1>
+      <p class="sub">ver_20250925</p>
+      <div class="toolbar" role="toolbar">
+        <div class="search" role="search">
+          <input id="q" type="search" placeholder="검색(제목/태그)" autocomplete="off" />
+        </div>
+        <div class="filters">
+          <button class="btn" data-tag="all" aria-pressed="true">전체</button>
+          <button class="btn" data-tag="무기">무기</button>
+          <button class="btn" data-tag="방어구">방어구</button>
+          <button class="btn" data-tag="투구">투구</button>
+          <button class="btn" data-tag="장신구">장신구</button>
+          <button class="btn" data-tag="전용장비">전용장비</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <dialog id="lightbox">
+    <div class="viewer">
+      <button class="btn close" data-action="close">✕</button>
+      <div class="nav">
+        <button class="btn" data-action="prev">‹</button>
+        <button class="btn" data-action="next">›</button>
+      </div>
+      <figure>
+        <img id="lb-img" alt="" />
+        <figcaption id="lb-cap"> </figcaption>
+      </figure>
+    </div>
+  </dialog>
+
+  <footer>
+    <small>Anotherkyo</small>
+  </footer>
+
+  <!-- 외부 JS 연결 -->
+  <script src="./assets/js/common.js"></script>
+</body>
+</html>
