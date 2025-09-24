@@ -8,7 +8,8 @@ const images = [
   { src: "https://i.imgur.com/SR8GonT.png", full: "https://i.imgur.com/SR8GonT.png", title: "최후의 옷-노에미(카먼)", tags: ["방어구","나무"] },
   { src: "https://i.imgur.com/OfxE0qa.png", full: "https://i.imgur.com/OfxE0qa.png", title: "붉은 달-노에미(카먼)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/mJma6kd.png", full: "https://i.imgur.com/mJma6kd.png", title: "초저녁의 별-연옥(카먼)", tags: ["장신구","바람"] },
-  { src: "https://i.imgur.com/sI3HBqb.png", full: "https://i.imgur.com/sI3HBqb.png", title: "고독한 기사의 결의-어나더쿄(레이갈드)", tags: ["투구","바람","전용장비"] }
+  { src: "https://i.imgur.com/sI3HBqb.png", full: "https://i.imgur.com/sI3HBqb.png", title: "고독한 기사의 결의-어나더쿄(레이갈드)", tags: ["투구","바람","전용장비"] },
+  { src: "https://i.imgur.com/JsnVKdP.png", full: "https://i.imgur.com/JsnVKdP.png", title: "고대 성왕의 왕관-펭귄MIKII(이스카노)", tags: ["투구","시계","전용장비"] }
 ];
 
 
