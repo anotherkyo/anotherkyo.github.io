@@ -23,7 +23,8 @@ const images = [
   { src: "https://i.imgur.com/PeNtO9J.png", full: "https://i.imgur.com/PeNtO9J.png", title: "정의의 선서-Elio(티스라오)", tags: ["무기","강철"] },
   { src: "https://i.imgur.com/NJZhLlj.png", full: "https://i.imgur.com/NJZhLlj.png", title: "천녀의 날개옷-Gogi(티스라오)", tags: ["방어구","시계"] },
   { src: "https://i.imgur.com/CCHj7lF.png", full: "https://i.imgur.com/CCHj7lF.png", title: "빨간 리본-폐관수련중(티스라오)", tags: ["투구","바람"] },
-  { src: "https://i.imgur.com/cBY6OEv.png", full: "https://i.imgur.com/cBY6OEv.png", title: "마물 헌터캡-폐관수련중(티스라오)", tags: ["투구","만월"] }
+  { src: "https://i.imgur.com/cBY6OEv.png", full: "https://i.imgur.com/cBY6OEv.png", title: "마물 헌터캡-폐관수련중(티스라오)", tags: ["투구","만월"] },
+  { src: "https://i.imgur.com/WBrEmo3.png", full: "https://i.imgur.com/WBrEmo3.png", title: "성검 훈장-니나노오피스7o(노센레이어)", tags: ["장신구","바람"] }
   
 ];
 
@@ -144,3 +145,4 @@ window.addEventListener('load',()=>{
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
 
 });
+
