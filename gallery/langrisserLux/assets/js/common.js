@@ -28,7 +28,7 @@ const images = [
   { src: "https://i.imgur.com/CCHj7lF.png", full: "https://i.imgur.com/CCHj7lF.png", title: "빨간 리본-폐관수련중(티스라오)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/cBY6OEv.png", full: "https://i.imgur.com/cBY6OEv.png", title: "마물 헌터캡-폐관수련중(티스라오)", tags: ["투구","만월"] },
   { src: "https://i.imgur.com/WBrEmo3.png", full: "https://i.imgur.com/WBrEmo3.png", title: "성검 훈장-니나노오피스7o(노센레이어)", tags: ["장신구","바람"] },
-  { src: "https://i.imgur.com/jHOqbPE.png", full: "https://i.imgur.com/jHOqbPE.png", title: "미미르의 망치-망고리6(발디아)", tags: ["무기","바람"] },
+  { src: "https://i.imgur.com/jHOqbPE.png", full: "https://i.imgur.com/jHOqbPE.png", title: "미미르의 망치-망고리6(발디아)", tags: ["무기","바람"] }
   
 ];
 
@@ -148,3 +148,4 @@ window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
 });
+
