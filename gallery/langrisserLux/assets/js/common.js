@@ -32,17 +32,18 @@ const images = [
   { src: "https://i.imgur.com/cBY6OEv.png", full: "https://i.imgur.com/cBY6OEv.png", title: "마물 헌터캡-폐관수련중(티스라오)", tags: ["투구","만월"] },
   //{ src: "https://i.imgur.com/WBrEmo3.png", full: "https://i.imgur.com/WBrEmo3.png", title: "성검 훈장-니나노오피스7o(노센레이어)", tags: ["장신구","바람"] },
   { src: "https://i.imgur.com/jHOqbPE.png", full: "https://i.imgur.com/jHOqbPE.png", title: "미미르의 망치-망고리6(발디아)", tags: ["무기","바람"] },
-  { src: "https://i.imgur.com/alk8NDa.png", full: "https://i.imgur.com/alk8NDa.png", title: "티아메트의 가호-작은배추(레이갈드)", tags: ["방어구","만월"] },
+  { src: "https://i.imgur.com/BNkTtBI.png", full: "https://i.imgur.com/BNkTtBI.png", title: "티아메트의 가호-작은배추(레이갈드)", tags: ["방어구","만월"] },
   { src: "https://i.imgur.com/exgXEF2.png", full: "https://i.imgur.com/exgXEF2.png", title: "기적의 지팡이-진영편성(티스라오)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/msXAQVd.png", full: "https://i.imgur.com/msXAQVd.png", title: "자객의 활-진영편성(티스라오)", tags: ["무기","바람"] },
-  { src: "https://i.imgur.com/YgOXp1P.png", full: "https://i.imgur.com/YgOXp1P.png", title: "심연의 옷-caline(티스라오)", tags: ["방어구","바람"] }
+  { src: "https://i.imgur.com/YgOXp1P.png", full: "https://i.imgur.com/YgOXp1P.png", title: "심연의 옷-caline(티스라오)", tags: ["방어구","바람"] },
+  { src: "https://i.imgur.com/6FQzkiw.png", full: "https://i.imgur.com/6FQzkiw.png", title: "바다의 파도-데리버거(보르스레누)", tags: ["장신구","마술"] }
 ];
 
 
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 30;
+const pageSize = 31;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
