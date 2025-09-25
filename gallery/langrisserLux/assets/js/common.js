@@ -16,7 +16,7 @@ const images = [
   { src: "https://i.imgur.com/Ti31qaR.png", full: "https://i.imgur.com/Ti31qaR.png", title: "전생의 글귀-아니에스(티스라오)", tags: ["투구","바람","전용장비"] },
   { src: "https://i.imgur.com/qRhO6i7.png", full: "https://i.imgur.com/qRhO6i7.png", title: "묠니르-아니에스(티스라오)", tags: ["무기","만월"] },
   { src: "https://i.imgur.com/x31FayX.png", full: "https://i.imgur.com/x31FayX.png", title: "피의 맹약-아니에스(티스라오)", tags: ["장신구","만월"] },
-  { src: "https://i.imgur.com/u0sxNJj.png", full: "https://i.imgur.com/u0sxNJj.png", title: "티아메트의 가호-아니에스(티스라오)", tags: ["방어구","아니에스"] }
+  { src: "https://i.imgur.com/u0sxNJj.png", full: "https://i.imgur.com/u0sxNJj.png", title: "티아메트의 가호-아니에스(티스라오)", tags: ["방어구","아니에스"] },
   { src: "https://i.imgur.com/5jECxCI.png", full: "https://i.imgur.com/5jECxCI.png", title: "흡혈귀 가면-마요네즈눈사람(노센레이어)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/080TlC9.png", full: "https://i.imgur.com/080TlC9.png", title: "모래바람의 인연-Vayu(어둠의 전설)", tags: ["장신구","강철"] },
   { src: "https://i.imgur.com/z5UrJ7e.png", full: "https://i.imgur.com/z5UrJ7e.png", title: "붉은 달-알약콩(레이갈드)", tags: ["무기","시계"] },
@@ -148,4 +148,5 @@ window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
 });
+
 
