@@ -101,7 +101,10 @@ const lbImg=document.getElementById('lb-img');
 const lbCap=document.getElementById('lb-cap');
 let items=[]; let index=0;
 
-function refreshItems(){items=[...gallery.querySelectorAll('.card')];}
+function refreshItems(){
+  items = [...gallery.querySelectorAll('.card')]
+    .filter(card => card.style.display !== 'none');
+}
 function openAt(i){
   refreshItems(); index=i;
   const fig=items[index]; const img=fig.querySelector('img');
@@ -113,10 +116,16 @@ function close(){dialog.close(); const url=new URL(location); url.searchParams.d
 function prev(){openAt((index-1+items.length)%items.length);} 
 function next(){openAt((index+1)%items.length);}
 
-gallery.addEventListener('click',e=>{
-  const fig=e.target.closest('figure');
-  if(fig)openAt([...gallery.children].indexOf(fig));
+gallery.addEventListener('click', e => {
+  const fig = e.target.closest('figure');
+  if (fig && fig.style.display !== 'none') {  // 안 보이는 건 무시
+    refreshItems();
+    const visibleCards = items; // 보이는 카드 배열
+    const i = visibleCards.indexOf(fig);
+    if (i !== -1) openAt(i);
+  }
 });
+
 document.querySelector('[data-action="close"]').onclick=close;
 document.querySelector('[data-action="prev"]').onclick=prev;
 document.querySelector('[data-action="next"]').onclick=next;
