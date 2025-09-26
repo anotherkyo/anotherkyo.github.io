@@ -17,6 +17,8 @@ const images = [
   { src: "https://i.imgur.com/ZeOExOD.png", full: "https://i.imgur.com/ZeOExOD.png", title: "영생자의 선물-라면임(카먼)", tags: ["무기","시계"] },
   { src: "https://i.imgur.com/m4l8b6d.png", full: "https://i.imgur.com/m4l8b6d.png", title: "영생자의 선물-아니에스(티스라오)", tags: ["무기","강철"] },
   { src: "https://i.imgur.com/BBHBjMc.png", full: "https://i.imgur.com/BBHBjMc.png", title: "징벌의 망치-진영편성(티스라오)", tags: ["무기","바람"] },
+  { src: "https://i.imgur.com/syoQcfP.png", full: "https://i.imgur.com/syoQcfP.png", title: "진홍의 사신-망고리(발디아)", tags: ["무기","마술"] },
+  
   
   
   { src: "https://i.imgur.com/5RxX3cw.png", full: "https://i.imgur.com/5RxX3cw.png", title: "수호자의 갑옷-DOTGGABI(티스라오)", tags: ["방어구","바위"] },
@@ -37,7 +39,8 @@ const images = [
 
     
   
-  { src: "https://i.imgur.com/lfz58Rs.png", full: "https://i.imgur.com/lfz58Rs.png", title: "속세의 빛-아스카렛(레이갈드)", tags: ["투구","바람"] },
+  { src: "https://i.imgur.com/wqNS4M1.png", full: "https://i.imgur.com/wqNS4M1.png", title: "속세의 빛-레고(티스라오)", tags: ["투구","바람"] },
+  //{ src: "https://i.imgur.com/lfz58Rs.png", full: "https://i.imgur.com/lfz58Rs.png", title: "속세의 빛-아스카렛(레이갈드)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/5jECxCI.png", full: "https://i.imgur.com/5jECxCI.png", title: "흡혈귀 가면-마요네즈눈사람(노센레이어)", tags: ["투구","바람"] },
     //{ src: "https://i.imgur.com/SMRQDfH.png", full: "https://i.imgur.com/SMRQDfH.png", title: "티르의분노-홍염의눈동자(티스라오)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/p5WfjCl.png", full: "https://i.imgur.com/p5WfjCl.png", title: "티르의 분노-Sukwind(티스라오)", tags: ["투구","바람"] },
@@ -65,7 +68,8 @@ const images = [
   { src: "https://i.imgur.com/nhxCUsZ.png", full: "https://i.imgur.com/nhxCUsZ.png", title: "티타늄 부츠-갑꾸꾸(티스라오)", tags: ["장신구","바람"] },
   { src: "https://i.imgur.com/6FQzkiw.png", full: "https://i.imgur.com/6FQzkiw.png", title: "바다의 파도-데리버거(보르스레누)", tags: ["장신구","마술"] },
   { src: "https://i.imgur.com/GBWFkr7.png", full: "https://i.imgur.com/GBWFkr7.png", title: "용살자 훈장-Vienna(카먼)", tags: ["장신구","바람"] },
-  { src: "https://i.imgur.com/3EUv5QC.png", full: "https://i.imgur.com/3EUv5QC.png", title: "신성한 반지-Rose아이보라(칼자스)", tags: ["장신구","바람"] }
+  { src: "https://i.imgur.com/3EUv5QC.png", full: "https://i.imgur.com/3EUv5QC.png", title: "신성한 반지-Rose아이보라(칼자스)", tags: ["장신구","바람"] },
+  { src: "https://i.imgur.com/pID8Bz9.png", full: "https://i.imgur.com/pID8Bz9.png", title: "푸른 정령의 나비-망고리6(발디아)", tags: ["장신구","바람"] }
   
 
 ];
@@ -74,7 +78,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 45;
+const pageSize = 54;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
