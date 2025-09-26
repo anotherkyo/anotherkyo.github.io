@@ -2,7 +2,7 @@
 const images = [
   { src: "https://i.imgur.com/ceHpjNw.png", full: "https://i.imgur.com/ceHpjNw.png", title: "악념 계략가-깡통대장(발디아)", tags: ["무기","시계"] },
   { src: "https://i.imgur.com/qs1WmgG.png", full: "https://i.imgur.com/qs1WmgG.png", title: "케른바이터-꼰대쿤(칼자스)", tags: ["무기","시계"] },
-  { src: "https://i.imgur.com/qs1WmgG.png", full: "https://i.imgur.com/qs1WmgG.png", title: "균형의 칼날-엘 국 장(노센레이어)", tags: ["무기","바람"] },
+  { src: "https://i.imgur.com/O3ApgLZ.png", full: "https://i.imgur.com/O3ApgLZ.png", title: "균형의 칼날-엘 국 장(노센레이어)", tags: ["무기","바람"] },
   { src: "https://i.imgur.com/OfxE0qa.png", full: "https://i.imgur.com/OfxE0qa.png", title: "붉은 달-노에미(카먼)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/qRhO6i7.png", full: "https://i.imgur.com/qRhO6i7.png", title: "묠니르-아니에스(티스라오)", tags: ["무기","만월"] },
   { src: "https://i.imgur.com/z5UrJ7e.png", full: "https://i.imgur.com/z5UrJ7e.png", title: "붉은 달-알약콩(레이갈드)", tags: ["무기","시계"] },
@@ -191,3 +191,4 @@ window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
 });
+
