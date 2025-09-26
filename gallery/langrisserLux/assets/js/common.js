@@ -70,7 +70,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 40;
+const pageSize = 45;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
@@ -191,4 +191,5 @@ window.addEventListener('load',()=>{
   const p=new URL(location).searchParams.get('img');
   if(p!==null){setTimeout(()=>openAt(Number(p)),500);}
 });
+
 
