@@ -4,18 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>랑그릿사 모바일 명품관</title>
+
   <!-- 외부 CSS 연결 -->
-  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+  <!-- 헤더 영역 -->
   <header>
     <div class="wrap">
       <h1>랑그릿사 모바일 명품관</h1>
       <p class="sub">ver_202509262250</p>
+
+      <!-- 툴바: 모드 토글, 검색, 필터 -->
       <div class="toolbar" role="toolbar">
+
+        <!-- 다크/라이트 모드 토글 -->
+        <div class="mode-toggle">
+          <button id="toggle-mode" class="btn">🌙/☀️</button>
+        </div>
+
+        <!-- 검색 입력 -->
         <div class="search" role="search">
           <input id="q" type="search" placeholder="검색(제목/태그)" autocomplete="off" />
         </div>
+
+        <!-- 필터 버튼 -->
         <div class="filters">
           <button class="btn" data-tag="all" aria-pressed="true">전체</button>
           <button class="btn" data-tag="무기">무기</button>
@@ -24,30 +37,50 @@
           <button class="btn" data-tag="장신구">장신구</button>
           <button class="btn" data-tag="전용장비">전용장비</button>
         </div>
+
       </div>
     </div>
   </header>
 
+  <!-- 메인 갤러리 영역 -->
   <main class="wrap">
     <section class="gallery" id="gallery"></section>
   </main>
 
+  <!-- 라이트박스 -->
   <dialog id="lightbox">
     <div class="viewer">
+      <!-- 라이트박스 닫기 버튼 -->
       <button class="btn close" data-action="close">✕</button>
+
+      <!-- 이전/다음 네비게이션 -->
       <div class="nav">
         <button class="btn" data-action="prev">‹</button>
         <button class="btn" data-action="next">›</button>
       </div>
+
+      <!-- 이미지 및 코멘트/히스토리 -->
       <figure>
         <img id="lb-img" alt="" />
-        <figcaption id="lb-cap"> </figcaption>
+        <figcaption id="lb-cap"></figcaption>
+
+        <!-- 코멘트 영역 -->
+        <div id="lbComment" class="comment"></div>
+
+        <!-- 히스토리 썸네일 영역 -->
+        <div id="lbHistory" class="history-thumbnails"></div>
       </figure>
     </div>
   </dialog>
 
+  <!-- 푸터 -->
   <footer>
-    <small>명품관 등록을 희망하는 아이템은 어나더쿄(레이갈드)에게 제보 바랍니다.</small>
+    <small>
+      명품관 등록을 희망하는 아이템은 
+      <a href="https://chzzk.naver.com/311c2a9ef8537f267eea9963c81d7532" target="_blank" rel="noopener noreferrer">
+        어나더쿄(레이갈드)
+      </a>에게 제보 바랍니다.
+    </small>
   </footer>
 
   <!-- 외부 JS 연결 -->
