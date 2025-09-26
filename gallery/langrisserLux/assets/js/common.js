@@ -2,6 +2,7 @@
 const images = [
   { src: "https://i.imgur.com/ceHpjNw.png", full: "https://i.imgur.com/ceHpjNw.png", title: "악념 계략가-깡통대장(발디아)", tags: ["무기","시계"] },
   { src: "https://i.imgur.com/qs1WmgG.png", full: "https://i.imgur.com/qs1WmgG.png", title: "케른바이터-꼰대쿤(칼자스)", tags: ["무기","시계"] },
+  { src: "https://i.imgur.com/qs1WmgG.png", full: "https://i.imgur.com/qs1WmgG.png", title: "균형의 칼날-엘 국 장(노센레이어)", tags: ["무기","바람"] },
   { src: "https://i.imgur.com/OfxE0qa.png", full: "https://i.imgur.com/OfxE0qa.png", title: "붉은 달-노에미(카먼)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/qRhO6i7.png", full: "https://i.imgur.com/qRhO6i7.png", title: "묠니르-아니에스(티스라오)", tags: ["무기","만월"] },
   { src: "https://i.imgur.com/z5UrJ7e.png", full: "https://i.imgur.com/z5UrJ7e.png", title: "붉은 달-알약콩(레이갈드)", tags: ["무기","시계"] },
@@ -10,6 +11,9 @@ const images = [
   //{ src: "https://i.imgur.com/Z45lBZL.png", full: "https://i.imgur.com/Z45lBZL.png", title: "기적의 지팡이-멀티팩터(발디아)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/exgXEF2.png", full: "https://i.imgur.com/exgXEF2.png", title: "기적의 지팡이-진영편성(티스라오)", tags: ["무기","태양"] },
   { src: "https://i.imgur.com/msXAQVd.png", full: "https://i.imgur.com/msXAQVd.png", title: "자객의 활-진영편성(티스라오)", tags: ["무기","바람"] },
+  { src: "https://i.imgur.com/0WYIhih.png", full: "https://i.imgur.com/0WYIhih.png", title: "라그나로크-단단하게(노센레이어)", tags: ["무기","바람"] },
+  { src: "https://i.imgur.com/1SrmTfM.png", full: "https://i.imgur.com/1SrmTfM.png", title: "여름밤 만개한 꽃-크라운산도딸기(카먼)", tags: ["무기","만월"] },
+  { src: "https://i.imgur.com/ckGhFkD.png", full: "https://i.imgur.com/ckGhFkD.png", title: "사라빌-갑꾸꾸(티스라오)", tags: ["무기","바람"] },
   
   
   { src: "https://i.imgur.com/5RxX3cw.png", full: "https://i.imgur.com/5RxX3cw.png", title: "수호자의 갑옷-DOTGGABI(티스라오)", tags: ["방어구","바위"] },
@@ -20,20 +24,31 @@ const images = [
   { src: "https://i.imgur.com/Y5tO3Ao.png", full: "https://i.imgur.com/Y5tO3Ao.png", title: "최후의 옷-Vienna(카먼)", tags: ["방어구","바람"] },
   { src: "https://i.imgur.com/WgU0UtV.png", full: "https://i.imgur.com/WgU0UtV.png", title: "태초의 갑옷-초코보와모그리(레이갈드)", tags: ["방어구","마술"] },
   //{ src: "https://i.imgur.com/u0sxNJj.png", full: "https://i.imgur.com/u0sxNJj.png", title: "티아메트의 가호-아니에스(티스라오)", tags: ["방어구","만월"] },
-  { src: "https://i.imgur.com/BNkTtBI.png", full: "https://i.imgur.com/BNkTtBI.png", title: "티아메트의 가호-작은배추(레이갈드)", tags: ["방어구","만월"] },
+  //{ src: "https://i.imgur.com/BNkTtBI.png", full: "https://i.imgur.com/BNkTtBI.png", title: "티아메트의 가호-작은배추(레이갈드)", tags: ["방어구","만월"] },
+  { src: "https://i.imgur.com/mvXSUYk.png", full: "https://i.imgur.com/mvXSUYk.png", title: "티아메트의 가호-1년 음주후에(티스라오)", tags: ["방어구","만월"] },
   { src: "https://i.imgur.com/YgOXp1P.png", full: "https://i.imgur.com/YgOXp1P.png", title: "심연의 옷-caline(티스라오)", tags: ["방어구","바람"] },
   { src: "https://i.imgur.com/NJZhLlj.png", full: "https://i.imgur.com/NJZhLlj.png", title: "천녀의 날개옷-Gogi(티스라오)", tags: ["방어구","시계"] },
+  { src: "https://i.imgur.com/hLP19cL.png", full: "https://i.imgur.com/hLP19cL.png", title: "최후의 옷-데이브레이크(노센레이어)", tags: ["방어구","바람"] },
+  { src: "https://i.imgur.com/S3RDJHO.png", full: "https://i.imgur.com/S3RDJHO.png", title: "칼날의 포옹-일향(티스라오)", tags: ["방어구","유성","전용장비"] },
+  { src: "https://i.imgur.com/w7KSR3c.png", full: "https://i.imgur.com/w7KSR3c.png", title: "선홍색 무장-희열맨(티스라오)", tags: ["방어구","가시","전용장비"] },
 
     
-  { src: "https://i.imgur.com/sI3HBqb.png", full: "https://i.imgur.com/sI3HBqb.png", title: "고독한 기사의 결의-어나더쿄(레이갈드)", tags: ["투구","바람","전용장비"] },
-  { src: "https://i.imgur.com/JsnVKdP.png", full: "https://i.imgur.com/JsnVKdP.png", title: "고대 성왕의 왕관-펭귄MIKII(이스카노)", tags: ["투구","시계","전용장비"] },
+  
   { src: "https://i.imgur.com/lfz58Rs.png", full: "https://i.imgur.com/lfz58Rs.png", title: "속세의 빛-아스카렛(레이갈드)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/5jECxCI.png", full: "https://i.imgur.com/5jECxCI.png", title: "흡혈귀 가면-마요네즈눈사람(노센레이어)", tags: ["투구","바람"] },
     //{ src: "https://i.imgur.com/SMRQDfH.png", full: "https://i.imgur.com/SMRQDfH.png", title: "티르의분노-홍염의눈동자(티스라오)", tags: ["투구","바람"] },
-  { src: "https://i.imgur.com/p5WfjCl.png", full: "https://i.imgur.com/p5WfjCl.png", title: "티르의분노-Sukwind(티스라오)", tags: ["투구","바람"] },
+  { src: "https://i.imgur.com/p5WfjCl.png", full: "https://i.imgur.com/p5WfjCl.png", title: "티르의 분노-Sukwind(티스라오)", tags: ["투구","바람"] },
+  { src: "https://i.imgur.com/fI99fc1.png", full: "https://i.imgur.com/fI99fc1.png", title: "티르의 분노-소요(카먼)", tags: ["투구","시계"] },
   { src: "https://i.imgur.com/CCHj7lF.png", full: "https://i.imgur.com/CCHj7lF.png", title: "빨간 리본-폐관수련중(티스라오)", tags: ["투구","바람"] },
   { src: "https://i.imgur.com/cBY6OEv.png", full: "https://i.imgur.com/cBY6OEv.png", title: "마물 헌터캡-폐관수련중(티스라오)", tags: ["투구","만월"] },
+  { src: "https://i.imgur.com/DjgZmHC.png", full: "https://i.imgur.com/DjgZmHC.png", title: "천녀의 티아라-박점멸(티스라오)", tags: ["투구","바람"] },
+  { src: "https://i.imgur.com/sI3HBqb.png", full: "https://i.imgur.com/sI3HBqb.png", title: "고독한 기사의 결의-어나더쿄(레이갈드)", tags: ["투구","바람","전용장비"] },
+  { src: "https://i.imgur.com/p7rXUnN.png", full: "https://i.imgur.com/p7rXUnN.png", title: "고독한 기사의 결의-소요(카먼)", tags: ["투구","시계","전용장비"] },
+  { src: "https://i.imgur.com/JsnVKdP.png", full: "https://i.imgur.com/JsnVKdP.png", title: "고대 성왕의 왕관-펭귄MIKII(이스카노)", tags: ["투구","시계","전용장비"] },
   { src: "https://i.imgur.com/Ti31qaR.png", full: "https://i.imgur.com/Ti31qaR.png", title: "전생의 글귀-아니에스(티스라오)", tags: ["투구","바람","전용장비"] },
+  { src: "https://i.imgur.com/sRHx4CD.png", full: "https://i.imgur.com/sRHx4CD.png", title: "순백의 면사포-먹다남은치즈(티스라오)", tags: ["투구","수정","전용장비"] },
+  { src: "https://i.imgur.com/uErvsRA.png", full: "https://i.imgur.com/uErvsRA.png", title: "잿불의 수호-코드제네시스(노센레이어)", tags: ["투구","만월","전용장비"] },
+  
   
 
   { src: "https://i.imgur.com/Po0FzZo.png", full: "https://i.imgur.com/Po0FzZo.png", title: "빛나는 검의 날개-DOTGGABI(티스라오)", tags: ["장신구","만월"] },
@@ -42,9 +57,11 @@ const images = [
   { src: "https://i.imgur.com/080TlC9.png", full: "https://i.imgur.com/080TlC9.png", title: "모래바람의 인연-Vayu(어둠의 전설)", tags: ["장신구","강철"] },
   //{ src: "https://i.imgur.com/WBrEmo3.png", full: "https://i.imgur.com/WBrEmo3.png", title: "성검 훈장-니나노오피스7o(노센레이어)", tags: ["장신구","바람"] },
   { src: "https://i.imgur.com/NTzXh16.png", full: "https://i.imgur.com/NTzXh16.png", title: "성검 훈장-Sukwind(티스라오)", tags: ["장신구","바람"] },
+  { src: "https://i.imgur.com/C9rDPQ6.png", full: "https://i.imgur.com/C9rDPQ6.png", title: "유격사 훈장-랑진이(노센레이어)", tags: ["장신구","가시"] },
   { src: "https://i.imgur.com/nhxCUsZ.png", full: "https://i.imgur.com/nhxCUsZ.png", title: "티타늄 부츠-갑꾸꾸(티스라오)", tags: ["장신구","바람"] },
   { src: "https://i.imgur.com/6FQzkiw.png", full: "https://i.imgur.com/6FQzkiw.png", title: "바다의 파도-데리버거(보르스레누)", tags: ["장신구","마술"] },
-  { src: "https://i.imgur.com/GBWFkr7.png", full: "https://i.imgur.com/GBWFkr7.png", title: "용살자 훈장-Vienna(카먼)", tags: ["장신구","바람"] }
+  { src: "https://i.imgur.com/GBWFkr7.png", full: "https://i.imgur.com/GBWFkr7.png", title: "용살자 훈장-Vienna(카먼)", tags: ["장신구","바람"] },
+  { src: "https://i.imgur.com/3EUv5QC.png", full: "https://i.imgur.com/3EUv5QC.png", title: "신성한 반지-Rose아이보라(칼자스)", tags: ["장신구","바람"] }
   
 
 ];
@@ -53,7 +70,7 @@ const images = [
 const gallery = document.getElementById('gallery');
 const loadMoreBtn = document.getElementById('load-more');
 let loadedCount = 0;
-const pageSize = 31;
+const pageSize = 40;
 
 function renderMore() {
   const end = Math.min(loadedCount + pageSize, images.length);
