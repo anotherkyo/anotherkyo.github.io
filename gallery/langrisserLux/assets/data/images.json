@@ -44,7 +44,7 @@
   { "src": "https://i.imgur.com/WDbwL4u.png", "full": "https://i.imgur.com/WDbwL4u.png", "title": "피의 맹약-아니에스(티스라오)", "tags": ["장신구","만월"] },
   { "src": "https://i.imgur.com/080TlC9.png", "full": "https://i.imgur.com/080TlC9.png", "title": "모래바람의 인연-Vayu(어둠의 전설)", "tags": ["장신구","강철"] },
   { "src": "https://i.imgur.com/NTzXh16.png", "full": "https://i.imgur.com/NTzXh16.png", "title": "성검 훈장-Sukwind(티스라오)", "tags": ["장신구","바람"] },
-  { "src": "https://i.imgur.com/C9rDPQ6.png", "full": "https://i.imgur.com/C9rDPQ6.png", "title": "유격사 훈장-랑진이(노센레이어)", "tags": ["장신구","가시"] },
+  { "src": "./img/유격사훈장.webp", "full": "https://i.imgur.com/C9rDPQ6.png", "title": "유격사 훈장-랑진이(노센레이어)", "tags": ["장신구","가시"] },
   { "src": "https://i.imgur.com/nhxCUsZ.png", "full": "https://i.imgur.com/nhxCUsZ.png", "title": "티타늄 부츠-갑꾸꾸(티스라오)", "tags": ["장신구","바람"] },
   { "src": "https://i.imgur.com/6FQzkiw.png", "full": "https://i.imgur.com/6FQzkiw.png", "title": "바다의 파도-데리버거(보르스레누)", "tags": ["장신구","마술"] },
   { "src": "https://i.imgur.com/GBWFkr7.png", "full": "https://i.imgur.com/GBWFkr7.png", "title": "용살자 훈장-Vienna(카먼)", "tags": ["장신구","바람"] },
@@ -53,3 +53,4 @@
   
 
 ]
+
