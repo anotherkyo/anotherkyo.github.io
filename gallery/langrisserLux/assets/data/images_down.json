@@ -5,7 +5,7 @@
   { "src": "https://i.imgur.com/LxGh6R4.png", "full": "https://i.imgur.com/LxGh6R4.png", "title": "묠니르-아니에스(티스라오)", "tags": ["무기","만월"] },
   { "src": "https://i.imgur.com/1SrmTfM.png", "full": "https://i.imgur.com/1SrmTfM.png", "title": "여름밤 만개한 꽃-크라운산도딸기(카먼)", "tags": ["무기","만월"] },
   { "src": "https://i.imgur.com/BBHBjMc.png", "full": "https://i.imgur.com/BBHBjMc.png", "title": "징벌의 망치-진영편성(티스라오)", "tags": ["무기","바람"] },
-
+  { "src": "./img/기적의지팡이.png", "full": "https://i.imgur.com/5efVqwg.png", "title": "기적의 지팡이-효라딘(노센레이어)", "tags": ["무기","바람"] },
 
   { "src": "https://i.imgur.com/5RxX3cw.png", "full": "https://i.imgur.com/5RxX3cw.png", "title": "수호자의 갑옷-DOTGGABI(티스라오)", "tags": ["방어구","바위"] },
   { "src": "https://i.imgur.com/odAqdsh.png", "full": "https://i.imgur.com/odAqdsh.png", "title": "수호자의 갑옷-켑스(티스라오)", "tags": ["방어구","강철"] },
@@ -23,5 +23,6 @@
 
   { "src": "https://i.imgur.com/8pfDTTA.png", "full": "https://i.imgur.com/8pfDTTA.png", "title": "성검 훈장-랑진이(노센레이어)", "tags": ["장신구","시계"] },
   { "src": "https://i.imgur.com/zvO4SMr.png", "full": "https://i.imgur.com/zvO4SMr.png", "title": "신속 부츠-일레리세(티스라오)", "tags": ["장신구","바람"] }
+
 
 ]
