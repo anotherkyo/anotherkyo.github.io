@@ -72,9 +72,26 @@ function initUnique(){ uniqueWrap.innerHTML=''; uniqueCards=[];
 
     const mid=document.createElement('div'); mid.style.display='grid'; mid.style.gridTemplateColumns='repeat(2,1fr)'; mid.style.gap='8px';
     // 제거 checkbox
-    const remDiv=document.createElement('div'); const remLabel=document.createElement('label'); remLabel.className='small'; const remChk=document.createElement('input'); remChk.type='checkbox'; remChk.addEventListener('change', ()=>{ if(remChk.checked){ uc.removed=true; uc.removeCount +=1; addLog(`${uc.id} 제거 처리 (제거 횟수=${uc.removeCount})`);} else { uc.removed=false; addLog(`${uc.id} 제거 해제`);} updateAll(); }); remLabel.appendChild(remChk); remLabel.appendChild(document.createTextNode('제거')); remDiv.appendChild(remLabel); mid.appendChild(remDiv);
+    const remDiv = document.createElement('div');
+    const remLabel = document.createElement('label');
+    remLabel.className = 'small';
+    const remChk = document.createElement('input');
+    remChk.type = 'checkbox';
+
+    remChk.addEventListener('change', () => {
+        // 제거 체크/해제시 상태만 반영
+        uc.removed = remChk.checked;
+        addLog(`${uc.id} ${uc.removed ? '제거 처리' : '제거 해제'}`);
+        updateAll(); // 계산 함수에서 pt 적용
+    });
+
+    remLabel.appendChild(remChk);
+    remLabel.appendChild(document.createTextNode('제거'));
+    remDiv.appendChild(remLabel);
+    mid.appendChild(remDiv);
+    
     // 상태 셀렉트 (고유일반1~3은 비활성화)
-    if(uc.rarity!=='normal' || (uc.rarity==='normal' && !uc.id.includes('일반'))){
+    if((uc.rarity!=='normal' && uc.rarity!=='myth') || (uc.rarity==='normal' && !uc.id.includes('일반'))){
       const stateSel=document.createElement('select');
       stateSel.innerHTML = '<option value="normal">일반</option>' + (uc.rarity!=='normal'?'<option value="spark">번뜩임</option><option value="newspark">신 번뜩임</option>':'');
       stateSel.value='normal'; stateSel.addEventListener('change', ()=>{ uc.state=stateSel.value; updateAll(); });
@@ -90,7 +107,16 @@ function initUnique(){ uniqueWrap.innerHTML=''; uniqueCards=[];
 
 function calcCardContribution(el){ const type = el.querySelector('.card-type').value; const state = el.querySelector('.state').value; const isDup = el.querySelector('.is-dup')?.checked; const isTrans = el.querySelector('.is-trans')?.checked; const dupCount = parseInt(el.getAttribute('data-dupcount')||'0'); const transCount = parseInt(el.getAttribute('data-transcount')||'0'); let total=0; if(type==='taboo'){ total += BASE.taboo; } else { total += BASE[type]||0; let sparkAdd = 0; if(state==='spark') sparkAdd = 10; if(state==='newspark') sparkAdd = 20; total += sparkAdd; total += mapCountToPt(dupCount); if(dupCount>0) total += (state==='spark'?10:(state==='newspark'?20:0)) * dupCount; total += transCount * 10; if(transCount>0) total += (state==='spark'?10:(state==='newspark'?20:0)) * transCount; } el.querySelector('.contrib').textContent = total; return {total, type}; }
 
-function calcUniqueContribution(uc){ let total=0; if(uc.rarity!=='normal' && uc.state==='newspark') total +=20; if(uc.removed){ total += mapCountToPt(uc.removeCount) + 20; } total += uc.transCount * 10; if(uc._contribEl) uc._contribEl.textContent = total; return total; }
+function calcUniqueContribution(uc) {
+    let total = 0;
+    // 제거 pt는 체크 상태일 때만 +20pt
+    if (uc.removed) total += 20; 
+    // 기존 번뜩임, 변환 등 추가 pt 계산
+    if (uc.state === 'newspark' && uc.rarity !== 'normal' && uc.rarity !== 'myth') total += 20;
+    // 변환/복제 pt 적용 등 필요 시 추가
+    if (uc._contribEl) uc._contribEl.textContent = total + ' pt';
+    return total;
+}
 
 function updateAll(){ const tier = parseInt(tierEl.value)||1; const cap = calcCap(tier); capDisplay.textContent = `${cap} pt`; let total=0; let cardCount=0; let tabooCount=0; Array.from(cardListEl.querySelectorAll('.card-item')).forEach(el=>{ const r=calcCardContribution(el); total += r.total; cardCount++; if(r.type==='taboo') tabooCount++; }); uniqueCards.forEach(uc=>{ total += calcUniqueContribution(uc); }); totalDisplay.textContent = `${total} pt`; gaugeFill.style.width = `${Math.min(100, Math.round((total/cap)*100))}%`; gaugeText.textContent = `${total} / ${cap} pt`; alertFull.style.display = total >= cap ? 'block' : 'none'; addLog(`계산: Tier ${tier} Cap ${cap} -> 총 ${total}pt, 카드 ${cardCount}개, 금기 ${tabooCount}개`); }
 
