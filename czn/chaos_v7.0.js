@@ -699,7 +699,7 @@ function loadCharactersJson() {
         characterList = [{
           id: "lenoa",
           name: "레노아",
-          portrait: "./img/lenoa.png",
+          portrait: "./img/lenoa.webp",
           unique: [
             { id: "섬멸 사격", rarity: "normal", canShine: false },
             { id: "섬멸 사격", rarity: "normal", canShine: false },
