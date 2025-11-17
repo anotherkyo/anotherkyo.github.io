@@ -1,0 +1,51 @@
+{
+  "characters": [
+    {
+      "id": "lenoa",
+      "name": "레노아",
+      "portrait": "./img/lenoa.webp",
+      "unique": [
+        {
+          "id": "섬멸 사격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "섬멸 사격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "검은 장막",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "비탄의 메아리",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "즉결 심판",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "칠흑의 송시",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "운명을 삼킨 꽃",
+          "rarity": "legend",
+          "canShine": true
+        },
+        {
+          "id": "결사의 일격",
+          "rarity": "myth",
+          "canShine": false
+        }
+      ]
+    }
+  ]
+}
