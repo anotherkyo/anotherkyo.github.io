@@ -46,6 +46,53 @@
           "canShine": false
         }
       ]
+    }, 
+	{
+      "id": "veronica",
+      "name": "베로니카",
+      "portrait": "./img/veronica.webp",
+      "unique": [
+        {
+          "id": "속사탄",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "속사탄",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "금선화의 환상",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "발사 준비",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "숨돌리기",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "결심의 팬던트",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "코왈스키 경",
+          "rarity": "legend",
+          "canShine": true
+        },
+        {
+          "id": "폭격 준비",
+          "rarity": "myth",
+          "canShine": false
+        }
+      ]
     }
   ]
 }
