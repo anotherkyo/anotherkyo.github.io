@@ -264,7 +264,7 @@ function applyCharacterVisual(pl, charId) {
   if (!img) return;
 
   if (meta.portrait) {
-    img.src = meta.portrait;
+    img.src = meta.portrait + "?v=" + Date.now();
     img.style.display = "block";
     pl._refs.portraitDiv.textContent = "";
   } else {
