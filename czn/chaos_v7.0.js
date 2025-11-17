@@ -261,7 +261,10 @@ function applyCharacterVisual(pl, charId) {
   const meta = characterMap[charId];
   if (!meta || !pl._refs) return;
   const img = pl._refs.portraitImg;
-  if (!img) return;
+  if (!img) {
+    pl._refs.portraitDiv.innerHTML = "";
+    pl._refs.portraitDiv.appendChild(img);
+  }
 
   if (meta.portrait) {
     img.src = meta.portrait + "?v=" + Date.now();
