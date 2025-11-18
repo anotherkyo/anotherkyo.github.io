@@ -1,0 +1,202 @@
+:root{
+  --bg:#0f1113;
+  --card:#171819;
+  --text:#e9fbff;
+  --muted:#9fb0bf;
+  --neon:#00f0ff;
+  --accent:#6a7cff;
+  --select:#2a2a2a;
+  --addCardBorder:#5dff5d; /* 추가 카드 좌측 색상 */
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,'Noto Sans KR',sans-serif;
+  background:linear-gradient(180deg,#070708,var(--bg));
+  color:var(--text);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+.app{
+  max-width:1200px;
+  margin:0 auto;
+  padding:12px 10px 40px;
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 4px;
+}
+
+.title{
+  font-size:20px;
+  font-weight:700;
+  color:var(--neon);
+}
+
+.tier-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.tier-box select{
+  background:var(--select);
+  color:var(--text);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:4px 8px;
+  border-radius:6px;
+}
+
+.players-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:12px;
+}
+
+.player-card{
+  background:var(--card);
+  border:1px solid rgba(0,255,255,0.08);
+  border-radius:10px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* 상단 영역 */
+.player-head{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.char-row{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:12px;
+}
+
+.char-controls{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.char-controls select{
+  background:var(--select);
+  color:var(--neon);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:4px 6px;
+  border-radius:6px;
+}
+
+/* 초상화 */
+.portrait{
+  width:80px;
+  height:80px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(0,255,255,0.4);
+  background:
+    radial-gradient(circle at 30% 20%,rgba(0,255,255,0.35),transparent),
+    radial-gradient(circle at 80% 80%,rgba(106,124,255,0.4),transparent),
+    #050607;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* 버튼 */
+.btn{
+  background:linear-gradient(90deg,var(--neon),var(--accent));
+  border:none;
+  color:#000;
+  padding:6px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:600;
+}
+
+/* 카드 리스트 */
+.card-list{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-top:6px;
+}
+
+.card-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  min-height:60px;
+}
+
+/* 카드 이름 width 고정 */
+.cardTitle,
+.uniqueTitle{
+  min-width:140px;
+  max-width:140px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:700;
+  font-size:13px;
+}
+
+/* 번뜩/신번 */
+.state-toggle{
+  display:flex;
+  gap:4px;
+}
+
+.state-pill{
+  padding:2px 6px;
+  font-size:11px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.3);
+  opacity:0.8;
+  cursor:pointer;
+}
+
+.state-pill.active{
+  background:var(--neon);
+  color:#000;
+  border-color:var(--neon);
+  opacity:1;
+}
+
+/* 추가 카드용 border-left */
+.addCardBorder{
+  border-left:4px solid var(--addCardBorder) !important;
+}
