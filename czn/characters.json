@@ -3,7 +3,7 @@
     {
       "id": "lenoa",
       "name": "레노아",
-      "portrait": "./img/lenoa.webp",
+      "portrait": "./img/lenoa.png",
       "unique": [
         {
           "id": "섬멸 사격",
@@ -50,7 +50,7 @@
 	{
       "id": "veronica",
       "name": "베로니카",
-      "portrait": "./img/veronica.webp",
+      "portrait": "./img/veronica.png",
       "unique": [
         {
           "id": "속사탄",
