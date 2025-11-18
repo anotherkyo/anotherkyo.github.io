@@ -258,22 +258,25 @@ function changePlayerCharacter(pl, newId) {
 
 // 초상화 및 이름
 function applyCharacterVisual(pl, charId) {
-  const meta = characterMap[charId];
-  if (!meta || !pl._refs) return;
-  const img = pl._refs.portraitImg;
-  if (!img) {
-    pl._refs.portraitDiv.innerHTML = "";
-    pl._refs.portraitDiv.appendChild(img);
-  }
+    const meta = characterMap[charId];
+    if (!meta || !pl._refs) return;
 
-  if (meta.portrait) {
-    img.src = meta.portrait + "?v=" + Date.now();
-    img.style.display = "block";
-    pl._refs.portraitDiv.textContent = "";
-  } else {
-    img.style.display = "none";
-    pl._refs.portraitDiv.textContent = "초상화 없음";
-  }
+    const img = pl._refs.portraitImg;
+    const div = pl._refs.portraitDiv;
+
+    // 이미지 DOM 복원 (img가 삭제되었을 가능성 대비)
+    if (!div.contains(img)) {
+        div.innerHTML = "";  
+        div.appendChild(img);
+    }
+
+    if (meta.portrait) {
+        img.src = meta.portrait + "?v=" + Date.now();  // 캐싱 방지
+        img.style.display = "block";
+    } else {
+        img.style.display = "none";
+        div.textContent = "초상화 없음";
+    }
 }
 
 // 일반/복제 카드 렌더
