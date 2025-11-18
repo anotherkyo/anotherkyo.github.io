@@ -299,7 +299,7 @@ function buildUI() {
     const uniqueTitle = document.createElement("div");
     uniqueTitle.className = "small";
     uniqueTitle.style.fontWeight = "700";
-    uniqueTitle.textContent = "고유카드";
+    uniqueTitle.textContent = "고유 카드";
     const uniqueList = document.createElement("div");
     uniqueList.className = "card-list";
     uniqueSec.appendChild(uniqueTitle);
