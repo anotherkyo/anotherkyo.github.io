@@ -190,6 +190,54 @@
           "canShine": false
         }
       ]
+    },
+
+	{
+      "id": "rin",
+      "name": "린",
+      "portrait": "./img/rin.png",
+      "unique": [
+        {
+          "id": "흑운검 일식",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "흑운검 삼식",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "수호",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "발도",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "흑운 오의:잔",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "흑운 오의:멸",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "흑운 심법",
+          "rarity": "legend",
+          "canShine": true
+        },
+        {
+          "id": "흑운 오의:흑무",
+          "rarity": "myth",
+          "canShine": false
+        }
+      ]
     }
 	  
 ]}
