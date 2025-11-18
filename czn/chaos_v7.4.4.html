@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>카오스 제로 나이트메이터 시뮬레이터 v7.4.4</title>
+  <link rel="stylesheet" href="chaos_v7.4.4.css"/>
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="title">카오스 제로 나이트메이터 시뮬레이터 v7.4.4</div>
+
+    <div class="tier-box">
+      <label>티어:&nbsp;</label>
+      <select id="tierSelect">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+      </select>
+      <span id="tierCapText" class="small"></span>
+      <button id="tierResetBtn" class="btn ghost small-btn">티어 초기화</button>
+      <button id="resetAllBtn" class="btn ghost small-btn">전체 초기화</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="playersGrid" class="players-grid"></div>
+
+    <section class="log-panel">
+      <div class="log-header">로그</div>
+      <div id="logArea" class="log-area"></div>
+    </section>
+  </main>
+</div>
+
+<!-- 카드 추가 모달 -->
+<div id="addModalBackdrop" class="modal-backdrop hidden">
+  <div class="modal">
+    <div class="modal-title">카드 추가</div>
+    <label class="small">카드 종류</label>
+    <select id="newType"
+            style="width:100%;padding:8px;margin-bottom:8px;border-radius:6px;
+                   background:var(--select);color:var(--text);
+                   border:1px solid rgba(255,255,255,0.2)">
+      <option value="neutral">중립 카드</option>
+      <option value="monster">몬스터 카드</option>
+      <option value="taboo">금기 카드</option>
+      <option value="unique_clone">고유카드 복제</option>
+    </select>
+
+    <label class="small">
+      <input type="checkbox" id="newDupChk"/>
+      복제 발생(1회)
+    </label>
+
+    <div class="modal-actions">
+      <button id="modalAddBtn" class="btn">추가</button>
+      <button id="modalCancelBtn" class="btn ghost">취소</button>
+    </div>
+  </div>
+</div>
+
+<script src="chaos_v7.4.4.js"></script>
+</body>
+</html>
