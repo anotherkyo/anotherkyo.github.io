@@ -47,6 +47,7 @@
         }
       ]
     }, 
+	  
 	{
       "id": "veronica",
       "name": "베로니카",
@@ -89,6 +90,54 @@
         },
         {
           "id": "폭격 준비",
+          "rarity": "myth",
+          "canShine": false
+        }
+      ]
+    },
+
+	{
+      "id": "meilin",
+      "name": "메이린",
+      "portrait": "./img/meilin.png",
+      "unique": [
+        {
+          "id": "일격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "일격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "화룡호신",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "화룡의 보석",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "승룡각",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "공방일체",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "향족의 정신",
+          "rarity": "legend",
+          "canShine": true
+        },
+        {
+          "id": "화룡경천",
           "rarity": "myth",
           "canShine": false
         }
