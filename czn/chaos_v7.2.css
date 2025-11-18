@@ -207,7 +207,7 @@ body{
   align-items:center;
   justify-content:center;
   font-size:11px;
-  color:#000;
+  color:#fff;
   mix-blend-mode:screen;
 }
 
@@ -340,3 +340,4 @@ body{
   opacity:1;
   border-color:var(--neon);
 }
+
