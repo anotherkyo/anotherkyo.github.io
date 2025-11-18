@@ -235,7 +235,7 @@ function buildUI() {
     const charLabel = document.createElement("span");
     charLabel.className = "small";
     charLabel.textContent = "캐릭터:";
-    charSelWrap.appendChild(charLabel);
+    //charSelWrap.appendChild(charLabel);
 
     const charSelect = document.createElement("select");
     characterList.forEach(ch => {
@@ -659,4 +659,5 @@ window.addEventListener("DOMContentLoaded", () => {
     initTierControls();
   });
 });
+
 
