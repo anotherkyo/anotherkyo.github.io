@@ -180,7 +180,6 @@ function setUniqueByCharacter(pl, charId) {
 }
 
 function changePlayerCharacter(pl, newId) {
-(pl, newId) {
   const oldId = pl.charId;
   pl.charId = newId;
 
