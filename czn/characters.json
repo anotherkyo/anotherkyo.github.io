@@ -1,5 +1,5 @@
-{
-  "characters": [
+{"characters": [
+	  
     {
       "id": "lenoa",
       "name": "레노아",
@@ -142,6 +142,54 @@
           "canShine": false
         }
       ]
+    },
+
+	{
+      "id": "luke",
+      "name": "루크",
+      "portrait": "./img/luke.png",
+      "unique": [
+        {
+          "id": "단발 사격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "단발 사격",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "그림자 은신",
+          "rarity": "normal",
+          "canShine": false
+        },
+        {
+          "id": "연속 격발",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "은밀한 장전",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "기회 포착",
+          "rarity": "rare",
+          "canShine": true
+        },
+        {
+          "id": "마안의 난무",
+          "rarity": "legend",
+          "canShine": true
+        },
+        {
+          "id": "필살탄",
+          "rarity": "myth",
+          "canShine": false
+        }
+      ]
     }
-  ]
-}
+	  
+]}
