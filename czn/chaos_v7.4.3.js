@@ -615,7 +615,7 @@ function initTierControls() {
   tierSel.addEventListener("change", refresh);
 
   resetBtn.addEventListener("click", () => {
-    tierSel.value = "0";
+    tierSel.value = "2";
     refresh();
   });
 
