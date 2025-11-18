@@ -434,7 +434,7 @@ function renderPlayerUnique(pl) {
 
   pl.unique.forEach((u) => {
     const row = document.createElement("div");
-    row.className = "card-row";
+    row.className = "card-row unique-row";
     row.style.borderLeft = `4px solid ${u.color}`;
 
     const left = document.createElement("div");
