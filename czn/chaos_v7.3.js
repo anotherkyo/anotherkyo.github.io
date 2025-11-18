@@ -293,7 +293,7 @@ function buildUI() {
     const cardTitle = document.createElement("div");
     cardTitle.className = "small";
     cardTitle.style.fontWeight = "700";
-    cardTitle.textContent = "일반/복제/금기 카드";
+    cardTitle.textContent = "추가 카드";
     const cardList = document.createElement("div");
     cardList.className = "card-list";
     cardSec.appendChild(cardTitle);
@@ -659,3 +659,4 @@ window.addEventListener("DOMContentLoaded", () => {
     initTierControls();
   });
 });
+
