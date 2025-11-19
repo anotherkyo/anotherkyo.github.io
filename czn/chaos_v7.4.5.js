@@ -671,17 +671,6 @@ function initTierControls() {
   refresh();
 }
 
-  tierSel.addEventListener("change", refresh);
-
-  resetBtn.addEventListener("click", () => {
-    tierSel.value = "2";
-    refresh();
-  });
-
-  refresh();
-}
-
-
 function resetAllPlayers() {
   const tierSel = document.getElementById("tierSelect");
   const tierCapText = document.getElementById("tierCapText");
