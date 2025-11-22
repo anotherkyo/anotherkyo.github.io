@@ -53,7 +53,7 @@
 	},
 
 	{
-		"id": "Orlea", "name": "오를레아", "portrait": "./img/Orlea.png", "unique": [
+		"id": "orlea", "name": "오를레아", "portrait": "./img/orlea.png", "unique": [
 			{ "id": "공격해, 애들아", "rarity": "normal", "canShine": false },
 			{ "id": "공격해, 애들아", "rarity": "normal", "canShine": false },
 			{ "id": "빛의 치유", "rarity": "normal", "canShine": false },
