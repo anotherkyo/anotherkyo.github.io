@@ -728,9 +728,28 @@ function loadCharacters() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadCharacters().then(() => {
+
+    // 캐릭터 3명 랜덤 선택 (중복 없음)
+    const available = [...characterList];   // 캐릭터 리스트 복제
+    shuffleArray(available);
+
+    // players 3명에게 각각 다른 캐릭터 할당
+    players.forEach((pl, idx) => {
+      const ch = available[idx % available.length];
+      pl.charId = ch.id;   // 사전 지정
+    });
+    
     buildUI();
     initModal();
     initTierControls();
     initResetAll();
   });
 });
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
