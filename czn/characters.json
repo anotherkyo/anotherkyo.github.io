@@ -170,7 +170,7 @@
 	},
 
 	{
-		"id": "nia", "name": "셀레나", "portrait": "./img/nia.png", "unique": [
+		"id": "selena", "name": "셀레나", "portrait": "./img/selena.png", "unique": [
 			{ "id": "교전 사격", "rarity": "normal", "canShine": false },
 			{ "id": "교전 사격", "rarity": "normal", "canShine": false },
 			{ "id": "긴급 차폐", "rarity": "normal", "canShine": false },
