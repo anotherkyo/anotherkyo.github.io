@@ -1,387 +1,302 @@
 {"characters": [
-	  
-    {
-      "id": "lenoa",
-      "name": "레노아",
-      "portrait": "./img/lenoa.png",
-      "unique": [
-        {
-          "id": "섬멸 사격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "섬멸 사격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "검은 장막",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "비탄의 메아리",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "즉결 심판",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "칠흑의 송시",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "운명을 삼킨 꽃",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "결사의 일격",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    }, 
-	  
-	{
-      "id": "veronica",
-      "name": "베로니카",
-      "portrait": "./img/veronica.png",
-      "unique": [
-        {
-          "id": "속사탄",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "속사탄",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "금선화의 환상",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "발사 준비",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "숨돌리기",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "결심의 팬던트",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "코왈스키 경",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "폭격 준비",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
 
 	{
-      "id": "meilin",
-      "name": "메이린",
-      "portrait": "./img/meilin.png",
-      "unique": [
-        {
-          "id": "일격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "일격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "화룡호신",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "화룡의 보석",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "승룡각",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "공방일체",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "향족의 정신",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "화룡경천",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
+		"id": "luke", "name": "루크", "portrait": "./img/luke.png", "unique": [
+			{ "id": "단발 사격", "rarity": "normal", "canShine": false },
+			{ "id": "단발 사격", "rarity": "normal", "canShine": false },
+			{ "id": "그림자 은신", "rarity": "normal", "canShine": false },
+			{ "id": "연속 격발", "rarity": "rare", "canShine": true },
+			{ "id": "은밀한 장전", "rarity": "rare", "canShine": true },
+			{ "id": "기회 포착", "rarity": "rare", "canShine": true },
+			{ "id": "마안의 난무", "rarity": "legend", "canShine": true },
+			{ "id": "필살탄", "rarity": "myth", "canShine": false }
+		]
+	},
 
 	{
-      "id": "luke",
-      "name": "루크",
-      "portrait": "./img/luke.png",
-      "unique": [
-        {
-          "id": "단발 사격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "단발 사격",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "그림자 은신",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "연속 격발",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "은밀한 장전",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "기회 포착",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "마안의 난무",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "필살탄",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
+		"id": "khalipe", "name": "칼리페", "portrait": "./img/khalipe.png", "unique": [
+			{ "id": "채찍질", "rarity": "normal", "canShine": false },
+			{ "id": "베어올리기", "rarity": "normal", "canShine": false },
+			{ "id": "티르의 맹세", "rarity": "normal", "canShine": false },
+			{ "id": "벌쳐 사출", "rarity": "rare", "canShine": true },
+			{ "id": "대검 아퀼라", "rarity": "rare", "canShine": true },
+			{ "id": "위압", "rarity": "rare", "canShine": true },
+			{ "id": "재집결", "rarity": "legend", "canShine": true },
+			{ "id": "절대 수호", "rarity": "myth", "canShine": false }
+		]
+	},
 
 	{
-      "id": "rin",
-      "name": "린",
-      "portrait": "./img/rin.png",
-      "unique": [
-        {
-          "id": "흑운검 일식",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "흑운검 삼식",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "수호",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "발도",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "흑운 오의:잔",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "흑운 오의:멸",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "흑운 심법",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "흑운 오의:흑무",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
+		"id": "magna", "name": "마그나", "portrait": "./img/magna.png", "unique": [
+			{ "id": "빙결의 주먹", "rarity": "normal", "canShine": false },
+			{ "id": "서리 방패", "rarity": "normal", "canShine": false },
+			{ "id": "서리 방패", "rarity": "normal", "canShine": false },
+			{ "id": "얼음 파편", "rarity": "rare", "canShine": true },
+			{ "id": "빙하의 철권", "rarity": "rare", "canShine": true },
+			{ "id": "빙벽", "rarity": "rare", "canShine": true },
+			{ "id": "냉기 충전", "rarity": "legend", "canShine": true },
+			{ "id": "혹한의 폭풍", "rarity": "myth", "canShine": false }
+		]
+	},
 
 	{
-      "id": "kayron",
-      "name": "카일론",
-      "portrait": "./img/kayron.png",
-      "unique": [
-        {
-          "id": "멸",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "멸",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "구",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "허무의 잔상",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "소멸의 낙인",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "블랙홀",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "허망의 서약",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "무환의 울림",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
+		"id": "rin", "name": "린", "portrait": "./img/rin.png", "unique": [
+			{ "id": "흑운검 일식", "rarity": "normal", "canShine": false },
+			{ "id": "흑운검 삼식", "rarity": "normal", "canShine": false },
+			{ "id": "수호", "rarity": "normal", "canShine": false },
+			{ "id": "발도", "rarity": "rare", "canShine": true },
+			{ "id": "흑운 오의:잔", "rarity": "rare", "canShine": true },
+			{ "id": "흑운 오의:멸", "rarity": "rare", "canShine": true },
+			{ "id": "흑운 심법", "rarity": "legend", "canShine": true },
+			{ "id": "흑운 오의:멸", "rarity": "myth", "canShine": false }
+		]
+	},
 
 	{
-      "id": "haru",
-      "name": "하루",
-      "portrait": "./img/haru.png",
-      "unique": [
-        {
-          "id": "앵커",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "파워 앵커",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "앵커 드롭",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "앵커 슛",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "앵커포인터",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "파워 차지",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "에너지 충전",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "끌어올리기",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    },
+		"id": "Orlea", "name": "오를레아", "portrait": "./img/Orlea.png", "unique": [
+			{ "id": "공격해, 애들아", "rarity": "normal", "canShine": false },
+			{ "id": "공격해, 애들아", "rarity": "normal", "canShine": false },
+			{ "id": "빛의 치유", "rarity": "normal", "canShine": false },
+			{ "id": "성스러운 향로", "rarity": "rare", "canShine": true },
+			{ "id": "성장 촉진", "rarity": "rare", "canShine": true },
+			{ "id": "귀찮아", "rarity": "rare", "canShine": true },
+			{ "id": "성장하는 피조물", "rarity": "legend", "canShine": true },
+			{ "id": "빛의 의지", "rarity": "myth", "canShine": false }
+		]
+	},
 
 	{
-      "id": "yuki",
-      "name": "유키",
-      "portrait": "./img/yuki.png",
-      "unique": [
-        {
-          "id": "장검 베기",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "고속 베기",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "흘려 보내기",
-          "rarity": "normal",
-          "canShine": false
-        },
-        {
-          "id": "제압 준비",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "훔쳐베기",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "눈속임 일격",
-          "rarity": "rare",
-          "canShine": true
-        },
-        {
-          "id": "빙점 칼날",
-          "rarity": "legend",
-          "canShine": true
-        },
-        {
-          "id": "빙산 가르기",
-          "rarity": "myth",
-          "canShine": false
-        }
-      ]
-    }
-	  
+		"id": "meilin", "name": "메이린", "portrait": "./img/meilin.png", "unique": [
+			{ "id": "일격", "rarity": "normal", "canShine": false },
+			{ "id": "일격", "rarity": "normal", "canShine": false },
+			{ "id": "화룡호신", "rarity": "normal", "canShine": false },
+			{ "id": "화룡의 보석", "rarity": "rare", "canShine": true },
+			{ "id": "승룡각", "rarity": "rare", "canShine": true },
+			{ "id": "공방일체", "rarity": "rare", "canShine": true },
+			{ "id": "향족의 정신", "rarity": "legend", "canShine": true },
+			{ "id": "화룡경천", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "veronica", "name": "베로니카", "portrait": "./img/veronica.png", "unique": [
+			{ "id": "속사탄", "rarity": "normal", "canShine": false },
+			{ "id": "속사탄", "rarity": "normal", "canShine": false },
+			{ "id": "금선화의 환상", "rarity": "normal", "canShine": false },
+			{ "id": "발사 준비", "rarity": "rare", "canShine": true },
+			{ "id": "숨돌리기", "rarity": "rare", "canShine": true },
+			{ "id": "결심의 펜던트", "rarity": "rare", "canShine": true },
+			{ "id": "코왈스키 경", "rarity": "legend", "canShine": true },
+			{ "id": "폭격 준비", "rarity": "myth", "canShine": false }
+		]
+	},
+		
+	{
+		"id": "lenoa", "name": "레노아", "portrait": "./img/lenoa.png", "unique": [
+			{ "id": "섬멸 사격", "rarity": "normal", "canShine": false },
+			{ "id": "섬멸 사격", "rarity": "normal", "canShine": false },
+			{ "id": "검은 장막", "rarity": "normal", "canShine": false },
+			{ "id": "비탄의 메아리", "rarity": "rare", "canShine": true },
+			{ "id": "즉결 심판", "rarity": "rare", "canShine": true },
+			{ "id": "칠흑의 송시", "rarity": "rare", "canShine": true },
+			{ "id": "운명을 삼킨 꽃", "rarity": "legend", "canShine": true },
+			{ "id": "결사의 일격", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "hugo", "name": "휴고", "portrait": "./img/hugo.png", "unique": [
+			{ "id": "단검 던지기", "rarity": "normal", "canShine": false },
+			{ "id": "단검 던지기", "rarity": "normal", "canShine": false },
+			{ "id": "방어 시스템", "rarity": "normal", "canShine": false },
+			{ "id": "사냥 본능", "rarity": "rare", "canShine": true },
+			{ "id": "단검 방사", "rarity": "rare", "canShine": true },
+			{ "id": "빠른 해결법", "rarity": "rare", "canShine": true },
+			{ "id": "딩고 하울링", "rarity": "legend", "canShine": true },
+			{ "id": "해결사의 방식", "rarity": "myth", "canShine": false }
+		]
+	},
+	
+	{
+		"id": "yuki", "name": "유키", "portrait": "./img/yuki.png", "unique": [
+			{ "id": "장검 베기", "rarity": "normal", "canShine": false },
+			{ "id": "고속 베기", "rarity": "normal", "canShine": false },
+			{ "id": "흘려 보내기", "rarity": "normal", "canShine": false },
+			{ "id": "제압 준비", "rarity": "rare", "canShine": true },
+			{ "id": "훔쳐베기", "rarity": "rare", "canShine": true },
+			{ "id": "눈속임 일격", "rarity": "rare", "canShine": true },
+			{ "id": "빙점 칼날", "rarity": "legend", "canShine": true },
+			{ "id": "빙산 가르기", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "haru", "name": "하루", "portrait": "./img/haru.png", "unique": [
+			{ "id": "앵커", "rarity": "normal", "canShine": false },
+			{ "id": "파워 앵커", "rarity": "normal", "canShine": false },
+			{ "id": "앵커 드롭", "rarity": "normal", "canShine": false },
+			{ "id": "앵커 슛", "rarity": "rare", "canShine": true },
+			{ "id": "앵커포인터", "rarity": "rare", "canShine": true },
+			{ "id": "파워 차지", "rarity": "rare", "canShine": true },
+			{ "id": "에너지 충전", "rarity": "legend", "canShine": true },
+			{ "id": "끌어올리기", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "kayron", "name": "카일론", "portrait": "./img/kayron.png", "unique": [
+			{ "id": "멸", "rarity": "normal", "canShine": false },
+			{ "id": "멸", "rarity": "normal", "canShine": false },
+			{ "id": "구", "rarity": "normal", "canShine": false },
+			{ "id": "허무의 잔상", "rarity": "rare", "canShine": true },
+			{ "id": "소멸의 낙인", "rarity": "rare", "canShine": true },
+			{ "id": "블랙홀", "rarity": "rare", "canShine": true },
+			{ "id": "허망의 서약", "rarity": "legend", "canShine": true },
+			{ "id": "무환의 울림", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "nia", "name": "니아", "portrait": "./img/nia.png", "unique": [
+			{ "id": "스트로크", "rarity": "normal", "canShine": false },
+			{ "id": "앰프 테라피", "rarity": "normal", "canShine": false },
+			{ "id": "앰프 테라피", "rarity": "normal", "canShine": false },
+			{ "id": "G코드", "rarity": "rare", "canShine": true },
+			{ "id": "악센트 뮤트", "rarity": "rare", "canShine": true },
+			{ "id": "소울리프", "rarity": "rare", "canShine": true },
+			{ "id": "아다지오", "rarity": "legend", "canShine": true },
+			{ "id": "니아의 호기심", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "nia", "name": "셀레나", "portrait": "./img/nia.png", "unique": [
+			{ "id": "교전 사격", "rarity": "normal", "canShine": false },
+			{ "id": "교전 사격", "rarity": "normal", "canShine": false },
+			{ "id": "긴급 차폐", "rarity": "normal", "canShine": false },
+			{ "id": "고배율 조준경", "rarity": "rare", "canShine": true },
+			{ "id": "목표 포착", "rarity": "rare", "canShine": true },
+			{ "id": "드론 폭격", "rarity": "rare", "canShine": true },
+			{ "id": "전술 기동", "rarity": "legend", "canShine": true },
+			{ "id": "저격수의 영역", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "trisa", "name": "트리사", "portrait": "./img/trisa.png", "unique": [
+			{ "id": "단검 투척", "rarity": "normal", "canShine": false },
+			{ "id": "단검 투척", "rarity": "normal", "canShine": false },
+			{ "id": "어둠의 손길", "rarity": "normal", "canShine": false },
+			{ "id": "단검 꺼내기", "rarity": "rare", "canShine": true },
+			{ "id": "저주 부여", "rarity": "rare", "canShine": true },
+			{ "id": "그림자 장전", "rarity": "rare", "canShine": true },
+			{ "id": "급소 공격", "rarity": "legend", "canShine": true },
+			{ "id": "저주 도려내기", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "amir", "name": "아미르", "portrait": "./img/amir.png", "unique": [
+			{ "id": "레이피어", "rarity": "normal", "canShine": false },
+			{ "id": "레이피어", "rarity": "normal", "canShine": false },
+			{ "id": "강철 보호막", "rarity": "normal", "canShine": false },
+			{ "id": "호버링 메탈", "rarity": "rare", "canShine": true },
+			{ "id": "메탈 피어스", "rarity": "rare", "canShine": true },
+			{ "id": "금속 추출", "rarity": "rare", "canShine": true },
+			{ "id": "풀 메탈 허리케인", "rarity": "legend", "canShine": true },
+			{ "id": "아이언 스킨", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "lucas", "name": "루카스", "portrait": "./img/lucas.png", "unique": [
+			{ "id": "머신건", "rarity": "normal", "canShine": false },
+			{ "id": "머신건", "rarity": "normal", "canShine": false },
+			{ "id": "방호 소이탄", "rarity": "normal", "canShine": false },
+			{ "id": "대용량 탄창", "rarity": "rare", "canShine": true },
+			{ "id": "S.S.S", "rarity": "rare", "canShine": true },
+			{ "id": "플라멘베르퍼", "rarity": "rare", "canShine": true },
+			{ "id": "섬광탄", "rarity": "legend", "canShine": true },
+			{ "id": "R.P.G-7", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "maribell", "name": "마리벨", "portrait": "./img/maribell.png", "unique": [
+			{ "id": "셸터 킥", "rarity": "normal", "canShine": false },
+			{ "id": "셸터 디펜스", "rarity": "normal", "canShine": false },
+			{ "id": "셸터 홀드", "rarity": "normal", "canShine": false },
+			{ "id": "의지의 돌진", "rarity": "rare", "canShine": true },
+			{ "id": "마리벨 셸터 MK.Ⅱ", "rarity": "rare", "canShine": true },
+			{ "id": "울브즈 돔", "rarity": "rare", "canShine": true },
+			{ "id": "아~ 그렇구나", "rarity": "legend", "canShine": true },
+			{ "id": "셸터 스트라이크", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "mika", "name": "미카", "portrait": "./img/mika.png", "unique": [
+			{ "id": "물의 화살", "rarity": "normal", "canShine": false },
+			{ "id": "물의 보호막", "rarity": "normal", "canShine": false },
+			{ "id": "물의 보호막", "rarity": "normal", "canShine": false },
+			{ "id": "물의 근원", "rarity": "rare", "canShine": true },
+			{ "id": "파도의 가호", "rarity": "rare", "canShine": true },
+			{ "id": "작전 분석", "rarity": "rare", "canShine": true },
+			{ "id": "소용돌이", "rarity": "legend", "canShine": true },
+			{ "id": "범람", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "beryl", "name": "베릴", "portrait": "./img/beryl.png", "unique": [
+			{ "id": "런처", "rarity": "normal", "canShine": false },
+			{ "id": "차지 런처", "rarity": "normal", "canShine": false },
+			{ "id": "보호막", "rarity": "normal", "canShine": false },
+			{ "id": "빈틈 발견", "rarity": "rare", "canShine": true },
+			{ "id": "충전탄", "rarity": "rare", "canShine": true },
+			{ "id": "숨겨온 초코바", "rarity": "rare", "canShine": true },
+			{ "id": "무제한 화력", "rarity": "legend", "canShine": true },
+			{ "id": "중화기 전문가", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "cassius", "name": "카시우스", "portrait": "./img/cassius.png", "unique": [
+			{ "id": "카드", "rarity": "normal", "canShine": false },
+			{ "id": "와일드 카드", "rarity": "normal", "canShine": false },
+			{ "id": "마력장", "rarity": "normal", "canShine": false },
+			{ "id": "팝 아이드 파퍼", "rarity": "rare", "canShine": true },
+			{ "id": "데블 다이스", "rarity": "rare", "canShine": true },
+			{ "id": "카드 섞기", "rarity": "rare", "canShine": true },
+			{ "id": "다이스 트럭", "rarity": "legend", "canShine": true },
+			{ "id": "조커", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "owen", "name": "오웬", "portrait": "./img/owen.png", "unique": [
+			{ "id": "내려베기", "rarity": "normal", "canShine": false },
+			{ "id": "내려베기", "rarity": "normal", "canShine": false },
+			{ "id": "무기 막기", "rarity": "normal", "canShine": false },
+			{ "id": "바람 충전", "rarity": "rare", "canShine": true },
+			{ "id": "바람 베기", "rarity": "rare", "canShine": true },
+			{ "id": "방어구 부수기", "rarity": "rare", "canShine": true },
+			{ "id": "바람타기", "rarity": "legend", "canShine": true },
+			{ "id": "질풍의 일격", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "rei", "name": "레이", "portrait": "./img/rei.png", "unique": [
+			{ "id": "암흑 칼날", "rarity": "normal", "canShine": false },
+			{ "id": "암흑 칼날", "rarity": "normal", "canShine": false },
+			{ "id": "물질 재생", "rarity": "normal", "canShine": false },
+			{ "id": "어둠의 참격", "rarity": "rare", "canShine": true },
+			{ "id": "공명하는 어둠", "rarity": "rare", "canShine": true },
+			{ "id": "간식 시간", "rarity": "rare", "canShine": true },
+			{ "id": "암흑 응집", "rarity": "legend", "canShine": true },
+			{ "id": "포식자의 칼날", "rarity": "myth", "canShine": false }
+		]
+	},
+		
 ]}
