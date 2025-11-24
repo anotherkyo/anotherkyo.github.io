@@ -406,7 +406,8 @@ function renderPlayerCards(pl) {
     // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (card.removed ? " active" : "");
-    remPill.textContent = "제거";
+    remPill.textContent = "❌";
+    remPill.title = "제거";
     remPill.addEventListener("click", () => {
       card.removed = !card.removed;
       remPill.classList.toggle("active", card.removed);
@@ -437,6 +438,7 @@ function renderPlayerCards(pl) {
     defs.forEach(def => {
       const pill = document.createElement("div");
       pill.textContent = def.label;
+      pill.title = def.title;
       pill.className =
         def.value === now ? "state-pill active" : "state-pill";
 
@@ -527,7 +529,7 @@ function renderPlayerUnique(pl) {
     // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (u.removed ? " active" : "");
-    remPill.textContent = "🚫";
+    remPill.textContent = "❌";
     remPill.title = "제거";
     remPill.addEventListener("click", () => {
       u.removed = !u.removed;
@@ -560,6 +562,7 @@ function renderPlayerUnique(pl) {
       defs.forEach(def => {
         const pill = document.createElement("div");
         pill.textContent = def.label;
+        pill.title = def.title;
         pill.className =
           def.value === now ? "state-pill active" : "state-pill";
 
