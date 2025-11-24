@@ -427,8 +427,8 @@ function renderPlayerCards(pl) {
     stateBox.className = "state-toggle";
 
     const defs = [
-      { value: "spark", label: "번뜩" },
-      { value: "newspark", label: "신번" }
+      { value: "spark", label: "💡", title: "번뜩임" },
+      { value: "newspark", label: "⚡", title: "신 번뜩임" }
     ];
 
     const now = card.state || "normal";
@@ -461,6 +461,7 @@ function renderPlayerCards(pl) {
     const dupPill = document.createElement("div");
     dupPill.className = "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
     dupPill.textContent = "🌀";
+    dupPill.title = "복제";
     dupPill.addEventListener("click", () => {
       const now = card.dupCount || 0;
       card.dupCount = now > 0 ? 0 : 1;
@@ -526,7 +527,8 @@ function renderPlayerUnique(pl) {
     // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (u.removed ? " active" : "");
-    remPill.textContent = "제거";
+    remPill.textContent = "🚫";
+    remPill.title = "제거";
     remPill.addEventListener("click", () => {
       u.removed = !u.removed;
       remPill.classList.toggle("active", u.removed);
@@ -548,8 +550,8 @@ function renderPlayerUnique(pl) {
       stateBox.className = "state-toggle";
 
       const defs = [
-        { value: "spark", label: "번뜩" },
-        { value: "newspark", label: "신번" }
+        { value: "spark", label: "💡", title: "번뜩임" },
+        { value: "newspark", label: "⚡", title: "신 번뜩임" }
       ];
 
       const now = u.state || "normal";
