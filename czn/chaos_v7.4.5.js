@@ -70,6 +70,14 @@ function calcCardContribution(card) {
 
     if (card.state === "spark") total += 10;
     else if (card.state === "newspark") total += 30;
+
+    const dCount = card.dupCount || 0;
+    total += mapCountToPt(dCount);
+    if (dCount > 0) {
+      const per =
+        card.state === "newspark" ? 30 : card.state === "spark" ? 10 : 0;
+      total += per * dCount;
+    }
   }
 
   return total;
@@ -128,36 +136,6 @@ function updatePlayerGauge(pl) {
 
   pl.removedCount = removedCards.length;
 
-  // === 복제 기여 계산 ===
-  let dupTotal = 0;
-  let dupSparkPt = 0;
-
-  // 일반/몬스터/금기/고유복제 카드 쪽
-  pl.cards.forEach((c) => {
-    if (c.dupCount && c.dupCount > 0) {
-      dupTotal += c.dupCount;
-      if (c.state === "spark") dupSparkPt += 10;
-      else if (c.state === "newspark") dupSparkPt += 30;
-    }
-  });
-
-  // 고유카드 쪽 (고유 일반 제외, 레어/전설/신화만)
-  pl.unique.forEach((u) => {
-    if (u.dupCount && u.dupCount > 0 && u.rarity !== "normal") {
-      dupTotal += u.dupCount;
-      if (u.state === "spark") dupSparkPt += 10;
-      else if (u.state === "newspark") dupSparkPt += 30;
-    }
-  });
-
-  let dupBase = 0;
-  if (dupTotal > 0) {
-    dupBase = mapCountToPt(dupTotal); // 1:0, 2:10, 3:30, 4:50, 5+:70
-  }
-
-  total += dupBase + dupSparkPt;
-  // === 복제 기여 끝 ===
-
   const tierSel = document.getElementById("tierSelect");
   const tier = tierSel ? parseInt(tierSel.value || "0", 10) : 0;
   const cap = calcCap(tier);
@@ -195,7 +173,6 @@ function setUniqueByCharacter(pl, charId) {
       state: "normal",
       transCount: 0,
       removed: false,
-      dupCount: 0,
       color
     });
   });
@@ -406,8 +383,7 @@ function renderPlayerCards(pl) {
     // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (card.removed ? " active" : "");
-    remPill.textContent = "❌";
-    remPill.title = "제거";
+    remPill.textContent = "제거";
     remPill.addEventListener("click", () => {
       card.removed = !card.removed;
       remPill.classList.toggle("active", card.removed);
@@ -428,8 +404,8 @@ function renderPlayerCards(pl) {
     stateBox.className = "state-toggle";
 
     const defs = [
-      { value: "spark", label: "💡", title: "번뜩임" },
-      { value: "newspark", label: "⚡", title: "신 번뜩임" }
+      { value: "spark", label: "번뜩" },
+      { value: "newspark", label: "신번" }
     ];
 
     const now = card.state || "normal";
@@ -438,7 +414,6 @@ function renderPlayerCards(pl) {
     defs.forEach(def => {
       const pill = document.createElement("div");
       pill.textContent = def.label;
-      pill.title = def.title;
       pill.className =
         def.value === now ? "state-pill active" : "state-pill";
 
@@ -462,8 +437,7 @@ function renderPlayerCards(pl) {
     // 복제 토글 (pill)
     const dupPill = document.createElement("div");
     dupPill.className = "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
-    dupPill.textContent = "🌀";
-    dupPill.title = "복제";
+    dupPill.textContent = "복제";
     dupPill.addEventListener("click", () => {
       const now = card.dupCount || 0;
       card.dupCount = now > 0 ? 0 : 1;
@@ -529,8 +503,7 @@ function renderPlayerUnique(pl) {
     // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (u.removed ? " active" : "");
-    remPill.textContent = "❌";
-    remPill.title = "제거";
+    remPill.textContent = "제거";
     remPill.addEventListener("click", () => {
       u.removed = !u.removed;
       remPill.classList.toggle("active", u.removed);
@@ -552,8 +525,8 @@ function renderPlayerUnique(pl) {
       stateBox.className = "state-toggle";
 
       const defs = [
-        { value: "spark", label: "💡", title: "번뜩임" },
-        { value: "newspark", label: "⚡", title: "신 번뜩임" }
+        { value: "spark", label: "번뜩" },
+        { value: "newspark", label: "신번" }
       ];
 
       const now = u.state || "normal";
@@ -562,7 +535,6 @@ function renderPlayerUnique(pl) {
       defs.forEach(def => {
         const pill = document.createElement("div");
         pill.textContent = def.label;
-        pill.title = def.title;
         pill.className =
           def.value === now ? "state-pill active" : "state-pill";
 
@@ -584,22 +556,20 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 복제 토글: 고유 일반(rarity === "normal") 제외 모두 가능
-    if (u.rarity !== "normal") {
-      const dupPill = document.createElement("div");
-      dupPill.className = "toggle-pill" + ((u.dupCount || 0) > 0 ? " active" : "");
-      dupPill.textContent = "🌀";  // 복제 아이콘
-      dupPill.addEventListener("click", () => {
-        const now = u.dupCount || 0;
-        u.dupCount = now > 0 ? 0 : 1;
-        dupPill.classList.toggle("active", u.dupCount > 0);
-        addLog(`[${pl.name}] 고유카드 ${u.id} 복제: ${u.dupCount > 0}`);
+    // 변환 토글: 고유 일반( rarity === "normal" )인 카드만
+    if (u.rarity === "normal") {
+      const transPill = document.createElement("div");
+      transPill.className = "toggle-pill" + ((u.transCount || 0) > 0 ? " active" : "");
+      transPill.textContent = "변환";
+      transPill.addEventListener("click", () => {
+        const now = u.transCount || 0;
+        u.transCount = now > 0 ? 0 : 1;
+        transPill.classList.toggle("active", u.transCount > 0);
+        addLog(`[${pl.name}] 고유카드 ${u.id} 변환: ${u.transCount > 0}`);
         updatePlayerGauge(pl);
       });
-      right.appendChild(dupPill);
+      right.appendChild(transPill);
     }
-
-    
 
     row.appendChild(right);
     wrap.appendChild(row);
