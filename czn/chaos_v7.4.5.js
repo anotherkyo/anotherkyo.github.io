@@ -435,7 +435,7 @@ function renderPlayerCards(pl) {
     const title = document.createElement("div");
     title.className = "cardTitle";
 
-    if (card.type === "unique_clone") title.textContent = "고유카드 복제";
+    if (card.type === "unique_clone") title.textContent = "고유카드";
     else if (card.type === "neutral") title.textContent = "중립 카드";
     else if (card.type === "monster") title.textContent = "몬스터 카드";
     else if (card.type === "taboo") title.textContent = "금기 카드";
@@ -506,6 +506,7 @@ function renderPlayerCards(pl) {
     dupPill.className =
       "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
     dupPill.textContent = "🌀";
+    dupPill.title = "복제";
     dupPill.addEventListener("click", () => {
       const now = card.dupCount || 0;
       card.dupCount = now > 0 ? 0 : 1;
@@ -645,26 +646,6 @@ function renderPlayerUnique(pl) {
         updatePlayerGauge(pl);
       });
       right.appendChild(transPill);
-    }
-
-    // 복제 토글: 고유 normal 제외 모두 가능 (rare/legend/myth)
-    if (u.rarity !== "normal") {
-      const dupPill = document.createElement("div");
-      dupPill.className =
-        "toggle-pill" + ((u.dupCount || 0) > 0 ? " active" : "");
-      dupPill.textContent = "🌀"; // 복제 아이콘
-      dupPill.addEventListener("click", () => {
-        const now = u.dupCount || 0;
-        u.dupCount = now > 0 ? 0 : 1;
-        dupPill.classList.toggle("active", u.dupCount > 0);
-        addLog(
-          `[${pl.name}] 고유카드 ${u.id} 복제: ${
-            u.dupCount > 0 ? "ON" : "OFF"
-          }`
-        );
-        updatePlayerGauge(pl);
-      });
-      right.appendChild(dupPill);
     }
 
     row.appendChild(right);
