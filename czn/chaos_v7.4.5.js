@@ -1,9 +1,10 @@
-/* chaos_v7.4.5.js
- * - v7.4.1 기반 + 버그 수정
+/* chaos_v7.4.5_fix.js
+ * - v7.4.5 기반 버그 수정 버전
  * - 티어 라벨 ${i} 문제 제거
  * - 모달 display / hidden 완전 제어
  * - 일반 카드 border-left 정상 적용
- * - 고유카드 spark/new spark UI, 계산 규칙 유지
+ * - 고유카드 spark/new spark, 변환, 복제 규칙 유지
+ * - [FIX] 고유카드 복제 시 spark/new spark 보정 수치 규칙 반영
  */
 
 const BASE = {
@@ -68,16 +69,9 @@ function calcCardContribution(card) {
       total += BASE.taboo;
     }
 
+    // 일반/추가 카드의 번뜩/신 번뜩 보정
     if (card.state === "spark") total += 10;
     else if (card.state === "newspark") total += 30;
-
-    const dCount = card.dupCount || 0;
-    total += mapCountToPt(dCount);
-    if (dCount > 0) {
-      const per =
-        card.state === "newspark" ? 30 : card.state === "spark" ? 10 : 0;
-      total += per * dCount;
-    }
   }
 
   return total;
@@ -87,10 +81,13 @@ function calcCardContribution(card) {
 function calcUniqueBaseContribution(u) {
   let total = 0;
 
+  // 변환 1회당 10pt
+  total += (u.transCount || 0) * 10;
+
+  // 고유 신 번뜩: +20pt (canShine=true일 때만)
   if (u.canShine && u.state === "newspark") {
     total += 20;
   }
-  total += (u.transCount || 0) * 10;
 
   return total;
 }
@@ -98,11 +95,14 @@ function calcUniqueBaseContribution(u) {
 function updatePlayerGauge(pl) {
   let total = 0;
 
+  // 기본 카드 기여
   pl.cards.forEach((c) => total += calcCardContribution(c));
+  // 고유카드 기본 기여
   pl.unique.forEach((u) => total += calcUniqueBaseContribution(u));
 
   const removedCards = [];
 
+  // 제거된 일반/추가 카드
   pl.cards.forEach((c) => {
     if (c.removed) {
       removedCards.push({
@@ -112,6 +112,7 @@ function updatePlayerGauge(pl) {
     }
   });
 
+  // 제거된 고유 카드
   pl.unique.forEach((u) => {
     if (u.removed) {
       removedCards.push({
@@ -121,20 +122,60 @@ function updatePlayerGauge(pl) {
     }
   });
 
+  // 제거 순번별 보정
   let order = 0;
 
   removedCards.forEach((rc) => {
     order += 1;
     const baseRem = mapCountToPt(order);
-    const uniqueBonus = rc.isUnique ? 20 : 0;
+    const uniqueBonus = rc.isUnique ? 20 : 0; // 고유 제거 보너스
     const isSparkForBonus =
       (!rc.isUnique && (rc.state === "spark" || rc.state === "newspark")) ||
-      (rc.isUnique && rc.state === "newspark");
+      (rc.isUnique && rc.state === "newspark"); // 고유는 신 번뜩일 때만 +20
     const sparkBonus = isSparkForBonus ? 20 : 0;
     total += baseRem + uniqueBonus + sparkBonus;
   });
 
   pl.removedCount = removedCards.length;
+
+  // === 복제 기여 계산 ===
+  let dupTotal = 0;
+  let dupSparkPt = 0;
+
+  // 일반/몬스터/금기/고유복제 카드 쪽
+  pl.cards.forEach((c) => {
+    if (c.dupCount && c.dupCount > 0) {
+      dupTotal += c.dupCount;
+
+      // 복제된 일반 카드의 번뜩/신 번뜩 보정
+      if (c.state === "spark") dupSparkPt += 10;
+      else if (c.state === "newspark") dupSparkPt += 30;
+    }
+  });
+
+  // 고유카드 쪽 (고유 일반 제외, 레어/전설/신화만)
+  pl.unique.forEach((u) => {
+    if (u.dupCount && u.dupCount > 0 && u.rarity !== "normal") {
+      dupTotal += u.dupCount;
+
+      // [FIX] 고유 복제 번뜩/신 번뜩 보정:
+      //  - spark  → +0
+      //  - newspark → +20
+      if (u.state === "newspark") {
+        dupSparkPt += 20;
+      }
+      // (spark 상태는 복제 보정 없음)
+    }
+  });
+
+  let dupBase = 0;
+  if (dupTotal > 0) {
+    // 복제 횟수에 따른 기본 보정: 1:0, 2:10, 3:30, 4:50, 5+:70
+    dupBase = mapCountToPt(dupTotal);
+  }
+
+  total += dupBase + dupSparkPt;
+  // === 복제 기여 끝 ===
 
   const tierSel = document.getElementById("tierSelect");
   const tier = tierSel ? parseInt(tierSel.value || "0", 10) : 0;
@@ -173,6 +214,7 @@ function setUniqueByCharacter(pl, charId) {
       state: "normal",
       transCount: 0,
       removed: false,
+      dupCount: 0,
       color
     });
   });
@@ -437,7 +479,8 @@ function renderPlayerCards(pl) {
     // 복제 토글 (pill)
     const dupPill = document.createElement("div");
     dupPill.className = "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
-    dupPill.textContent = "복제";
+    dupPill.textContent = "🌀";
+    dupPill.title = "복제";
     dupPill.addEventListener("click", () => {
       const now = card.dupCount || 0;
       card.dupCount = now > 0 ? 0 : 1;
@@ -481,7 +524,6 @@ function renderPlayerCards(pl) {
 }
 
 // 고유카드 렌더
-
 function renderPlayerUnique(pl) {
   const wrap = pl._refs.uniqueList;
   wrap.innerHTML = "";
@@ -556,19 +598,19 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 변환 토글: 고유 일반( rarity === "normal" )인 카드만
-    if (u.rarity === "normal") {
-      const transPill = document.createElement("div");
-      transPill.className = "toggle-pill" + ((u.transCount || 0) > 0 ? " active" : "");
-      transPill.textContent = "변환";
-      transPill.addEventListener("click", () => {
-        const now = u.transCount || 0;
-        u.transCount = now > 0 ? 0 : 1;
-        transPill.classList.toggle("active", u.transCount > 0);
-        addLog(`[${pl.name}] 고유카드 ${u.id} 변환: ${u.transCount > 0}`);
+    // 복제 토글: 고유 일반(rarity === "normal") 제외 모두 가능
+    if (u.rarity !== "normal") {
+      const dupPill = document.createElement("div");
+      dupPill.className = "toggle-pill" + ((u.dupCount || 0) > 0 ? " active" : "");
+      dupPill.textContent = "🌀";  // 복제 아이콘
+      dupPill.addEventListener("click", () => {
+        const now = u.dupCount || 0;
+        u.dupCount = now > 0 ? 0 : 1;
+        dupPill.classList.toggle("active", u.dupCount > 0);
+        addLog(`[${pl.name}] 고유카드 ${u.id} 복제: ${u.dupCount > 0}`);
         updatePlayerGauge(pl);
       });
-      right.appendChild(transPill);
+      right.appendChild(dupPill);
     }
 
     row.appendChild(right);
@@ -707,9 +749,6 @@ function initResetAll() {
 }
 
 // 캐릭터 로드 (가나다 순)
-
-// 캐릭터 로드 (가나다 순)
-
 function loadCharacters() {
   return fetch("characters.json")
     .then(res => res.json())
