@@ -1,10 +1,12 @@
 /* chaos_v7.4.5_fix.js
- * - v7.4.5 기반 버그 수정 버전
+ * - v7.4.5 기반 버그/규칙 수정 버전
  * - 티어 라벨 ${i} 문제 제거
  * - 모달 display / hidden 완전 제어
  * - 일반 카드 border-left 정상 적용
- * - 고유카드 spark/new spark, 변환, 복제 규칙 유지
- * - [FIX] 고유카드 복제 시 spark/new spark 보정 수치 규칙 반영
+ * - 고유카드 spark/new spark, 변환, 복제 규칙 표준 반영
+ *   - 고유 normal: 변환만 가능, spark/new spark/복제 불가
+ *   - 고유 rare/legend: spark/new spark/복제 가능, 변환 불가
+ *   - 고유 myth: 복제만 가능, spark/new spark/변환 불가
  */
 
 const BASE = {
@@ -81,14 +83,18 @@ function calcCardContribution(card) {
 function calcUniqueBaseContribution(u) {
   let total = 0;
 
-  // 변환 1회당 10pt
-  total += (u.transCount || 0) * 10;
+  // 고유 normal(기본카드 1~3)만 변환 적용: 1회당 10pt
+  if (u.rarity === "normal") {
+    total += (u.transCount || 0) * 10;
+  }
 
-  // 고유 신 번뜩: +20pt (canShine=true일 때만)
-  if (u.canShine && u.state === "newspark") {
+  // 고유 rare/legend 만 newspark 보정(+20)
+  if ((u.rarity === "rare" || u.rarity === "legend") &&
+      u.canShine && u.state === "newspark") {
     total += 20;
   }
 
+  // myth 는 spark/new spark 둘 다 불가 규칙이라 여기서 보정 없음
   return total;
 }
 
@@ -96,9 +102,9 @@ function updatePlayerGauge(pl) {
   let total = 0;
 
   // 기본 카드 기여
-  pl.cards.forEach((c) => total += calcCardContribution(c));
+  pl.cards.forEach((c) => (total += calcCardContribution(c)));
   // 고유카드 기본 기여
-  pl.unique.forEach((u) => total += calcUniqueBaseContribution(u));
+  pl.unique.forEach((u) => (total += calcUniqueBaseContribution(u)));
 
   const removedCards = [];
 
@@ -117,7 +123,8 @@ function updatePlayerGauge(pl) {
     if (u.removed) {
       removedCards.push({
         isUnique: true,
-        state: u.state || "normal"
+        state: u.state || "normal",
+        rarity: u.rarity
       });
     }
   });
@@ -129,10 +136,23 @@ function updatePlayerGauge(pl) {
     order += 1;
     const baseRem = mapCountToPt(order);
     const uniqueBonus = rc.isUnique ? 20 : 0; // 고유 제거 보너스
-    const isSparkForBonus =
-      (!rc.isUnique && (rc.state === "spark" || rc.state === "newspark")) ||
-      (rc.isUnique && rc.state === "newspark"); // 고유는 신 번뜩일 때만 +20
-    const sparkBonus = isSparkForBonus ? 20 : 0;
+
+    // 제거 시 번뜩 보정:
+    // - 일반카드: spark / newspark 둘 다 +20
+    // - 고유 rare/legend: newspark 일 때만 +20
+    // - 고유 normal/myth: spark/new spark 사용 안 하므로 항상 0
+    let sparkBonus = 0;
+    if (!rc.isUnique) {
+      if (rc.state === "spark" || rc.state === "newspark") {
+        sparkBonus = 20;
+      }
+    } else {
+      if ((rc.rarity === "rare" || rc.rarity === "legend") &&
+          rc.state === "newspark") {
+        sparkBonus = 20;
+      }
+    }
+
     total += baseRem + uniqueBonus + sparkBonus;
   });
 
@@ -153,18 +173,21 @@ function updatePlayerGauge(pl) {
     }
   });
 
-  // 고유카드 쪽 (고유 일반 제외, 레어/전설/신화만)
+  // 고유카드 쪽 (고유 normal 제외, rare/legend/myth만 복제 가능)
   pl.unique.forEach((u) => {
     if (u.dupCount && u.dupCount > 0 && u.rarity !== "normal") {
       dupTotal += u.dupCount;
 
-      // [FIX] 고유 복제 번뜩/신 번뜩 보정:
-      //  - spark  → +0
-      //  - newspark → +20
-      if (u.state === "newspark") {
+      // 복제된 고유카드의 번뜩/신 번뜩 보정:
+      // rare/legend:
+      //   - spark: +0
+      //   - newspark: +20
+      // myth:
+      //   - spark/newspark 둘 다 불가 → 항상 0
+      if ((u.rarity === "rare" || u.rarity === "legend") &&
+          u.state === "newspark") {
         dupSparkPt += 20;
       }
-      // (spark 상태는 복제 보정 없음)
     }
   });
 
@@ -272,18 +295,16 @@ function buildUI() {
     //charSelWrap.appendChild(charLabel);
 
     const charSelect = document.createElement("select");
-    characterList.forEach(ch => {
+    characterList.forEach((ch) => {
       const opt = document.createElement("option");
       opt.value = ch.id;
       opt.textContent = ch.name;
       charSelect.appendChild(opt);
     });
 
-    if (!pl.charId && characterList.length > 0)
-      pl.charId = characterList[0].id;
+    if (!pl.charId && characterList.length > 0) pl.charId = characterList[0].id;
 
-    if (pl.charId)
-      charSelect.value = pl.charId;
+    if (pl.charId) charSelect.value = pl.charId;
 
     charSelect.addEventListener("change", () =>
       changePlayerCharacter(pl, charSelect.value)
@@ -453,7 +474,7 @@ function renderPlayerCards(pl) {
     const now = card.state || "normal";
     card.state = now;
 
-    defs.forEach(def => {
+    defs.forEach((def) => {
       const pill = document.createElement("div");
       pill.textContent = def.label;
       pill.className =
@@ -462,10 +483,14 @@ function renderPlayerCards(pl) {
       pill.addEventListener("click", () => {
         if (card.state === def.value) {
           card.state = "normal";
-          Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
+          Array.from(stateBox.children).forEach((p) =>
+            p.classList.remove("active")
+          );
         } else {
           card.state = def.value;
-          Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
+          Array.from(stateBox.children).forEach((p) =>
+            p.classList.remove("active")
+          );
           pill.classList.add("active");
         }
         updatePlayerGauge(pl);
@@ -478,14 +503,18 @@ function renderPlayerCards(pl) {
 
     // 복제 토글 (pill)
     const dupPill = document.createElement("div");
-    dupPill.className = "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
+    dupPill.className =
+      "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
     dupPill.textContent = "🌀";
-    dupPill.title = "복제";
     dupPill.addEventListener("click", () => {
       const now = card.dupCount || 0;
       card.dupCount = now > 0 ? 0 : 1;
       dupPill.classList.toggle("active", card.dupCount > 0);
-      addLog(`[${pl.name}] ${title.textContent} 복제: ${card.dupCount > 0}`);
+      addLog(
+        `[${pl.name}] ${title.textContent} 복제: ${
+          card.dupCount > 0 ? "ON" : "OFF"
+        }`
+      );
       updatePlayerGauge(pl);
     });
     right.appendChild(dupPill);
@@ -561,8 +590,9 @@ function renderPlayerUnique(pl) {
     right.style.alignItems = "center";
     right.style.gap = "6px";
 
-    // 고유 spark/new spark 표시 (canShine=true인 카드만)
-    if (u.canShine) {
+    // 고유 spark/new spark 표시:
+    // rare/legend 만 가능, normal/myth 는 불가
+    if (u.rarity === "rare" || u.rarity === "legend") {
       const stateBox = document.createElement("div");
       stateBox.className = "state-toggle";
 
@@ -574,7 +604,7 @@ function renderPlayerUnique(pl) {
       const now = u.state || "normal";
       u.state = now;
 
-      defs.forEach(def => {
+      defs.forEach((def) => {
         const pill = document.createElement("div");
         pill.textContent = def.label;
         pill.className =
@@ -583,10 +613,14 @@ function renderPlayerUnique(pl) {
         pill.addEventListener("click", () => {
           if (u.state === def.value) {
             u.state = "normal";
-            Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
+            Array.from(stateBox.children).forEach((p) =>
+              p.classList.remove("active")
+            );
           } else {
             u.state = def.value;
-            Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
+            Array.from(stateBox.children).forEach((p) =>
+              p.classList.remove("active")
+            );
             pill.classList.add("active");
           }
           updatePlayerGauge(pl);
@@ -598,16 +632,36 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 복제 토글: 고유 일반(rarity === "normal") 제외 모두 가능
+    // 변환 토글: 고유 normal(1~3)만 가능
+    if (u.rarity === "normal") {
+      const transPill = document.createElement("div");
+      transPill.className = "toggle-pill";
+      transPill.textContent = "변환";
+      transPill.addEventListener("click", () => {
+        u.transCount = (u.transCount || 0) + 1;
+        addLog(
+          `[${pl.name}] 고유카드 ${u.id} 변환: ${u.transCount}회 (누적)`
+        );
+        updatePlayerGauge(pl);
+      });
+      right.appendChild(transPill);
+    }
+
+    // 복제 토글: 고유 normal 제외 모두 가능 (rare/legend/myth)
     if (u.rarity !== "normal") {
       const dupPill = document.createElement("div");
-      dupPill.className = "toggle-pill" + ((u.dupCount || 0) > 0 ? " active" : "");
-      dupPill.textContent = "🌀";  // 복제 아이콘
+      dupPill.className =
+        "toggle-pill" + ((u.dupCount || 0) > 0 ? " active" : "");
+      dupPill.textContent = "🌀"; // 복제 아이콘
       dupPill.addEventListener("click", () => {
         const now = u.dupCount || 0;
         u.dupCount = now > 0 ? 0 : 1;
         dupPill.classList.toggle("active", u.dupCount > 0);
-        addLog(`[${pl.name}] 고유카드 ${u.id} 복제: ${u.dupCount > 0}`);
+        addLog(
+          `[${pl.name}] 고유카드 ${u.id} 복제: ${
+            u.dupCount > 0 ? "ON" : "OFF"
+          }`
+        );
         updatePlayerGauge(pl);
       });
       right.appendChild(dupPill);
@@ -686,7 +740,11 @@ function initModal() {
     };
 
     pl.cards.push(card);
-    addLog(`[${pl.name}] ${type} 카드 추가 (복제:${card.dupCount ? "O" : "X"})`);
+    addLog(
+      `[${pl.name}] ${type} 카드 추가 (복제:${
+        card.dupCount ? "O" : "X"
+      })`
+    );
 
     dupChk.checked = false;
     closeAddModal();
@@ -725,7 +783,7 @@ function resetAllPlayers() {
     }
   }
 
-  players.forEach(pl => {
+  players.forEach((pl) => {
     pl.cards = [];
     if (pl.charId) {
       setUniqueByCharacter(pl, pl.charId);
@@ -751,14 +809,14 @@ function initResetAll() {
 // 캐릭터 로드 (가나다 순)
 function loadCharacters() {
   return fetch("characters.json")
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       characterList = data.characters || [];
       characterList.sort((a, b) => a.name.localeCompare(b.name, "ko"));
       characterMap = {};
-      characterList.forEach(ch => characterMap[ch.id] = ch);
+      characterList.forEach((ch) => (characterMap[ch.id] = ch));
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("characters.json 로드 실패", err);
       characterList = [];
       characterMap = {};
@@ -767,17 +825,16 @@ function loadCharacters() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadCharacters().then(() => {
-
     // 캐릭터 3명 랜덤 선택 (중복 없음)
-    const available = [...characterList];   // 캐릭터 리스트 복제
+    const available = [...characterList]; // 캐릭터 리스트 복제
     shuffleArray(available);
 
     // players 3명에게 각각 다른 캐릭터 할당
     players.forEach((pl, idx) => {
       const ch = available[idx % available.length];
-      pl.charId = ch.id;   // 사전 지정
+      pl.charId = ch.id; // 사전 지정
     });
-    
+
     buildUI();
     initModal();
     initTierControls();
