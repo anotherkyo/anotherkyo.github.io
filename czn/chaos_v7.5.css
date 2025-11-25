@@ -25,6 +25,7 @@ body{
   min-height:100vh;
   display:flex;
   flex-direction:column;
+  padding-bottom:230px; /* 하단 로그 도크 높이만큼 여백 */
 }
 
 .topbar{
@@ -275,18 +276,45 @@ body{
 }
 
 .gauge-text{
+  position:absolute;
+  right:6px;
+  top:0;
+  height:100%;
+  display:flex;
+  align-items:center;
   font-size:11px;
-  text-align:right;
-  color:var(--muted);
+  color:var(--text);
+  text-shadow:0 0 4px rgba(0,0,0,0.9);
+}
+
+.log-dock{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:220px;
+  background:rgba(5,7,10,0.96);
+  border-top:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 -8px 24px rgba(0,0,0,0.85);
+  padding:6px 10px;
+  display:flex;
+  flex-direction:column;
+  z-index:20;
+}
+
+.log-header{
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:4px;
 }
 
 .log-area{
-  height:260px;
+  flex:1;
   overflow:auto;
   font-size:11px;
   padding:6px 8px;
-  border-radius:10px;
-  background:rgba(4,6,9,0.85);
+  border-radius:8px;
+  background:rgba(4,6,9,0.9);
   border:1px solid rgba(255,255,255,0.08);
 }
 

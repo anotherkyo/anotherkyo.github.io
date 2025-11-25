@@ -1,9 +1,8 @@
 /* chaos_v7.5.js
- * - v7.4.1 기반 + 버그 수정
- * - 티어 라벨 ${i} 문제 제거
- * - 모달 display / hidden 완전 제어
- * - 일반 카드 border-left 정상 적용
- * - 고유카드 spark/new spark/변환 규칙 및 UI 일부 개선
+ * - v7.4.x 기반 + v7.5 UI/규칙 반영
+ * - 추가 카드: 번뜩/신번/복제 이모지 + 2행 배치
+ * - 고유카드 8장: 복제 불가, normal만 변환(🔁 토글) 가능
+ * - 로그: 화면 하단 고정 도크
  */
 
 const BASE = {
@@ -79,10 +78,16 @@ function calcCardContribution(card) {
 function calcUniqueBaseContribution(u) {
   let total = 0;
 
-  if (u.canShine && u.state === "newspark") {
+  // 고유 rare/legend 의 신 번뜩임만 +20
+  if ((u.rarity === "rare" || u.rarity === "legend") &&
+      u.canShine && u.state === "newspark") {
     total += 20;
   }
-  total += (u.transCount || 0) * 10;
+
+  // 고유 normal(1~3) 변환: 토글 ON이면 +10
+  if (u.rarity === "normal" && (u.transCount || 0) > 0) {
+    total += 10;
+  }
 
   return total;
 }
@@ -108,7 +113,8 @@ function updatePlayerGauge(pl) {
     if (u.removed) {
       removedCards.push({
         isUnique: true,
-        state: u.state || "normal"
+        state: u.state || "normal",
+        rarity: u.rarity
       });
     }
   });
@@ -119,10 +125,22 @@ function updatePlayerGauge(pl) {
     order += 1;
     const baseRem = mapCountToPt(order);
     const uniqueBonus = rc.isUnique ? 20 : 0;
-    const isSparkForBonus =
-      (!rc.isUnique && (rc.state === "spark" || rc.state === "newspark")) ||
-      (rc.isUnique && rc.state === "newspark");
-    const sparkBonus = isSparkForBonus ? 20 : 0;
+
+    // 제거 시 번뜩 보정:
+    // - 일반카드: spark / newspark 둘 다 +20
+    // - 고유 rare/legend: newspark 일 때만 +20
+    let sparkBonus = 0;
+    if (!rc.isUnique) {
+      if (rc.state === "spark" || rc.state === "newspark") {
+        sparkBonus = 20;
+      }
+    } else {
+      if ((rc.rarity === "rare" || rc.rarity === "legend") &&
+          rc.state === "newspark") {
+        sparkBonus = 20;
+      }
+    }
+
     total += baseRem + uniqueBonus + sparkBonus;
   });
 
@@ -508,7 +526,7 @@ function renderPlayerUnique(pl) {
   pl.unique.forEach((u) => {
     const row = document.createElement("div");
     row.className = "card-row unique-row";
-    row.style.borderLeft = `4px solid ${u.color}`;
+    row.style.borderLeft = `3px solid ${u.color}`;
 
     const left = document.createElement("div");
     left.className = "card-left";
@@ -577,22 +595,29 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 고유 normal(1~3): 변환만 가능
+    // 고유 normal(1~3): 변환 토글 가능 (🔁, title="변환")
     if (u.rarity === "normal") {
       const transPill = document.createElement("div");
-      transPill.className = "toggle-pill";
-      transPill.textContent = "변환";
-      transPill.title = "변환 (1회당 +10pt)";
+      transPill.className =
+        "toggle-pill" + ((u.transCount || 0) > 0 ? " active" : "");
+      transPill.textContent = "🔁";
+      transPill.title = "변환";
+
       transPill.addEventListener("click", () => {
-        u.transCount = (u.transCount || 0) + 1;
-        addLog(`[${pl.name}] 고유카드 ${u.id} 변환: ${u.transCount}회`);
+        const now = u.transCount || 0;
+        const next = now > 0 ? 0 : 1;
+        u.transCount = next;
+        transPill.classList.toggle("active", next > 0);
+        addLog(
+          `[${pl.name}] 고유카드 ${u.id} 변환: ${next > 0 ? "ON" : "OFF"}`
+        );
         updatePlayerGauge(pl);
       });
+
       right.appendChild(transPill);
     }
 
-    // 고유 myth: 복제/번뜩/신번/변환 모두 없음 (규칙상 기저 값만 사용)
-    // 고유카드는 복제 pill 제거됨 (8장 전부 복제 불가)
+    // 고유 myth: 복제/번뜩/신번/변환 모두 없음 (기본 값만 사용)
 
     row.appendChild(right);
     wrap.appendChild(row);
@@ -653,8 +678,7 @@ function initModal() {
 
   addBtn.addEventListener("click", () => {
     const typeSel = document.getElementById("newType");
-    const dupChk = document.getElementById("newDupChk");
-    if (!typeSel || !dupChk) return;
+    if (!typeSel) return;
 
     const type = typeSel.value;
     const pl = players[currentAddPlayerIndex];
@@ -662,14 +686,13 @@ function initModal() {
     const card = {
       type,
       state: "normal",
-      dupCount: dupChk.checked ? 1 : 0,
+      dupCount: 0,
       removed: false
     };
 
     pl.cards.push(card);
-    addLog(`[${pl.name}] ${type} 카드 추가 (복제:${card.dupCount ? "O" : "X"})`);
+    addLog(`[${pl.name}] ${type} 카드 추가 (복제: X)`);
 
-    dupChk.checked = false;
     closeAddModal();
 
     renderPlayerCards(pl);
