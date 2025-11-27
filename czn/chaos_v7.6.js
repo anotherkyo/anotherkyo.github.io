@@ -488,7 +488,7 @@ function renderPlayerCards(pl) {
           Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
         } else {
           card.state = def.value;
-          Array.from(stateBox	children).forEach(p => p.classList.remove("active"));
+          Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
           pill.classList.add("active");
         }
         logWithPt(pl, `[${pl.name}] ${title.textContent} 상태 변경: ${card.state}`);
