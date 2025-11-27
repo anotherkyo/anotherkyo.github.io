@@ -608,7 +608,7 @@ function renderPlayerUnique(pl) {
             Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
           } else {
             u.state = def.value;
-            Array.from(stateBox	children).forEach(p => p.classList.remove("active"));
+            Array.from(stateBox.children).forEach(p => p.classList.remove("active"));
             pill.classList.add("active");
           }
           logWithPt(pl, `[${pl.name}] 고유카드 ${u.id} 상태 변경: ${u.state}`);
