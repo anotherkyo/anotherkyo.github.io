@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>카오스 제로 나이트메이터 시뮬레이터 v7.6</title>
+  <link rel="stylesheet" href="chaos_v7.6.css"/>
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="title">카오스 제로 나이트메이터 시뮬레이터 v7.6</div>
+
+    <div class="tier-box">
+      <label>티어:&nbsp;</label>
+      <select id="tierSelect">
+        <option value="0">0티어</option>
+        <option value="1">1티어</option>
+        <option value="2" selected>2티어</option>
+        <option value="3">3티어</option>
+        <option value="4">4티어</option>
+        <option value="5">5티어</option>
+        <option value="6">6티어</option>
+        <option value="7">7티어</option>
+        <option value="8">8티어</option>
+        <option value="9">9티어</option>
+        <option value="10">10티어</option>
+        <option value="11">11티어</option>
+        <option value="12">12티어</option>
+        <option value="13">13티어</option>
+        <option value="14">14티어</option>
+        <option value="15">15티어</option>
+        <option value="16">16티어</option>
+        <option value="17">17티어</option>
+        <option value="18">18티어</option>
+        <option value="19">19티어</option>
+        <option value="20">20티어</option>
+      </select>
+      <span id="tierCapText" class="small"></span>
+      <button id="resetAllBtn" class="btn ghost small-btn">전체 초기화</button>
+    </div>
+  </header>
+
+  <main class="main-layout">
+    <section class="left-panel">
+      <h2 class="panel-title">캐릭터</h2>
+      <div id="playersGrid" class="players-grid">
+        <!-- JS로 채워짐 -->
+      </div>
+    </section>
+
+    <section class="right-panel">
+      <h2 class="panel-title">카드 안내</h2>
+      <section class="section">
+        <h3 class="small">카드 추가</h3>
+        <p class="small muted">
+          각 캐릭터 박스의 [카드 추가] 버튼을 눌러 중립 / 몬스터 / 금기 / 고유카드(복제 개념)를 넣을 수 있습니다.<br/>
+          고유카드 8장은 기본 제공되며, 여기서 추가하는 고유카드는 모두 <strong>복제된 고유카드</strong> 로 취급됩니다.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="panel-title">로그</h2>
+        <div id="logArea" class="log-area"></div>
+      </section>
+    </section>
+  </main>
+
+</div>
+
+<!-- 카드 추가 모달 -->
+<div id="addModalBackdrop" class="modal-backdrop hidden">
+  <div class="modal">
+    <h3 class="modal-title">카드 추가</h3>
+
+    <label class="small">카드 종류</label>
+    <select id="newType" class="modal-select">
+      <option value="neutral">중립 카드</option>
+      <option value="monster">몬스터 카드</option>
+      <option value="taboo">금기 카드</option>
+      <option value="unique_clone">고유카드 (복제)</option>
+    </select>
+
+    <div class="modal-actions">
+      <button id="modalAddBtn" class="btn">추가</button>
+      <button id="modalCancelBtn" class="btn ghost">취소</button>
+    </div>
+  </div>
+</div>
+
+<script src="chaos_v7.6.js"></script>
+</body>
+</html>
