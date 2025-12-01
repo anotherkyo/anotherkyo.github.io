@@ -73,15 +73,17 @@ function calcCardContribution(card) {
   const removed = !!card.removed;
   const state = card.state || "normal";
 
-  // 기본 PT
-  if (type === "neutral") {
-    total += BASE.neutral;
-  } else if (type === "monster") {
-    total += BASE.monster;
-  } else if (type === "taboo") {
-    total += BASE.taboo;
-  } else if (type === "unique_clone") {
-    // 고유 복제는 기본 0pt
+  // 기본 PT (제거된 카드는 기본점수 0)
+  if (!removed) {
+    if (type === "neutral") {
+      total += BASE.neutral;
+    } else if (type === "monster") {
+      total += BASE.monster;
+    } else if (type === "taboo") {
+      total += BASE.taboo;
+    } else if (type === "unique_clone") {
+      // 고유 복제는 기본 0pt
+    }
   }
 
   // 제거된 카드는 "번뜩임 기록이 사라진다" → 상태 보정 적용 X
