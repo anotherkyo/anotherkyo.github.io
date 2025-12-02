@@ -539,6 +539,20 @@ function renderPlayerCards(pl) {
     delBtn.textContent = "삭제";
 
     delBtn.addEventListener("click", () => {
+      // 이 카드가 "변환으로 생성된 중립카드"라면,
+      // 연결된 고유카드의 변환 상태를 해제해야 한다.
+      if (card._isTransformGenerated && card._linkedUniqueId) {
+        const linked = pl.unique.find(u => u.id === card._linkedUniqueId);
+        if (linked) {
+          linked.transCount = 0;             // 변환 해제
+          linked._linkedNeutralCard = null;  // 연결 정보 삭제(선택적)
+          logWithPt(
+            pl,
+            `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립 카드 삭제)`
+          );
+        }
+      }
+    
       const idx = pl.cards.indexOf(card);
       if (idx >= 0) {
         pl.cards.splice(idx, 1);
@@ -629,25 +643,58 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 고유 normal(1~3): 변환 토글 가능 (🔁)
+    // 고유 normal(1~3): 변환 토글 (🔁)
+    // - 변환 ON 시 자동으로 중립 카드 1장 생성
+    // - 생성된 중립카드를 삭제하기 전까지 변환 해제 불가
     if (u.rarity === "normal") {
       const transPill = document.createElement("div");
       transPill.className =
         "toggle-pill" + ((u.transCount || 0) > 0 ? " active" : "");
       transPill.textContent = "🔁";
       transPill.title = "변환";
-
+    
       transPill.addEventListener("click", () => {
-        const now = u.transCount || 0;
-        const next = now > 0 ? 0 : 1;   // 토글 0/1
-        u.transCount = next;
-        transPill.classList.toggle("active", next > 0);
+        // 이미 변환된 상태면, 중립카드를 삭제해야만 해제 가능
+        if (u.transCount > 0) {
+          alert("변환된 카드는, 변환으로 생성된 중립 카드를 삭제하기 전까지 해제할 수 없습니다.");
+          return;
+        }
+    
+        // 변환 시작: transCount = 1로 고정
+        u.transCount = 1;
+        transPill.classList.add("active");
+    
+        // 변환으로 생성되는 중립 카드 객체
+        const neutralCard = {
+          type: "neutral",
+          state: "normal",
+          removed: false,
+          dupCount: 0,
+    
+          // 변환으로 생성된 카드라는 표시
+          _isTransformGenerated: true,
+    
+          // 어떤 고유카드와 연결되어 있는지 기록
+          _linkedUniqueId: u.id
+        };
+    
+        // 플레이어의 추가 카드 목록에 넣기
+        pl.cards.push(neutralCard);
+    
+        // 고유카드 → 중립카드 연결(메모용, 나중에 써도 됨)
+        u._linkedNeutralCard = neutralCard;
+    
         logWithPt(
           pl,
-          `[${pl.name}] 고유카드 ${u.id} 변환: ${next > 0 ? "ON" : "OFF"}`
+          `[${pl.name}] 고유카드 ${u.id} 변환: 중립 카드 자동 생성`
         );
+    
+        // 카드 리스트 다시 그리기
+        renderPlayerCards(pl);
+        // 고유카드 영역도 다시 그려도 됨(선택사항)
+        renderPlayerUnique(pl);
       });
-
+    
       right.appendChild(transPill);
     }
 
