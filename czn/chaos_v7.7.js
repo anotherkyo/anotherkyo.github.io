@@ -543,22 +543,15 @@ function renderPlayerCards(pl) {
       // 연결된 고유카드의 변환 상태를 해제해야 한다.
       if (card._isTransformGenerated && card._linkedUniqueId) {
         const linked = pl.unique.find(u => u.id === card._linkedUniqueId);
+      
         if (linked) {
-          linked.transCount = 0;             // 변환 해제
-          linked._linkedNeutralCard = null;  // 연결 정보 삭제(선택적)
-          logWithPt(
-            pl,
-            `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립 카드 삭제)`
+          linked.transCount = 0;
+          linked._linkedNeutralCard = null;
+      
+          logWithPt(pl,
+            `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립카드 삭제)`
           );
         }
-      }
-    
-      const idx = pl.cards.indexOf(card);
-      if (idx >= 0) {
-        pl.cards.splice(idx, 1);
-        logWithPt(pl, `[${pl.name}] ${title.textContent} 카드 삭제`);
-        renderPlayerCards(pl);
-        renderPlayerUnique(pl);
       }
     });
 
