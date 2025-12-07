@@ -540,35 +540,36 @@ function renderPlayerCards(pl) {
 
     delBtn.addEventListener("click", () => {
 
-    // 1) 변환으로 생성된 중립카드인지 먼저 체크
-    if (card._isTransformGenerated && card._linkedUniqueId) {
-      const linked = pl.unique.find(u => u.id === card._linkedUniqueId);
-  
-      if (linked) {
-        linked.transCount = 0;               // 변환 OFF
-        linked._linkedNeutralCard = null;
-  
-        logWithPt(
-          pl,
-          `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립카드 삭제)`
-        );
+      // 1) 변환으로 생성된 중립카드인지 먼저 체크
+      if (card._isTransformGenerated && card._linkedUniqueId) {
+        const linked = pl.unique.find(u => u.id === card._linkedUniqueId);
+    
+        if (linked) {
+          linked.transCount = 0;               // 변환 OFF
+          linked._linkedNeutralCard = null;
+    
+          logWithPt(
+            pl,
+            `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립카드 삭제)`
+          );
+        }
       }
-    }
+    
+      // 2) 실제 카드 삭제
+      const idx = pl.cards.indexOf(card);
+      if (idx >= 0) {
+        pl.cards.splice(idx, 1);
+        logWithPt(pl, `[${pl.name}] ${title.textContent} 카드 삭제`);
+      }
+    
+      // 3) UI 다시 그리기
+      renderPlayerCards(pl);
+      renderPlayerUnique(pl);
+    });
   
-    // 2) 실제 카드 삭제
-    const idx = pl.cards.indexOf(card);
-    if (idx >= 0) {
-      pl.cards.splice(idx, 1);
-      logWithPt(pl, `[${pl.name}] ${title.textContent} 카드 삭제`);
-    }
-  
-    // 3) UI 다시 그리기
-    renderPlayerCards(pl);
-    renderPlayerUnique(pl);
-  });
-  
-  deleteRow.appendChild(delBtn);
-  row.appendChild(deleteRow);
+    deleteRow.appendChild(delBtn);
+    row.appendChild(deleteRow);
+  }
 }
 
 // 고유카드 렌더 (❌, 💡, ⚡, 🔁 1행)
