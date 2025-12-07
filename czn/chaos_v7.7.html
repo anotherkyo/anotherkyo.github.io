@@ -62,6 +62,40 @@
       </section>
 
       <section class="section">
+        <h3 class="small">카드 규칙</h3>
+      
+        <ul class="small muted" style="line-height: 1.45">
+          <li><strong>중립 카드</strong>: 기본 20pt, 제거 시 0pt</li>
+          <li><strong>몬스터 카드</strong>: 기본 80pt, 제거 시 0pt</li>
+          <li><strong>금기 카드</strong>: 기본 20pt, 제거 시 0pt</li>
+          <li><strong>고유(normal)</strong>: 기본 0pt, 변환 시 중립카드 생성(20pt) + 변환 10pt</li>
+          <li><strong>고유(rare/legend)</strong>: 신 번뜩임 20pt(번뜩임 0)</li>
+          <li><strong>고유(myth)</strong>: 번뜩/신번 없음, 복제만 가능</li>
+        </ul>
+      
+        <h4 class="small" style="margin-top: 6px;">제거 규칙</h4>
+        <ul class="small muted" style="line-height: 1.45">
+          <li>제거 누적: 0 / 10 / 30 / 50 / 70 / 70 ... (누적합)</li>
+          <li>고유카드 제거 시 +20 추가</li>
+          <li>제거된 카드는 강화(spark/new) 효과가 사라짐</li>
+        </ul>
+      
+        <h4 class="small" style="margin-top: 6px;">복제 규칙</h4>
+        <ul class="small muted" style="line-height: 1.45">
+          <li>복제 누적: 0 / 10 / 30 / 50 / 70 / 70 ... (누적합)</li>
+          <li>중립/몬스터 강화: 번뜩 +10, 신번 +30</li>
+          <li>고유카드 복제: 신번 +20</li>
+        </ul>
+      
+        <h4 class="small" style="margin-top: 6px;">변환 규칙</h4>
+        <ul class="small muted" style="line-height: 1.45">
+          <li>고유 normal에서만 변환 가능</li>
+          <li>변환 = 중립카드 자동 생성(20pt) + 변환 10pt</li>
+          <li>변환 중에는 변환 OFF 불가 (중립카드를 삭제해야 해제)</li>
+        </ul>
+      </section>
+
+      <section class="section">
         <h2 class="panel-title">로그</h2>
         <div id="logArea" class="log-area"></div>
       </section>
