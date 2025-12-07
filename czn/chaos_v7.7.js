@@ -566,6 +566,9 @@ function renderPlayerCards(pl) {
     renderPlayerCards(pl);
     renderPlayerUnique(pl);
   });
+  
+  deleteRow.appendChild(delBtn);
+  row.appendChild(deleteRow);
 }
 
 // 고유카드 렌더 (❌, 💡, ⚡, 🔁 1행)
