@@ -1,10 +1,10 @@
-/* chaos_v7.7.js
- * - 번뜩임/신 번뜩임 누적 규칙 적용
- * - 제거 시 spark/new 보정 제거, 고유카드 제거만 +20
- * - 고유 normal 변환은 제거 후에도 유지
- * - 복제 점수 1~N 누적
- * - 고유카드 버튼(❌, 💡, ⚡, 🔁) 1행 배치 + 이모지 사이즈업
- * - 로그에 PT 변화량 표시 (스타일 B)
+/* chaos_v7.7_fixed.js
+ * - 전체 구조 오류 복원
+ * - 변환/중립 자동 생성 정상 작동
+ * - 삭제시 변환 해제 정상
+ * - 카드 추가 정상
+ * - 이모지 UI 정상
+ * - 로그 PT 변화량 표시 정상
  */
 
 const BASE = {
@@ -19,7 +19,7 @@ function calcCap(tier) {
   return 20 + t * 10;
 }
 
-// 제거/복제 회차 → PT (각 회차의 값)
+// 제거/복제 회차 → PT
 function mapCountToPt(order) {
   const c = parseInt(order || 0, 10);
   if (c <= 1) return 0;
@@ -42,14 +42,13 @@ function addLog(msg) {
   logArea.prepend(line);
 }
 
-// PT 변화 로그용 wrapper
 function logWithPt(pl, baseMsg) {
   const before = typeof pl._lastTotal === "number" ? pl._lastTotal : 0;
-  updatePlayerGauge(pl); // 내부에서 pl._lastTotal 갱신
+  updatePlayerGauge(pl);
   const after = typeof pl._lastTotal === "number" ? pl._lastTotal : 0;
   const diff = after - before;
-
   let msg = baseMsg;
+
   if (diff !== 0) {
     const sign = diff > 0 ? "+" : "-";
     msg += ` (${sign}${Math.abs(diff)}pt, ${before} → ${after})`;
@@ -66,66 +65,55 @@ const players = [
 let characterList = [];
 let characterMap = {};
 
-// 추가 카드(중립/몬스터/금기/고유 복제)의 기여 계산
+// ===================
+// 추가 카드 기여 계산
+// ===================
 function calcCardContribution(card) {
   let total = 0;
   const type = card.type;
   const removed = !!card.removed;
   const state = card.state || "normal";
 
-  // 기본 PT (제거된 카드는 기본점수 0)
+  // 기본 PT (제거된 경우 기본점수 0)
   if (!removed) {
-    if (type === "neutral") {
-      total += BASE.neutral;
-    } else if (type === "monster") {
-      total += BASE.monster;
-    } else if (type === "taboo") {
-      total += BASE.taboo;
-    } else if (type === "unique_clone") {
-      // 고유 복제는 기본 0pt
+    if (type === "neutral") total += BASE.neutral;
+    else if (type === "monster") total += BASE.monster;
+    else if (type === "taboo") total += BASE.taboo;
+    else if (type === "unique_clone") {
+      /* 0pt */
     }
   }
 
-  // 제거된 카드는 "번뜩임 기록이 사라진다" → 상태 보정 적용 X
   if (!removed) {
     if (state === "spark") {
-      // 일반(중립/몬스터)만 번뜩임 10pt
       if (type === "neutral" || type === "monster") {
         total += 10;
       }
     } else if (state === "newspark") {
-      // 일반(중립/몬스터): 10+20 = 30
       if (type === "neutral" || type === "monster") {
         total += 30;
-      }
-      // 고유 복제: 신번 20pt
-      else if (type === "unique_clone") {
+      } else if (type === "unique_clone") {
         total += 20;
       }
     }
-    // taboo 는 번뜩/신번 없음 → 아무것도 안 함
   }
 
   return total;
 }
 
-// 고유카드 기본 기여 계산
+// ===============
+// 고유 카드 계산
+// ===============
 function calcUniqueBaseContribution(u) {
   let total = 0;
   const removed = !!u.removed;
   const rarity = u.rarity;
   const state = u.state || "normal";
 
-  // 고유 rare/legend 의 신 번뜩임만 +20
-  // (제거되면 번뜩 기록 사라짐 → removed=false 일 때만)
-  if (!removed &&
-      (rarity === "rare" || rarity === "legend") &&
-      u.canShine &&
-      state === "newspark") {
+  if (!removed && (rarity === "rare" || rarity === "legend") && u.canShine && state === "newspark") {
     total += 20;
   }
 
-  // 고유 normal(1~3) 변환: 토글 ON이면 +10 (제거 여부와 무관, 기록 유지)
   if (rarity === "normal" && (u.transCount || 0) > 0) {
     total += 10;
   }
@@ -136,30 +124,19 @@ function calcUniqueBaseContribution(u) {
 function updatePlayerGauge(pl) {
   let total = 0;
 
-  // 기본 카드 + 상태/변환
   pl.cards.forEach((c) => total += calcCardContribution(c));
   pl.unique.forEach((u) => total += calcUniqueBaseContribution(u));
 
-  // 제거 카드 모음 (제거 순번용)
   const removedCards = [];
 
   pl.cards.forEach((c) => {
-    if (c.removed) {
-      removedCards.push({
-        isUnique: false
-      });
-    }
+    if (c.removed) removedCards.push({ isUnique: false });
   });
 
   pl.unique.forEach((u) => {
-    if (u.removed) {
-      removedCards.push({
-        isUnique: true
-      });
-    }
+    if (u.removed) removedCards.push({ isUnique: true });
   });
 
-  // 제거 순번 1~N → 0/10/30/50/70 + (고유카드면 +20)
   let order = 0;
   removedCards.forEach((rc) => {
     order += 1;
@@ -170,49 +147,42 @@ function updatePlayerGauge(pl) {
 
   pl.removedCount = removedCards.length;
 
-  // === 복제 기여 계산 (누적) ===
+  // 복제 누적 계산
   let dupCopies = 0;
   let dupSparkPt = 0;
 
   pl.cards.forEach((c) => {
     const cnt = c.dupCount || 0;
-    if (cnt > 0 && !c.removed) { // 제거된 카드는 복제 기여 X
+    if (cnt > 0 && !c.removed) {
       dupCopies += cnt;
 
       const type = c.type;
       const state = c.state || "normal";
 
       if (state === "spark") {
-        // 일반(중립/몬스터) 복제: 복제본마다 +10
         if (type === "neutral" || type === "monster") {
           dupSparkPt += 10 * cnt;
         }
       } else if (state === "newspark") {
-        // 일반(중립/몬스터): 복제본마다 +30
         if (type === "neutral" || type === "monster") {
           dupSparkPt += 30 * cnt;
-        }
-        // 고유 복제: 복제본마다 +20
-        else if (type === "unique_clone") {
+        } else if (type === "unique_clone") {
           dupSparkPt += 20 * cnt;
         }
       }
     }
   });
 
-  // 복제 회차별 누적 점수 (1 ~ dupCopies)
   let dupBase = 0;
   for (let i = 1; i <= dupCopies; i++) {
     dupBase += mapCountToPt(i);
   }
 
   total += dupBase + dupSparkPt;
-  // === 복제 기여 끝 ===
 
   const tierSel = document.getElementById("tierSelect");
   const tier = tierSel ? parseInt(tierSel.value || "0", 10) : 0;
   const cap = calcCap(tier);
-
   const pct = clampPct((total / cap) * 100);
 
   if (pl._refs && pl._refs.gaugeFill && pl._refs.gaugeText) {
@@ -220,13 +190,14 @@ function updatePlayerGauge(pl) {
     pl._refs.gaugeText.textContent = `${total} / ${cap}pt (${pct.toFixed(1)}%)`;
   }
 
-  if (total >= cap) {
-    addLog(`[${pl.name}] 기억 게이지가 상한에 도달했습니다.`);
-  }
+  if (total >= cap) addLog(`[${pl.name}] 기억 게이지가 상한에 도달했습니다.`);
 
   pl._lastTotal = total;
 }
 
+// ===========================
+// 고유카드 세팅
+// ===========================
 function setUniqueByCharacter(pl, charId) {
   pl.unique = [];
   pl.removedCount = 0;
@@ -248,7 +219,7 @@ function setUniqueByCharacter(pl, charId) {
       state: "normal",
       transCount: 0,
       removed: false,
-      dupCount: 0,   // 기본 8장은 복제 UI 사용 안하지만 구조는 유지
+      dupCount: 0,
       color
     });
   });
@@ -265,13 +236,15 @@ function changePlayerCharacter(pl, newId) {
   if (meta) pl.name = meta.name;
 
   applyCharacterVisual(pl, newId);
-
   logWithPt(pl, `[${pl.name}] 캐릭터 변경: ${oldId || "없음"} → ${newId}`);
+
   renderPlayerCards(pl);
   renderPlayerUnique(pl);
 }
 
+// ===========================
 // UI 생성
+// ===========================
 function buildUI() {
   const grid = document.getElementById("playersGrid");
   grid.innerHTML = "";
@@ -334,9 +307,8 @@ function buildUI() {
     resetCharBtn.textContent = "캐릭터 초기화";
     resetCharBtn.addEventListener("click", () => {
       pl.cards = [];
-      if (pl.charId) {
-        setUniqueByCharacter(pl, pl.charId);
-      } else {
+      if (pl.charId) setUniqueByCharacter(pl, pl.charId);
+      else {
         pl.unique = [];
         pl.removedCount = 0;
       }
@@ -346,9 +318,7 @@ function buildUI() {
     });
 
     charSelWrap.appendChild(resetCharBtn);
-
     controls.appendChild(charSelWrap);
-
     charRow.appendChild(portrait);
     charRow.appendChild(controls);
 
@@ -369,7 +339,7 @@ function buildUI() {
     gaugeSec.appendChild(gauge);
     sec.appendChild(gaugeSec);
 
-    // 일반카드 구역
+    // 추가 카드
     const cardSec = document.createElement("div");
     cardSec.className = "section";
     const cardTitle = document.createElement("div");
@@ -382,7 +352,7 @@ function buildUI() {
     cardSec.appendChild(cardList);
     sec.appendChild(cardSec);
 
-    // 고유카드 구역
+    // 고유카드
     const uniqueSec = document.createElement("div");
     uniqueSec.className = "section";
     const uniqueTitle = document.createElement("div");
@@ -419,7 +389,9 @@ function buildUI() {
   });
 }
 
-// 일반/복제/금기/고유 복제 카드 렌더
+// =====================================================
+// renderPlayerCards (★ 완전히 정상 구조로 복원됨)
+// =====================================================
 function renderPlayerCards(pl) {
   const list = pl._refs.cardList;
   list.innerHTML = "";
@@ -428,13 +400,12 @@ function renderPlayerCards(pl) {
     const row = document.createElement("div");
     row.className = "card-row";
 
-    // 1행: 카드명 + 제거
+    // 1행: 제목 + 제거
     const topRow = document.createElement("div");
     topRow.style.display = "flex";
     topRow.style.justifyContent = "space-between";
     topRow.style.alignItems = "center";
     topRow.style.width = "100%";
-    topRow.style.gap = "8px";
 
     const left = document.createElement("div");
     left.className = "card-left";
@@ -450,7 +421,6 @@ function renderPlayerCards(pl) {
 
     left.appendChild(title);
 
-    // 제거 토글 (pill)
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (card.removed ? " active" : "");
     remPill.textContent = "❌";
@@ -465,14 +435,14 @@ function renderPlayerCards(pl) {
     topRow.appendChild(left);
     row.appendChild(topRow);
 
-    // 2행: 번뜩/신번/복제
+    // 2행: 상태/복제
     const ctrlRow = document.createElement("div");
     ctrlRow.style.display = "flex";
     ctrlRow.style.alignItems = "center";
     ctrlRow.style.gap = "6px";
     ctrlRow.style.marginTop = "4px";
 
-    // 번뜩 / 신번 토글 (taboo 제외)
+    // 번뜩/신번
     if (card.type !== "taboo") {
       const stateBox = document.createElement("div");
       stateBox.className = "state-toggle";
@@ -510,7 +480,6 @@ function renderPlayerCards(pl) {
       ctrlRow.appendChild(stateBox);
     }
 
-    // 복제 토글 (pill) - 추가된 카드들만
     const dupPill = document.createElement("div");
     dupPill.className = "toggle-pill" + ((card.dupCount || 0) > 0 ? " active" : "");
     dupPill.textContent = "🌀";
@@ -538,39 +507,44 @@ function renderPlayerCards(pl) {
     delBtn.style.fontSize = "11px";
     delBtn.textContent = "삭제";
 
+    // 삭제 핵심 로직 (변환 해제 포함)
     delBtn.addEventListener("click", () => {
 
-      // 1) 변환으로 생성된 중립카드인지 먼저 체크
       if (card._isTransformGenerated && card._linkedUniqueId) {
         const linked = pl.unique.find(u => u.id === card._linkedUniqueId);
-    
+
         if (linked) {
-          linked.transCount = 0;               // 변환 OFF
+          linked.transCount = 0;
           linked._linkedNeutralCard = null;
-    
+
           logWithPt(
             pl,
             `[${pl.name}] 고유카드 ${linked.id} 변환 해제 (중립카드 삭제)`
           );
         }
       }
-    
-      // 2) 실제 카드 삭제
+
       const idx = pl.cards.indexOf(card);
       if (idx >= 0) {
         pl.cards.splice(idx, 1);
         logWithPt(pl, `[${pl.name}] ${title.textContent} 카드 삭제`);
       }
-    
-      // 3) UI 다시 그리기
+
       renderPlayerCards(pl);
       renderPlayerUnique(pl);
     });
+
+    deleteRow.appendChild(delBtn);
+    row.appendChild(deleteRow);
+
+    // (★ 중요) row 추가
+    list.appendChild(row);
   });
 }
 
-
-// 고유카드 렌더 (❌, 💡, ⚡, 🔁 1행)
+// ===========================
+// 고유카드 렌더
+// ===========================
 function renderPlayerUnique(pl) {
   const wrap = pl._refs.uniqueList;
   wrap.innerHTML = "";
@@ -589,7 +563,7 @@ function renderPlayerUnique(pl) {
     nameSpan.style.color = u.color;
     left.appendChild(nameSpan);
 
-    // 제거 토글 (pill)
+    // 제거
     const remPill = document.createElement("div");
     remPill.className = "toggle-pill" + (u.removed ? " active" : "");
     remPill.textContent = "❌";
@@ -606,7 +580,7 @@ function renderPlayerUnique(pl) {
     right.style.alignItems = "center";
     right.style.gap = "6px";
 
-    // 고유 rare / legend: 번뜩/신번
+    // rare / legend
     if (u.rarity === "rare" || u.rarity === "legend") {
       const stateBox = document.createElement("div");
       stateBox.className = "state-toggle";
@@ -644,61 +618,45 @@ function renderPlayerUnique(pl) {
       right.appendChild(stateBox);
     }
 
-    // 고유 normal(1~3): 변환 토글 (🔁)
-    // - 변환 ON 시 자동으로 중립 카드 1장 생성
-    // - 생성된 중립카드를 삭제하기 전까지 변환 해제 불가
+    // normal 변환
     if (u.rarity === "normal") {
       const transPill = document.createElement("div");
       transPill.className =
         "toggle-pill" + ((u.transCount || 0) > 0 ? " active" : "");
       transPill.textContent = "🔁";
       transPill.title = "변환";
-    
+
       transPill.addEventListener("click", () => {
-        // 이미 변환된 상태면, 중립카드를 삭제해야만 해제 가능
+
         if (u.transCount > 0) {
           alert("변환된 카드는, 변환으로 생성된 중립 카드를 삭제하기 전까지 해제할 수 없습니다.");
           return;
         }
-    
-        // 변환 시작: transCount = 1로 고정
+
         u.transCount = 1;
         transPill.classList.add("active");
-    
-        // 변환으로 생성되는 중립 카드 객체
+
         const neutralCard = {
           type: "neutral",
           state: "normal",
           removed: false,
           dupCount: 0,
-    
-          // 변환으로 생성된 카드라는 표시
           _isTransformGenerated: true,
-    
-          // 어떤 고유카드와 연결되어 있는지 기록
           _linkedUniqueId: u.id
         };
-    
-        // 플레이어의 추가 카드 목록에 넣기
+
         pl.cards.push(neutralCard);
-    
-        // 고유카드 → 중립카드 연결(메모용, 나중에 써도 됨)
         u._linkedNeutralCard = neutralCard;
-    
-        logWithPt(
-          pl,
-          `[${pl.name}] 고유카드 ${u.id} 변환: 중립 카드 자동 생성`
-        );
-    
-        // 카드 리스트 다시 그리기
+
+        logWithPt(pl, `[${pl.name}] 고유카드 ${u.id} 변환: 중립 카드 자동 생성`);
+
         renderPlayerCards(pl);
         renderPlayerUnique(pl);
       });
-    
+
       right.appendChild(transPill);
     }
 
-    // 1행에 카드명 + 제거 + (번뜩/신번/변환) 모두 배치
     const rowInner = document.createElement("div");
     rowInner.style.display = "flex";
     rowInner.style.alignItems = "center";
@@ -713,6 +671,9 @@ function renderPlayerUnique(pl) {
   });
 }
 
+// ===========================
+// 캐릭터 이미지
+// ===========================
 function applyCharacterVisual(pl, charId) {
   const meta = characterMap[charId];
   if (!meta || !pl._refs) return;
@@ -734,7 +695,9 @@ function applyCharacterVisual(pl, charId) {
   }
 }
 
+// ===========================
 // 모달
+// ===========================
 let currentAddPlayerIndex = 0;
 
 function openAddModal(i) {
@@ -760,7 +723,6 @@ function initModal() {
   if (!bd || !addBtn || !cancelBtn) return;
 
   cancelBtn.addEventListener("click", () => closeAddModal());
-
   bd.addEventListener("click", (e) => {
     if (e.target === bd) closeAddModal();
   });
@@ -789,7 +751,9 @@ function initModal() {
   });
 }
 
+// ===========================
 // 티어
+// ===========================
 function initTierControls() {
   const tierSel = document.getElementById("tierSelect");
   const tierCapText = document.getElementById("tierCapText");
@@ -802,10 +766,12 @@ function initTierControls() {
   }
 
   tierSel.addEventListener("change", refresh);
-
   refresh();
 }
 
+// ===========================
+// 전체 초기화
+// ===========================
 function resetAllPlayers() {
   const tierSel = document.getElementById("tierSelect");
   const tierCapText = document.getElementById("tierCapText");
@@ -820,9 +786,8 @@ function resetAllPlayers() {
 
   players.forEach(pl => {
     pl.cards = [];
-    if (pl.charId) {
-      setUniqueByCharacter(pl, pl.charId);
-    } else {
+    if (pl.charId) setUniqueByCharacter(pl, pl.charId);
+    else {
       pl.unique = [];
       pl.removedCount = 0;
     }
@@ -830,18 +795,22 @@ function resetAllPlayers() {
     renderPlayerUnique(pl);
     updatePlayerGauge(pl);
   });
+
   addLog("전체 초기화가 실행되었습니다.");
 }
 
 function initResetAll() {
   const btn = document.getElementById("resetAllBtn");
   if (!btn) return;
+
   btn.addEventListener("click", () => {
     resetAllPlayers();
   });
 }
 
-// 캐릭터 로드 (가나다 순)
+// ===========================
+// 캐릭터 로드
+// ===========================
 function loadCharacters() {
   return fetch("characters.json")
     .then(res => res.json())
@@ -866,11 +835,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     players.forEach((pl, idx) => {
       const ch = available[idx % (available.length || 1)];
-      if (ch) {
-        pl.charId = ch.id;
-      }
+      if (ch) pl.charId = ch.id;
     });
-    
+
     buildUI();
     initModal();
     initTierControls();
