@@ -566,7 +566,9 @@ function renderPlayerCards(pl) {
       renderPlayerCards(pl);
       renderPlayerUnique(pl);
     });
+  });
 }
+
 
 // 고유카드 렌더 (❌, 💡, ⚡, 🔁 1행)
 function renderPlayerUnique(pl) {
