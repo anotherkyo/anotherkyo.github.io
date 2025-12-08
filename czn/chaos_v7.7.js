@@ -566,11 +566,6 @@ function renderPlayerCards(pl) {
       renderPlayerCards(pl);
       renderPlayerUnique(pl);
     });
-  
-    deleteRow.appendChild(delBtn);
-    row.appendChild(deleteRow);
-    
-  });
 }
 
 // 고유카드 렌더 (❌, 💡, ⚡, 🔁 1행)
@@ -695,7 +690,6 @@ function renderPlayerUnique(pl) {
     
         // 카드 리스트 다시 그리기
         renderPlayerCards(pl);
-        // 고유카드 영역도 다시 그려도 됨(선택사항)
         renderPlayerUnique(pl);
       });
     
