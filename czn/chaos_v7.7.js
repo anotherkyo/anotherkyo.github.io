@@ -90,8 +90,7 @@ function calcCardContribution(card) {
         total += 10;
       }
     } else if (state === "newspark") {
-        total += 20;
-      }
+      total += 20;
     }
   }
 
