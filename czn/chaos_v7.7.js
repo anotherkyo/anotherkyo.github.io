@@ -90,9 +90,6 @@ function calcCardContribution(card) {
         total += 10;
       }
     } else if (state === "newspark") {
-      if (type === "neutral" || type === "monster") {
-        total += 30;
-      } else if (type === "unique_clone") {
         total += 20;
       }
     }
