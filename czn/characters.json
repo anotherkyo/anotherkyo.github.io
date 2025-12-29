@@ -297,6 +297,32 @@
 			{ "id": "암흑 응집", "rarity": "legend", "canShine": true },
 			{ "id": "포식자의 칼날", "rarity": "myth", "canShine": false }
 		]
+	},
+
+	{
+		"id": "chizuru", "name": "치즈루", "portrait": "./img/chizuru.png", "unique": [
+			{ "id": "참월", "rarity": "normal", "canShine": false },
+			{ "id": "참월", "rarity": "normal", "canShine": false },
+			{ "id": "혼불의 보호", "rarity": "normal", "canShine": false },
+			{ "id": "업화", "rarity": "rare", "canShine": true },
+			{ "id": "츠쿠요미", "rarity": "rare", "canShine": true },
+			{ "id": "황혼의 결속", "rarity": "rare", "canShine": true },
+			{ "id": "도깨비 사냥", "rarity": "legend", "canShine": true },
+			{ "id": "달그림자", "rarity": "myth", "canShine": false }
+		]
+	},
+
+	{
+		"id": "sereniel", "name": "세레니엘", "portrait": "./img/sereniel.png", "unique": [
+			{ "id": "펄스 타격", "rarity": "normal", "canShine": false },
+			{ "id": "펄스 타격", "rarity": "normal", "canShine": false },
+			{ "id": "마그네틱 필드", "rarity": "normal", "canShine": false },
+			{ "id": "호밍 레이저", "rarity": "rare", "canShine": true },
+			{ "id": "플라스마 미사일", "rarity": "rare", "canShine": true },
+			{ "id": "샤이닝 코어", "rarity": "rare", "canShine": true },
+			{ "id": "코발트 라이트", "rarity": "legend", "canShine": true },
+			{ "id": "페일 슈팅 스타", "rarity": "myth", "canShine": false }
+		]
 	}
 		
 ]}
