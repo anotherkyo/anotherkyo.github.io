@@ -151,21 +151,8 @@ function updatePlayerGauge(pl) {
     const cnt = c.dupCount || 0;
     if (cnt > 0 && !c.removed) {
       dupCopies += cnt;
-
       const type = c.type;
       const state = c.state || "normal";
-
-      if (state === "spark") {
-        if (type === "neutral" || type === "monster") {
-          dupSparkPt += 10 * cnt;
-        }
-      } else if (state === "newspark") {
-        if (type === "neutral" || type === "monster") {
-          dupSparkPt += 30 * cnt;
-        } else if (type === "unique_clone") {
-          dupSparkPt += 20 * cnt;
-        }
-      }
     }
   });
 
