@@ -18,6 +18,8 @@
   { "src": "./img/여름밤만개한꽃.png", "full": "https://i.imgur.com/1SrmTfM.png", "title": "여름밤 만개한 꽃-크라운산도딸기(카먼)", "tags": ["무기","만월"] },
   { "src": "./img/여름밤만개한꽃.png", "full": "https://i.imgur.com/qzelQ0z.png", "title": "여름밤 만개한 꽃-효라딘(노센레이어)", "tags": ["무기","수정"] },
   { "src": "./img/번개의신격.png", "full": "https://i.imgur.com/YZuZjMx.png", "title": "번개의 신격-0080(노센레이어)", "tags": ["무기","강철"] },
+  { "src": "./img/악념계략가.png", "full": "https://i.imgur.com/hU8Gdq6.png", "title": "악념 계략가-겨자버거(카먼)", "tags": ["무기","시계"] },
+  { "src": "./img/수정단검.png", "full": "https://i.imgur.com/x1IagpU.png", "title": "수정 단검-Yuul(레이갈드)", "tags": ["무기","바람"] },
   
   { "src": "./img/수호자의갑옷.png", "full": "https://i.imgur.com/2QatBzs.png", "title": "수호자의 갑옷-니나노오피스(노센레이어)", "tags": ["방어구","시계"] },
   { "src": "./img/최후의옷.png", "full": "https://i.imgur.com/Y5tO3Ao.png", "title": "최후의 옷-Vienna(카먼)", "tags": ["방어구","바람"] },
@@ -60,4 +62,5 @@
   { "src": "./img/성운의궤적.png", "full": "https://i.imgur.com/lWwRmoS.jpeg", "title": "성운의 궤적-와작(티스라오)", "tags": ["장신구","유성"] }
 
 ]
+
 
