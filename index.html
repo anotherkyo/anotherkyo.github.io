@@ -1,101 +1,920 @@
-<html>
-    <head>
-        <title>anotherkyo page</title>
-        <style>
-            *{
-                font-size:15px;
-                margin:0px;
-                padding:0px;
-            }
-            img {
-                width: 200px;
-                height: 200px;
-            }
-            table{
-                text-align:center;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <thead>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="./langrisser/">
-                            <img src="./img/lang.jpg"><br>
-                            랑그릿사 모바일 시뮬레이터
-                        </a>
-                    </td>
-                    <td>
-                        <a href="./archeland/">
-                            <img src="./img/arche.webp"><br>
-                            아르케랜드 시뮬레이터
-                        </a>
-                    </td>
-                     <td>
-                         <a href="./czn/">
-                            <img src="./img/czn.jpg"><br>
-                            카오스 제로 나이트메어 시뮬레이터
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="https://chzzk.naver.com/311c2a9ef8537f267eea9963c81d7532" target="_blank">
-                            <img src="./img/chzzk.png"><br>
-                            치지직
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.youtube.com/channel/UCuhTU0U-rYYQ1WW3jm2-jNg" target="_blank">
-                            <img src="./img/akyo.jpg"><br>
-                            Youtube
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://www.twitch.tv/anotherkyo" target="_blank">
-                            <img src="./img/aak.png"><br>
-                            Twitch
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="https://langrisser-records.anotherkyo.chatgpt.site/">
-                             <img src="./img/lang.jpg"><br>
-                            랑그릿사 모바일 기록실
-                        </a>
-                    </td>
-                    <td>
-                        <a href="https://docs.google.com/spreadsheets/d/19eLjTpcTDSZLiyTAMJGSBXJkWLAmq7QYs3t9qWEGv40/edit?usp=sharing">
-                            <img src="./img/googleSheet.png"><br>
-                            랑그릿사 모바일 토너성적(KR) 시트
-                        </a>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="./gallery/langrisser/">
-                            <img src="./img/lang.jpg"><br>
-                            랑그릿사 모바일 갤러리(피규어)
-                        </a>
-                    </td>
-                    <td>
-                        <a href="./gallery/langrisserLux/">
-                            <img src="./img/langLux.png"><br>
-                            랑그릿사 모바일 명품관
-                        </a>
-                    </td>
-                    <td>
-                        
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
-</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>AnotherKyo Workspace</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0b0d12;
+            --bg-sub: #11141b;
+            --card: #161a22;
+            --card-hover: #1c212c;
+            --border: #282e3a;
+
+            --text: #f1f3f5;
+            --text-sub: #9299a6;
+
+            --accent: #8c7cff;
+            --accent-soft: rgba(140, 124, 255, 0.12);
+
+            --radius: 14px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(103, 87, 210, 0.10),
+                    transparent 420px
+                ),
+                var(--bg);
+
+            color: var(--text);
+
+            font-family:
+                Pretendard,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "Noto Sans KR",
+                Arial,
+                sans-serif;
+
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* =========================
+           Header
+        ========================= */
+
+        header {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 13, 18, 0.82);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 42px 24px 38px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 12px;
+
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .logo-mark {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 14px var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 750;
+            letter-spacing: -0.04em;
+        }
+
+        .intro {
+            margin-top: 10px;
+
+            font-size: 15px;
+            color: var(--text-sub);
+        }
+
+
+        /* =========================
+           Main
+        ========================= */
+
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 10px 24px 80px;
+        }
+
+        section {
+            margin-top: 52px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .section-count {
+            padding: 3px 8px;
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            font-size: 11px;
+            color: var(--text-sub);
+        }
+
+
+        /* =========================
+           Grid
+        ========================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+
+        /* =========================
+           Card
+        ========================= */
+
+        .card {
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+
+            min-width: 0;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+
+            background: var(--card-hover);
+            border-color: #464d5d;
+        }
+
+        .card-image {
+            position: relative;
+
+            width: 100%;
+            aspect-ratio: 16 / 9;
+
+            overflow: hidden;
+
+            background: #090b0f;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.035);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+
+            padding: 17px 18px 18px;
+        }
+
+        .card-category {
+            margin-bottom: 6px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            color: var(--accent);
+
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+
+            line-height: 1.4;
+        }
+
+        .card-description {
+            margin-top: 7px;
+
+            font-size: 13px;
+            line-height: 1.55;
+
+            color: var(--text-sub);
+        }
+
+        .card-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: auto;
+            padding-top: 16px;
+
+            font-size: 12px;
+            color: #b7bdc8;
+        }
+
+        .arrow {
+            font-size: 16px;
+
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover .arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           Featured card
+        ========================= */
+
+        .featured {
+            border-color: rgba(140, 124, 255, 0.45);
+        }
+
+        .featured::after {
+            content: "NEW";
+
+            position: absolute;
+            top: 12px;
+            right: 12px;
+
+            z-index: 2;
+
+            padding: 4px 8px;
+
+            border-radius: 6px;
+
+            background: var(--accent);
+            color: white;
+
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+
+        /* =========================
+           Channel cards
+        ========================= */
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .channel-card {
+            display: flex;
+            align-items: center;
+
+            min-width: 0;
+
+            padding: 14px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-3px);
+
+            background: var(--card-hover);
+            border-color: #464d5d;
+        }
+
+        .channel-image {
+            flex: 0 0 auto;
+
+            width: 52px;
+            height: 52px;
+
+            margin-right: 14px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+            background: #090b0f;
+        }
+
+        .channel-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .channel-info {
+            min-width: 0;
+        }
+
+        .channel-name {
+            font-size: 15px;
+            font-weight: 650;
+        }
+
+        .channel-desc {
+            margin-top: 2px;
+
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 24px;
+
+            font-size: 12px;
+            color: #626977;
+        }
+
+
+        /* =========================
+           Responsive
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .channel-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .header-inner {
+                padding: 32px 18px;
+            }
+
+            main {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            section {
+                margin-top: 40px;
+            }
+
+            .grid,
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-image {
+                aspect-ratio: 16 / 8.5;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="logo">
+            <span class="logo-mark"></span>
+            AnotherKyo
+        </div>
+
+        <h1>Workspace</h1>
+
+        <p class="intro">
+            개인 프로젝트와 게임 관련 도구, 기록을 모아둔 작업 공간입니다.
+        </p>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- ========================================
+         PROJECT
+    ========================================= -->
+
+    <section>
+
+        <div class="section-header">
+            <h2 class="section-title">Project</h2>
+            <span class="section-count">3</span>
+        </div>
+
+        <div class="grid">
+
+
+            <!-- 랑그릿사 시뮬레이터 -->
+
+            <a class="card"
+               href="./langrisser/">
+
+                <div class="card-image">
+                    <img
+                        src="./img/lang.jpg"
+                        alt="랑그릿사 모바일 시뮬레이터"
+                        loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Simulator
+                    </div>
+
+                    <h3 class="card-title">
+                        랑그릿사 모바일 시뮬레이터
+                    </h3>
+
+                    <p class="card-description">
+                        랑그릿사 모바일 관련 시뮬레이션 도구
+                    </p>
+
+                    <div class="card-link">
+                        <span>Open Project</span>
+                        <span class="arrow">→</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- 아르케랜드 -->
+
+            <a class="card"
+               href="./archeland/">
+
+                <div class="card-image">
+                    <img
+                        src="./img/arche.webp"
+                        alt="아르케랜드 시뮬레이터"
+                        loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Simulator
+                    </div>
+
+                    <h3 class="card-title">
+                        아르케랜드 시뮬레이터
+                    </h3>
+
+                    <p class="card-description">
+                        아르케랜드 관련 시뮬레이션 도구
+                    </p>
+
+                    <div class="card-link">
+                        <span>Open Project</span>
+                        <span class="arrow">→</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- CZN -->
+
+            <a class="card"
+               href="./czn/">
+
+                <div class="card-image">
+                    <img
+                        src="./img/czn.jpg"
+                        alt="카오스 제로 나이트메어 시뮬레이터"
+                        loading="lazy">
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Simulator
+                    </div>
+
+                    <h3 class="card-title">
+                        카오스 제로 나이트메어 시뮬레이터
+                    </h3>
+
+                    <p class="card-description">
+                        카오스 제로 나이트메어 관련 시뮬레이션 도구
+                    </p>
+
+                    <div class="card-link">
+                        <span>Open Project</span>
+                        <span class="arrow">→</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         RECORDS
+    ========================================= -->
+
+    <section>
+
+        <div class="section-header">
+            <h2 class="section-title">Records</h2>
+            <span class="section-count">2</span>
+        </div>
+
+        <div class="grid">
+
+
+            <!-- 랑그릿사 기록실 -->
+
+            <a class="card featured"
+               href="https://langrisser-records.anotherkyo.chatgpt.site/"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="card-image">
+
+                    <img
+                        src="https://langrisser-records.anotherkyo.chatgpt.site/images/langrisser-hero.png"
+                        alt="랑그릿사 모바일 기록실"
+                        loading="lazy">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Records
+                    </div>
+
+                    <h3 class="card-title">
+                        랑그릿사 모바일 기록실
+                    </h3>
+
+                    <p class="card-description">
+                        시즌 기록, 선수 정보 및 랭킹을 확인할 수 있는 기록실
+                    </p>
+
+                    <div class="card-link">
+                        <span>Open Records</span>
+                        <span class="arrow">↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- 토너먼트 시트 -->
+
+            <a class="card"
+               href="https://docs.google.com/spreadsheets/d/19eLjTpcTDSZLiyTAMJGSBXJkWLAmq7QYs3t9qWEGv40/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="card-image">
+
+                    <img
+                        src="./img/googleSheet.png"
+                        alt="랑그릿사 모바일 토너성적 KR 시트"
+                        loading="lazy">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Data
+                    </div>
+
+                    <h3 class="card-title">
+                        랑그릿사 모바일 토너성적 (KR)
+                    </h3>
+
+                    <p class="card-description">
+                        토너먼트 기록 및 관련 데이터를 정리한 Google Sheet
+                    </p>
+
+                    <div class="card-link">
+                        <span>Open Sheet</span>
+                        <span class="arrow">↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         GALLERY
+    ========================================= -->
+
+    <section>
+
+        <div class="section-header">
+            <h2 class="section-title">Gallery</h2>
+            <span class="section-count">2</span>
+        </div>
+
+        <div class="grid">
+
+
+            <!-- 피규어 갤러리 -->
+
+            <a class="card"
+               href="./gallery/langrisser/">
+
+                <div class="card-image">
+
+                    <img
+                        src="./img/lang.jpg"
+                        alt="랑그릿사 모바일 피규어 갤러리"
+                        loading="lazy">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Gallery
+                    </div>
+
+                    <h3 class="card-title">
+                        랑그릿사 모바일 갤러리
+                    </h3>
+
+                    <p class="card-description">
+                        랑그릿사 관련 피규어 및 컬렉션
+                    </p>
+
+                    <div class="card-link">
+                        <span>View Gallery</span>
+                        <span class="arrow">→</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- 명품관 -->
+
+            <a class="card"
+               href="./gallery/langrisserLux/">
+
+                <div class="card-image">
+
+                    <img
+                        src="./img/langLux.png"
+                        alt="랑그릿사 모바일 명품관"
+                        loading="lazy">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Collection
+                    </div>
+
+                    <h3 class="card-title">
+                        랑그릿사 모바일 명품관
+                    </h3>
+
+                    <p class="card-description">
+                        랑그릿사 모바일 명품 컬렉션
+                    </p>
+
+                    <div class="card-link">
+                        <span>View Collection</span>
+                        <span class="arrow">→</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================
+         CHANNEL
+    ========================================= -->
+
+    <section>
+
+        <div class="section-header">
+            <h2 class="section-title">Channel</h2>
+            <span class="section-count">3</span>
+        </div>
+
+        <div class="channel-grid">
+
+
+            <!-- CHZZK -->
+
+            <a class="channel-card"
+               href="https://chzzk.naver.com/311c2a9ef8537f267eea9963c81d7532"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="channel-image">
+
+                    <img
+                        src="./img/chzzk.png"
+                        alt="치지직">
+
+                </div>
+
+                <div class="channel-info">
+
+                    <div class="channel-name">
+                        치지직
+                    </div>
+
+                    <div class="channel-desc">
+                        Streaming Channel ↗
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- YouTube -->
+
+            <a class="channel-card"
+               href="https://www.youtube.com/channel/UCuhTU0U-rYYQ1WW3jm2-jNg"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="channel-image">
+
+                    <img
+                        src="./img/akyo.jpg"
+                        alt="YouTube">
+
+                </div>
+
+                <div class="channel-info">
+
+                    <div class="channel-name">
+                        YouTube
+                    </div>
+
+                    <div class="channel-desc">
+                        Video Channel ↗
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Twitch -->
+
+            <a class="channel-card"
+               href="https://www.twitch.tv/anotherkyo"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <div class="channel-image">
+
+                    <img
+                        src="./img/aak.png"
+                        alt="Twitch">
+
+                </div>
+
+                <div class="channel-info">
+
+                    <div class="channel-name">
+                        Twitch
+                    </div>
+
+                    <div class="channel-desc">
+                        Streaming Channel ↗
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <div class="footer-inner">
+        AnotherKyo Workspace
+    </div>
+
+</footer>
+
+
+</body>
+</html>
