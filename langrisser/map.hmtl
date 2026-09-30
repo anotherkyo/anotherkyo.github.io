@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>랑그릿사 모바일 맵 추첨</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 0%, #263449 0%, #111720 42%, #090c11 100%);
+    color: #eee;
+    font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    width: min(1100px, 94vw);
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 8px;
+    color: #e5c67a;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.sub-title {
+    color: #8993a2;
+    margin-bottom: 32px;
+}
+
+/* =========================
+   룰렛
+========================= */
+
+.roulette-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 25px 0;
+    border-top: 1px solid #806c3d;
+    border-bottom: 1px solid #806c3d;
+    background: rgba(0,0,0,.32);
+    box-shadow:
+        inset 0 0 40px rgba(0,0,0,.7),
+        0 10px 40px rgba(0,0,0,.25);
+}
+
+/* 좌우 어둡게 */
+.roulette-wrap::before,
+.roulette-wrap::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.roulette-wrap::before {
+    left: 0;
+    background: linear-gradient(90deg, #090c11 10%, transparent);
+}
+
+.roulette-wrap::after {
+    right: 0;
+    background: linear-gradient(-90deg, #090c11 10%, transparent);
+}
+
+.roulette-track {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    transform: translateX(0);
+    will-change: transform;
+}
+
+.map-card {
+    position: relative;
+    flex: 0 0 190px;
+    height: 245px;
+    overflow: hidden;
+    background: #171d25;
+    border: 1px solid #414957;
+    border-radius: 7px;
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+}
+
+.map-card img {
+    width: 100%;
+    height: 195px;
+    display: block;
+    object-fit: cover;
+}
+
+.map-name {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #dce1e8;
+}
+
+.map-card.winner {
+    border-color: #f1d278;
+    box-shadow:
+        0 0 10px rgba(241,210,120,.8),
+        0 0 30px rgba(241,210,120,.4);
+    transform: scale(1.05);
+}
+
+/* 중앙 선택 마커 */
+
+.selector {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 8px;
+    bottom: 8px;
+    width: 194px;
+    transform: translateX(-50%);
+    border-left: 2px solid #e7c467;
+    border-right: 2px solid #e7c467;
+    pointer-events: none;
+}
+
+.selector::before,
+.selector::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffd875;
+    font-size: 25px;
+    line-height: 1;
+    text-shadow: 0 0 8px #e3af38;
+}
+
+.selector::before {
+    content: "▼";
+    top: -22px;
+}
+
+.selector::after {
+    content: "▲";
+    bottom: -22px;
+}
+
+/* =========================
+   결과
+========================= */
+
+.result {
+    height: 60px;
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.result .selected {
+    color: #f1ce70;
+    font-size: 25px;
+    margin-left: 8px;
+}
+
+/* =========================
+   버튼
+========================= */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button {
+    border: 1px solid #92783d;
+    border-radius: 5px;
+    padding: 12px 22px;
+    background: linear-gradient(#3d3422, #211c13);
+    color: #f1d78d;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    border-color: #e6c66c;
+    background: linear-gradient(#504326, #2b2415);
+}
+
+button:disabled {
+    opacity: .45;
+    cursor: default;
+}
+
+.draw-btn {
+    min-width: 180px;
+    padding: 14px 30px;
+    font-size: 18px;
+}
+
+/* 체크박스 */
+
+.option {
+    margin-top: 22px;
+    color: #bfc5ce;
+    font-size: 14px;
+}
+
+.option label {
+    cursor: pointer;
+}
+
+/* =========================
+   제외 맵
+========================= */
+
+.excluded-box {
+    margin: 35px auto 0;
+    max-width: 800px;
+    padding-top: 20px;
+    border-top: 1px solid #303744;
+}
+
+.excluded-title {
+    margin-bottom: 12px;
+    color: #828b98;
+    font-size: 14px;
+}
+
+.excluded-list {
+    min-height: 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.excluded-item {
+    padding: 6px 10px;
+    border: 1px solid #3d4551;
+    border-radius: 4px;
+    background: #151a21;
+    color: #89919c;
+    font-size: 12px;
+}
+
+.empty {
+    color: #59616d;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .map-card {
+        flex-basis: 150px;
+        height: 205px;
+    }
+
+    .map-card img {
+        height: 160px;
+    }
+
+    .map-name {
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .selector {
+        width: 154px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <h1>LANGRISSER MOBILE</h1>
+    <div class="sub-title">MAP RANDOM SELECT</div>
+
+    <div class="roulette-wrap" id="rouletteWrap">
+
+        <div class="selector"></div>
+
+        <div class="roulette-track" id="rouletteTrack"></div>
+
+    </div>
+
+    <div class="result" id="result">
+        맵 추첨을 시작해주세요.
+    </div>
+
+    <div class="controls">
+
+        <button class="draw-btn" id="drawBtn">
+            🎲 맵 추첨
+        </button>
+
+        <button id="resetBtn">
+            제외 맵 초기화
+        </button>
+
+    </div>
+
+    <div class="option">
+        <label>
+            <input type="checkbox" id="excludeOption" checked>
+            추첨된 맵은 다음 추첨에서 제외
+        </label>
+    </div>
+
+    <div class="excluded-box">
+
+        <div class="excluded-title">
+            제외된 맵
+        </div>
+
+        <div class="excluded-list" id="excludedList"></div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================================================
+   맵 데이터
+   실제 사용할 때 이 부분만 수정하면 됩니다.
+========================================================= */
+
+const maps = [
+
+    {
+        id: "map01",
+        name: "맵 01",
+        image: "https://picsum.photos/seed/lang01/400/300"
+    },
+
+    {
+        id: "map02",
+        name: "맵 02",
+        image: "https://picsum.photos/seed/lang02/400/300"
+    },
+
+    {
+        id: "map03",
+        name: "맵 03",
+        image: "https://picsum.photos/seed/lang03/400/300"
+    },
+
+    {
+        id: "map04",
+        name: "맵 04",
+        image: "https://picsum.photos/seed/lang04/400/300"
+    },
+
+    {
+        id: "map05",
+        name: "맵 05",
+        image: "https://picsum.photos/seed/lang05/400/300"
+    },
+
+    {
+        id: "map06",
+        name: "맵 06",
+        image: "https://picsum.photos/seed/lang06/400/300"
+    },
+
+    {
+        id: "map07",
+        name: "맵 07",
+        image: "https://picsum.photos/seed/lang07/400/300"
+    },
+
+    {
+        id: "map08",
+        name: "맵 08",
+        image: "https://picsum.photos/seed/lang08/400/300"
+    },
+
+    {
+        id: "map09",
+        name: "맵 09",
+        image: "https://picsum.photos/seed/lang09/400/300"
+    },
+
+    {
+        id: "map10",
+        name: "맵 10",
+        image: "https://picsum.photos/seed/lang10/400/300"
+    }
+
+];
+
+
+/* =========================================================
+   변수
+========================================================= */
+
+const track = document.getElementById("rouletteTrack");
+const rouletteWrap = document.getElementById("rouletteWrap");
+
+const drawBtn = document.getElementById("drawBtn");
+const resetBtn = document.getElementById("resetBtn");
+
+const result = document.getElementById("result");
+const excludedList = document.getElementById("excludedList");
+const excludeOption = document.getElementById("excludeOption");
+
+
+let excludedMaps = [];
+let drawing = false;
+
+
+/* =========================================================
+   랜덤
+========================================================= */
+
+function randomItem(array) {
+
+    return array[
+        Math.floor(Math.random() * array.length)
+    ];
+
+}
+
+
+/* =========================================================
+   카드 생성
+========================================================= */
+
+function createCard(map) {
+
+    const card = document.createElement("div");
+
+    card.className = "map-card";
+
+    card.innerHTML = `
+        <img src="${map.image}" alt="${map.name}">
+        <div class="map-name">${map.name}</div>
+    `;
+
+    return card;
+
+}
+
+
+/* =========================================================
+   추첨
+========================================================= */
+
+function drawMap() {
+
+    if (drawing) return;
+
+
+    /* 현재 사용 가능한 맵 */
+
+    const availableMaps = maps.filter(
+        map => !excludedMaps.includes(map.id)
+    );
+
+
+    if (availableMaps.length === 0) {
+
+        result.innerHTML =
+            "모든 맵이 추첨되었습니다. 제외 맵을 초기화해주세요.";
+
+        return;
+
+    }
+
+
+    drawing = true;
+
+    drawBtn.disabled = true;
+    resetBtn.disabled = true;
+
+    result.innerHTML = "맵 추첨 중...";
+
+
+    /* 당첨 맵 먼저 결정 */
+
+    const winner = randomItem(availableMaps);
+
+
+    /* 트랙 생성 */
+
+    track.innerHTML = "";
+    track.style.transition = "none";
+    track.style.transform = "translateX(0px)";
+
+
+    /*
+       후보 카드 약 45개 생성
+
+       마지막 부근에 실제 당첨 맵을 배치해서
+       자연스럽게 멈추게 합니다.
+    */
+
+    const rouletteMaps = [];
+
+    for (let i = 0; i < 42; i++) {
+
+        rouletteMaps.push(
+            randomItem(availableMaps)
+        );
+
+    }
+
+
+    /* 실제 당첨 위치 */
+
+    const winnerIndex = rouletteMaps.length;
+
+    rouletteMaps.push(winner);
+
+
+    /* 당첨 뒤에도 카드 표시 */
+
+    for (let i = 0; i < 5; i++) {
+
+        rouletteMaps.push(
+            randomItem(availableMaps)
+        );
+
+    }
+
+
+    rouletteMaps.forEach((map, index) => {
+
+        const card = createCard(map);
+
+        if (index === winnerIndex) {
+
+            card.dataset.winner = "true";
+
+        }
+
+        track.appendChild(card);
+
+    });
+
+
+    /*
+       DOM 계산을 위해 한 프레임 대기
+    */
+
+    requestAnimationFrame(() => {
+
+        requestAnimationFrame(() => {
+
+            const cards =
+                track.querySelectorAll(".map-card");
+
+            const winnerCard =
+                cards[winnerIndex];
+
+
+            /*
+               당첨 카드 중앙 위치 계산
+            */
+
+            const cardCenter =
+                winnerCard.offsetLeft +
+                winnerCard.offsetWidth / 2;
+
+            const containerCenter =
+                rouletteWrap.clientWidth / 2;
+
+
+            /*
+               약간 랜덤하게 출발 위치 변경
+            */
+
+            const startOffset =
+                Math.random() * 120;
+
+            track.style.transform =
+                `translateX(${startOffset}px)`;
+
+
+            /*
+               다시 한 프레임 기다린 후 이동
+            */
+
+            requestAnimationFrame(() => {
+
+                /*
+                   2.7초 동안 감속
+
+                   cubic-bezier를 이용해
+                   처음에는 빠르고
+                   마지막에는 천천히 움직입니다.
+                */
+
+                track.style.transition =
+                    "transform 2.7s cubic-bezier(0.12, 0.72, 0.12, 1)";
+
+
+                const target =
+                    containerCenter - cardCenter;
+
+
+                track.style.transform =
+                    `translateX(${target}px)`;
+
+
+            });
+
+        });
+
+    });
+
+
+    /* =====================================================
+       애니메이션 종료
+    ===================================================== */
+
+    setTimeout(() => {
+
+        const winnerCard =
+            track.querySelector('[data-winner="true"]');
+
+
+        winnerCard.classList.add("winner");
+
+
+        result.innerHTML = `
+            선택된 맵
+            <span class="selected">
+                ${winner.name}
+            </span>
+        `;
+
+
+        /*
+           자동 제외 옵션
+        */
+
+        if (excludeOption.checked) {
+
+            if (!excludedMaps.includes(winner.id)) {
+
+                excludedMaps.push(winner.id);
+
+            }
+
+            updateExcludedList();
+
+        }
+
+
+        drawing = false;
+
+        drawBtn.disabled = false;
+        resetBtn.disabled = false;
+
+
+        /*
+           남은 맵 표시
+        */
+
+        const remaining =
+            maps.length - excludedMaps.length;
+
+
+        if (
+            excludeOption.checked &&
+            remaining > 0
+        ) {
+
+            result.innerHTML +=
+                ` <span style="
+                    font-size:13px;
+                    color:#737d8a;
+                    margin-left:12px;
+                ">
+                    남은 맵 ${remaining}개
+                </span>`;
+
+        }
+
+
+    }, 2800);
+
+}
+
+
+/* =========================================================
+   제외 목록 표시
+========================================================= */
+
+function updateExcludedList() {
+
+    excludedList.innerHTML = "";
+
+
+    if (excludedMaps.length === 0) {
+
+        excludedList.innerHTML =
+            `<span class="empty">
+                제외된 맵이 없습니다.
+            </span>`;
+
+        return;
+
+    }
+
+
+    excludedMaps.forEach(id => {
+
+        const map =
+            maps.find(map => map.id === id);
+
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "excluded-item";
+
+
+        item.textContent =
+            map.name;
+
+
+        excludedList.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   제외 초기화
+========================================================= */
+
+function resetExcluded() {
+
+    if (drawing) return;
+
+
+    excludedMaps = [];
+
+
+    updateExcludedList();
+
+
+    result.innerHTML =
+        "제외된 맵이 초기화되었습니다.";
+
+}
+
+
+/* =========================================================
+   이벤트
+========================================================= */
+
+drawBtn.addEventListener(
+    "click",
+    drawMap
+);
+
+
+resetBtn.addEventListener(
+    "click",
+    resetExcluded
+);
+
+
+updateExcludedList();
+
+</script>
+
+</body>
+</html>
