@@ -16,8 +16,13 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
+    padding: 0;
+}
+
+body {
     min-height: 100vh;
 
     background:
@@ -35,16 +40,20 @@ body {
         "Noto Sans KR",
         Arial,
         sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
 }
+
+
+/* =========================================================
+   전체 레이아웃
+
+   기존보다 상/하 여백을 줄여
+   한 화면에 최대한 많은 내용을 표시
+========================================================= */
 
 .wrap {
     width: min(1200px, 96vw);
 
-    margin: 30px auto 50px;
+    margin: 18px auto 28px;
 
     text-align: center;
 }
@@ -52,40 +61,77 @@ body {
 
 /* =========================================================
    대문 이미지
+
+   원본 비율 전체를 표시하지 않고
+   기록실처럼 배너 형태로 높이를 제한
 ========================================================= */
 
 .hero {
     position: relative;
 
     width: 100%;
-    max-width: 1200px;
 
-    margin: 0 auto 30px;
+    height:
+        clamp(
+            240px,
+            23vh,
+            320px
+        );
+
+    margin: 0 auto 18px;
 
     overflow: hidden;
 
-    border: 1px solid rgba(229, 198, 122, .35);
+    border:
+        1px solid rgba(229, 198, 122, .35);
+
     border-radius: 10px;
 
-    background: #111720;
+    background:
+        #111720;
 
     box-shadow:
-        0 12px 35px rgba(0, 0, 0, .4);
+        0 10px 30px rgba(0, 0, 0, .35);
 }
+
+
+/* =========================================================
+   대문 이미지
+
+   height: auto 사용하지 않음.
+
+   정해진 hero 영역에 맞춰
+   이미지를 잘라서 표시
+========================================================= */
 
 .hero img {
     display: block;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
-    user-select: none;
-    -webkit-user-drag: none;
+    object-fit: cover;
+
+    /*
+       이미지에서 보여주고 싶은
+       세로 중심 위치.
+
+       필요하면 35%, 50% 등으로
+       조정하면 됨.
+    */
+    object-position:
+        center 42%;
+
+    user-select:
+        none;
+
+    -webkit-user-drag:
+        none;
 }
 
 
 /* =========================================================
-   대문 오버레이 타이틀
+   대문 타이틀
 
    이미지 기준 약 7시 방향
 ========================================================= */
@@ -93,21 +139,28 @@ body {
 .hero-title {
     position: absolute;
 
+    z-index: 2;
+
     left: 5%;
     bottom: 10%;
 
-    z-index: 2;
+    padding:
+        10px 22px 11px;
 
-    padding: 10px 22px 11px;
+    color:
+        #f4d77d;
 
-    color: #f4d77d;
+    font-size:
+        26px;
 
-    font-size: 26px;
-    font-weight: 800;
+    font-weight:
+        800;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
 
     background:
         linear-gradient(
@@ -136,6 +189,8 @@ body {
 
 /* =========================================================
    룰렛 영역
+
+   기존 30px → 22px
 ========================================================= */
 
 .roulette-wrap {
@@ -145,7 +200,8 @@ body {
 
     overflow: hidden;
 
-    padding: 30px 0;
+    padding:
+        22px 0;
 
     border-top:
         1px solid #806c3d;
@@ -158,12 +214,12 @@ body {
 
     box-shadow:
         inset 0 0 40px rgba(0, 0, 0, .7),
-        0 10px 40px rgba(0, 0, 0, .25);
+        0 8px 30px rgba(0, 0, 0, .25);
 }
 
 
 /* =========================================================
-   좌우 페이드
+   룰렛 좌우 페이드
 ========================================================= */
 
 .roulette-wrap::before,
@@ -214,9 +270,11 @@ body {
 .roulette-track {
     display: flex;
 
-    gap: 18px;
+    gap:
+        18px;
 
-    width: max-content;
+    width:
+        max-content;
 
     transform:
         translateX(0);
@@ -229,21 +287,26 @@ body {
 /* =========================================================
    맵 카드
 
-   이미지 원본 비율 : 550 × 290
+   이미지 자체에 맵 이름이 있으므로
+   별도의 이름 표시 영역 없음.
 
-   이미지 자체에 맵 이름이 있기 때문에
-   별도의 이름 영역은 사용하지 않음
+   원본 기준 550 × 290
 ========================================================= */
 
 .map-card {
     position: relative;
 
-    flex: 0 0 550px;
+    flex:
+        0 0 550px;
 
-    width: 550px;
-    height: 290px;
+    width:
+        550px;
 
-    overflow: hidden;
+    height:
+        290px;
+
+    overflow:
+        hidden;
 
     background:
         #171d25;
@@ -267,8 +330,11 @@ body {
 .map-card img {
     display: block;
 
-    width: 100%;
-    height: 100%;
+    width:
+        100%;
+
+    height:
+        100%;
 
     object-fit:
         cover;
@@ -311,10 +377,14 @@ body {
 
     left: 50%;
 
-    top: 20px;
-    bottom: 20px;
+    top:
+        12px;
 
-    width: 554px;
+    bottom:
+        12px;
+
+    width:
+        554px;
 
     transform:
         translateX(-50%);
@@ -342,7 +412,7 @@ body {
         #ffd875;
 
     font-size:
-        25px;
+        24px;
 
     line-height:
         1;
@@ -354,48 +424,64 @@ body {
 .selector::before {
     content: "▼";
 
-    top: -22px;
+    top:
+        -18px;
 }
 
 .selector::after {
     content: "▲";
 
-    bottom: -22px;
+    bottom:
+        -18px;
 }
 
 
 /* =========================================================
-   결과
+   추첨 결과
+
+   기존보다 높이/여백 축소
 ========================================================= */
 
 .result {
-    min-height: 60px;
+    min-height:
+        50px;
 
-    margin-top: 22px;
+    margin-top:
+        14px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
 
-    flex-wrap: wrap;
+    justify-content:
+        center;
 
-    font-size: 21px;
-    font-weight: 700;
+    flex-wrap:
+        wrap;
+
+    font-size:
+        20px;
+
+    font-weight:
+        700;
 }
 
 .result .selected {
-    margin-left: 8px;
+    margin-left:
+        8px;
 
     color:
         #f1ce70;
 
     font-size:
-        25px;
+        24px;
 }
 
 .remaining {
-    margin-left: 12px;
+    margin-left:
+        12px;
 
     color:
         #737d8a;
@@ -406,25 +492,34 @@ body {
 
 
 /* =========================================================
-   버튼
+   버튼 영역
+
+   세로 여백 축소
 ========================================================= */
 
 .controls {
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
-    align-items: center;
+    justify-content:
+        center;
 
-    flex-wrap: wrap;
+    align-items:
+        center;
 
-    gap: 10px;
+    flex-wrap:
+        wrap;
 
-    margin-top: 15px;
+    gap:
+        10px;
+
+    margin-top:
+        8px;
 }
 
 button {
     padding:
-        12px 22px;
+        11px 22px;
 
     border:
         1px solid #92783d;
@@ -489,20 +584,22 @@ button:disabled {
         180px;
 
     padding:
-        14px 30px;
+        12px 30px;
 
     font-size:
-        18px;
+        17px;
 }
 
 
 /* =========================================================
    자동 제외 옵션
+
+   기존 22px → 14px
 ========================================================= */
 
 .option {
     margin-top:
-        22px;
+        14px;
 
     color:
         #bfc5ce;
@@ -524,6 +621,14 @@ button:disabled {
 
 /* =========================================================
    제외된 맵
+
+   기존
+       margin-top 35
+       padding-top 20
+
+   변경
+       margin-top 22
+       padding-top 14
 ========================================================= */
 
 .excluded-box {
@@ -531,10 +636,10 @@ button:disabled {
         900px;
 
     margin:
-        35px auto 0;
+        22px auto 0;
 
     padding-top:
-        20px;
+        14px;
 
     border-top:
         1px solid #303744;
@@ -542,7 +647,7 @@ button:disabled {
 
 .excluded-title {
     margin-bottom:
-        12px;
+        10px;
 
     color:
         #828b98;
@@ -553,7 +658,7 @@ button:disabled {
 
 .excluded-list {
     min-height:
-        32px;
+        30px;
 
     display:
         flex;
@@ -570,7 +675,7 @@ button:disabled {
 
 .excluded-item {
     padding:
-        6px 10px;
+        5px 10px;
 
     border:
         1px solid #3d4551;
@@ -598,6 +703,60 @@ button:disabled {
 
 
 /* =========================================================
+   중간 높이 모니터
+
+   1080p 등에서는 대문을 조금 더 축소
+========================================================= */
+
+@media (max-height: 1100px) and (min-width: 701px) {
+
+    .hero {
+        height:
+            clamp(
+                210px,
+                22vh,
+                260px
+            );
+
+        margin-bottom:
+            14px;
+    }
+
+    .wrap {
+        margin-top:
+            12px;
+    }
+
+    .roulette-wrap {
+        padding:
+            18px 0;
+    }
+
+    .result {
+        min-height:
+            44px;
+
+        margin-top:
+            10px;
+    }
+
+    .option {
+        margin-top:
+            10px;
+    }
+
+    .excluded-box {
+        margin-top:
+            16px;
+
+        padding-top:
+            10px;
+    }
+
+}
+
+
+/* =========================================================
    태블릿 / 모바일
 ========================================================= */
 
@@ -607,23 +766,29 @@ button:disabled {
         width:
             96vw;
 
-        margin-top:
-            18px;
+        margin:
+            14px auto 25px;
     }
 
 
-    /* 대문 */
+    /* =====================================================
+       대문
+    ===================================================== */
 
     .hero {
+        height:
+            clamp(
+                170px,
+                28vw,
+                230px
+            );
+
         margin-bottom:
-            22px;
+            16px;
 
         border-radius:
             7px;
     }
-
-
-    /* 대문 오버레이 제목 */
 
     .hero-title {
         left:
@@ -646,16 +811,17 @@ button:disabled {
     }
 
 
-    /* 룰렛 */
+    /* =====================================================
+       룰렛
+    ===================================================== */
 
     .roulette-wrap {
         padding:
-            25px 0;
+            20px 0;
     }
 
 
     /*
-       모바일에서도
        550 : 290 비율 유지
     */
 
@@ -682,25 +848,32 @@ button:disabled {
     }
 
 
-    /* 중앙 선택 영역 */
+    /* =====================================================
+       선택선
+    ===================================================== */
 
     .selector {
         top:
-            15px;
+            10px;
 
         bottom:
-            15px;
+            10px;
 
         width:
             calc(82vw + 4px);
     }
 
 
-    /* 결과 */
+    /* =====================================================
+       결과
+    ===================================================== */
 
     .result {
+        min-height:
+            45px;
+
         margin-top:
-            18px;
+            12px;
 
         font-size:
             17px;
@@ -709,6 +882,16 @@ button:disabled {
     .result .selected {
         font-size:
             21px;
+    }
+
+
+    /* =====================================================
+       제외영역
+    ===================================================== */
+
+    .excluded-box {
+        margin-top:
+            18px;
     }
 
 }
@@ -720,7 +903,10 @@ button:disabled {
 
 @media (max-width: 420px) {
 
-    /* 대문 제목 */
+    .hero {
+        height:
+            160px;
+    }
 
     .hero-title {
         left:
@@ -740,8 +926,6 @@ button:disabled {
     }
 
 
-    /* 룰렛 */
-
     .map-card {
         flex-basis:
             86vw;
@@ -756,8 +940,6 @@ button:disabled {
     }
 
 
-    /* 버튼 */
-
     .controls {
         gap:
             8px;
@@ -765,31 +947,29 @@ button:disabled {
 
     .draw-btn {
         min-width:
-            160px;
+            155px;
 
         font-size:
-            16px;
+            15px;
     }
 
     button {
         padding:
-            11px 15px;
+            10px 14px;
 
         font-size:
             13px;
     }
 
 
-    /* 결과 */
-
     .result {
         font-size:
-            16px;
+            15px;
     }
 
     .result .selected {
         font-size:
-            20px;
+            19px;
     }
 
 }
@@ -804,7 +984,7 @@ button:disabled {
 
 
     <!-- =====================================================
-         대문 이미지
+         대문
     ====================================================== -->
 
     <div class="hero">
@@ -814,12 +994,6 @@ button:disabled {
             alt="랑그릿사 모바일 맵 추첨"
             draggable="false"
         >
-
-
-        <!--
-            이미지 기준 약 7시 방향에
-            겹쳐서 표시되는 타이틀
-        -->
 
         <div class="hero-title">
             Langrisser Map Select
@@ -919,7 +1093,6 @@ button:disabled {
 
     </div>
 
-
 </div>
 
 
@@ -927,15 +1100,6 @@ button:disabled {
 
 /* =========================================================
    맵 데이터
-
-   맵 이름은 카드 아래에는 표시하지 않음.
-
-   하지만
-   - 추첨 결과
-   - 제외 목록
-   - 이미지 alt
-
-   에서 사용하므로 name 값은 유지.
 ========================================================= */
 
 const maps = [
@@ -1082,12 +1246,6 @@ function randomItem(array) {
 
 /* =========================================================
    특정 맵 제외 랜덤
-
-   excludeIds에 포함된 맵을 제외한 뒤
-   랜덤 선택.
-
-   룰렛에서 동일한 맵이 바로 연속해서
-   표시되지 않도록 사용.
 ========================================================= */
 
 function randomItemExcept(
@@ -1115,11 +1273,6 @@ function randomItemExcept(
     }
 
 
-    /*
-       혹시 후보가 하나도 없다면
-       원본 배열에서 선택
-    */
-
     return randomItem(
         array
     );
@@ -1128,10 +1281,10 @@ function randomItemExcept(
 
 
 /* =========================================================
-   맵 카드 생성
+   카드 생성
 
    이미지 자체에 맵 이름이 있으므로
-   별도의 하단 이름 영역은 생성하지 않음.
+   별도 이름 영역은 만들지 않음
 ========================================================= */
 
 function createCard(map) {
@@ -1179,7 +1332,7 @@ function getAvailableMaps() {
 
 
 /* =========================================================
-   특정 카드를 화면 중앙으로 이동
+   카드 중앙 정렬
 ========================================================= */
 
 function centerCard(card) {
@@ -1212,8 +1365,6 @@ function centerCard(card) {
 
 /* =========================================================
    초기 맵 미리보기
-
-   아직 제외되지 않은 맵들을 표시.
 ========================================================= */
 
 function showInitialMaps() {
@@ -1229,10 +1380,6 @@ function showInitialMaps() {
     track.style.transition =
         "none";
 
-
-    /*
-       현재 추첨 가능한 맵 표시
-    */
 
     availableMaps.forEach(
         map => {
@@ -1251,10 +1398,6 @@ function showInitialMaps() {
     );
 
 
-    /*
-       남은 맵 없음
-    */
-
     if (
         availableMaps.length === 0
     ) {
@@ -1266,11 +1409,6 @@ function showInitialMaps() {
 
     }
 
-
-    /*
-       목록의 중앙 정도에 있는 카드를
-       화면 중앙으로 위치시킴
-    */
 
     requestAnimationFrame(
         () => {
@@ -1284,9 +1422,7 @@ function showInitialMaps() {
             if (
                 cards.length === 0
             ) {
-
                 return;
-
             }
 
 
@@ -1310,20 +1446,16 @@ function showInitialMaps() {
 
 
 /* =========================================================
-   룰렛 연출 배열 생성
+   룰렛 연출 배열
 
-   중요:
+   실제 당첨 후보와
+   연출용 카드를 분리.
 
-   실제 당첨 후보
-       = 아직 제외되지 않은 맵
+   실제 추첨:
+       남은 맵에서만
 
-   화면에 지나가는 연출용 맵
-       = 전체 맵
-
-   서로 분리해서 사용.
-
-   따라서 마지막 한 개의 맵만 남더라도
-   좌우에 다른 맵을 보여줄 수 있음.
+   연출:
+       전체 맵 사용
 ========================================================= */
 
 function createRouletteSequence(
@@ -1335,7 +1467,7 @@ function createRouletteSequence(
 
 
     /* =====================================================
-       당첨 전 카드 30개
+       당첨 전 연출 카드
     ===================================================== */
 
     for (
@@ -1351,10 +1483,6 @@ function createRouletteSequence(
                 ]
                 : null;
 
-
-        /*
-           직전 카드와 같은 맵 제외
-        */
 
         const excludeIds =
             previous
@@ -1379,11 +1507,9 @@ function createRouletteSequence(
 
 
     /* =====================================================
-       당첨 바로 왼쪽 카드 검사
+       당첨 바로 왼쪽 맵 보정
 
-       반드시
-
-       왼쪽 맵 ≠ 당첨 맵
+       왼쪽 ≠ 당첨
     ===================================================== */
 
     if (
@@ -1406,10 +1532,6 @@ function createRouletteSequence(
             winner.id
         ) {
 
-            /*
-               왼쪽의 왼쪽 카드
-            */
-
             const beforeLeft =
                 leftIndex > 0
                     ? rouletteMaps[
@@ -1418,20 +1540,11 @@ function createRouletteSequence(
                     : null;
 
 
-            /*
-               당첨 맵은 무조건 제외
-            */
-
             const excludeIds =
                 [
                     winner.id
                 ];
 
-
-            /*
-               왼쪽의 왼쪽 맵과도
-               중복되지 않도록 처리
-            */
 
             if (
                 beforeLeft
@@ -1471,12 +1584,10 @@ function createRouletteSequence(
 
 
     /* =====================================================
-       당첨 이후 카드 4개
+       당첨 이후 카드
 
-       직전 카드와 같은 맵이 나오지 않음.
-
-       첫 번째 반복에서는 직전 카드가 winner이므로
-       당첨 바로 오른쪽도 winner와 다름.
+       오른쪽 ≠ 당첨
+       연속 카드 중복 방지
     ===================================================== */
 
     for (
@@ -1527,29 +1638,19 @@ function createRouletteSequence(
 
 function drawMap() {
 
-    /*
-       추첨 중 중복 클릭 방지
-    */
-
     if (
         drawing
     ) {
-
         return;
-
     }
 
-
-    /* =====================================================
-       실제 추첨 가능한 맵
-    ===================================================== */
 
     const availableMaps =
         getAvailableMaps();
 
 
     /* =====================================================
-       모든 맵을 이미 추첨한 경우
+       모든 맵 추첨 완료
     ===================================================== */
 
     if (
@@ -1563,10 +1664,6 @@ function drawMap() {
 
     }
 
-
-    /* =====================================================
-       추첨 시작
-    ===================================================== */
 
     drawing =
         true;
@@ -1586,11 +1683,6 @@ function drawMap() {
 
     /* =====================================================
        실제 당첨 맵
-
-       반드시 availableMaps 안에서만 선택.
-
-       즉 이미 제외된 맵은
-       다시 당첨되지 않음.
     ===================================================== */
 
     const winner =
@@ -1600,7 +1692,7 @@ function drawMap() {
 
 
     /* =====================================================
-       룰렛 연출 배열
+       연출용 배열
     ===================================================== */
 
     const roulette =
@@ -1618,7 +1710,7 @@ function drawMap() {
 
 
     /* =====================================================
-       기존 룰렛 초기화
+       트랙 초기화
     ===================================================== */
 
     track.innerHTML =
@@ -1634,7 +1726,7 @@ function drawMap() {
 
 
     /* =====================================================
-       룰렛 카드 생성
+       카드 생성
     ===================================================== */
 
     rouletteMaps.forEach(
@@ -1645,11 +1737,6 @@ function drawMap() {
                     map
                 );
 
-
-            /*
-               실제 당첨 카드에만
-               data-winner 설정
-            */
 
             if (
                 index ===
@@ -1671,7 +1758,7 @@ function drawMap() {
 
 
     /* =====================================================
-       룰렛 이동 애니메이션
+       룰렛 애니메이션
     ===================================================== */
 
     requestAnimationFrame(
@@ -1693,28 +1780,16 @@ function drawMap() {
                         ];
 
 
-                    /*
-                       당첨 카드 중앙 좌표
-                    */
-
                     const cardCenter =
                         winnerCard.offsetLeft +
                         winnerCard.offsetWidth /
                         2;
 
 
-                    /*
-                       룰렛 화면 중앙
-                    */
-
                     const containerCenter =
                         rouletteWrap.clientWidth /
                         2;
 
-
-                    /*
-                       시작 위치에 약간의 랜덤값
-                    */
 
                     const startOffset =
                         Math.random() *
@@ -1729,18 +1804,9 @@ function drawMap() {
                         () => {
 
 
-                            /*
-                               약 2.7초 동안 감속
-                            */
-
                             track.style.transition =
                                 "transform 2.7s cubic-bezier(0.12, 0.72, 0.12, 1)";
 
-
-                            /*
-                               당첨 카드를 정확히
-                               중앙 선택 영역에 위치
-                            */
 
                             const target =
                                 containerCenter -
@@ -1761,7 +1827,7 @@ function drawMap() {
 
 
     /* =====================================================
-       추첨 종료
+       추첨 완료
     ===================================================== */
 
     setTimeout(
@@ -1773,10 +1839,6 @@ function drawMap() {
                     '[data-winner="true"]'
                 );
 
-
-            /* =================================================
-               당첨 카드 강조
-            ================================================= */
 
             if (
                 winnerCard
@@ -1790,7 +1852,7 @@ function drawMap() {
 
 
             /* =================================================
-               결과 표시
+               결과
             ================================================= */
 
             result.innerHTML = `
@@ -1830,10 +1892,6 @@ function drawMap() {
 
             }
 
-
-            /* =================================================
-               추첨 종료 상태
-            ================================================= */
 
             drawing =
                 false;
@@ -1898,7 +1956,7 @@ function drawMap() {
 
 
 /* =========================================================
-   제외된 맵 목록 갱신
+   제외 맵 목록
 ========================================================= */
 
 function updateExcludedList() {
@@ -1906,10 +1964,6 @@ function updateExcludedList() {
     excludedList.innerHTML =
         "";
 
-
-    /* =====================================================
-       제외된 맵 없음
-    ===================================================== */
 
     if (
         excludedMaps.length === 0
@@ -1929,10 +1983,6 @@ function updateExcludedList() {
     }
 
 
-    /* =====================================================
-       제외된 맵 출력
-    ===================================================== */
-
     excludedMaps.forEach(
         id => {
 
@@ -1947,9 +1997,7 @@ function updateExcludedList() {
             if (
                 !map
             ) {
-
                 return;
-
             }
 
 
@@ -1983,22 +2031,12 @@ function updateExcludedList() {
 
 function resetExcluded() {
 
-    /*
-       룰렛 동작 중에는 초기화 금지
-    */
-
     if (
         drawing
     ) {
-
         return;
-
     }
 
-
-    /*
-       제외 목록 초기화
-    */
 
     excludedMaps =
         [];
@@ -2006,10 +2044,6 @@ function resetExcluded() {
 
     updateExcludedList();
 
-
-    /*
-       전체 맵 미리보기 복원
-    */
 
     showInitialMaps();
 
@@ -2032,17 +2066,10 @@ window.addEventListener(
     () => {
 
 
-        /*
-           추첨 도중에는
-           위치를 다시 계산하지 않음
-        */
-
         if (
             drawing
         ) {
-
             return;
-
         }
 
 
