@@ -57,11 +57,7 @@ body {
 
 
 /* =========================================================
-   대문 이미지
-
-   PC 기본 높이
-   최소 400px
-   최대 460px
+   대문
 ========================================================= */
 
 .hero {
@@ -69,12 +65,11 @@ body {
 
     width: 100%;
 
-    height:
-        clamp(
-            400px,
-            32vh,
-            460px
-        );
+    height: clamp(
+        400px,
+        32vh,
+        460px
+    );
 
     margin: 0 auto 18px;
 
@@ -85,17 +80,11 @@ body {
 
     border-radius: 10px;
 
-    background:
-        #111720;
+    background: #111720;
 
     box-shadow:
         0 10px 30px rgba(0, 0, 0, .35);
 }
-
-
-/* =========================================================
-   대문 실제 이미지
-========================================================= */
 
 .hero img {
     display: block;
@@ -105,15 +94,10 @@ body {
 
     object-fit: cover;
 
-    /*
-       얼굴 및 상반신이 조금 더 잘 보이도록
-       이미지 중심을 약간 위쪽으로 조정
-    */
     object-position:
         center 38%;
 
-    user-select:
-        none;
+    user-select: none;
 
     -webkit-user-drag:
         none;
@@ -121,8 +105,7 @@ body {
 
 
 /* =========================================================
-   대문 타이틀
-
+   대문 제목
    이미지 기준 약 7시 방향
 ========================================================= */
 
@@ -178,320 +161,8 @@ body {
 
 
 /* =========================================================
-   룰렛 영역
+   공통 버튼
 ========================================================= */
-
-.roulette-wrap {
-    position: relative;
-
-    width: 100%;
-
-    overflow: hidden;
-
-    padding:
-        22px 0;
-
-    border-top:
-        1px solid #806c3d;
-
-    border-bottom:
-        1px solid #806c3d;
-
-    background:
-        rgba(0, 0, 0, .32);
-
-    box-shadow:
-        inset 0 0 40px rgba(0, 0, 0, .7),
-        0 8px 30px rgba(0, 0, 0, .25);
-}
-
-
-/* =========================================================
-   룰렛 좌우 페이드
-========================================================= */
-
-.roulette-wrap::before,
-.roulette-wrap::after {
-    content: "";
-
-    position: absolute;
-
-    z-index: 5;
-
-    top: 0;
-
-    width: 12%;
-    height: 100%;
-
-    pointer-events: none;
-}
-
-.roulette-wrap::before {
-    left: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #090c11 0%,
-            rgba(9, 12, 17, .85) 25%,
-            transparent 100%
-        );
-}
-
-.roulette-wrap::after {
-    right: 0;
-
-    background:
-        linear-gradient(
-            -90deg,
-            #090c11 0%,
-            rgba(9, 12, 17, .85) 25%,
-            transparent 100%
-        );
-}
-
-
-/* =========================================================
-   룰렛 트랙
-========================================================= */
-
-.roulette-track {
-    display: flex;
-
-    gap: 18px;
-
-    width: max-content;
-
-    transform:
-        translateX(0);
-
-    will-change:
-        transform;
-}
-
-
-/* =========================================================
-   맵 카드
-
-   원본 이미지 : 550 × 290
-
-   이미지 자체에 맵명이 포함되어 있으므로
-   별도 맵 이름 영역 없음
-========================================================= */
-
-.map-card {
-    position: relative;
-
-    flex:
-        0 0 550px;
-
-    width:
-        550px;
-
-    height:
-        290px;
-
-    overflow:
-        hidden;
-
-    background:
-        #171d25;
-
-    border:
-        2px solid #414957;
-
-    border-radius:
-        8px;
-
-    box-shadow:
-        0 6px 18px rgba(0, 0, 0, .4);
-
-    transition:
-        transform .25s,
-        border-color .25s,
-        box-shadow .25s,
-        opacity .25s;
-}
-
-.map-card img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit:
-        cover;
-
-    user-select:
-        none;
-
-    -webkit-user-drag:
-        none;
-}
-
-
-/* =========================================================
-   당첨 카드
-========================================================= */
-
-.map-card.winner {
-    z-index: 2;
-
-    border-color:
-        #f1d278;
-
-    box-shadow:
-        0 0 12px rgba(241, 210, 120, .85),
-        0 0 35px rgba(241, 210, 120, .45);
-
-    transform:
-        scale(1.025);
-}
-
-
-/* =========================================================
-   중앙 선택 영역
-========================================================= */
-
-.selector {
-    position: absolute;
-
-    z-index: 10;
-
-    left: 50%;
-
-    top: 12px;
-    bottom: 12px;
-
-    width:
-        554px;
-
-    transform:
-        translateX(-50%);
-
-    border-left:
-        2px solid #e7c467;
-
-    border-right:
-        2px solid #e7c467;
-
-    pointer-events:
-        none;
-}
-
-.selector::before,
-.selector::after {
-    position: absolute;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    color:
-        #ffd875;
-
-    font-size:
-        24px;
-
-    line-height:
-        1;
-
-    text-shadow:
-        0 0 8px #e3af38;
-}
-
-.selector::before {
-    content: "▼";
-
-    top:
-        -18px;
-}
-
-.selector::after {
-    content: "▲";
-
-    bottom:
-        -18px;
-}
-
-
-/* =========================================================
-   추첨 결과
-========================================================= */
-
-.result {
-    min-height:
-        50px;
-
-    margin-top:
-        14px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    flex-wrap:
-        wrap;
-
-    font-size:
-        20px;
-
-    font-weight:
-        700;
-}
-
-.result .selected {
-    margin-left:
-        8px;
-
-    color:
-        #f1ce70;
-
-    font-size:
-        24px;
-}
-
-.remaining {
-    margin-left:
-        12px;
-
-    color:
-        #737d8a;
-
-    font-size:
-        13px;
-}
-
-
-/* =========================================================
-   버튼 영역
-========================================================= */
-
-.controls {
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        10px;
-
-    margin-top:
-        8px;
-}
 
 button {
     padding:
@@ -549,10 +220,752 @@ button:active:not(:disabled) {
 
 button:disabled {
     opacity:
-        .45;
+        .4;
 
     cursor:
         default;
+}
+
+
+/* =========================================================
+   사전 BAN 영역
+
+   기본 상태에서는 접혀 있음
+========================================================= */
+
+.ban-box {
+    width: 100%;
+
+    margin:
+        0 auto 16px;
+
+    overflow: hidden;
+
+    border:
+        1px solid #303744;
+
+    border-radius:
+        7px;
+
+    background:
+        rgba(10, 14, 20, .58);
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, .2);
+}
+
+
+/* =========================================================
+   BAN 헤더
+========================================================= */
+
+button.ban-toggle {
+    width: 100%;
+
+    min-height:
+        48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        12px;
+
+    padding:
+        10px 15px;
+
+    border: 0;
+
+    border-radius: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(31, 38, 48, .92),
+            rgba(17, 22, 29, .92)
+        );
+
+    color:
+        #d8dde5;
+
+    text-align:
+        left;
+
+    transform:
+        none;
+}
+
+button.ban-toggle:hover:not(:disabled) {
+    border: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(39, 47, 59, .95),
+            rgba(20, 26, 34, .95)
+        );
+
+    transform:
+        none;
+}
+
+.ban-toggle-title {
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        7px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+}
+
+.ban-summary {
+    margin-left:
+        auto;
+
+    color:
+        #9ca5b2;
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+}
+
+.ban-arrow {
+    width:
+        18px;
+
+    color:
+        #d6bd73;
+
+    font-size:
+        13px;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   BAN 펼침 영역
+========================================================= */
+
+.ban-panel {
+    padding:
+        14px;
+}
+
+.ban-panel[hidden] {
+    display:
+        none;
+}
+
+
+/* =========================================================
+   BAN 안내
+========================================================= */
+
+.ban-toolbar {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        12px;
+
+    color:
+        #737e8c;
+
+    font-size:
+        12px;
+
+    text-align:
+        left;
+}
+
+.ban-help strong {
+    color:
+        #c9d0da;
+}
+
+.ban-limit {
+    margin-top:
+        3px;
+
+    color:
+        #5e6875;
+
+    font-size:
+        11px;
+}
+
+
+/* =========================================================
+   BAN 초기화 버튼
+========================================================= */
+
+button.ban-reset-btn {
+    flex:
+        0 0 auto;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid #5a4545;
+
+    background:
+        #211718;
+
+    color:
+        #c48c8c;
+
+    font-size:
+        11px;
+
+    transform:
+        none;
+}
+
+button.ban-reset-btn:hover:not(:disabled) {
+    border-color:
+        #9d5555;
+
+    background:
+        #301d1f;
+
+    color:
+        #eeaaaa;
+
+    transform:
+        none;
+}
+
+
+/* =========================================================
+   BAN 이미지 목록
+
+   PC : 4열 × 3행
+========================================================= */
+
+.ban-list {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap:
+        10px;
+}
+
+
+/* =========================================================
+   BAN 맵 카드
+========================================================= */
+
+button.ban-map {
+    position: relative;
+
+    width: 100%;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border:
+        2px solid #414957;
+
+    border-radius:
+        6px;
+
+    background:
+        #151a21;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, .28);
+
+    transform:
+        none;
+}
+
+button.ban-map:hover:not(:disabled) {
+    border-color:
+        #a18448;
+
+    background:
+        #151a21;
+
+    transform:
+        none;
+
+    box-shadow:
+        0 0 12px rgba(202, 166, 82, .2);
+}
+
+.ban-map img {
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    aspect-ratio:
+        550 / 290;
+
+    object-fit:
+        cover;
+
+    user-select:
+        none;
+
+    -webkit-user-drag:
+        none;
+
+    transition:
+        filter .2s,
+        opacity .2s;
+}
+
+
+/* =========================================================
+   BAN 상태 오버레이
+========================================================= */
+
+.ban-overlay {
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    opacity:
+        0;
+
+    background:
+        rgba(91, 10, 18, .68);
+
+    color:
+        #ffd0d0;
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    transition:
+        opacity .18s;
+
+    pointer-events:
+        none;
+}
+
+.ban-overlay .ban-x {
+    font-size:
+        24px;
+}
+
+button.ban-map.active {
+    border-color:
+        #d45858;
+
+    box-shadow:
+        0 0 12px rgba(213, 67, 67, .6),
+        inset 0 0 20px rgba(128, 20, 20, .2);
+}
+
+button.ban-map.active img {
+    filter:
+        saturate(.45) brightness(.63);
+}
+
+button.ban-map.active .ban-overlay {
+    opacity:
+        1;
+}
+
+
+/* =========================================================
+   룰렛 영역
+========================================================= */
+
+.roulette-wrap {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
+    padding:
+        22px 0;
+
+    border-top:
+        1px solid #806c3d;
+
+    border-bottom:
+        1px solid #806c3d;
+
+    background:
+        rgba(0, 0, 0, .32);
+
+    box-shadow:
+        inset 0 0 40px rgba(0, 0, 0, .7),
+        0 8px 30px rgba(0, 0, 0, .25);
+}
+
+
+/* =========================================================
+   좌우 페이드
+========================================================= */
+
+.roulette-wrap::before,
+.roulette-wrap::after {
+    content: "";
+
+    position:
+        absolute;
+
+    z-index:
+        5;
+
+    top:
+        0;
+
+    width:
+        12%;
+
+    height:
+        100%;
+
+    pointer-events:
+        none;
+}
+
+.roulette-wrap::before {
+    left:
+        0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #090c11 0%,
+            rgba(9, 12, 17, .85) 25%,
+            transparent 100%
+        );
+}
+
+.roulette-wrap::after {
+    right:
+        0;
+
+    background:
+        linear-gradient(
+            -90deg,
+            #090c11 0%,
+            rgba(9, 12, 17, .85) 25%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   룰렛 트랙
+========================================================= */
+
+.roulette-track {
+    display:
+        flex;
+
+    gap:
+        18px;
+
+    width:
+        max-content;
+
+    transform:
+        translateX(0);
+
+    will-change:
+        transform;
+}
+
+
+/* =========================================================
+   실제 룰렛 맵 카드
+
+   이미지 자체에 이름이 들어 있으므로
+   별도 맵 이름 영역 없음
+========================================================= */
+
+.map-card {
+    position:
+        relative;
+
+    flex:
+        0 0 550px;
+
+    width:
+        550px;
+
+    height:
+        290px;
+
+    overflow:
+        hidden;
+
+    background:
+        #171d25;
+
+    border:
+        2px solid #414957;
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, .4);
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s,
+        opacity .25s;
+}
+
+.map-card img {
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    user-select:
+        none;
+
+    -webkit-user-drag:
+        none;
+}
+
+
+/* =========================================================
+   당첨 맵
+========================================================= */
+
+.map-card.winner {
+    z-index:
+        2;
+
+    border-color:
+        #f1d278;
+
+    box-shadow:
+        0 0 12px rgba(241, 210, 120, .85),
+        0 0 35px rgba(241, 210, 120, .45);
+
+    transform:
+        scale(1.025);
+}
+
+
+/* =========================================================
+   중앙 선택 영역
+========================================================= */
+
+.selector {
+    position:
+        absolute;
+
+    z-index:
+        10;
+
+    left:
+        50%;
+
+    top:
+        12px;
+
+    bottom:
+        12px;
+
+    width:
+        554px;
+
+    transform:
+        translateX(-50%);
+
+    border-left:
+        2px solid #e7c467;
+
+    border-right:
+        2px solid #e7c467;
+
+    pointer-events:
+        none;
+}
+
+.selector::before,
+.selector::after {
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        #ffd875;
+
+    font-size:
+        24px;
+
+    line-height:
+        1;
+
+    text-shadow:
+        0 0 8px #e3af38;
+}
+
+.selector::before {
+    content:
+        "▼";
+
+    top:
+        -18px;
+}
+
+.selector::after {
+    content:
+        "▲";
+
+    bottom:
+        -18px;
+}
+
+
+/* =========================================================
+   결과
+========================================================= */
+
+.result {
+    min-height:
+        50px;
+
+    margin-top:
+        14px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    font-size:
+        20px;
+
+    font-weight:
+        700;
+}
+
+.result .selected {
+    margin-left:
+        8px;
+
+    color:
+        #f1ce70;
+
+    font-size:
+        24px;
+}
+
+.remaining {
+    margin-left:
+        12px;
+
+    color:
+        #737d8a;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   추첨 버튼
+========================================================= */
+
+.controls {
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        8px;
 }
 
 .draw-btn {
@@ -594,7 +1007,7 @@ button:disabled {
 
 
 /* =========================================================
-   제외된 맵
+   추첨 완료 제외 목록
 ========================================================= */
 
 .excluded-box {
@@ -670,9 +1083,6 @@ button:disabled {
 
 /* =========================================================
    1080p급 PC
-
-   세로 해상도가 1100px 이하더라도
-   대문 높이를 400px 이상 유지
 ========================================================= */
 
 @media (max-height: 1100px) and (min-width: 701px) {
@@ -692,6 +1102,11 @@ button:disabled {
 
         margin-bottom:
             14px;
+    }
+
+    .ban-box {
+        margin-bottom:
+            12px;
     }
 
     .roulette-wrap {
@@ -743,12 +1158,7 @@ button:disabled {
     }
 
 
-    /* =====================================================
-       모바일 대문
-
-       모바일에서는 400px 고정 시 지나치게 커지므로
-       화면 너비 기준 반응형으로 처리
-    ===================================================== */
+    /* 대문 */
 
     .hero {
         height:
@@ -759,7 +1169,7 @@ button:disabled {
             );
 
         margin-bottom:
-            16px;
+            14px;
 
         border-radius:
             7px;
@@ -791,15 +1201,30 @@ button:disabled {
     }
 
 
-    /* =====================================================
-       룰렛
-    ===================================================== */
+    /* BAN */
+
+    .ban-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .ban-toolbar {
+        align-items:
+            flex-start;
+    }
+
+    .ban-summary {
+        font-size:
+            11px;
+    }
+
+
+    /* 룰렛 */
 
     .roulette-wrap {
         padding:
             20px 0;
     }
-
 
     .map-card {
         flex-basis:
@@ -815,19 +1240,6 @@ button:disabled {
             550 / 290;
     }
 
-    .map-card img {
-        width:
-            100%;
-
-        height:
-            100%;
-    }
-
-
-    /* =====================================================
-       선택 영역
-    ===================================================== */
-
     .selector {
         top:
             10px;
@@ -840,9 +1252,7 @@ button:disabled {
     }
 
 
-    /* =====================================================
-       결과
-    ===================================================== */
+    /* 결과 */
 
     .result {
         min-height:
@@ -858,16 +1268,6 @@ button:disabled {
     .result .selected {
         font-size:
             21px;
-    }
-
-
-    /* =====================================================
-       제외 영역
-    ===================================================== */
-
-    .excluded-box {
-        margin-top:
-            18px;
     }
 
 }
@@ -901,6 +1301,30 @@ button:disabled {
             .7px;
     }
 
+    .ban-toggle-title {
+        font-size:
+            12px;
+    }
+
+    .ban-summary {
+        font-size:
+            10px;
+    }
+
+    .ban-panel {
+        padding:
+            10px;
+    }
+
+    .ban-list {
+        gap:
+            7px;
+    }
+
+    .ban-overlay {
+        font-size:
+            16px;
+    }
 
     .map-card {
         flex-basis:
@@ -914,7 +1338,6 @@ button:disabled {
         width:
             calc(86vw + 4px);
     }
-
 
     .controls {
         gap:
@@ -936,7 +1359,6 @@ button:disabled {
         font-size:
             13px;
     }
-
 
     .result {
         font-size:
@@ -973,6 +1395,83 @@ button:disabled {
 
         <div class="hero-title">
             Langrisser Map Select
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         사전 BAN
+    ====================================================== -->
+
+    <div class="ban-box">
+
+        <button
+            type="button"
+            class="ban-toggle"
+            id="banToggleBtn"
+            aria-expanded="false"
+        >
+
+            <span class="ban-toggle-title">
+                🚫 사전 BAN 설정
+            </span>
+
+            <span
+                class="ban-summary"
+                id="banSummary"
+            >
+                BAN 0개 / 추첨 가능 12개
+            </span>
+
+            <span
+                class="ban-arrow"
+                id="banArrow"
+            >
+                ▼
+            </span>
+
+        </button>
+
+
+        <div
+            class="ban-panel"
+            id="banPanel"
+            hidden
+        >
+
+            <div class="ban-toolbar">
+
+                <div class="ban-help">
+
+                    <strong>
+                        추첨에서 제외할 맵이 있다면 이미지를 선택해주세요.
+                    </strong>
+
+                    <div
+                        class="ban-limit"
+                        id="banLimit"
+                    ></div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="ban-reset-btn"
+                    id="banResetBtn"
+                >
+                    BAN 초기화
+                </button>
+
+            </div>
+
+
+            <div
+                class="ban-list"
+                id="banList"
+            ></div>
+
         </div>
 
     </div>
@@ -1032,7 +1531,7 @@ button:disabled {
 
 
     <!-- =====================================================
-         자동 제외 옵션
+         추첨 완료 자동 제외
     ====================================================== -->
 
     <div class="option">
@@ -1053,13 +1552,13 @@ button:disabled {
 
 
     <!-- =====================================================
-         제외 목록
+         추첨 완료 제외 목록
     ====================================================== -->
 
     <div class="excluded-box">
 
         <div class="excluded-title">
-            제외된 맵
+            추첨 후 제외된 맵
         </div>
 
         <div
@@ -1076,6 +1575,16 @@ button:disabled {
 
 /* =========================================================
    맵 데이터
+
+   name은 룰렛 카드 아래에는 표시하지 않음.
+
+   하지만
+   - 추첨 결과
+   - BAN 처리
+   - 제외 목록
+   - alt
+
+   에서 사용.
 ========================================================= */
 
 const maps = [
@@ -1156,6 +1665,26 @@ const maps = [
 
 
 /* =========================================================
+   BAN 최대 개수
+
+   마지막 정지 화면에서
+
+   왼쪽 / 당첨 / 오른쪽
+
+   3개를 서로 다른 맵으로 만들기 위해
+   최소 3개의 non-BAN 맵을 유지.
+
+   12개 맵 기준 최대 BAN = 9개
+========================================================= */
+
+const MAX_BAN =
+    Math.max(
+        0,
+        maps.length - 3
+    );
+
+
+/* =========================================================
    DOM
 ========================================================= */
 
@@ -1195,9 +1724,55 @@ const excludeOption =
     );
 
 
+/* BAN */
+
+const banToggleBtn =
+    document.getElementById(
+        "banToggleBtn"
+    );
+
+const banPanel =
+    document.getElementById(
+        "banPanel"
+    );
+
+const banArrow =
+    document.getElementById(
+        "banArrow"
+    );
+
+const banSummary =
+    document.getElementById(
+        "banSummary"
+    );
+
+const banList =
+    document.getElementById(
+        "banList"
+    );
+
+const banResetBtn =
+    document.getElementById(
+        "banResetBtn"
+    );
+
+const banLimit =
+    document.getElementById(
+        "banLimit"
+    );
+
+
 /* =========================================================
    상태
+
+   bannedMaps
+       = 사용자가 사전에 직접 BAN
+
+   excludedMaps
+       = 실제 추첨 후 자동 제외
 ========================================================= */
+
+let bannedMaps = [];
 
 let excludedMaps = [];
 
@@ -1221,7 +1796,7 @@ function randomItem(array) {
 
 
 /* =========================================================
-   특정 맵 제외 랜덤
+   특정 맵들을 제외한 랜덤
 ========================================================= */
 
 function randomItemExcept(
@@ -1257,10 +1832,54 @@ function randomItemExcept(
 
 
 /* =========================================================
-   카드 생성
+   실제 당첨 가능한 맵
 
-   맵 이름은 이미지에 포함되어 있으므로
-   별도 텍스트 영역은 만들지 않음
+   BAN 제외
+   +
+   추첨 완료 제외
+========================================================= */
+
+function getAvailableMaps() {
+
+    return maps.filter(
+        map =>
+            !bannedMaps.includes(
+                map.id
+            )
+            &&
+            !excludedMaps.includes(
+                map.id
+            )
+    );
+
+}
+
+
+/* =========================================================
+   룰렛 연출용 맵
+
+   BAN된 맵만 제외.
+
+   이미 추첨된 맵은 화면 연출에서는
+   다시 지나갈 수 있음.
+
+   하지만 실제 당첨 후보에는 들어가지 않음.
+========================================================= */
+
+function getRoulettePool() {
+
+    return maps.filter(
+        map =>
+            !bannedMaps.includes(
+                map.id
+            )
+    );
+
+}
+
+
+/* =========================================================
+   룰렛 맵 카드 생성
 ========================================================= */
 
 function createCard(map) {
@@ -1287,22 +1906,6 @@ function createCard(map) {
 
 
     return card;
-
-}
-
-
-/* =========================================================
-   실제 추첨 가능한 맵
-========================================================= */
-
-function getAvailableMaps() {
-
-    return maps.filter(
-        map =>
-            !excludedMaps.includes(
-                map.id
-            )
-    );
 
 }
 
@@ -1340,10 +1943,17 @@ function centerCard(card) {
 
 
 /* =========================================================
-   최초 맵 미리보기
+   초기 / 변경 후 맵 미리보기
+
+   BAN 및 추첨 완료 맵은 표시하지 않음.
 ========================================================= */
 
 function showInitialMaps() {
+
+    if (drawing) {
+        return;
+    }
+
 
     const availableMaps =
         getAvailableMaps();
@@ -1360,14 +1970,8 @@ function showInitialMaps() {
     availableMaps.forEach(
         map => {
 
-            const card =
-                createCard(
-                    map
-                );
-
-
             track.appendChild(
-                card
+                createCard(map)
             );
 
         }
@@ -1406,8 +2010,7 @@ function showInitialMaps() {
 
             const previewIndex =
                 Math.floor(
-                    cards.length /
-                    2
+                    cards.length / 2
                 );
 
 
@@ -1424,28 +2027,275 @@ function showInitialMaps() {
 
 
 /* =========================================================
-   룰렛 연출용 배열 생성
+   BAN 패널 접기 / 펼치기
+========================================================= */
 
-   실제 추첨 대상과
-   화면 연출용 맵을 분리.
+function toggleBanPanel() {
 
-   실제 추첨:
-       제외되지 않은 맵만 사용
+    const isOpen =
+        !banPanel.hidden;
 
-   연출:
-       전체 맵 사용
+
+    banPanel.hidden =
+        isOpen;
+
+
+    banToggleBtn.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+
+
+    banArrow.textContent =
+        isOpen
+            ? "▼"
+            : "▲";
+
+}
+
+
+/* =========================================================
+   BAN 요약 갱신
+========================================================= */
+
+function updateBanSummary() {
+
+    const availableCount =
+        getAvailableMaps().length;
+
+
+    banSummary.textContent =
+        `BAN ${bannedMaps.length}개 / 추첨 가능 ${availableCount}개`;
+
+
+    banLimit.textContent =
+        `BAN은 선택 사항이며 0~${MAX_BAN}개까지 설정할 수 있습니다.`;
+
+
+    banResetBtn.disabled =
+        bannedMaps.length === 0;
+
+}
+
+
+/* =========================================================
+   BAN 목록 렌더링
+========================================================= */
+
+function renderBanList() {
+
+    banList.innerHTML =
+        "";
+
+
+    maps.forEach(
+        map => {
+
+
+            const item =
+                document.createElement(
+                    "button"
+                );
+
+
+            item.type =
+                "button";
+
+
+            item.className =
+                "ban-map";
+
+
+            /*
+               접근성용 설명
+            */
+
+            item.setAttribute(
+                "aria-label",
+                `${map.name} BAN 설정`
+            );
+
+
+            if (
+                bannedMaps.includes(
+                    map.id
+                )
+            ) {
+
+                item.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            item.innerHTML = `
+
+                <img
+                    src="${map.image}"
+                    alt="${map.name}"
+                    draggable="false"
+                >
+
+                <div class="ban-overlay">
+
+                    <span>
+                        BAN
+                    </span>
+
+                    <span class="ban-x">
+                        ✕
+                    </span>
+
+                </div>
+
+            `;
+
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    toggleBan(
+                        map.id
+                    );
+
+                }
+            );
+
+
+            banList.appendChild(
+                item
+            );
+
+        }
+    );
+
+
+    updateBanSummary();
+
+}
+
+
+/* =========================================================
+   BAN 선택 / 해제
+========================================================= */
+
+function toggleBan(mapId) {
+
+    if (drawing) {
+        return;
+    }
+
+
+    /* =====================================================
+       이미 BAN 상태라면 해제
+    ===================================================== */
+
+    if (
+        bannedMaps.includes(
+            mapId
+        )
+    ) {
+
+        bannedMaps =
+            bannedMaps.filter(
+                id =>
+                    id !== mapId
+            );
+
+    }
+
+
+    /* =====================================================
+       BAN 추가
+    ===================================================== */
+
+    else {
+
+        if (
+            bannedMaps.length >=
+            MAX_BAN
+        ) {
+
+            result.innerHTML =
+                `BAN은 최대 ${MAX_BAN}개까지 설정할 수 있습니다.`;
+
+            return;
+
+        }
+
+
+        bannedMaps.push(
+            mapId
+        );
+
+    }
+
+
+    renderBanList();
+
+    showInitialMaps();
+
+}
+
+
+/* =========================================================
+   BAN 초기화
+
+   추첨 후 제외 기록은 건드리지 않음.
+========================================================= */
+
+function resetBans() {
+
+    if (drawing) {
+        return;
+    }
+
+
+    bannedMaps =
+        [];
+
+
+    renderBanList();
+
+    showInitialMaps();
+
+
+    result.innerHTML =
+        "사전 BAN 설정이 초기화되었습니다.";
+
+}
+
+
+/* =========================================================
+   룰렛 연출 배열 생성
+
+   중요
+
+   최종 정지 화면
+
+       [왼쪽] [당첨] [오른쪽]
+
+   이 3개의 맵이 모두 서로 다르게 구성됨.
 ========================================================= */
 
 function createRouletteSequence(
     winner
 ) {
 
-    const rouletteMaps =
+    const sequence =
         [];
 
 
+    const roulettePool =
+        getRoulettePool();
+
+
     /* =====================================================
-       당첨 전 카드
+       당첨 전 연출 카드 30개
+
+       바로 앞 카드와 같은 맵은 금지.
     ===================================================== */
 
     for (
@@ -1455,29 +2305,27 @@ function createRouletteSequence(
     ) {
 
         const previous =
-            rouletteMaps.length > 0
-                ? rouletteMaps[
-                    rouletteMaps.length - 1
+            sequence.length > 0
+                ? sequence[
+                    sequence.length - 1
                 ]
                 : null;
 
 
         const excludeIds =
             previous
-                ? [
-                    previous.id
-                ]
+                ? [previous.id]
                 : [];
 
 
         const map =
             randomItemExcept(
-                maps,
+                roulettePool,
                 excludeIds
             );
 
 
-        rouletteMaps.push(
+        sequence.push(
             map
         );
 
@@ -1485,22 +2333,23 @@ function createRouletteSequence(
 
 
     /* =====================================================
-       당첨 바로 왼쪽 맵 보정
+       당첨 바로 왼쪽 카드
 
-       왼쪽 맵 ≠ 당첨 맵
+       당첨 맵과 같으면 교체.
+
+       또한 왼쪽의 왼쪽과도 중복되지 않게 처리.
     ===================================================== */
 
     if (
-        rouletteMaps.length > 0
+        sequence.length > 0
     ) {
 
         const leftIndex =
-            rouletteMaps.length -
-            1;
+            sequence.length - 1;
 
 
         const leftMap =
-            rouletteMaps[
+            sequence[
                 leftIndex
             ];
 
@@ -1512,7 +2361,7 @@ function createRouletteSequence(
 
             const beforeLeft =
                 leftIndex > 0
-                    ? rouletteMaps[
+                    ? sequence[
                         leftIndex - 1
                     ]
                     : null;
@@ -1535,11 +2384,11 @@ function createRouletteSequence(
             }
 
 
-            rouletteMaps[
+            sequence[
                 leftIndex
             ] =
                 randomItemExcept(
-                    maps,
+                    roulettePool,
                     excludeIds
                 );
 
@@ -1549,23 +2398,20 @@ function createRouletteSequence(
 
 
     /* =====================================================
-       실제 당첨 맵
+       실제 당첨 위치
     ===================================================== */
 
     const winnerIndex =
-        rouletteMaps.length;
+        sequence.length;
 
 
-    rouletteMaps.push(
+    sequence.push(
         winner
     );
 
 
     /* =====================================================
-       당첨 이후 카드
-
-       당첨 바로 오른쪽과
-       연속된 카드가 중복되지 않도록 처리
+       당첨 이후 카드 4개
     ===================================================== */
 
     for (
@@ -1575,22 +2421,58 @@ function createRouletteSequence(
     ) {
 
         const previous =
-            rouletteMaps[
-                rouletteMaps.length -
-                1
+            sequence[
+                sequence.length - 1
             ];
+
+
+        const excludeIds =
+            [
+                previous.id
+            ];
+
+
+        /*
+           첫 번째 오른쪽 카드의 경우
+
+           당첨 맵뿐 아니라
+           당첨 왼쪽 맵도 함께 제외.
+
+           따라서 최종 화면은
+
+           왼쪽 ≠ 당첨 ≠ 오른쪽
+           왼쪽 ≠ 오른쪽
+
+           모두 만족.
+        */
+
+        if (
+            i === 0
+            &&
+            winnerIndex > 0
+        ) {
+
+            const leftMap =
+                sequence[
+                    winnerIndex - 1
+                ];
+
+
+            excludeIds.push(
+                leftMap.id
+            );
+
+        }
 
 
         const map =
             randomItemExcept(
-                maps,
-                [
-                    previous.id
-                ]
+                roulettePool,
+                excludeIds
             );
 
 
-        rouletteMaps.push(
+        sequence.push(
             map
         );
 
@@ -1600,7 +2482,7 @@ function createRouletteSequence(
     return {
 
         maps:
-            rouletteMaps,
+            sequence,
 
         winnerIndex:
             winnerIndex
@@ -1616,12 +2498,8 @@ function createRouletteSequence(
 
 function drawMap() {
 
-    if (
-        drawing
-    ) {
-
+    if (drawing) {
         return;
-
     }
 
 
@@ -1630,7 +2508,9 @@ function drawMap() {
 
 
     /* =====================================================
-       모든 맵 추첨 완료
+       BAN 0개도 정상 추첨 가능.
+
+       실제 추첨 가능한 맵이 없는 경우에만 차단.
     ===================================================== */
 
     if (
@@ -1638,7 +2518,7 @@ function drawMap() {
     ) {
 
         result.innerHTML =
-            "모든 맵이 추첨되었습니다. 제외 맵을 초기화해주세요.";
+            "추첨 가능한 맵이 없습니다. BAN 또는 제외 맵을 조정해주세요.";
 
         return;
 
@@ -1657,6 +2537,10 @@ function drawMap() {
         true;
 
 
+    banResetBtn.disabled =
+        true;
+
+
     result.innerHTML =
         "맵 추첨 중...";
 
@@ -1664,7 +2548,8 @@ function drawMap() {
     /* =====================================================
        실제 당첨 맵
 
-       아직 제외되지 않은 맵에서만 선택
+       BAN 및 추첨 완료 제외가 적용된
+       availableMaps 에서만 선택.
     ===================================================== */
 
     const winner =
@@ -1674,7 +2559,7 @@ function drawMap() {
 
 
     /* =====================================================
-       연출 배열 생성
+       룰렛 연출 배열
     ===================================================== */
 
     const roulette =
@@ -1692,7 +2577,7 @@ function drawMap() {
 
 
     /* =====================================================
-       기존 룰렛 초기화
+       트랙 초기화
     ===================================================== */
 
     track.innerHTML =
@@ -1713,6 +2598,7 @@ function drawMap() {
 
     rouletteMaps.forEach(
         (map, index) => {
+
 
             const card =
                 createCard(
@@ -1740,7 +2626,7 @@ function drawMap() {
 
 
     /* =====================================================
-       룰렛 이동 애니메이션
+       룰렛 이동
     ===================================================== */
 
     requestAnimationFrame(
@@ -1763,19 +2649,19 @@ function drawMap() {
 
 
                     const cardCenter =
-                        winnerCard.offsetLeft +
-                        winnerCard.offsetWidth /
-                        2;
+                        winnerCard.offsetLeft
+                        +
+                        winnerCard.offsetWidth / 2;
 
 
                     const containerCenter =
-                        rouletteWrap.clientWidth /
+                        rouletteWrap.clientWidth
+                        /
                         2;
 
 
                     const startOffset =
-                        Math.random() *
-                        100;
+                        Math.random() * 100;
 
 
                     track.style.transform =
@@ -1791,7 +2677,8 @@ function drawMap() {
 
 
                             const target =
-                                containerCenter -
+                                containerCenter
+                                -
                                 cardCenter;
 
 
@@ -1809,7 +2696,7 @@ function drawMap() {
 
 
     /* =====================================================
-       추첨 종료
+       추첨 완료
     ===================================================== */
 
     setTimeout(
@@ -1834,7 +2721,7 @@ function drawMap() {
 
 
             /* =================================================
-               추첨 결과
+               결과 표시
             ================================================= */
 
             result.innerHTML = `
@@ -1849,7 +2736,7 @@ function drawMap() {
 
 
             /* =================================================
-               추첨 맵 자동 제외
+               추첨 후 자동 제외
             ================================================= */
 
             if (
@@ -1875,6 +2762,10 @@ function drawMap() {
             }
 
 
+            /* =================================================
+               상태 복구
+            ================================================= */
+
             drawing =
                 false;
 
@@ -1887,47 +2778,24 @@ function drawMap() {
                 false;
 
 
+            updateBanSummary();
+
+
             /* =================================================
-               남은 맵
+               현재 실제 추첨 가능 맵 수
             ================================================= */
 
             const remaining =
-                maps.length -
-                excludedMaps.length;
+                getAvailableMaps().length;
 
 
-            if (
-                excludeOption.checked
-            ) {
+            result.innerHTML += `
 
+                <span class="remaining">
+                    추첨 가능 ${remaining}개
+                </span>
 
-                if (
-                    remaining > 0
-                ) {
-
-                    result.innerHTML += `
-
-                        <span class="remaining">
-                            남은 맵 ${remaining}개
-                        </span>
-
-                    `;
-
-                }
-
-                else {
-
-                    result.innerHTML += `
-
-                        <span class="remaining">
-                            모든 맵 추첨 완료
-                        </span>
-
-                    `;
-
-                }
-
-            }
+            `;
 
 
         },
@@ -1938,7 +2806,7 @@ function drawMap() {
 
 
 /* =========================================================
-   제외 맵 목록
+   추첨 후 제외된 맵 목록
 ========================================================= */
 
 function updateExcludedList() {
@@ -1959,6 +2827,8 @@ function updateExcludedList() {
 
         `;
 
+
+        updateBanSummary();
 
         return;
 
@@ -2006,21 +2876,22 @@ function updateExcludedList() {
         }
     );
 
+
+    updateBanSummary();
+
 }
 
 
 /* =========================================================
-   제외 맵 초기화
+   추첨 후 제외 목록 초기화
+
+   사전 BAN 설정은 유지.
 ========================================================= */
 
 function resetExcluded() {
 
-    if (
-        drawing
-    ) {
-
+    if (drawing) {
         return;
-
     }
 
 
@@ -2035,13 +2906,13 @@ function resetExcluded() {
 
 
     result.innerHTML =
-        "제외된 맵이 초기화되었습니다.";
+        "추첨 후 제외된 맵이 초기화되었습니다. 사전 BAN 설정은 유지됩니다.";
 
 }
 
 
 /* =========================================================
-   화면 크기 변경 대응
+   화면 크기 변경
 ========================================================= */
 
 let resizeTimer;
@@ -2092,9 +2963,23 @@ resetBtn.addEventListener(
 );
 
 
+banToggleBtn.addEventListener(
+    "click",
+    toggleBanPanel
+);
+
+
+banResetBtn.addEventListener(
+    "click",
+    resetBans
+);
+
+
 /* =========================================================
    최초 실행
 ========================================================= */
+
+renderBanList();
 
 updateExcludedList();
 
