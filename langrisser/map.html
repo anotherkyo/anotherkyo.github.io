@@ -262,21 +262,17 @@ button:disabled {
 button.ban-toggle {
     width: 100%;
 
-    min-height:
-        48px;
+    min-height: 48px;
 
     display: flex;
 
     align-items: center;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    padding:
-        10px 15px;
+    padding: 10px 15px;
 
     border: 0;
-
     border-radius: 0;
 
     background:
@@ -286,14 +282,13 @@ button.ban-toggle {
             rgba(17, 22, 29, .92)
         );
 
-    color:
-        #d8dde5;
+    color: #d8dde5;
 
-    text-align:
-        left;
+    text-align: left;
 
-    transform:
-        none;
+    transform: none;
+
+    overflow: hidden; /* 추가 */
 }
 
 button.ban-toggle:hover:not(:disabled) {
@@ -315,31 +310,34 @@ button.ban-toggle:hover:not(:disabled) {
 
     align-items: center;
 
-    gap:
-        7px;
+    gap: 7px;
 
-    font-size:
-        14px;
+    flex: 0 0 auto;
 
-    font-weight:
-        800;
+    font-size: 14px;
 
-    white-space:
-        nowrap;
+    font-weight: 800;
+
+    white-space: nowrap;
 }
 
 .ban-summary {
-    margin-left:
-        auto;
+    margin-left: auto;
 
-    color:
-        #9ca5b2;
+    min-width: 0;
 
-    font-size:
-        12px;
+    overflow: hidden;
 
-    font-weight:
-        600;
+    color: #9ca5b2;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    text-align: right;
 }
 
 .ban-arrow {
@@ -2064,9 +2062,71 @@ function updateBanSummary() {
         getAvailableMaps().length;
 
 
-    banSummary.textContent =
-        `BAN ${bannedMaps.length}개 / 추첨 가능 ${availableCount}개`;
+    /* =====================================================
+       BAN된 맵 이름 조회
+    ===================================================== */
 
+    const bannedNames =
+        bannedMaps
+            .map(
+                id => {
+
+                    const map =
+                        maps.find(
+                            map =>
+                                map.id === id
+                        );
+
+                    return map
+                        ? map.name
+                        : null;
+
+                }
+            )
+            .filter(Boolean);
+
+
+    /* =====================================================
+       BAN 요약 문구
+    ===================================================== */
+
+    if (
+        bannedNames.length > 0
+    ) {
+
+        const namesText =
+            bannedNames.join(", ");
+
+
+        banSummary.textContent =
+            `(${namesText}) BAN ${bannedMaps.length}개 / 추첨 가능 ${availableCount}개`;
+
+
+        /*
+           이름이 길어서 화면에서 잘리더라도
+           마우스를 올리면 전체 내용을 확인 가능
+        */
+
+        banSummary.title =
+            `BAN: ${namesText}`;
+
+    }
+
+    else {
+
+        banSummary.textContent =
+            `BAN 0개 / 추첨 가능 ${availableCount}개`;
+
+
+        banSummary.title =
+            "BAN된 맵이 없습니다.";
+
+    }
+
+
+    /* =====================================================
+       안내
+    ===================================================== */
 
     banLimit.textContent =
         `BAN은 선택 사항이며 0~${MAX_BAN}개까지 설정할 수 있습니다.`;
