@@ -256,6 +256,11 @@
             transform: scale(1.035);
         }
 
+        /* Project 섹션 카드 이미지만 흑백 처리 (원본 이미지 파일 유지) */
+        .project-section .card-image img {
+            filter: grayscale(100%);
+        }
+
         .card-content {
             display: flex;
             flex-direction: column;
@@ -725,10 +730,44 @@
     </section>
 
     <!-- ========================================
+         Langrisser DawnCrew
+    ========================================= -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Langrisser DawnCrew</h2>
+            <span class="section-count">1</span>
+        </div>
+
+        <div class="grid">
+            <!-- 새벽반 시즌9 멤버 추첨기 -->
+            <a class="card" href="./dawnCrew">
+                <div class="card-image">
+                    <img
+                        src="./img/dawnCrew09.png"
+                        alt="랑그릿사 모바일 새벽반 시즌9 멤버 추첨기"
+                        loading="lazy">
+                </div>
+
+                <div class="card-content">
+                    <div class="card-category">DawnCrew</div>
+                    <h3 class="card-title">새벽반 멤버 추첨기</h3>
+                    <p class="card-description">
+                        시즌9 출연 멤버를 선택하고 중복 허용 여부를 설정해 추첨하는 도구
+                    </p>
+                    <div class="card-link">
+                        <span>Open DawnCrew</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
          PROJECT
     ========================================= -->
 
-    <section>
+    <section class="project-section">
 
         <div class="section-header">
             <h2 class="section-title">Project</h2>
