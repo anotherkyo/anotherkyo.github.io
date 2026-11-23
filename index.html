@@ -1,490 +1,85 @@
 <!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AnotherKyo Workspace</title>
-
-    <!-- 기본 SEO -->
-    <meta name="description"
-          content="어나더쿄의 개인 작업 공간. 랑그릿사 모바일 기록실, 명품관, 시뮬레이터, 갤러리 등 다양한 프로젝트를 소개합니다.">
-
-    <!-- Open Graph: 카카오톡, 디스코드 등 -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AnotherKyo Workspace">
-    <meta property="og:title" content="AnotherKyo Workspace | 어나더쿄">
-    <meta property="og:description"
-          content="어나더쿄의 게임 기록실, 시뮬레이터, 갤러리와 개발 프로젝트를 만나보세요.">
-    <meta property="og:url" content="https://anotherkyo.github.io/">
-    <meta property="og:image"
-          content="https://anotherkyo.github.io/img/developer.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"
-          content="AnotherKyo Workspace 대표 이미지">
-    <meta property="og:locale" content="ko_KR">
-
-    <!-- X(Twitter) 카드 -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AnotherKyo Workspace | 어나더쿄">
-    <meta name="twitter:description"
-          content="어나더쿄의 게임 기록실과 개발 프로젝트 작업 공간">
-    <meta name="twitter:image"
-          content="https://anotherkyo.github.io/img/developer.png">
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg: #0b0d12;
-            --bg-sub: #11141b;
-            --card: #161a22;
-            --card-hover: #1c212c;
-            --border: #282e3a;
-
-            --text: #f1f3f5;
-            --text-sub: #9299a6;
-
-            --accent: #8c7cff;
-            --accent-soft: rgba(140, 124, 255, 0.12);
-
-            --radius: 14px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(103, 87, 210, 0.10),
-                    transparent 420px
-                ),
-                var(--bg);
-
-            color: var(--text);
-
-            font-family:
-                Pretendard,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                "Noto Sans KR",
-                Arial,
-                sans-serif;
-
-            line-height: 1.5;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-
-        /* =========================
-           Header
-        ========================= */
-
-        header {
-            width: 100%;
-            border-bottom: 1px solid var(--border);
-            background: rgba(11, 13, 18, 0.82);
-        }
-
-        .header-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 42px 24px 38px;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-
-            margin-bottom: 12px;
-
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-
-            color: var(--accent);
-        }
-
-        .logo-mark {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 14px var(--accent);
-        }
-
-        h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 750;
-            letter-spacing: -0.04em;
-        }
-
-        .intro {
-            margin-top: 10px;
-
-            font-size: 15px;
-            color: var(--text-sub);
-        }
-
-
-        /* =========================
-           Main
-        ========================= */
-
-        main {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 10px 24px 80px;
-        }
-
-        section {
-            margin-top: 52px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            margin-bottom: 18px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-
-        .section-count {
-            padding: 3px 8px;
-
-            border: 1px solid var(--border);
-            border-radius: 20px;
-
-            font-size: 11px;
-            color: var(--text-sub);
-        }
-
-
-        /* =========================
-           Grid
-        ========================= */
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-
-        /* =========================
-           Card
-        ========================= */
-
-        .card {
-            position: relative;
-            overflow: hidden;
-
-            display: flex;
-            flex-direction: column;
-
-            min-width: 0;
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-
-            background: var(--card-hover);
-            border-color: #464d5d;
-        }
-
-        .card-image {
-            position: relative;
-
-            width: 100%;
-            aspect-ratio: 16 / 9;
-
-            overflow: hidden;
-
-            background: #090b0f;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform 0.35s ease;
-        }
-
-        .card:hover .card-image img {
-            transform: scale(1.035);
-        }
-
-        /* Project 섹션 카드 이미지만 흑백 처리 (원본 이미지 파일 유지) */
-        .project-section .card-image img {
-            filter: grayscale(100%);
-        }
-
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-
-            padding: 17px 18px 18px;
-        }
-
-        .card-category {
-            margin-bottom: 6px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            color: var(--accent);
-
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 650;
-            letter-spacing: -0.02em;
-
-            line-height: 1.4;
-        }
-
-        .card-description {
-            margin-top: 7px;
-
-            font-size: 13px;
-            line-height: 1.55;
-
-            color: var(--text-sub);
-        }
-
-        .card-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            margin-top: auto;
-            padding-top: 16px;
-
-            font-size: 12px;
-            color: #b7bdc8;
-        }
-
-        .arrow {
-            font-size: 16px;
-
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover .arrow {
-            transform: translateX(4px);
-        }
-
-
-        /* =========================
-           Featured card
-        ========================= */
-
-        .featured {
-            border-color: rgba(140, 124, 255, 0.45);
-        }
-
-        .featured::after {
-            content: "NEW";
-
-            position: absolute;
-            top: 12px;
-            right: 12px;
-
-            z-index: 2;
-
-            padding: 4px 8px;
-
-            border-radius: 6px;
-
-            background: var(--accent);
-            color: white;
-
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-        }
-
-
-        /* =========================
-           Channel cards
-        ========================= */
-
-        .channel-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .channel-card {
-            display: flex;
-            align-items: center;
-
-            min-width: 0;
-
-            padding: 14px;
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-            border-radius: 12px;
-
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .channel-card:hover {
-            transform: translateY(-3px);
-
-            background: var(--card-hover);
-            border-color: #464d5d;
-        }
-
-        .channel-image {
-            flex: 0 0 auto;
-
-            width: 52px;
-            height: 52px;
-
-            margin-right: 14px;
-
-            overflow: hidden;
-
-            border-radius: 10px;
-            background: #090b0f;
-        }
-
-        .channel-image img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        .channel-info {
-            min-width: 0;
-        }
-
-        .channel-name {
-            font-size: 15px;
-            font-weight: 650;
-        }
-
-        .channel-desc {
-            margin-top: 2px;
-
-            font-size: 12px;
-            color: var(--text-sub);
-        }
-
-
-        /* =========================
-           Footer
-        ========================= */
-
-        footer {
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 24px;
-
-            font-size: 12px;
-            color: #626977;
-        }
-
-
-        /* =========================
-           Responsive
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .channel-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .header-inner {
-                padding: 32px 18px;
-            }
-
-            main {
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
-            section {
-                margin-top: 40px;
-            }
-
-            .grid,
-            .channel-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card-image {
-                aspect-ratio: 16 / 8.5;
-            }
-        }
-
-    </style>
+<html lang="ko">\n<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>어나더쿄 (AnotherKyo) | 개인 프로젝트 및 작업공간</title>
+<meta name="description" content="어나더쿄(AnotherKyo)의 개인 작업공간. 랑그릿사 모바일 기록실, 명품관, 맵 추첨기, 새벽반 멤버 추첨기와 게임 시뮬레이터를 소개합니다.">
+<meta name="keywords" content="어나더쿄, AnotherKyo, 랑그릿사 모바일, 랑그릿사 기록실, 랑그릿사 명품관, 새벽반, 맵 추첨기, 게임 시뮬레이터, 치지직">
+<meta name="author" content="어나더쿄 (AnotherKyo)">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://anotherkyo.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="어나더쿄 | AnotherKyo">
+<meta property="og:title" content="어나더쿄 (AnotherKyo) | 개인 프로젝트 및 작업공간">
+<meta property="og:description" content="어나더쿄의 랑그릿사 모바일 기록실, 명품관, 추첨기 및 개인 개발 프로젝트 모음">
+<meta property="og:url" content="https://anotherkyo.github.io/">
+<meta property="og:image" content="https://anotherkyo.github.io/img/developer.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="어나더쿄 (AnotherKyo)">
+<meta name="twitter:description" content="어나더쿄의 개인 프로젝트와 게임 관련 작업공간">
+<meta name="twitter:image" content="https://anotherkyo.github.io/img/developer.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "어나더쿄",
+  "alternateName": "AnotherKyo",
+  "url": "https://anotherkyo.github.io/",
+  "inLanguage": "ko-KR",
+  "description": "어나더쿄(AnotherKyo)의 개인 프로젝트 및 게임 관련 작업공간"
+}
+</script>
+<style>
+:root{color-scheme:dark;--bg:#0b0d12;--card:#161a22;--hover:#1c212c;--border:#282e3a;--text:#f1f3f5;--muted:#9299a6;--accent:#8c7cff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at top,rgba(103,87,210,.1),transparent 420px),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+header{border-bottom:1px solid var(--border);background:rgba(11,13,18,.82)}
+.header-inner{max-width:1180px;margin:auto;padding:42px 24px 38px}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--accent)}
+.logo-mark{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+h1{font-size:clamp(28px,5vw,42px);letter-spacing:-.04em;margin:0}
+.intro{margin:10px 0 0;font-size:15px;color:var(--muted)}
+main{max-width:1180px;margin:auto;padding:10px 24px 80px}
+section{margin-top:52px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.section-title{font-size:20px;letter-spacing:-.025em;margin:0}
+.section-count{padding:3px 8px;border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted)}
+.grid,.channel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{position:relative;overflow:hidden;display:flex;flex-direction:column;min-width:0;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:transform .2s,border-color .2s,background .2s}
+.card:hover,.channel-card:hover{transform:translateY(-4px);background:var(--hover);border-color:#464d5d}
+.card:focus-visible,.channel-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.card-image{aspect-ratio:16/9;overflow:hidden;background:#090b0f;border-bottom:1px solid var(--border)}
+.card-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.card:hover .card-image img{transform:scale(1.035)}
+.card-content{display:flex;flex-direction:column;flex:1;padding:17px 18px 18px}
+.card-category{margin-bottom:6px;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.card-title{font-size:16px;line-height:1.4;letter-spacing:-.02em;margin:0}
+.card-description{margin:7px 0 0;font-size:13px;line-height:1.55;color:var(--muted)}
+.card-link{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:16px;font-size:12px;color:#b7bdc8}
+.arrow{font-size:16px;transition:transform .2s}
+.card:hover .arrow{transform:translateX(4px)}
+.featured{border-color:rgba(140,124,255,.45)}
+.featured::after{content:"FEATURED";position:absolute;top:12px;right:12px;padding:4px 8px;border-radius:6px;background:var(--accent);color:#fff;font-size:10px;font-weight:800}
+.channel-grid{gap:14px}
+.channel-card{display:flex;align-items:center;min-width:0;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:transform .2s,border-color .2s,background .2s}
+.channel-image{flex:0 0 52px;width:52px;height:52px;margin-right:14px;overflow:hidden;border-radius:10px;background:#090b0f}
+.channel-image img{width:100%;height:100%;object-fit:cover}
+.channel-info{min-width:0}
+.channel-name{font-size:15px;font-weight:650}
+.channel-desc{margin-top:2px;font-size:12px;color:var(--muted)}
+footer{border-top:1px solid var(--border)}
+.footer-inner{max-width:1180px;margin:auto;padding:24px;font-size:12px;color:#9299a6}
+@media(max-width:900px){.grid,.channel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.header-inner{padding:32px 18px}main{padding-left:18px;padding-right:18px}section{margin-top:40px}.grid,.channel-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
+
+
 
 
 <body>
@@ -494,13 +89,13 @@
 
         <div class="logo">
             <span class="logo-mark"></span>
-            AnotherKyo
+            AnotherKyo · 어나더쿄
         </div>
 
-        <h1>Workspace</h1>
+        <h1>어나더쿄 Workspace</h1>
 
         <p class="intro">
-            개인 프로젝트와 게임 관련 도구, 기록을 모아둔 작업 공간입니다.
+            어나더쿄(AnotherKyo)의 개인 프로젝트와 게임 관련 도구, 기록을 모아둔 작업공간입니다.
         </p>
 
     </div>
@@ -692,7 +287,7 @@
             <!-- 명품관 -->
 
             <a class="card"
-               href="https://langrisser-lux.anotherkyo.chatgpt.site/">
+               href="https://langrisser-lux.anotherkyo.chatgpt.site/" target="_blank" rel="noopener noreferrer">
 
                 <div class="card-image">
 
@@ -740,7 +335,7 @@
 
         <div class="grid">
             <!-- 새벽반 시즌9 멤버 추첨기 -->
-            <a class="card" href="./dawnCrew">
+            <a class="card" href="./dawnCrew/">
                 <div class="card-image">
                     <img
                         src="./img/dawnCrew09.png"
